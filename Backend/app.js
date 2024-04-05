@@ -10,18 +10,16 @@ const compression = require('compression');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const app = express();
+const errorController = require('./controller/errorController');
+const userRouter = require('./routes/userRoutes');
 
-//MIDDLEWARES
-if (process.env.NODE_ENV !== 'production') {
-  app.use(morgan('dev'));
-}
-
+//--------------------------MIDDLEWARES------------------------------
+app.use(morgan('dev'));
 const limiter = rateLimit({
   max: 100,
   windowMs: 60 * 60 * 1000,
   message: 'too many requests. please try again in an hour.',
 });
-
 app.use(helmet());
 app.use('/', limiter);
 app.use(cors());
@@ -38,6 +36,15 @@ app.use((req, res, next) => {
   next();
 });
 
-app.all('/', async (req, res, next) => {});
+app.all('/', async (req, res, next) => {
+  res.status(200).json({
+    status: 'success',
+    message: 'Hello World',
+  });
+});
+
+app.use('/api/users', userRouter);
+
+app.use(errorController);
 
 module.exports = app;
