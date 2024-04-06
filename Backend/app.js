@@ -12,6 +12,9 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const errorController = require('./controller/errorController');
 const userRouter = require('./routes/userRoutes');
+const reviewRouter = require('./routes/reviewRoutes');
+const roomRouter = require('./routes/roomRoutes');
+const hotelRouter = require('./routes/hotelRoutes');
 
 //--------------------------MIDDLEWARES------------------------------
 app.use(morgan('dev'));
@@ -44,6 +47,9 @@ app.all('/', async (req, res, next) => {
 });
 
 app.use('/api/users', userRouter);
+app.use('/api/rooms', roomRouter);
+app.use('/api/hotels', hotelRouter);
+app.use('/api/reviews', reviewRouter);
 
 app.use(errorController);
 

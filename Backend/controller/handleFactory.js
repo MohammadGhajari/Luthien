@@ -17,6 +17,7 @@ exports.getOne = (Model) =>
 
 exports.createOne = (Model) =>
   catchAsync(async (req, res, next) => {
+    console.log('creattttttttttttt');
     const query = Model.create(req.body);
     const newDoc = await query;
 
@@ -56,5 +57,17 @@ exports.deleteOne = (Model) =>
     res.status(204).json({
       status: 'success',
       data: null,
+    });
+  });
+
+exports.updateOne = (Model) =>
+  catchAsync(async (req, res, next) => {
+    const freshDoc = await Model.findByIdAndUpdate(req.params.id, req.body);
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        data: freshDoc,
+      },
     });
   });
