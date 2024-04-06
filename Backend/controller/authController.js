@@ -2,6 +2,7 @@ const catchAsync = require('./../utils/catAsync');
 const AppError = require('./../utils/appError');
 const User = require('./../model/userModel');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 const { promisify } = require('util');
 
 const signToken = (id) => {
@@ -63,15 +64,13 @@ exports.login = catchAsync(async (req, res, next) => {
     return next(new AppError('please provide email and password', 400));
 
   const user = await User.findOne({ email }).select('+password');
-
+  console.log('++++++++++++++++++');
+  console.log(user);
   if (!user) return next(new AppError('incurrect email or password', 401));
 
-  // if (!user || !(await user.correctPassword(password, user.password))) {
-  //   return next(new AppError('incorrect email or password', 401));
-  // }
-
-  if (user.password !== password)
-    return next(new AppError('incurrect email or password', 401));
+  if (!user || !(await bcrypt.compare(password, user.password))) {
+    return next(new AppError('incorrect email or password', 401));
+  }
 
   createSendToken(user, 200, res);
 });

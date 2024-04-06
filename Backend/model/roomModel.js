@@ -19,6 +19,15 @@ const roomSchema = mongoose.Schema({
     type: Number,
     required: [true, 'room of a hotel must have a price.'],
   },
+  priceDiscount: {
+    type: Number,
+    validate: {
+      validator: function (val) {
+        return val < this.price;
+      },
+      message: 'discount price should be below regular price.',
+    },
+  },
   photos: {
     type: [String],
   },
@@ -29,6 +38,14 @@ const roomSchema = mongoose.Schema({
     type: Boolean,
     default: false,
   },
+});
+
+roomSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'hotel',
+    select: 'name ',
+  });
+  next();
 });
 
 const Room = mongoose.model('Room', roomSchema);

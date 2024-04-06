@@ -34,6 +34,25 @@ const hotelSchema = mongoose.Schema({
   photos: {
     type: [String],
   },
+  ratingsAverage: {
+    type: Number,
+    default: 4.5,
+    min: [1, 'at least 1 rating'],
+    max: [5, 'at most 5 rating'],
+    set: (val) => Math.round(val * 10) / 10,
+  },
+  ratingsQuantity: {
+    type: Number,
+    default: 0,
+  },
+});
+
+hotelSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'owner',
+    select: 'name',
+  });
+  next();
 });
 
 const Hotel = mongoose.model('Hotel', hotelSchema);
