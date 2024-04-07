@@ -21,6 +21,10 @@ const hotelSchema = mongoose.Schema({
     type: String,
     require: [true, 'a hotel belongs to a city.'],
   },
+  description: {
+    type: String,
+    required: [true, 'a hotel should have a description.'],
+  },
   address: {
     type: String,
     require: [true, 'a hotel must have an address.'],
@@ -45,6 +49,32 @@ const hotelSchema = mongoose.Schema({
     type: Number,
     default: 0,
   },
+  importantVicinityPlaces: [
+    {
+      name: String,
+      distance: Number,
+      time: Number,
+    },
+  ],
+  facilities: [
+    {
+      type: String,
+      enum: [
+        'gym',
+        'shopping',
+        'prayer room',
+        'tea maker',
+        'ask inside room',
+        'game',
+        'breakfast',
+        'pet',
+        'free wifi',
+        'elevator',
+        'parking',
+        'swimming pool',
+      ],
+    },
+  ],
 });
 
 hotelSchema.pre(/^find/, function (next) {
