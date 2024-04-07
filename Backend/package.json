@@ -8,7 +8,9 @@
     "start:prod": "NODE_ENV=production nodemon server.js",
     "start:dev": "NODE_ENV=development nodemon server.js",
     "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
-    "build:js": "parcel build ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
+    "build:js": "parcel build ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
+    "data:import": "node ./dev-data/importData.js --import",
+    "data:delete": "node ./dev-data/importData.js --delete"
   },
   "author": "mohammad ghajari",
   "license": "ISC",

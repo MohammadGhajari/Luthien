@@ -1,0 +1,260 @@
+[
+  {
+    "_id": "6612f80f382fe032c40e1941",
+    "name": "Historic Manor",
+    "owner": "5c8a1f292f8fb814b56fa184",
+    "stars": 4,
+    "city": "London",
+    "description": "Step back in time at our elegant historic manor.",
+    "address": "789 Abbey Road",
+    "phone": "+442071234567",
+    "cover": "historic_manor_cover.jpg",
+    "photos": ["photo16.jpg", "photo17.jpg", "photo18.jpg"],
+    "ratingsAverage": 4.7,
+    "ratingsQuantity": 90,
+    "importantVicinityPlaces": [
+      {
+        "name": "Buckingham Palace",
+        "distance": 2,
+        "time": 15
+      },
+      {
+        "name": "Tower of London",
+        "distance": 3,
+        "time": 20
+      }
+    ],
+    "facilities": ["gym", "shopping", "tea maker", "game", "pet", "free wifi"]
+  },
+  {
+    "_id": "6612f80f382fe032c40e193b",
+    "name": "Safari Lodge",
+    "owner": "5c8a1f292f8fb814b56fa184",
+    "stars": 4,
+    "city": "Nairobi",
+    "description": "Embark on an unforgettable safari adventure from our lodge.",
+    "address": "123 Safari Road",
+    "phone": "+254712345678",
+    "cover": "safari_lodge_cover.jpg",
+    "photos": ["photo19.jpg", "photo20.jpg", "photo21.jpg"],
+    "ratingsAverage": 4.5,
+    "ratingsQuantity": 110,
+    "importantVicinityPlaces": [
+      {
+        "name": "Nairobi National Park",
+        "distance": 1,
+        "time": 10
+      },
+      {
+        "name": "Giraffe Centre",
+        "distance": 5,
+        "time": 30
+      }
+    ],
+    "facilities": [
+      "prayer room",
+      "breakfast",
+      "elevator",
+      "parking",
+      "swimming pool",
+      "pet"
+    ]
+  },
+  {
+    "_id": "6612f80f382fe032c40e1944",
+    "name": "Island Paradise Resort",
+    "owner": "5c8a1f292f8fb814b56fa184",
+    "stars": 5,
+    "city": "Maldives",
+    "description": "Experience luxury in the heart of the Indian Ocean.",
+    "address": "789 Paradise Island",
+    "phone": "+960987654321",
+    "cover": "island_paradise_resort_cover.jpg",
+    "photos": ["photo22.jpg", "photo23.jpg", "photo24.jpg", "photo25.jpg"],
+    "ratingsAverage": 4.9,
+    "ratingsQuantity": 180,
+    "importantVicinityPlaces": [
+      {
+        "name": "Coral Reefs",
+        "distance": 1,
+        "time": 5
+      },
+      {
+        "name": "Malé Fish Market",
+        "distance": 2,
+        "time": 10
+      }
+    ],
+    "facilities": [
+      "pet",
+      "gym",
+      "shopping",
+      "free wifi",
+      "swimming pool",
+      "breakfast"
+    ]
+  },
+  {
+    "_id": "6612f80f382fe032c40e1947",
+    "name": "Alpine Retreat",
+    "owner": "5c8a21f22f8fb814b56fa18a",
+    "stars": 3,
+    "city": "Zurich",
+    "description": "Enjoy a cozy retreat in the Swiss Alps.",
+    "address": "321 Mountain Road",
+    "phone": "+41781234567",
+    "cover": "alpine_retreat_cover.jpg",
+    "photos": ["photo26.jpg", "photo27.jpg", "photo28.jpg"],
+    "ratingsAverage": 4.2,
+    "ratingsQuantity": 70,
+    "importantVicinityPlaces": [
+      {
+        "name": "Lake Zurich",
+        "distance": 5,
+        "time": 30
+      },
+      {
+        "name": "Old Town",
+        "distance": 2,
+        "time": 15
+      }
+    ],
+    "facilities": [
+      "prayer room",
+      "breakfast",
+      "parking",
+      "shopping",
+      "swimming pool",
+      "pet"
+    ]
+  },
+  {
+    "_id": "6612f80f382fe032c40e193e",
+    "name": "Coastal Retreat",
+    "owner": "5c8a21f22f8fb814b56fa18a",
+    "stars": 4,
+    "city": "Sydney",
+    "description": "Relax and rejuvenate at our serene coastal retreat.",
+    "address": "456 Coastal Drive",
+    "phone": "+61234567890",
+    "cover": "coastal_retreat_cover.jpg",
+    "photos": ["photo29.jpg", "photo30.jpg", "photo31.jpg"],
+    "ratingsAverage": 4.6,
+    "ratingsQuantity": 100,
+    "importantVicinityPlaces": [
+      {
+        "name": "Bondi Beach",
+        "distance": 1,
+        "time": 10
+      },
+      {
+        "name": "Sydney Opera House",
+        "distance": 5,
+        "time": 30
+      }
+    ],
+    "facilities": [
+      "shopping",
+      "prayer room",
+      "tea maker",
+      "game",
+      "free wifi",
+      "elevator"
+    ]
+  },
+  {
+    "_id": "6612f80f382fe032c40e194a",
+    "name": "Rustic Cabin Retreat",
+    "owner": "5c8a22c62f8fb814b56fa18b",
+    "stars": 3,
+    "city": "Aspen",
+    "description": "Escape to nature at our charming rustic cabins.",
+    "address": "123 Forest Lane",
+    "phone": "+13031234567",
+    "cover": "rustic_cabin_retreat_cover.jpg",
+    "photos": ["photo32.jpg", "photo33.jpg"],
+    "ratingsAverage": 4.0,
+    "ratingsQuantity": 60,
+    "importantVicinityPlaces": [
+      {
+        "name": "Maroon Bells",
+        "distance": 10,
+        "time": 60
+      },
+      {
+        "name": "Aspen Mountain",
+        "distance": 5,
+        "time": 30
+      }
+    ],
+    "facilities": ["gym", "tea maker", "ask inside room", "pet", "parking"]
+  },
+  {
+    "_id": "6612f80f382fe032c40e194d",
+    "name": "City Center Boutique Hotel",
+    "owner": "5c8a22c62f8fb814b56fa18b",
+    "stars": 4,
+    "city": "Paris",
+    "description": "Discover Parisian charm at our boutique hotel in the city center.",
+    "address": "789 Rue de la Paix",
+    "phone": "+33123456789",
+    "cover": "city_center_boutique_hotel_cover.jpg",
+    "photos": ["photo34.jpg", "photo35.jpg", "photo36.jpg"],
+    "ratingsAverage": 4.8,
+    "ratingsQuantity": 150,
+    "importantVicinityPlaces": [
+      {
+        "name": "Eiffel Tower",
+        "distance": 1,
+        "time": 10
+      },
+      {
+        "name": "Louvre Museum",
+        "distance": 2,
+        "time": 15
+      }
+    ],
+    "facilities": [
+      "ask inside room",
+      "game",
+      "elevator",
+      "tea maker",
+      "free wifi",
+      "swimming pool"
+    ]
+  },
+  {
+    "_id": "6612f80f382fe032c40e1950",
+    "name": "Tropical Paradise Resort",
+    "owner": "5c8a22c62f8fb814b56fa18b",
+    "stars": 5,
+    "city": "Bora Bora",
+    "description": "Experience the ultimate luxury in a tropical paradise.",
+    "address": "123 Palm Tree Lane",
+    "phone": "+68912345678",
+    "cover": "tropical_paradise_resort_cover.jpg",
+    "photos": ["photo37.jpg", "photo38.jpg", "photo39.jpg"],
+    "ratingsAverage": 4.9,
+    "ratingsQuantity": 200,
+    "importantVicinityPlaces": [
+      {
+        "name": "Matira Beach",
+        "distance": 1,
+        "time": 5
+      },
+      {
+        "name": "Mount Otemanu",
+        "distance": 10,
+        "time": 60
+      }
+    ],
+    "facilities": [
+      "breakfast",
+      "tea maker",
+      "prayer room",
+      "shopping",
+      "parking",
+      "pet"
+    ]
+  }
+]
