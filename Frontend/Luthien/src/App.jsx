@@ -37,21 +37,21 @@ function App() {
         </Routes>
       </BrowserRouter>
       <Toaster
-        position={'top-center'}
+        position={'top-right'}
         gutter={12}
         containerStyle={{margin: '8px'}}
         toastOptions={{
           success: {
-            duration: 3000
+            duration: 2000
           },
           error: {
-            duration: 5000
+            duration: 2000
           },
           style: {
             fontSize: '16px',
             maxWidth: '500px',
             padding: '12px 24px',
-            backgroundColor: 'var(--color-white-1)',
+            backgroundColor: '$--color-primary',
             color: 'var(--color-grey-4)',
           }
         }}

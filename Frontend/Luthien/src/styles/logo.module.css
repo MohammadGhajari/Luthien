@@ -2,7 +2,7 @@
   font-family: ringbearer;
   src: url("./../../../public/fonts/RINGM___.TTF");
 }
-@import './base.scss';
+@import './base.module.css';
 
 .logo {
   width: 100px;
@@ -17,7 +17,7 @@
   transform: translate(-50%, -40%);
   font-size: 4rem;
   font-family: ringbearer;
-  color: $--color-primary;
+  color: var(--color-primary);
 }
 .logo-svg {
   width: 100%;

@@ -4,398 +4,455 @@
     "rating": 5,
     "createdAt": "2024-04-07T08:00:00Z",
     "user": "5c8a1d5b0190b214360dc057",
-    "hotel": "6612f80f382fe032c40e1941"
+    "hotel": "6612f80f382fe032c40e1941",
+    "status": "confirmed"
   },
   {
     "review": "The staff was very friendly and helpful. The location was perfect for exploring the city.",
     "rating": 4,
     "createdAt": "2024-04-06T12:30:00Z",
     "user": "5c8a1d5b0190b214360dc057",
-    "hotel": "6612f80f382fe032c40e1941"
+    "hotel": "6612f80f382fe032c40e1941",
+    "status": "confirmed"
   },
   {
     "review": "Beautiful hotel with stunning views. Had a fantastic experience during my stay.",
     "rating": 5,
     "createdAt": "2024-04-05T16:45:00Z",
     "user": "5c8a1d5b0190b214360dc057",
-    "hotel": "6612f80f382fe032c40e1941"
+    "hotel": "6612f80f382fe032c40e1941",
+    "status": "confirmed"
   },
   {
     "review": "Room was clean and spacious. Enjoyed the amenities provided. Would recommend to others.",
     "rating": 4,
     "createdAt": "2024-04-04T09:15:00Z",
     "user": "5c8a1dfa2f8fb814b56fa181",
-    "hotel": "6612f80f382fe032c40e1941"
+    "hotel": "6612f80f382fe032c40e1941",
+    "status": "confirmed"
   },
   {
     "review": "Disappointing experience. The room was not as described and the service was lacking.",
     "rating": 2,
     "createdAt": "2024-04-03T14:20:00Z",
     "user": "5c8a1dfa2f8fb814b56fa181",
-    "hotel": "6612f80f382fe032c40e1941"
+    "hotel": "6612f80f382fe032c40e1941",
+    "status": "confirmed"
   },
   {
     "review": "Absolutely loved my stay here! The staff went above and beyond to make me feel welcome.",
     "rating": 5,
     "createdAt": "2024-04-02T10:00:00Z",
     "user": "5c8a1dfa2f8fb814b56fa181",
-    "hotel": "6612f80f382fe032c40e1941"
+    "hotel": "6612f80f382fe032c40e1941",
+    "status": "confirmed"
   },
   {
     "review": "Great location and friendly staff. The room was clean and comfortable. Would stay here again.",
     "rating": 4,
     "createdAt": "2024-04-01T18:00:00Z",
     "user": "5c8a1e1a2f8fb814b56fa182",
-    "hotel": "6612f80f382fe032c40e1941"
+    "hotel": "6612f80f382fe032c40e1941",
+    "status": "confirmed"
   },
   {
     "review": "Had a wonderful time at this hotel. The ambiance was fantastic and the food was delicious.",
     "rating": 5,
     "createdAt": "2024-03-31T11:30:00Z",
     "user": "5c8a1e1a2f8fb814b56fa182",
-    "hotel": "6612f80f382fe032c40e193b"
+    "hotel": "6612f80f382fe032c40e193b",
+    "status": "confirmed"
   },
   {
     "review": "The room was not properly cleaned and the noise from outside was disruptive.",
     "rating": 2,
     "createdAt": "2024-03-30T15:45:00Z",
     "user": "5c8a1e1a2f8fb814b56fa182",
-    "hotel": "6612f80f382fe032c40e193b"
+    "hotel": "6612f80f382fe032c40e193b",
+    "status": "confirmed"
   },
   {
     "review": "Overall, a pleasant stay. The staff was attentive and the facilities were well-maintained.",
     "rating": 4,
     "createdAt": "2024-03-29T08:30:00Z",
     "user": "5c8a1ec62f8fb814b56fa183",
-    "hotel": "6612f80f382fe032c40e193b"
+    "hotel": "6612f80f382fe032c40e193b",
+    "status": "confirmed"
   },
   {
     "review": "The hotel exceeded my expectations. Everything was perfect from check-in to check-out.",
     "rating": 5,
     "createdAt": "2024-03-28T12:00:00Z",
     "user": "5c8a1ec62f8fb814b56fa183",
-    "hotel": "6612f80f382fe032c40e193b"
+    "hotel": "6612f80f382fe032c40e193b",
+    "status": "confirmed"
   },
   {
     "review": "Had a mediocre experience. The room was average and the service was subpar.",
     "rating": 3,
     "createdAt": "2024-03-27T09:00:00Z",
     "user": "5c8a1ec62f8fb814b56fa183",
-    "hotel": "6612f80f382fe032c40e193b"
+    "hotel": "6612f80f382fe032c40e193b",
+    "status": "confirmed"
   },
   {
     "review": "Absolutely terrible. Would not recommend this hotel to anyone. Avoid at all costs.",
     "rating": 1,
     "createdAt": "2024-03-26T17:30:00Z",
     "user": "5c8a1f292f8fb814b56fa184",
-    "hotel": "6612f80f382fe032c40e193b"
+    "hotel": "6612f80f382fe032c40e193b",
+    "status": "confirmed"
   },
   {
     "review": "An enjoyable stay overall. The staff was friendly and helpful. Would consider staying here again.",
     "rating": 4,
     "createdAt": "2024-03-25T14:15:00Z",
     "user": "5c8a1f292f8fb814b56fa184",
-    "hotel": "6612f80f382fe032c40e193b"
+    "hotel": "6612f80f382fe032c40e193b",
+    "status": "confirmed"
   },
   {
     "review": "The room was outdated and in need of renovation. Disappointed with the overall experience.",
     "rating": 2,
     "createdAt": "2024-03-24T11:45:00Z",
     "user": "5c8a1f292f8fb814b56fa184",
-    "hotel": "6612f80f382fe032c40e1944"
+    "hotel": "6612f80f382fe032c40e1944",
+    "status": "pending"
   },
   {
     "review": "Had a fantastic time! The room was luxurious and the staff was exceptional.",
     "rating": 5,
     "createdAt": "2024-03-23T08:20:00Z",
     "user": "5c8a1f4e2f8fb814b56fa185",
-    "hotel": "6612f80f382fe032c40e1944"
+    "hotel": "6612f80f382fe032c40e1944",
+    "status": "confirmed"
   },
   {
     "review": "The location was convenient but the room was not properly cleaned upon arrival.",
     "rating": 3,
     "createdAt": "2024-03-22T16:00:00Z",
     "user": "5c8a1f4e2f8fb814b56fa185",
-    "hotel": "6612f80f382fe032c40e1944"
+    "hotel": "6612f80f382fe032c40e1944",
+    "status": "confirmed"
   },
   {
     "review": "Overall, a pleasant experience. The room was comfortable and the staff was accommodating.",
     "rating": 4,
     "createdAt": "2024-03-21T10:30:00Z",
     "user": "5c8a1f4e2f8fb814b56fa185",
-    "hotel": "6612f80f382fe032c40e1944"
+    "hotel": "6612f80f382fe032c40e1944",
+    "status": "pending"
   },
   {
     "review": "Disappointed with the service. The staff was rude and unhelpful.",
     "rating": 2,
     "createdAt": "2024-03-20T14:40:00Z",
     "user": "5c8a201e2f8fb814b56fa186",
-    "hotel": "6612f80f382fe032c40e1944"
+    "hotel": "6612f80f382fe032c40e1944",
+    "status": "confirmed"
   },
   {
     "review": "Had an amazing stay! The hotel exceeded my expectations in every way.",
     "rating": 5,
     "createdAt": "2024-03-19T09:10:00Z",
     "user": "5c8a201e2f8fb814b56fa186",
-    "hotel": "6612f80f382fe032c40e1944"
+    "hotel": "6612f80f382fe032c40e1944",
+    "status": "confirmed"
   },
   {
     "review": "The room was comfortable but the noise from other guests was disruptive.",
     "rating": 3,
     "createdAt": "2024-03-18T11:20:00Z",
     "user": "5c8a201e2f8fb814b56fa186",
-    "hotel": "6612f80f382fe032c40e1944"
+    "hotel": "6612f80f382fe032c40e1944",
+    "status": "confirmed"
   },
   {
     "review": "Had a wonderful time at this hotel. The staff was attentive and the facilities were excellent.",
     "rating": 5,
     "createdAt": "2024-03-17T15:50:00Z",
     "user": "5c8a20d32f8fb814b56fa187",
-    "hotel": "6612f80f382fe032c40e1947"
+    "hotel": "6612f80f382fe032c40e1947",
+    "status": "confirmed"
   },
   {
     "review": "The room was not cleaned properly and the amenities were lacking.",
     "rating": 2,
     "createdAt": "2024-03-16T08:45:00Z",
     "user": "5c8a20d32f8fb814b56fa187",
-    "hotel": "6612f80f382fe032c40e1947"
+    "hotel": "6612f80f382fe032c40e1947",
+    "status": "pending"
   },
   {
     "review": "Great experience overall. The room was clean and the staff was friendly.",
     "rating": 4,
     "createdAt": "2024-03-15T12:00:00Z",
     "user": "5c8a20d32f8fb814b56fa187",
-    "hotel": "6612f80f382fe032c40e1947"
+    "hotel": "6612f80f382fe032c40e1947",
+    "status": "confirmed"
   },
   {
     "review": "The hotel was overpriced for the quality of service provided.",
     "rating": 2,
     "createdAt": "2024-03-14T14:30:00Z",
     "user": "5c8a211f2f8fb814b56fa188",
-    "hotel": "6612f80f382fe032c40e1947"
+    "hotel": "6612f80f382fe032c40e1947",
+    "status": "confirmed"
   },
   {
     "review": "Absolutely loved my stay! The room was spacious and the view was breathtaking.",
     "rating": 5,
     "createdAt": "2024-03-13T10:20:00Z",
     "user": "5c8a211f2f8fb814b56fa188",
-    "hotel": "6612f80f382fe032c40e1947"
+    "hotel": "6612f80f382fe032c40e1947",
+    "status": "confirmed"
   },
   {
     "review": "Had a pleasant stay overall. The staff was courteous and the location was convenient.",
     "rating": 4,
     "createdAt": "2024-03-12T16:10:00Z",
     "user": "5c8a211f2f8fb814b56fa188",
-    "hotel": "6612f80f382fe032c40e1947"
+    "hotel": "6612f80f382fe032c40e1947",
+    "status": "confirmed"
   },
   {
     "review": "Disappointed with the cleanliness of the room. Expected better from this hotel.",
     "rating": 2,
     "createdAt": "2024-03-11T09:30:00Z",
     "user": "5c8a21d02f8fb814b56fa189",
-    "hotel": "6612f80f382fe032c40e1947"
+    "hotel": "6612f80f382fe032c40e1947",
+    "status": "pending"
   },
   {
     "review": "Exceptional service and attention to detail. Would highly recommend!",
     "rating": 5,
     "createdAt": "2024-03-10T13:40:00Z",
     "user": "5c8a21d02f8fb814b56fa189",
-    "hotel": "6612f80f382fe032c40e193e"
+    "hotel": "6612f80f382fe032c40e193e",
+    "status": "pending"
   },
   {
     "review": "The room was comfortable but the hotel lacked certain amenities.",
     "rating": 3,
     "createdAt": "2024-03-09T10:15:00Z",
     "user": "5c8a21d02f8fb814b56fa189",
-    "hotel": "6612f80f382fe032c40e193e"
+    "hotel": "6612f80f382fe032c40e193e",
+    "status": "confirmed"
   },
   {
     "review": "Overall, a satisfactory experience. The room was clean and the staff was friendly.",
     "rating": 4,
     "createdAt": "2024-03-08T14:50:00Z",
     "user": "5c8a21d02f8fb814b56fa189",
-    "hotel": "6612f80f382fe032c40e193e"
+    "hotel": "6612f80f382fe032c40e193e",
+    "status": "confirmed"
   },
   {
     "review": "The hotel was noisy and the room was not properly soundproofed.",
     "rating": 2,
     "createdAt": "2024-03-07T08:25:00Z",
     "user": "5c8a21f22f8fb814b56fa18a",
-    "hotel": "6612f80f382fe032c40e193e"
+    "hotel": "6612f80f382fe032c40e193e",
+    "status": "pending"
   },
   {
     "review": "Had a wonderful stay! The staff was attentive and the facilities were excellent.",
     "rating": 5,
     "createdAt": "2024-03-06T12:00:00Z",
     "user": "5c8a21f22f8fb814b56fa18a",
-    "hotel": "6612f80f382fe032c40e193e"
+    "hotel": "6612f80f382fe032c40e193e",
+    "status": "pending"
   },
   {
     "review": "The room was clean and comfortable. The staff was friendly and helpful.",
     "rating": 4,
     "createdAt": "2024-03-05T16:30:00Z",
     "user": "5c8a21f22f8fb814b56fa18a",
-    "hotel": "6612f80f382fe032c40e193e"
+    "hotel": "6612f80f382fe032c40e193e",
+    "status": "confirmed"
   },
   {
     "review": "Disappointed with the overall experience. The room was not as advertised.",
     "rating": 2,
     "createdAt": "2024-03-04T09:20:00Z",
     "user": "5c8a22c62f8fb814b56fa18b",
-    "hotel": "6612f80f382fe032c40e193e"
+    "hotel": "6612f80f382fe032c40e193e",
+    "status": "confirmed"
   },
   {
     "review": "Exceptional service and attention to detail. Would definitely stay here again!",
     "rating": 5,
     "createdAt": "2024-03-03T14:00:00Z",
     "user": "5c8a22c62f8fb814b56fa18b",
-    "hotel": "6612f80f382fe032c40e194a"
+    "hotel": "6612f80f382fe032c40e194a",
+    "status": "confirmed"
   },
   {
     "review": "The room was spacious and comfortable. Had a pleasant stay overall.",
     "rating": 4,
     "createdAt": "2024-03-02T09:40:00Z",
     "user": "5c8a22c62f8fb814b56fa18b",
-    "hotel": "6612f80f382fe032c40e194a"
+    "hotel": "6612f80f382fe032c40e194a",
+    "status": "confirmed"
   },
   {
     "review": "The hotel was overpriced for the quality of service provided.",
     "rating": 2,
     "createdAt": "2024-03-01T17:20:00Z",
     "user": "5c8a23412f8fb814b56fa18c",
-    "hotel": "6612f80f382fe032c40e194a"
+    "hotel": "6612f80f382fe032c40e194a",
+    "status": "confirmed"
   },
   {
     "review": "Had a fantastic time! The room was luxurious and the staff was exceptional.",
     "rating": 5,
     "createdAt": "2024-02-29T08:30:00Z",
     "user": "5c8a23412f8fb814b56fa18c",
-    "hotel": "6612f80f382fe032c40e194a"
+    "hotel": "6612f80f382fe032c40e194a",
+    "status": "confirmed"
   },
   {
     "review": "The location was convenient but the room was not properly cleaned.",
     "rating": 3,
     "createdAt": "2024-02-28T12:15:00Z",
     "user": "5c8a23412f8fb814b56fa18c",
-    "hotel": "6612f80f382fe032c40e194a"
+    "hotel": "6612f80f382fe032c40e194a",
+    "status": "confirmed"
   },
   {
     "review": "Overall, a pleasant stay. The staff was friendly and helpful.",
     "rating": 4,
     "createdAt": "2024-02-27T15:50:00Z",
     "user": "5c8a23c82f8fb814b56fa18d",
-    "hotel": "6612f80f382fe032c40e194a"
+    "hotel": "6612f80f382fe032c40e194a",
+    "status": "pending"
   },
   {
     "review": "The room was not cleaned properly and the amenities were lacking.",
     "rating": 2,
     "createdAt": "2024-02-26T08:40:00Z",
     "user": "5c8a23c82f8fb814b56fa18d",
-    "hotel": "6612f80f382fe032c40e194a"
+    "hotel": "6612f80f382fe032c40e194a",
+    "status": "pending"
   },
   {
     "review": "Exceptional service and attention to detail. Would highly recommend!",
     "rating": 5,
     "createdAt": "2024-02-25T13:20:00Z",
     "user": "5c8a23c82f8fb814b56fa18d",
-    "hotel": "6612f80f382fe032c40e194d"
+    "hotel": "6612f80f382fe032c40e194d",
+    "status": "confirmed"
   },
   {
     "review": "Had a wonderful time! The staff was attentive and the facilities were excellent.",
     "rating": 4,
     "createdAt": "2024-02-24T09:45:00Z",
     "user": "5c8a23de2f8fb814b56fa18e",
-    "hotel": "6612f80f382fe032c40e194d"
+    "hotel": "6612f80f382fe032c40e194d",
+    "status": "pending"
   },
   {
     "review": "The room was comfortable but the hotel lacked certain amenities.",
     "rating": 3,
     "createdAt": "2024-02-23T17:10:00Z",
     "user": "5c8a23de2f8fb814b56fa18e",
-    "hotel": "6612f80f382fe032c40e194d"
+    "hotel": "6612f80f382fe032c40e194d",
+    "status": "confirmed"
   },
   {
     "review": "Overall, a satisfactory experience. The room was clean and the staff was friendly.",
     "rating": 4,
     "createdAt": "2024-02-22T10:00:00Z",
     "user": "5c8a23de2f8fb814b56fa18e",
-    "hotel": "6612f80f382fe032c40e194d"
+    "hotel": "6612f80f382fe032c40e194d",
+    "status": "confirmed"
   },
   {
     "review": "The hotel was noisy and the room was not properly soundproofed.",
     "rating": 2,
     "createdAt": "2024-02-21T14:30:00Z",
     "user": "5c8a24282f8fb814b56fa18f",
-    "hotel": "6612f80f382fe032c40e194d"
+    "hotel": "6612f80f382fe032c40e194d",
+    "status": "confirmed"
   },
   {
     "review": "Had a wonderful stay! The staff was attentive and the facilities were excellent.",
     "rating": 5,
     "createdAt": "2024-02-20T08:50:00Z",
     "user": "5c8a24282f8fb814b56fa18f",
-    "hotel": "6612f80f382fe032c40e194d"
+    "hotel": "6612f80f382fe032c40e194d",
+    "status": "pending"
   },
   {
     "review": "The room was clean and comfortable. The staff was friendly and helpful.",
     "rating": 4,
     "createdAt": "2024-02-19T12:40:00Z",
     "user": "5c8a24282f8fb814b56fa18f",
-    "hotel": "6612f80f382fe032c40e194d"
+    "hotel": "6612f80f382fe032c40e194d",
+    "status": "confirmed"
   },
   {
     "review": "Disappointed with the overall experience. The room was not as advertised.",
     "rating": 2,
     "createdAt": "2024-02-18T16:25:00Z",
     "user": "5c8a24402f8fb814b56fa190",
-    "hotel": "6612f80f382fe032c40e1950"
+    "hotel": "6612f80f382fe032c40e1950",
+    "status": "confirmed"
   },
   {
     "review": "Exceptional service and attention to detail. Would definitely stay here again!",
     "rating": 5,
     "createdAt": "2024-02-17T09:00:00Z",
     "user": "5c8a24402f8fb814b56fa190",
-    "hotel": "6612f80f382fe032c40e1950"
+    "hotel": "6612f80f382fe032c40e1950",
+    "status": "confirmed"
   },
   {
     "review": "The room was spacious and comfortable. Had a pleasant stay overall.",
     "rating": 4,
     "createdAt": "2024-02-16T14:15:00Z",
     "user": "5c8a24402f8fb814b56fa190",
-    "hotel": "6612f80f382fe032c40e1950"
+    "hotel": "6612f80f382fe032c40e1950",
+    "status": "pending"
   },
   {
     "review": "The hotel was overpriced for the quality of service provided.",
     "rating": 2,
     "createdAt": "2024-02-15T08:35:00Z",
     "user": "5c8a245f2f8fb814b56fa191",
-    "hotel": "6612f80f382fe032c40e1950"
+    "hotel": "6612f80f382fe032c40e1950",
+    "status": "confirmed"
   },
   {
     "review": "Had a fantastic time! The room was luxurious and the staff was exceptional.",
     "rating": 5,
     "createdAt": "2024-02-14T11:20:00Z",
     "user": "5c8a245f2f8fb814b56fa191",
-    "hotel": "6612f80f382fe032c40e1950"
+    "hotel": "6612f80f382fe032c40e1950",
+    "status": "confirmed"
   },
   {
     "review": "The location was convenient but the room was not properly cleaned.",
     "rating": 3,
     "createdAt": "2024-02-13T15:00:00Z",
     "user": "5c8a245f2f8fb814b56fa191",
-    "hotel": "6612f80f382fe032c40e1950"
+    "hotel": "6612f80f382fe032c40e1950",
+    "status": "confirmed"
   },
   {
     "review": "Overall, a pleasant stay. The staff was friendly and helpful.",
     "rating": 4,
     "createdAt": "2024-02-12T09:30:00Z",
     "user": "5c8a24822f8fb814b56fa192",
-    "hotel": "6612f80f382fe032c40e1950"
+    "hotel": "6612f80f382fe032c40e1950",
+    "status": "confirmed"
   },
   {
     "review": "The room was not cleaned properly and the amenities were lacking.",
     "rating": 2,
     "createdAt": "2024-02-11T13:45:00Z",
     "user": "5c8a24822f8fb814b56fa192",
-    "hotel": "6612f80f382fe032c40e1950"
+    "hotel": "6612f80f382fe032c40e1950",
+    "status": "confirmed"
   }
 ]

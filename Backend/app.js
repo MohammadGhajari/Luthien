@@ -19,8 +19,8 @@ const hotelRouter = require('./routes/hotelRoutes');
 //--------------------------MIDDLEWARES------------------------------
 app.use(morgan('dev'));
 const limiter = rateLimit({
-  max: 100,
-  windowMs: 60 * 60 * 1000,
+  max: 3,
+  windowMs: 1000,
   message: 'too many requests. please try again in an hour.',
 });
 app.use(helmet());

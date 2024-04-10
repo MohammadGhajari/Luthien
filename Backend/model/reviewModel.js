@@ -11,6 +11,13 @@ const reviewSchema = new mongoose.Schema(
       type: Number,
       min: 1,
       max: 5,
+      required: [true, 'Review should have a rating between 1 to 5.'],
+    },
+    status: {
+      //for showing to admin
+      type: String,
+      enum: ['pending', 'confirmed'],
+      default: 'pending',
     },
     createdAt: {
       type: Date,
