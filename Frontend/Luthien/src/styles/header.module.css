@@ -1,0 +1,48 @@
+@import './base.module.css';
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-md);
+}
+.container > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container > div button {
+  cursor: pointer;
+  background-color: #fff;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-radius-sm);
+  padding: 1.2rem;
+}
+.container > div button:hover {
+  background-color: var(--color-white-2);
+  transition: 0.2s;
+}
+
+.leftSide {
+  gap: 15rem;
+  position: relative;
+}
+.darkmode-btn {
+  height: 40%;
+  padding: 0.8rem!important;
+  position: absolute; 
+  top: 44%;
+  left: 265%; 
+  font-size: 2rem;
+}
+.login-btn {
+  margin-right: 1.2rem;
+  gap: 0.6rem;
+  color: var(--color-grey-2);
+  svg {
+    font-size: 2.8rem;
+  }
+}

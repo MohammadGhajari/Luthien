@@ -6,7 +6,8 @@ import Logo from './components/Logo'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import PageNotFound from './pages/PageNotFound'
-
+import AppLayout from './components/AppLayout';
+import Home from './pages/Home';
 
 
 
@@ -31,6 +32,9 @@ function App() {
             </Route>
             <Route path={'/bookSearch/book/:bookID'} element={<BookDetails/>}/>
           </Route> */}
+          <Route element={<AppLayout/>}>
+            <Route index element={<Home/>}/>
+          </Route>
           <Route path="login" element={<Login/>}/>
           <Route path="signup" element={<Signup/>}/>
           <Route path="*" element={<PageNotFound/>}/>

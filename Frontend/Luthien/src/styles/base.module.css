@@ -55,15 +55,20 @@ html {
   font-size: 62.5%;
 }
 
+
+
+
 body {
   font-family: 'LG_GSM_V6.06', 'B Nazanin', sans-serif;
-
   transition: color 0.3s, background-color 0.3s;
-  min-height: 100vh;
   line-height: 1.5;
   font-size: 1.6rem;
-  
 }
+/* #root{
+  width: 100%;
+  height: 100%;
+  background-color: #2e475d!important;
+} */
 * {
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
