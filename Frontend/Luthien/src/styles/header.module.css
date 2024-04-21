@@ -5,13 +5,30 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: var(--shadow-md);
+  position: relative;
+  z-index: 2;
 }
 .container > div {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
 }
-.container > div button {
+.left {
+  gap: 3.8rem;
+}
+.nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  & .divider {
+    background-color: var(--color-white-4);
+    height: 2.6rem;
+    width: 2px;
+  }
+}
+.darkmode-btn {
+  margin-left: 6.4rem;
   cursor: pointer;
   background-color: #fff;
   border: none;
@@ -20,29 +37,41 @@
   align-items: center;
   border-radius: var(--border-radius-sm);
   padding: 1.2rem;
-}
-.container > div button:hover {
-  background-color: var(--color-white-2);
-  transition: 0.2s;
-}
-
-.leftSide {
-  gap: 15rem;
-  position: relative;
-}
-.darkmode-btn {
-  height: 40%;
   padding: 0.8rem!important;
-  position: absolute; 
-  top: 44%;
-  left: 265%; 
   font-size: 2rem;
 }
-.login-btn {
-  margin-right: 1.2rem;
-  gap: 0.6rem;
-  color: var(--color-grey-2);
+.container button:hover {
+  background-color: var(--color-white-2);
+  transition: 0.2s;
+  box-shadow: var(--shadow-sm);
+}
+.container .nav-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  text-align: center;
+  padding: 0.8rem;
   svg {
-    font-size: 2.8rem;
+    font-size: 2rem;
+    color: var(--color-grey-3);
+  }
+}
+.container .nav-btn:hover {
+  background-color: var(--color-white-2);
+  transition: 0.2s;
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--border-radius-sm);
+}
+.container .nav-btn span {
+  height: 90%!important;
+  margin-top: 0.6rem;
+}
+.right {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  & .nav-btn:first-child {
+    margin-right: 1.2rem;
   }
 }

@@ -5,15 +5,13 @@
 @import './base.module.css';
 
 .logo {
-  /* width: 100px;
-  height: 100px; */
   position: relative;
-  
+  margin-left: -5rem;  
 }
 .logo-text {
   position: absolute;
   top: 66%;
-  left: 115%;
+  left: 73%;
   transform: translate(-50%, -40%);
   font-size: 4rem;
   font-family: ringbearer;
