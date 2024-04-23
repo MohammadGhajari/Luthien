@@ -1,6 +1,6 @@
 import toast from "react-hot-toast";
 import { IoMdClose } from "react-icons/io";
-import styles from "./../styles/notofication.module.css";
+import styles from "./../styles/notification.module.css";
 
 export default function closableToast(message) {
     return toast((t) => (

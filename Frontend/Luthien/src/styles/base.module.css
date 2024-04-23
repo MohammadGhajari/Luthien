@@ -2,11 +2,11 @@
 :root {
 
 
---color-primary: #fdb713;
---color-primary-tint-1: #f9bf38;
---color-primary-tint-2: #ffcb52;
---color-primary-shade-1: #fdb100e8;
---color-primary-shade-2: #fda900b6;
+--color-primary: #fcc100;
+--color-primary-tint-1: rgb(249, 210, 56);
+--color-primary-tint-2: rgb(251, 217, 96);
+--color-primary-shade-1: #fcac00;
+--color-primary-shade-2: rgb(253, 144, 19);
 
 --color-grey-2: #222;
 --color-grey-3: #312f2f;
@@ -26,6 +26,7 @@
 
 --backdrop-color: rgba(255, 255, 255, 0.1);
 
+--color-danger: #fa0000a7;
 --shadow-sm: 0 0 2px rgba(0, 0, 0, 0.06);
 --shadow-md: 0 0 2.4rem rgba(0, 0, 0, 0.1);
 --shadow-lg: 0 0 3.2rem rgba(0, 0, 0, 0.15);
@@ -39,6 +40,8 @@
 --border-radius-sm: 5px;
 --border-radius-md: 7px;
 --border-radius-lg: 9px;
+
+
 }
 
 *,
@@ -59,7 +62,7 @@ html {
 
 
 body {
-  font-family: 'LG_GSM_V6.06', 'B Nazanin', sans-serif;
+  font-family: 'LG_GSM_V6.06', sans-serif;
   transition: color 0.3s, background-color 0.3s;
   line-height: 1.5;
   font-size: 1.6rem;
