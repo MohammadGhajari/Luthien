@@ -34,9 +34,10 @@ export default function InputField({
                     placeholder === "Passengers" ? "1 Adult, 1 Room" : ""
                 }
                 id={randomID}
+                required={true}
             />
 
-            {placeholder === "Passengers" && (
+            {placeholder === "Travelers" && (
                 <div className={styles["passenger-modal"]}>
                     <div className={styles["inner-container"]}>
                         <div className={styles["room-sample"]}>
@@ -48,7 +49,7 @@ export default function InputField({
                             </div>
                             <div className={styles["adult-container"]}>
                                 <span>
-                                    Adult <span>(Older than 12 years)</span>
+                                    Adults <span>(Ages 18 or above)</span>
                                 </span>
                                 <div className={styles["adult-btn-conatiner"]}>
                                     <button>
@@ -62,43 +63,7 @@ export default function InputField({
                             </div>
                             <div className={styles["adult-container"]}>
                                 <span>
-                                    Child <span>(Up to 12 years)</span>
-                                </span>
-                                <div className={styles["adult-btn-conatiner"]}>
-                                    <button>
-                                        <FaMinus />
-                                    </button>
-                                    <span>1</span>
-                                    <button>
-                                        <FaPlus />
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div className={styles["room-sample"]}>
-                            <div className={styles["title-delete"]}>
-                                <h3>First Room</h3>
-                                <button>
-                                    <MdOutlineDeleteForever />
-                                </button>
-                            </div>
-                            <div className={styles["adult-container"]}>
-                                <span>
-                                    Adult <span>(Older than 12 years)</span>
-                                </span>
-                                <div className={styles["adult-btn-conatiner"]}>
-                                    <button>
-                                        <FaMinus />
-                                    </button>
-                                    <span>1</span>
-                                    <button>
-                                        <FaPlus />
-                                    </button>
-                                </div>
-                            </div>
-                            <div className={styles["adult-container"]}>
-                                <span>
-                                    Child <span>(Up to 12 years)</span>
+                                    Children <span>(Ages 0-17)</span>
                                 </span>
                                 <div className={styles["adult-btn-conatiner"]}>
                                     <button>

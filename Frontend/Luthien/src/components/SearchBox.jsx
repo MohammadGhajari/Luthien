@@ -29,14 +29,16 @@ export default function SearchBox() {
                             className={styles["start-date"]}
                             type="date"
                             defaultValue={getFormattedDate()}
+                            required
                         />
                         <input
                             className={styles["end-date"]}
                             type="date"
                             defaultValue={getFormattedDate()}
+                            required
                         />
                     </div>
-                    <InputField key={1} placeholder="Passengers" left={30} />
+                    <InputField key={1} placeholder="Travelers" left={30} />
                     <button type="submit" className={styles["submit-btn"]}>
                         Search
                     </button>
