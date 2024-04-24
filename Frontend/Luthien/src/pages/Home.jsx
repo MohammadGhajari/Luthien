@@ -2,6 +2,7 @@ import SearchBox from "../components/SearchBox";
 import HotelShowcase from "../components/HotelShowcase";
 import Features from "../components/Features";
 import TrendingDestinations from "../components/TrendingDestinations";
+import FAQ from "./../components/FAQ";
 
 export default function Home() {
     return (
@@ -10,6 +11,7 @@ export default function Home() {
             <Features />
             <TrendingDestinations />
             <HotelShowcase />
+            <FAQ />
         </>
     );
 }

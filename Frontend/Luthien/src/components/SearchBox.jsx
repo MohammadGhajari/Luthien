@@ -38,7 +38,7 @@ export default function SearchBox() {
                             required
                         />
                     </div>
-                    <InputField key={1} placeholder="Travelers" left={30} />
+                    <InputField key={1} placeholder="Travelers" left={25} />
                     <button type="submit" className={styles["submit-btn"]}>
                         Search
                     </button>
