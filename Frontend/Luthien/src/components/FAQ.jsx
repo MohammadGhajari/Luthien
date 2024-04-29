@@ -1,5 +1,8 @@
+import { useEffect, useRef } from "react";
 import styles from "./../styles/faq.module.css";
 import Question from "./Question";
+import { useDispatch } from "react-redux";
+import { setElement } from "./../state management/scrollSlice";
 
 export default function FAQ() {
     const Q = [
@@ -45,9 +48,16 @@ export default function FAQ() {
         },
     ];
 
+    const faqRef = useRef();
+    const dispatch = useDispatch();
+
+    useEffect(function () {
+        dispatch(setElement(faqRef.current));
+    }, []);
+
     return (
         <div className={styles["outer-container"]}>
-            <div className={styles.FAQContainer}>
+            <div ref={faqRef} className={styles.FAQContainer}>
                 <h1>Frequently Asked Questions</h1>
                 <div className={styles["list-container"]}>
                     {Q.map((item, i) => (

@@ -1,101 +1,138 @@
 [
   {
+    "_id": "662fb23d4237dd2af8683df3",
     "roomNumber": 101,
     "type": "single",
     "hotel": "6612f80f382fe032c40e1941",
     "price": 100,
     "priceDiscount": 80,
-    "photos": ["room101_1.jpg", "room101_2.jpg"],
+    "photos": ["_DOMAIN_rooms/historic-manor-room-1-1.jpg"],
     "maxGuest": 1,
     "isFull": false
   },
   {
+    "_id": "662fb23d4237dd2af8683df4",
     "roomNumber": 102,
     "type": "single",
     "hotel": "6612f80f382fe032c40e1941",
     "price": 110,
     "priceDiscount": 90,
-    "photos": ["room102_1.jpg"],
+    "photos": ["_DOMAIN_rooms/historic-manor-room-2-1.jpg"],
     "maxGuest": 1,
     "isFull": false
   },
   {
+    "_id": "662fb23d4237dd2af8683df6",
     "roomNumber": 201,
     "type": "double",
     "hotel": "6612f80f382fe032c40e193b",
     "price": 150,
     "priceDiscount": 120,
-    "photos": ["room201_1.jpg", "room201_2.jpg"],
+    "photos": [
+      "_DOMAIN_rooms/safari-ledge-room-1-1.jpg",
+      "_DOMAIN_rooms/safari-ledge-room-1-2.jpg"
+    ],
     "maxGuest": 2,
     "isFull": false
   },
   {
+    "_id": "662fb23d4237dd2af8683df5",
     "roomNumber": 202,
     "type": "double",
     "hotel": "6612f80f382fe032c40e193b",
     "price": 160,
     "priceDiscount": 130,
-    "photos": ["room202_1.jpg"],
+    "photos": [
+      "_DOMAIN_rooms/safari-ledge-room-2-1.jpg",
+      "_DOMAIN_rooms/safari-ledge-room-2-2.jpg"
+    ],
     "maxGuest": 2,
     "isFull": false
   },
   {
+    "_id": "662fb23d4237dd2af8683df7",
     "roomNumber": 301,
     "type": "suite",
     "hotel": "6612f80f382fe032c40e1944",
     "price": 250,
     "priceDiscount": 200,
-    "photos": ["room301_1.jpg", "room301_2.jpg", "room301_3.jpg"],
+    "photos": [
+      "_DOMAIN_rooms/island-paradise-resort-room-1-1.jpg",
+      "_DOMAIN_rooms/island-paradise-resort-room-1-2.jpg",
+      "_DOMAIN_rooms/island-paradise-resort-room-1-3.jpg"
+    ],
     "maxGuest": 4,
     "isFull": false
   },
   {
+    "_id": "662fb23d4237dd2af8683df8",
     "roomNumber": 302,
     "type": "suite",
     "hotel": "6612f80f382fe032c40e1944",
     "price": 280,
     "priceDiscount": 220,
-    "photos": ["room302_1.jpg", "room302_2.jpg"],
+    "photos": [
+      "_DOMAIN_rooms/island-paradise-resort-room-2-1.jpg",
+      "_DOMAIN_rooms/island-paradise-resort-room-2-2.jpg",
+      "_DOMAIN_rooms/island-paradise-resort-room-2-3.jpg"
+    ],
     "maxGuest": 4,
     "isFull": false
   },
   {
+    "_id": "6612f80f382fe032c40e1957",
     "roomNumber": 401,
     "type": "single",
     "hotel": "6612f80f382fe032c40e1947",
     "price": 120,
     "priceDiscount": 100,
-    "photos": ["room401_1.jpg"],
+    "photos": [
+      "_DOMAIN_rooms/alpine-retreat-room-1-1",
+      "_DOMAIN_rooms/alpine-retreat-room-1-2",
+      "_DOMAIN_rooms/alpine-retreat-room-1-3"
+    ],
     "maxGuest": 1,
     "isFull": false
   },
   {
+    "_id": "6612f80f382fe032c40e1947",
     "roomNumber": 402,
     "type": "single",
     "hotel": "6612f80f382fe032c40e1947",
     "price": 130,
     "priceDiscount": 110,
-    "photos": ["room402_1.jpg", "room402_2.jpg"],
+    "photos": [
+      "_DOMAIN_rooms/alpine-retreat-room-2-1",
+      "_DOMAIN_rooms/alpine-retreat-room-2-2"
+    ],
     "maxGuest": 1,
     "isFull": false
   },
   {
+    "_id": "662fb23d4237dd2af8683dfb",
     "roomNumber": 501,
     "type": "double",
     "hotel": "6612f80f382fe032c40e193e",
     "price": 170,
     "priceDiscount": 140,
-    "photos": ["room501_1.jpg"],
+    "photos": [
+      "_DOMAIN_rooms/coastal-retread-room-1-1.jpg",
+      "_DOMAIN_rooms/coastal-retread-room-1-2.jpg"
+    ],
     "maxGuest": 2,
     "isFull": false
   },
   {
+    "_id": "662fb23d4237dd2af8683dfc",
     "roomNumber": 502,
     "type": "double",
     "hotel": "6612f80f382fe032c40e193e",
     "price": 180,
     "priceDiscount": 150,
-    "photos": ["room502_1.jpg", "room502_2.jpg"],
+    "photos": [
+      "_DOMAIN_rooms/coastal-retread-room-2-1.jpg",
+      "_DOMAIN_rooms/coastal-retread-room-2-2.jpg"
+    ],
     "maxGuest": 2,
     "isFull": false
   },
@@ -105,7 +142,11 @@
     "hotel": "6612f80f382fe032c40e194a",
     "price": 270,
     "priceDiscount": 220,
-    "photos": ["room601_1.jpg"],
+    "photos": [
+      "_DOMAIN_rooms/rustic-cabin-retreat-room-1-1.jpg",
+      "_DOMAIN_rooms/rustic-cabin-retreat-room-1-2.jpg",
+      "_DOMAIN_rooms/rustic-cabin-retreat-room-1-3.jpg"
+    ],
     "maxGuest": 4,
     "isFull": false
   },
@@ -115,67 +156,96 @@
     "hotel": "6612f80f382fe032c40e194a",
     "price": 300,
     "priceDiscount": 240,
-    "photos": ["room602_1.jpg", "room602_2.jpg"],
+    "photos": [
+      "_DOMAIN_rooms/rustic-cabin-retreat-room-2-1.jpg",
+      "_DOMAIN_rooms/rustic-cabin-retreat-room-2-2.jpg",
+      "_DOMAIN_rooms/rustic-cabin-retreat-room-2-3.jpg"
+    ],
     "maxGuest": 4,
     "isFull": false
   },
   {
+    "_id": "662fb23d4237dd2af8683e00",
     "roomNumber": 701,
     "type": "single",
     "hotel": "6612f80f382fe032c40e194d",
     "price": 110,
     "priceDiscount": 90,
-    "photos": ["room701_1.jpg"],
+    "photos": [
+      "_DOMAIN_rooms/city-center-boutique-hotel-room-1-1.jpg",
+      "_DOMAIN_rooms/city-center-boutique-hotel-room-1-2.jpg",
+      "_DOMAIN_rooms/city-center-boutique-hotel-room-1-3.jpg"
+    ],
     "maxGuest": 1,
     "isFull": false
   },
   {
+    "_id": "662fb23d4237dd2af8683dff",
     "roomNumber": 702,
     "type": "single",
     "hotel": "6612f80f382fe032c40e194d",
     "price": 120,
     "priceDiscount": 100,
-    "photos": ["room702_1.jpg", "room702_2.jpg"],
+    "photos": [
+      "_DOMAIN_rooms/city-center-boutique-hotel-room-2-1.jpg",
+      "_DOMAIN_rooms/city-center-boutique-hotel-room-2-2.jpg"
+    ],
     "maxGuest": 1,
     "isFull": false
   },
   {
+    "_id": "662fb23d4237dd2af8683e03",
     "roomNumber": 801,
     "type": "double",
     "hotel": "6612f80f382fe032c40e1950",
     "price": 160,
     "priceDiscount": 130,
-    "photos": ["room801_1.jpg"],
+    "photos": [
+      "_DOMAIN_rooms/tropical-paradise-resort-room-1-1.jpg",
+      "_DOMAIN_rooms/tropical-paradise-resort-room-1-2.jpg",
+      "_DOMAIN_rooms/tropical-paradise-resort-room-1-3.jpg"
+    ],
     "maxGuest": 2,
     "isFull": false
   },
   {
+    "_id": "662fb23d4237dd2af8683e01",
     "roomNumber": 802,
     "type": "double",
     "hotel": "6612f80f382fe032c40e1950",
     "price": 170,
     "priceDiscount": 140,
-    "photos": ["room802_1.jpg", "room802_2.jpg"],
+    "photos": [
+      "_DOMAIN_rooms/tropical-paradise-resort-room-2-1.jpg",
+      "_DOMAIN_rooms/tropical-paradise-resort-room-2-2.jpg",
+      "_DOMAIN_rooms/tropical-paradise-resort-room-2-3.jpg"
+    ],
     "maxGuest": 2,
     "isFull": false
   },
   {
+    "_id": "662fb23d4237dd2af8683e02",
     "roomNumber": 901,
     "type": "suite",
     "hotel": "6612f80f382fe032c40e1950",
     "price": 260,
     "priceDiscount": 210,
-    "photos": ["room901_1.jpg"],
+    "photos": [
+      "_DOMAIN_rooms/tropical-paradise-resort-room-3-1.jpg",
+      "_DOMAIN_rooms/tropical-paradise-resort-room-3-2.jpg",
+      "_DOMAIN_rooms/tropical-paradise-resort-room-3-3.jpg"
+    ],
     "maxGuest": 4,
     "isFull": false
   },
   {
+    "_id": "662fb23d4237dd2af8683e04",
     "roomNumber": 902,
     "type": "suite",
     "hotel": "6612f80f382fe032c40e193e",
     "price": 290,
     "priceDiscount": 230,
-    "photos": ["room902_1.jpg", "room902_2.jpg"],
+    "photos": ["_DOMAIN_rooms/coastal-retread-room-3-1.jpg"],
     "maxGuest": 4,
     "isFull": false
   }

@@ -56,3 +56,9 @@ export function login(data) {
         }
     });
 }
+
+export async function getTrendings() {
+    const res = await axios.get("http://127.0.0.10:8000/api/hotels/trending");
+
+    return res.data.data;
+}

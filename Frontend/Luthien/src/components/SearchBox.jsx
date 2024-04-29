@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./../styles/search-box.module.css";
 import InputField from "./InputField";
 
 export default function SearchBox() {
+    const [rooms, setRooms] = useState([{ adults: 1, children: 0 }]);
+    const [cityHotel, setCityHotel] = useState("");
+
     function getFormattedDate() {
         let date = new Date();
         let formattedDate =
@@ -14,6 +17,9 @@ export default function SearchBox() {
 
         return formattedDate;
     }
+    function handleSubmit(e) {
+        e.preventDefault();
+    }
 
     return (
         <div className={styles.conatainer}>
@@ -21,24 +27,36 @@ export default function SearchBox() {
 
             <div className={styles["search-container"]}>
                 <h1>Hotel</h1>
-                <form className={styles["fields-container"]}>
-                    <InputField key={0} placeholder="Hotel, City" left={25} />
+                <form
+                    onSubmit={handleSubmit}
+                    className={styles["fields-container"]}
+                >
+                    <InputField
+                        key={0}
+                        placeholder="Hotel, City"
+                        left={25}
+                        setCityHotel={setCityHotel}
+                    />
                     <div className={styles["date-input-container"]}>
                         <input
                             onChange={(e) => s(e.target.value)}
                             className={styles["start-date"]}
                             type="date"
                             defaultValue={getFormattedDate()}
-                            required
                         />
                         <input
                             className={styles["end-date"]}
                             type="date"
                             defaultValue={getFormattedDate()}
-                            required
                         />
                     </div>
-                    <InputField key={1} placeholder="Travelers" left={25} />
+                    <InputField
+                        rooms={rooms}
+                        setRooms={setRooms}
+                        key={1}
+                        placeholder="Passengers"
+                        left={25}
+                    />
                     <button type="submit" className={styles["submit-btn"]}>
                         Search
                     </button>

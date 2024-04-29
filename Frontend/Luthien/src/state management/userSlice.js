@@ -1,6 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import toast from "react-hot-toast";
-import { updateUser } from "../services/apiFirebase.js";
 
 const initialState = {
     name: "",

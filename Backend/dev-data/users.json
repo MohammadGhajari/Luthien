@@ -5,7 +5,7 @@
     "email": "admin@natours.io",
     "role": "admin",
     "active": true,
-    "photo": "user-1.jpg",
+    "photo": "_DOMAIN_users/jonas_schmedtmann.jpg",
     "password": "test1234",
     "passwordConfirm": "test1234"
   },
@@ -15,7 +15,7 @@
     "email": "loulou@example.com",
     "role": "user",
     "active": true,
-    "photo": "user-2.jpg",
+    "photo": "_DOMAIN_users/lourdes_browning.jpg",
     "password": "test1234",
     "passwordConfirm": "test1234"
   },
@@ -25,7 +25,7 @@
     "email": "sophie@example.com",
     "role": "user",
     "active": true,
-    "photo": "user-3.jpg",
+    "photo": "_DOMAIN_users/sophie-louise-hart.jpg",
     "password": "test1234",
     "passwordConfirm": "test1234"
   },
@@ -35,7 +35,7 @@
     "email": "ayls@example.com",
     "role": "user",
     "active": true,
-    "photo": "user-4.jpg",
+    "photo": "_DOMAIN_users/ayla-cornell.jpg",
     "password": "test1234",
     "passwordConfirm": "test1234"
   },
@@ -45,7 +45,7 @@
     "email": "leo@example.com",
     "role": "hotelier",
     "active": true,
-    "photo": "user-5.jpg",
+    "photo": "_DOMAIN_users/leo-gillespie.jpg",
     "password": "test1234",
     "passwordConfirm": "test1234"
   },
@@ -55,7 +55,7 @@
     "email": "jennifer@example.com",
     "role": "user",
     "active": true,
-    "photo": "user-6.jpg",
+    "photo": "_DOMAIN_users/jennifer-hardy.jpg",
     "password": "test1234",
     "passwordConfirm": "test1234"
   },
@@ -65,7 +65,7 @@
     "email": "kate@example.com",
     "role": "user",
     "active": true,
-    "photo": "user-7.jpg",
+    "photo": "_DOMAIN_users/kate-morrison.jpg",
     "password": "test1234",
     "passwordConfirm": "test1234"
   },
@@ -75,7 +75,7 @@
     "email": "eliana@example.com",
     "role": "user",
     "active": true,
-    "photo": "user-8.jpg",
+    "photo": "_DOMAIN_users/eliana-stout.jpg",
     "password": "test1234",
     "passwordConfirm": "test1234"
   },
@@ -85,7 +85,7 @@
     "email": "chris@example.com",
     "role": "user",
     "active": true,
-    "photo": "user-9.jpg",
+    "photo": "_DOMAIN_users/cristian-vega.jpg",
     "password": "test1234",
     "passwordConfirm": "test1234"
   },
@@ -95,7 +95,7 @@
     "email": "steve@example.com",
     "role": "user",
     "active": true,
-    "photo": "user-10.jpg",
+    "photo": "_DOMAIN_users/steve-t.-scaife.jpg",
     "password": "test1234",
     "passwordConfirm": "test1234"
   },
@@ -105,7 +105,7 @@
     "email": "aarav@example.com",
     "role": "hotelier",
     "active": true,
-    "photo": "user-11.jpg",
+    "photo": "_DOMAIN_users/aarav-lynn.jpg",
     "password": "test1234",
     "passwordConfirm": "test1234"
   },
@@ -115,7 +115,7 @@
     "email": "miyah@example.com",
     "role": "hotelier",
     "active": true,
-    "photo": "user-12.jpg",
+    "photo": "_DOMAIN_users/miyah-myles.jpg",
     "password": "test1234",
     "passwordConfirm": "test1234"
   },
@@ -125,7 +125,7 @@
     "email": "ben@example.com",
     "role": "user",
     "active": true,
-    "photo": "user-13.jpg",
+    "photo": "_DOMAIN_users/ben-hadley.jpg",
     "password": "test1234",
     "passwordConfirm": "test1234"
   },
@@ -135,7 +135,7 @@
     "email": "laura@example.com",
     "role": "user",
     "active": true,
-    "photo": "user-14.jpg",
+    "photo": "_DOMAIN_users/layra-wilson.jpg",
     "password": "test1234",
     "passwordConfirm": "test1234"
   },
@@ -145,7 +145,7 @@
     "email": "max@example.com",
     "role": "user",
     "active": true,
-    "photo": "user-15.jpg",
+    "photo": "_DOMAIN_users/max-smith.jpg",
     "password": "test1234",
     "passwordConfirm": "test1234"
   },
@@ -155,7 +155,7 @@
     "email": "isabel@example.com",
     "role": "user",
     "active": true,
-    "photo": "user-16.jpg",
+    "photo": "_DOMAIN_users/isabel-kirkald.jpg",
     "password": "test1234",
     "passwordConfirm": "test1234"
   },
@@ -165,7 +165,7 @@
     "email": "alex@example.com",
     "role": "user",
     "active": true,
-    "photo": "user-17.jpg",
+    "photo": "_DOMAIN_users/alexander-jones.jpg",
     "password": "test1234",
     "passwordConfirm": "test1234"
   },
@@ -175,7 +175,7 @@
     "email": "edu@example.com",
     "role": "user",
     "active": true,
-    "photo": "user-18.jpg",
+    "photo": "_DOMAIN_users/edurado-hernandez.jpg",
     "password": "test1234",
     "passwordConfirm": "test1234"
   },
@@ -185,7 +185,7 @@
     "email": "john@example.com",
     "role": "user",
     "active": true,
-    "photo": "user-19.jpg",
+    "photo": "_DOMAIN_users/john-riley.jpg",
     "password": "test1234",
     "passwordConfirm": "test1234"
   },
@@ -195,7 +195,7 @@
     "email": "lisa@example.com",
     "role": "user",
     "active": true,
-    "photo": "user-20.jpg",
+    "photo": "_DOMAIN_users/lisa-brown.jpg",
     "password": "test1234",
     "passwordConfirm": "test1234"
   }

@@ -19,19 +19,24 @@ const hotelRouter = require('./routes/hotelRoutes');
 //--------------------------MIDDLEWARES------------------------------
 app.use(morgan('dev'));
 const limiter = rateLimit({
-  max: 3,
+  max: 20,
   windowMs: 1000,
   message: 'too many requests. please try again in an hour.',
 });
-app.use(helmet());
-app.use('/', limiter);
 app.use(cors());
+app.use(
+  helmet({
+    crossOriginResourcePolicy: false,
+  }),
+);
+
+app.use('/', limiter);
 app.use(express.json({ limit: '10kb' }));
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
 app.use(cookieParser());
 app.use(mongoSanitize());
 app.use(xss());
-app.use(express.static(`${__dirname}/public`));
+app.use(express.static(`public`));
 app.use(compression());
 
 app.use((req, res, next) => {

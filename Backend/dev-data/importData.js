@@ -16,9 +16,22 @@ mongoose
     console.log('connected to database');
   });
 
-const users = JSON.parse(fs.readFileSync(`${__dirname}/users.json`, 'utf8'));
-const hotels = JSON.parse(fs.readFileSync(`${__dirname}/hotels.json`, 'utf8'));
-const rooms = JSON.parse(fs.readFileSync(`${__dirname}/rooms.json`, 'utf8'));
+const users = JSON.parse(
+  fs
+    .readFileSync(`${__dirname}/users.json`, 'utf8')
+    .replace(/_DOMAIN_/g, 'http://127.0.0.10:8000/'),
+);
+const hotels = JSON.parse(
+  fs
+    .readFileSync(`${__dirname}/hotels.json`, 'utf8')
+    .replace(/_DOMAIN_/g, 'http://127.0.0.10:8000/'),
+);
+
+const rooms = JSON.parse(
+  fs
+    .readFileSync(`${__dirname}/rooms.json`, 'utf8')
+    .replace(/_DOMAIN_/g, 'http://127.0.0.10:8000/'),
+);
 const reviews = JSON.parse(
   fs.readFileSync(`${__dirname}/reviews.json`, 'utf8'),
 );

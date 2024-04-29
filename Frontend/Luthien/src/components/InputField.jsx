@@ -1,19 +1,45 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./../styles/input-field.module.css";
 import { FaPlus, FaMinus } from "react-icons/fa";
-import { MdOutlineDeleteForever } from "react-icons/md";
+import AddRoom from "./AddRoom";
 
 export default function InputField({
     placeholder = "Name",
     top,
     left,
     width = 20,
+    rooms,
+    setRooms,
+    setCityHotel,
 }) {
     const [inputValue, setInputValue] = useState(
         placeholder === "Passengers" ? "1 Adult, 1 Room" : ""
     );
 
     const randomID = Math.random();
+
+    function handleAddRoom(e) {
+        setRooms([...rooms, { adults: 1, children: 0 }]);
+    }
+    function handleChange(e) {
+        setInputValue(e.target.value);
+        setCityHotel(e.target.value);
+    }
+
+    useEffect(
+        function () {
+            if (placeholder === "Passengers") {
+                const adultCount = rooms.reduce((acc, room) => {
+                    return acc + room.adults;
+                }, 0);
+                const roomCount = rooms.length;
+                console.log(`${adultCount} adults, ${roomCount} rooms`);
+
+                setInputValue(`${adultCount} Adults, ${roomCount} Rooms`);
+            }
+        },
+        [rooms]
+    );
 
     return (
         <div className={styles.container} style={{ width: `${width}rem` }}>
@@ -27,57 +53,29 @@ export default function InputField({
                 {placeholder}
             </label>
             <input
-                onChange={(e) => setInputValue(e.target.value)}
+                onChange={handleChange}
                 className={styles["input-field"]}
                 type="text"
                 defaultValue={
                     placeholder === "Passengers" ? "1 Adult, 1 Room" : ""
                 }
+                value={placeholder === "Passengers" ? inputValue : undefined}
                 id={randomID}
-                required={true}
             />
 
-            {placeholder === "Travelers" && (
+            {placeholder === "Passengers" && (
                 <div className={styles["passenger-modal"]}>
                     <div className={styles["inner-container"]}>
-                        <div className={styles["room-sample"]}>
-                            <div className={styles["title-delete"]}>
-                                <h3>First Room</h3>
-                                <button>
-                                    <MdOutlineDeleteForever />
-                                </button>
-                            </div>
-                            <div className={styles["adult-container"]}>
-                                <span>
-                                    Adults <span>(Ages 18 or above)</span>
-                                </span>
-                                <div className={styles["adult-btn-conatiner"]}>
-                                    <button>
-                                        <FaMinus />
-                                    </button>
-                                    <span>1</span>
-                                    <button>
-                                        <FaPlus />
-                                    </button>
-                                </div>
-                            </div>
-                            <div className={styles["adult-container"]}>
-                                <span>
-                                    Children <span>(Ages 0-17)</span>
-                                </span>
-                                <div className={styles["adult-btn-conatiner"]}>
-                                    <button>
-                                        <FaMinus />
-                                    </button>
-                                    <span>1</span>
-                                    <button>
-                                        <FaPlus />
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                        {rooms.map((room, i) => (
+                            <AddRoom
+                                i={i}
+                                room={room}
+                                setRooms={setRooms}
+                                rooms={rooms}
+                            />
+                        ))}
 
-                        <button>
+                        <button onClick={handleAddRoom}>
                             <FaPlus /> <span>Add Room</span>
                         </button>
                     </div>
