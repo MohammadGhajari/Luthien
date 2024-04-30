@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import styles from "./../styles/search-box.module.css";
 import InputField from "./InputField";
+import { useDispatch } from "react-redux";
+import {
+    setStartDate,
+    setEndDate,
+} from "./../state management/searchRoomSlice";
 
 export default function SearchBox() {
-    const [rooms, setRooms] = useState([{ adults: 1, children: 0 }]);
-    const [cityHotel, setCityHotel] = useState("");
+    const dispatch = useDispatch();
 
     function getFormattedDate() {
         let date = new Date();
@@ -17,6 +21,13 @@ export default function SearchBox() {
 
         return formattedDate;
     }
+    // function handleStartDate(e) {
+    //     dispatch(setStartDate(e.target.value));
+    // }
+    // function handleEndDate(e) {
+    //     dispatch(setEndDate(e.target.value));
+    // }
+
     function handleSubmit(e) {
         e.preventDefault();
     }
@@ -31,32 +42,26 @@ export default function SearchBox() {
                     onSubmit={handleSubmit}
                     className={styles["fields-container"]}
                 >
-                    <InputField
-                        key={0}
-                        placeholder="Hotel, City"
-                        left={25}
-                        setCityHotel={setCityHotel}
-                    />
+                    <InputField key={0} placeholder="Hotel, City" left={25} />
                     <div className={styles["date-input-container"]}>
                         <input
-                            onChange={(e) => s(e.target.value)}
+                            onChange={(e) =>
+                                dispatch(setStartDate(e.target.value))
+                            }
                             className={styles["start-date"]}
                             type="date"
                             defaultValue={getFormattedDate()}
                         />
                         <input
+                            onChange={(e) =>
+                                dispatch(setEndDate(e.target.value))
+                            }
                             className={styles["end-date"]}
                             type="date"
                             defaultValue={getFormattedDate()}
                         />
                     </div>
-                    <InputField
-                        rooms={rooms}
-                        setRooms={setRooms}
-                        key={1}
-                        placeholder="Passengers"
-                        left={25}
-                    />
+                    <InputField key={1} placeholder="Passengers" left={25} />
                     <button type="submit" className={styles["submit-btn"]}>
                         Search
                     </button>

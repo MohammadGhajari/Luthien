@@ -39,7 +39,6 @@ export function login(data) {
                 data
             );
 
-            console.log(res);
             if (res.data.status === "success") {
                 resolve("success");
             } else {

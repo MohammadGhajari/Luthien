@@ -14,7 +14,7 @@ export default function TrendingDestinations() {
                 const res = await axios.get(
                     "http://127.0.0.10:8000/api/hotels/trending"
                 );
-                console.log(res.data.data);
+
                 setTrends(res.data.data);
                 setIsLoading(false);
             } catch (error) {

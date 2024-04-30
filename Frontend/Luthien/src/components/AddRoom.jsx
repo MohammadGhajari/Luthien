@@ -1,28 +1,57 @@
 import styles from "./../styles/input-field.module.css";
 import { MdOutlineDeleteForever } from "react-icons/md";
 import { FaPlus, FaMinus } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
+import { setRooms } from "./../state management/searchRoomSlice";
 
-export default function AddRoom({ i, room, rooms, setRooms }) {
+export default function AddRoom({ i }) {
+    const { rooms } = useSelector((state) => state.searchRoom);
+    const dispatch = useDispatch();
+    const room = rooms[i];
+
     function handleAddAdults() {
-        rooms[i].adults = room.adults + 1;
-        setRooms([...rooms]);
+        const clonedRooms = [...rooms];
+        const newRoom = {
+            adults: clonedRooms[i].adults + 1,
+            children: clonedRooms[i].children,
+        };
+        clonedRooms[i] = newRoom;
+        dispatch(setRooms([...clonedRooms]));
     }
     function handleDelAdults() {
-        rooms[i].adults = room.adults == 1 ? 1 : room.adults - 1;
-        setRooms([...rooms]);
+        const clonedRooms = [...rooms];
+        const newRoom = {
+            adults: clonedRooms[i].adults !== 1 ? clonedRooms[i].adults - 1 : 1,
+            children: clonedRooms[i].children,
+        };
+        clonedRooms[i] = newRoom;
+        dispatch(setRooms([...clonedRooms]));
     }
     function handleAddChildren() {
-        rooms[i].children = room.children + 1;
-        setRooms([...rooms]);
+        const clonedRooms = [...rooms];
+        const newRoom = {
+            adults: clonedRooms[i].adults,
+            children: clonedRooms[i].children + 1,
+        };
+        clonedRooms[i] = newRoom;
+        dispatch(setRooms([...clonedRooms]));
     }
     function handleDelChildren() {
-        rooms[i].children = room.children == 0 ? 0 : room.children - 1;
-        setRooms([...rooms]);
+        const clonedRooms = [...rooms];
+        const newRoom = {
+            adults: clonedRooms[i].adults,
+            children:
+                clonedRooms[i].children === 0 ? 0 : clonedRooms[i].children - 1,
+        };
+        clonedRooms[i] = newRoom;
+        dispatch(setRooms([...clonedRooms]));
     }
+
     function handleDeleteRoom(e) {
         if (rooms.length > 1) {
-            rooms = rooms.filter((item, index) => index !== i);
-            setRooms([...rooms]);
+            // const clonetRooms = [...rooms];
+            const clonetRooms = rooms.filter((item, index) => index !== i);
+            dispatch(setRooms([...clonetRooms]));
         }
     }
 

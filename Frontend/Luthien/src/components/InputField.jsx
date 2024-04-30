@@ -2,28 +2,29 @@ import { useEffect, useState } from "react";
 import styles from "./../styles/input-field.module.css";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import AddRoom from "./AddRoom";
+import { useDispatch, useSelector } from "react-redux";
+import { setRooms, setCityHotel } from "./../state management/searchRoomSlice";
 
 export default function InputField({
     placeholder = "Name",
     top,
     left,
     width = 20,
-    rooms,
-    setRooms,
-    setCityHotel,
 }) {
+    const { rooms } = useSelector((state) => state.searchRoom);
     const [inputValue, setInputValue] = useState(
         placeholder === "Passengers" ? "1 Adult, 1 Room" : ""
     );
+    const dispatch = useDispatch();
 
     const randomID = Math.random();
 
     function handleAddRoom(e) {
-        setRooms([...rooms, { adults: 1, children: 0 }]);
+        dispatch(setRooms([...rooms, { adults: 1, children: 0 }]));
     }
     function handleChange(e) {
         setInputValue(e.target.value);
-        setCityHotel(e.target.value);
+        dispatch(setCityHotel(e.target.value));
     }
 
     useEffect(
@@ -33,7 +34,6 @@ export default function InputField({
                     return acc + room.adults;
                 }, 0);
                 const roomCount = rooms.length;
-                console.log(`${adultCount} adults, ${roomCount} rooms`);
 
                 setInputValue(`${adultCount} Adults, ${roomCount} Rooms`);
             }
@@ -67,12 +67,7 @@ export default function InputField({
                 <div className={styles["passenger-modal"]}>
                     <div className={styles["inner-container"]}>
                         {rooms.map((room, i) => (
-                            <AddRoom
-                                i={i}
-                                room={room}
-                                setRooms={setRooms}
-                                rooms={rooms}
-                            />
+                            <AddRoom i={i} room={room} />
                         ))}
 
                         <button onClick={handleAddRoom}>
