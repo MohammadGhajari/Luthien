@@ -1,6 +1,7 @@
 @import './base.module.css';
 
 .hotel-cart {
+  background-color: var(--color-white-1);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,7 +10,7 @@
   border-radius: var(--border-radius-md);
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--color-grey-6);
-  width: 30%;
+  width: 30%!important;
   cursor: pointer;
   transition: all 0.4s;
   &:hover {

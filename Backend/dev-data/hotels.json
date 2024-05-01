@@ -5,7 +5,7 @@
     "owner": "5c8a1f292f8fb814b56fa184",
     "rooms": ["662fb23d4237dd2af8683df3", "662fb23d4237dd2af8683df4"],
     "stars": 4,
-    "city": "Paris",
+    "city": "paris",
     "description": "Step back in time at our elegant historic manor.",
     "address": "789 Abbey Road",
     "phone": "+442071234567",
@@ -29,6 +29,7 @@
       }
     ],
     "country": "france",
+    "citySVG": "_DOMAIN_city-icons/paris.svg",
     "facilities": ["gym", "shopping", "tea maker", "game", "pet", "free wifi"]
   },
   {
@@ -37,7 +38,7 @@
     "owner": "5c8a1f292f8fb814b56fa184",
     "rooms": ["662fb23d4237dd2af8683df6", "662fb23d4237dd2af8683df5"],
     "stars": 4,
-    "city": "Kish",
+    "city": "kish",
     "description": "Embark on an unforgettable safari adventure from our lodge.",
     "address": "123 Safari Road",
     "phone": "+254712345678",
@@ -61,6 +62,7 @@
       }
     ],
     "country": "iran",
+    "citySVG": "_DOMAIN_city-icons/kish.svg",
     "facilities": [
       "prayer room",
       "breakfast",
@@ -76,7 +78,7 @@
     "owner": "5c8a1f292f8fb814b56fa184",
     "rooms": ["662fb23d4237dd2af8683df7", "662fb23d4237dd2af8683df8"],
     "stars": 5,
-    "city": "Mashhad",
+    "city": "mashhad",
     "description": "Experience luxury in the heart of the Indian Ocean.",
     "address": "789 Paradise Island",
     "phone": "+960987654321",
@@ -99,7 +101,8 @@
         "time": 10
       }
     ],
-    "country": "Iran",
+    "country": "iran",
+    "citySVG": "_DOMAIN_city-icons/mashhad.svg",
     "facilities": [
       "pet",
       "gym",
@@ -115,7 +118,7 @@
     "owner": "5c8a21f22f8fb814b56fa18a",
     "rooms": ["6612f80f382fe032c40e1947"],
     "stars": 3,
-    "city": "Baku",
+    "city": "baku",
     "description": "Enjoy a cozy retreat in the Swiss Alps.",
     "address": "321 Mountain Road",
     "phone": "+41781234567",
@@ -139,6 +142,7 @@
       }
     ],
     "country": "azerbaijan",
+    "citySVG": "_DOMAIN_city-icons/baku.svg",
     "facilities": [
       "prayer room",
       "breakfast",
@@ -158,7 +162,7 @@
       "662fb23d4237dd2af8683e04"
     ],
     "stars": 4,
-    "city": "Rome",
+    "city": "rome",
     "description": "Relax and rejuvenate at our serene coastal retreat.",
     "address": "456 Coastal Drive",
     "phone": "+61234567890",
@@ -181,7 +185,8 @@
         "time": 30
       }
     ],
-    "country": "Italy",
+    "country": "italy",
+    "citySVG": "_DOMAIN_city-icons/rome.svg",
     "facilities": [
       "shopping",
       "prayer room",
@@ -197,7 +202,7 @@
     "owner": "5c8a22c62f8fb814b56fa18b",
     "rooms": ["662fd6825400f847f0d21162", "662fd6825400f847f0d21163"],
     "stars": 3,
-    "city": "Van",
+    "city": "van",
     "description": "Escape to nature at our charming rustic cabins.",
     "address": "123 Forest Lane",
     "phone": "+13031234567",
@@ -220,7 +225,8 @@
         "time": 30
       }
     ],
-    "country": "Turkey",
+    "country": "turkey",
+    "citySVG": "_DOMAIN_city-icons/van.svg",
     "facilities": ["gym", "tea maker", "ask inside room", "pet", "parking"]
   },
   {
@@ -229,7 +235,7 @@
     "owner": "5c8a22c62f8fb814b56fa18b",
     "rooms": ["662fb23d4237dd2af8683e00", "662fb23d4237dd2af8683dff"],
     "stars": 4,
-    "city": "Paris",
+    "city": "paris",
     "description": "Discover Parisian charm at our boutique hotel in the city center.",
     "address": "789 Rue de la Paix",
     "phone": "+33123456789",
@@ -252,7 +258,8 @@
         "time": 15
       }
     ],
-    "country": "France",
+    "country": "france",
+    "citySVG": "_DOMAIN_city-icons/paris.svg",
     "facilities": [
       "ask inside room",
       "game",
@@ -272,7 +279,7 @@
       "662fb23d4237dd2af8683e01"
     ],
     "stars": 5,
-    "city": "Amsterdam",
+    "city": "amsterdam",
     "description": "Experience the ultimate luxury in a tropical paradise.",
     "address": "123 Palm Tree Lane",
     "phone": "+68912345678",
@@ -295,7 +302,8 @@
         "time": 60
       }
     ],
-    "country": "Germany",
+    "country": "germany",
+    "citySVG": "_DOMAIN_city-icons/amsterdam.svg",
     "facilities": [
       "breakfast",
       "tea maker",

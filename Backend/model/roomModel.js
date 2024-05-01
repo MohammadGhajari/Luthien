@@ -5,10 +5,11 @@ const roomSchema = mongoose.Schema({
     type: Number,
     required: [true, 'a room should have a number.'],
   },
-  type: {
-    type: String,
-    enum: ['single', 'double', 'suite'],
-    required: [true, 'a room should have a type.'],
+  capacity: {
+    type: Number,
+    min: 1,
+    max: 5,
+    required: [true, 'room should have a capacity'],
   },
   hotel: {
     type: mongoose.Schema.ObjectId,

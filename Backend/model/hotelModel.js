@@ -21,7 +21,7 @@ const hotelSchema = mongoose.Schema(
     },
     city: {
       type: String,
-      require: [true, 'a hotel belongs to a city.'],
+      required: [true, 'a hotel belongs to a city.'],
     },
     description: {
       type: String,
@@ -29,7 +29,7 @@ const hotelSchema = mongoose.Schema(
     },
     address: {
       type: String,
-      require: [true, 'a hotel must have an address.'],
+      required: [true, 'a hotel must have an address.'],
     },
     phone: {
       type: String,
@@ -60,7 +60,10 @@ const hotelSchema = mongoose.Schema(
     ],
     country: {
       type: String,
-      require: [true, 'a hotel must belong to a country.'],
+      required: [true, 'a hotel must belong to a country.'],
+    },
+    citySVG: {
+      type: String,
     },
     facilities: [
       {

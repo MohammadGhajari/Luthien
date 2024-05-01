@@ -1,0 +1,63 @@
+@import './base.module.css';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  width: 70%;
+}
+.container-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+.container-header .sort-based {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+
+}
+.container-header .sort-based .btn-container {
+  display: flex ;
+  justify-content: space-around;
+  gap: 1.2rem;
+  width: 55%;
+  height: 100%;
+  background-color: var(--color-white-1);
+  border: 1px solid var(--color-white-3);
+  padding: 0.4rem 1.8rem;
+  border-radius: 100px;
+  & button {
+    background-color: transparent;
+    border: none;
+    padding: 0 1rem;
+    transition: all 0.2s;
+    &:hover {
+      background-color: var(--color-white-2);
+      border-radius: 5px;
+      
+    } 
+  }
+  & span {
+    height: 100%;
+    width: 1px;
+    background-color: var(--color-white-3);
+  }
+}
+.container-header > p {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  & span:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  
+}

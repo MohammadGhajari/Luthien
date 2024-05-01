@@ -59,7 +59,7 @@ export default function AddRoom({ i }) {
         <div className={styles["room-sample"]}>
             <div className={styles["title-delete"]}>
                 <h3>Room {i + 1}</h3>
-                <button onClick={handleDeleteRoom}>
+                <button type="button" onClick={handleDeleteRoom}>
                     <MdOutlineDeleteForever />
                 </button>
             </div>
@@ -68,11 +68,11 @@ export default function AddRoom({ i }) {
                     Adults <span>(Ages 18 or above)</span>
                 </span>
                 <div className={styles["adult-btn-conatiner"]}>
-                    <button onClick={handleDelAdults}>
+                    <button type="button" onClick={handleDelAdults}>
                         <FaMinus />
                     </button>
                     <span>{room.adults}</span>
-                    <button onClick={handleAddAdults}>
+                    <button type="button" onClick={handleAddAdults}>
                         <FaPlus />
                     </button>
                 </div>
@@ -82,11 +82,11 @@ export default function AddRoom({ i }) {
                     Children <span>(Ages 0-17)</span>
                 </span>
                 <div className={styles["adult-btn-conatiner"]}>
-                    <button onClick={handleDelChildren}>
+                    <button type="button" onClick={handleDelChildren}>
                         <FaMinus />
                     </button>
                     <span>{room.children}</span>
-                    <button onClick={handleAddChildren}>
+                    <button type="button" onClick={handleAddChildren}>
                         <FaPlus />
                     </button>
                 </div>

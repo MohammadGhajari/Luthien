@@ -3,7 +3,7 @@ import styles from "./../styles/input-field.module.css";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import AddRoom from "./AddRoom";
 import { useDispatch, useSelector } from "react-redux";
-import { setRooms, setCityHotel } from "./../state management/searchRoomSlice";
+import { setRooms, setCity } from "./../state management/searchRoomSlice";
 
 export default function InputField({
     placeholder = "Name",
@@ -24,7 +24,7 @@ export default function InputField({
     }
     function handleChange(e) {
         setInputValue(e.target.value);
-        dispatch(setCityHotel(e.target.value));
+        dispatch(setCity(e.target.value));
     }
 
     useEffect(
@@ -70,13 +70,13 @@ export default function InputField({
                             <AddRoom i={i} room={room} />
                         ))}
 
-                        <button onClick={handleAddRoom}>
+                        <button type="button" onClick={handleAddRoom}>
                             <FaPlus /> <span>Add Room</span>
                         </button>
                     </div>
 
                     <div className={styles["confirm-btn-container"]}>
-                        <button>Confirm</button>
+                        <button type="button">Confirm</button>
                     </div>
                 </div>
             )}

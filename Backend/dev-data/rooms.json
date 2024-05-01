@@ -2,7 +2,7 @@
   {
     "_id": "662fb23d4237dd2af8683df3",
     "roomNumber": 101,
-    "type": "single",
+    "capacity": 2,
     "hotel": "6612f80f382fe032c40e1941",
     "price": 100,
     "priceDiscount": 80,
@@ -13,7 +13,7 @@
   {
     "_id": "662fb23d4237dd2af8683df4",
     "roomNumber": 102,
-    "type": "single",
+    "capacity": 2,
     "hotel": "6612f80f382fe032c40e1941",
     "price": 110,
     "priceDiscount": 90,
@@ -24,7 +24,7 @@
   {
     "_id": "662fb23d4237dd2af8683df6",
     "roomNumber": 201,
-    "type": "double",
+    "capacity": 3,
     "hotel": "6612f80f382fe032c40e193b",
     "price": 150,
     "priceDiscount": 120,
@@ -38,7 +38,7 @@
   {
     "_id": "662fb23d4237dd2af8683df5",
     "roomNumber": 202,
-    "type": "double",
+    "capacity": 1,
     "hotel": "6612f80f382fe032c40e193b",
     "price": 160,
     "priceDiscount": 130,
@@ -52,7 +52,7 @@
   {
     "_id": "662fb23d4237dd2af8683df7",
     "roomNumber": 301,
-    "type": "suite",
+    "capacity": 4,
     "hotel": "6612f80f382fe032c40e1944",
     "price": 250,
     "priceDiscount": 200,
@@ -67,7 +67,7 @@
   {
     "_id": "662fb23d4237dd2af8683df8",
     "roomNumber": 302,
-    "type": "suite",
+    "capacity": 2,
     "hotel": "6612f80f382fe032c40e1944",
     "price": 280,
     "priceDiscount": 220,
@@ -82,7 +82,7 @@
   {
     "_id": "6612f80f382fe032c40e1957",
     "roomNumber": 401,
-    "type": "single",
+    "capacity": 3,
     "hotel": "6612f80f382fe032c40e1947",
     "price": 120,
     "priceDiscount": 100,
@@ -97,7 +97,7 @@
   {
     "_id": "6612f80f382fe032c40e1947",
     "roomNumber": 402,
-    "type": "single",
+    "capacity": 3,
     "hotel": "6612f80f382fe032c40e1947",
     "price": 130,
     "priceDiscount": 110,
@@ -111,7 +111,7 @@
   {
     "_id": "662fb23d4237dd2af8683dfb",
     "roomNumber": 501,
-    "type": "double",
+    "capacity": 5,
     "hotel": "6612f80f382fe032c40e193e",
     "price": 170,
     "priceDiscount": 140,
@@ -125,7 +125,7 @@
   {
     "_id": "662fb23d4237dd2af8683dfc",
     "roomNumber": 502,
-    "type": "double",
+    "capacity": 4,
     "hotel": "6612f80f382fe032c40e193e",
     "price": 180,
     "priceDiscount": 150,
@@ -138,7 +138,7 @@
   },
   {
     "roomNumber": 601,
-    "type": "suite",
+    "capacity": 1,
     "hotel": "6612f80f382fe032c40e194a",
     "price": 270,
     "priceDiscount": 220,
@@ -152,7 +152,7 @@
   },
   {
     "roomNumber": 602,
-    "type": "suite",
+    "capacity": 2,
     "hotel": "6612f80f382fe032c40e194a",
     "price": 300,
     "priceDiscount": 240,
@@ -167,7 +167,7 @@
   {
     "_id": "662fb23d4237dd2af8683e00",
     "roomNumber": 701,
-    "type": "single",
+    "capacity": 3,
     "hotel": "6612f80f382fe032c40e194d",
     "price": 110,
     "priceDiscount": 90,
@@ -182,7 +182,7 @@
   {
     "_id": "662fb23d4237dd2af8683dff",
     "roomNumber": 702,
-    "type": "single",
+    "capacity": 4,
     "hotel": "6612f80f382fe032c40e194d",
     "price": 120,
     "priceDiscount": 100,
@@ -196,7 +196,7 @@
   {
     "_id": "662fb23d4237dd2af8683e03",
     "roomNumber": 801,
-    "type": "double",
+    "capacity": 5,
     "hotel": "6612f80f382fe032c40e1950",
     "price": 160,
     "priceDiscount": 130,
@@ -211,7 +211,7 @@
   {
     "_id": "662fb23d4237dd2af8683e01",
     "roomNumber": 802,
-    "type": "double",
+    "capacity": 1,
     "hotel": "6612f80f382fe032c40e1950",
     "price": 170,
     "priceDiscount": 140,
@@ -226,7 +226,7 @@
   {
     "_id": "662fb23d4237dd2af8683e02",
     "roomNumber": 901,
-    "type": "suite",
+    "capacity": 2,
     "hotel": "6612f80f382fe032c40e1950",
     "price": 260,
     "priceDiscount": 210,
@@ -241,7 +241,7 @@
   {
     "_id": "662fb23d4237dd2af8683e04",
     "roomNumber": 902,
-    "type": "suite",
+    "capacity": 3,
     "hotel": "6612f80f382fe032c40e193e",
     "price": 290,
     "priceDiscount": 230,

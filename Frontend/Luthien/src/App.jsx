@@ -8,13 +8,9 @@ import Signup from "./pages/Signup";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./components/AppLayout";
 import Home from "./pages/Home";
-import { getTrendings } from "./services/handleReqs";
+// import { getTrendings } from "./services/handleReqs";
 
 function App() {
-    useEffect(() => {
-        getTrendings();
-    }, []);
-
     return (
         <>
             <BrowserRouter>

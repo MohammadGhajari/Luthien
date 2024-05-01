@@ -14,7 +14,7 @@ class APIFeatures {
 
     let queryString = JSON.stringify(queryObj);
     queryString = queryString.replace(
-      /\b(gte|gt|lt|lte)\b/g,
+      /\b(gte|gt|lt|lte|ne)\b/g,
       (match) => `$${match}`,
     );
 

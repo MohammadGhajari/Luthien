@@ -1,14 +1,21 @@
 import { useEffect, useState } from "react";
 import styles from "./../styles/search-box.module.css";
 import InputField from "./InputField";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
     setStartDate,
     setEndDate,
+    setResults,
 } from "./../state management/searchRoomSlice";
+import { getSearchQuery } from "./../services/handleReqs.js";
+import toast from "react-hot-toast";
+import closableToast from "../components/notifications";
 
 export default function SearchBox() {
     const dispatch = useDispatch();
+    const { city, rooms, startDate, endDate } = useSelector(
+        (state) => state.searchRoom
+    );
 
     function getFormattedDate() {
         let date = new Date();
@@ -21,15 +28,20 @@ export default function SearchBox() {
 
         return formattedDate;
     }
-    // function handleStartDate(e) {
-    //     dispatch(setStartDate(e.target.value));
-    // }
-    // function handleEndDate(e) {
-    //     dispatch(setEndDate(e.target.value));
-    // }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
+        if (!city) {
+            return closableToast("Fill out the city field.");
+        }
+
+        const hotels = await getSearchQuery(
+            city.toLowerCase(),
+            rooms,
+            startDate,
+            endDate
+        );
+        dispatch(setResults(hotels));
     }
 
     return (
@@ -42,7 +54,7 @@ export default function SearchBox() {
                     onSubmit={handleSubmit}
                     className={styles["fields-container"]}
                 >
-                    <InputField key={0} placeholder="Hotel, City" left={25} />
+                    <InputField key={0} placeholder="City" left={20} />
                     <div className={styles["date-input-container"]}>
                         <input
                             onChange={(e) =>

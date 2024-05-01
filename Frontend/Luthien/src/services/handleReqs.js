@@ -2,13 +2,11 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import closableToast from "../components/notifications";
 
+const domain = "http://127.0.0.10:8000";
 export function signup(data) {
     return new Promise(async function (resolve, reject) {
         try {
-            const res = await axios.post(
-                "http://127.0.0.10:8000/api/users/signup",
-                data
-            );
+            const res = await axios.post(`${domain}/api/users/signup`, data);
             if (res.data.status === "success") {
                 resolve("success");
             } else {
@@ -34,10 +32,7 @@ export function signup(data) {
 export function login(data) {
     return new Promise(async function (resolve, reject) {
         try {
-            const res = await axios.post(
-                "http://127.0.0.10:8000/api/users/login",
-                data
-            );
+            const res = await axios.post(`${domain}/api/users/login`, data);
 
             if (res.data.status === "success") {
                 resolve("success");
@@ -57,7 +52,21 @@ export function login(data) {
 }
 
 export async function getTrendings() {
-    const res = await axios.get("http://127.0.0.10:8000/api/hotels/trending");
+    const res = await axios.get(`${domain}/api/hotels/trending`);
+    return res.data.data;
+}
 
+export async function getSearchQuery(city, rooms, startDate, endDate) {
+    const data = { city, rooms, startDate, endDate };
+    const res = await axios.post(`${domain}/api/hotels/search-query`, data);
+    return res.data.data;
+}
+export async function getDomesticHotels() {
+    const res = await axios.get(`${domain}/api/hotels?country=iran`);
+    return res.data.data;
+}
+
+export async function getForeignHotels() {
+    const res = await axios.get(`${domain}/api/hotels?country[ne]=iran`);
     return res.data.data;
 }

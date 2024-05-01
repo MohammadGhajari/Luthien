@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     rooms: [{ adults: 1, children: 0 }],
-    cityHotel: "",
+    city: "",
     startDate: null,
     endDate: null,
+    results: [],
 };
 const searchRoomSlice = createSlice({
     name: "searchRoom",
@@ -12,8 +13,8 @@ const searchRoomSlice = createSlice({
         setRooms(state, action) {
             state.rooms = action.payload;
         },
-        setCityHotel(state, action) {
-            state.cityHotel = action.payload;
+        setCity(state, action) {
+            state.city = action.payload;
         },
         setStartDate(state, action) {
             state.startDate = action.payload;
@@ -21,9 +22,12 @@ const searchRoomSlice = createSlice({
         setEndDate(state, action) {
             state.endDate = action.payload;
         },
+        setResults(state, action) {
+            state.results = action.payload;
+        },
     },
 });
-export const { setRooms, setCityHotel, setStartDate, setEndDate } =
+export const { setRooms, setCity, setStartDate, setEndDate, setResults } =
     searchRoomSlice.actions;
 
 export default searchRoomSlice.reducer;

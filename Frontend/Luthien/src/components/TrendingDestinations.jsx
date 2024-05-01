@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "./../styles/trending-destinations.module.css";
 import axios from "axios";
 import { NavLink } from "react-router-dom";
+import { getTrendings } from "./../services/handleReqs";
 
 export default function TrendingDestinations() {
     const [isLoading, setIsLoading] = useState(false);
@@ -11,11 +12,8 @@ export default function TrendingDestinations() {
         async function fetchData() {
             try {
                 setIsLoading(true);
-                const res = await axios.get(
-                    "http://127.0.0.10:8000/api/hotels/trending"
-                );
-
-                setTrends(res.data.data);
+                const res = await getTrendings();
+                setTrends(res);
                 setIsLoading(false);
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -37,7 +35,8 @@ export default function TrendingDestinations() {
                             className={styles["trend"]}
                         >
                             <span>
-                                {trends[0]?.city}
+                                {trends[0]?.city.charAt(0).toUpperCase() +
+                                    trends[0]?.city.slice(1)}
                                 <img src={trends[0]?.countryFlag} alt="flag" />
                             </span>
                             <img src={trends[0]?.cover} alt="trending photo" />
@@ -47,7 +46,8 @@ export default function TrendingDestinations() {
                             className={styles["trend"]}
                         >
                             <span>
-                                {trends[1]?.city}{" "}
+                                {trends[1]?.city.charAt(0).toUpperCase() +
+                                    trends[1]?.city.slice(1)}
                                 <img src={trends[1]?.countryFlag} alt="flag" />
                             </span>
                             <img src={trends[1]?.cover} alt="trending photo" />
@@ -57,7 +57,8 @@ export default function TrendingDestinations() {
                             className={styles["trend"]}
                         >
                             <span>
-                                {trends[2]?.city}
+                                {trends[2]?.city.charAt(0).toUpperCase() +
+                                    trends[2]?.city.slice(1)}
                                 <img src={trends[2]?.countryFlag} alt="flag" />
                             </span>
                             <img src={trends[2]?.cover} alt="trending photo" />
@@ -67,7 +68,8 @@ export default function TrendingDestinations() {
                             className={styles["trend"]}
                         >
                             <span>
-                                {trends[3]?.city}
+                                {trends[3]?.city.charAt(0).toUpperCase() +
+                                    trends[3]?.city.slice(1)}
                                 <img src={trends[3]?.countryFlag} alt="flag" />
                             </span>
                             <img src={trends[3]?.cover} alt="trending photo" />
@@ -77,7 +79,8 @@ export default function TrendingDestinations() {
                             className={styles["trend"]}
                         >
                             <span>
-                                {trends[4]?.city}{" "}
+                                {trends[4]?.city.charAt(0).toUpperCase() +
+                                    trends[4]?.city.slice(1)}
                                 <img src={trends[4]?.countryFlag} alt="flag" />
                             </span>
                             <img src={trends[4]?.cover} alt="trending photo" />
