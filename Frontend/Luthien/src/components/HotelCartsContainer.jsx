@@ -14,8 +14,8 @@ export default function HotelCartsContainer() {
         <div className={styles.container}>
             <header className={styles["container-header"]}>
                 <h3>
-                    {results[0].city.charAt(0).toUpperCase() +
-                        results[0].city.slice(1)}{" "}
+                    {results[0]?.city.charAt(0).toUpperCase() +
+                        results[0]?.city.slice(1)}{" "}
                     Hotels
                 </h3>
                 <div className={styles["sort-based"]}>
@@ -39,7 +39,7 @@ export default function HotelCartsContainer() {
                 </p>
             </header>
             <div className={styles["content-container"]}>
-                {results.map((res) => (
+                {results?.map((res) => (
                     <HotelCart res={res} />
                 ))}
             </div>

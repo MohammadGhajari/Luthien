@@ -1,0 +1,50 @@
+@import './base.module.css';
+
+.container-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 1.6rem;
+  & > span {
+    font-size: 1.4rem;
+    color: var(--color-grey-4);
+    display: flex;
+    gap: 0.6rem;
+    justify-content: center;
+    align-items: center;
+    & span:first-child {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+.check-box-container {
+  cursor: pointer;
+  border: 1px solid grey;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: 0.2s;
+}
+.complete-status {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+.check-status {
+  
+  width: 1rem;
+  height: 0.4rem;
+  transform: rotate(-45deg);
+}
+.check-complete-status {
+  border-color: #eee;
+  border: 2px solid var(--color-white-1);
+  border-top: none;
+  border-right: none;
+}

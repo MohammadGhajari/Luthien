@@ -10,6 +10,7 @@ export default function InputField({
     top,
     left,
     width = 20,
+    height,
 }) {
     const { rooms } = useSelector((state) => state.searchRoom);
     const [inputValue, setInputValue] = useState(
@@ -42,7 +43,13 @@ export default function InputField({
     );
 
     return (
-        <div className={styles.container} style={{ width: `${width}rem` }}>
+        <div
+            className={styles.container}
+            style={{
+                width: `${width}rem`,
+                height: `${height ? height + "rem" : ""}`,
+            }}
+        >
             <label
                 className={`${styles["input-label"]} ${
                     inputValue ? styles["has-value"] : ""

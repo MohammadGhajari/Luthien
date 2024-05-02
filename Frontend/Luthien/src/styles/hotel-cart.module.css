@@ -103,9 +103,9 @@
 }
 .middle-cart .facilities {
   display: flex;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   flex-wrap: wrap;
-  color: var(--color-grey-4);
+  color: #999;
   gap: 1.2rem;
 
   & p {
@@ -162,3 +162,14 @@
 
   
 }
+
+
+
+
+
+
+
+
+
+
+/* =============================================== */

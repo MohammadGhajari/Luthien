@@ -1,23 +1,23 @@
 @font-face {
-  font-family: ringbearer;
-  src: url("./../../../public/fonts/RINGM___.TTF");
+    font-family: ringbearer;
+    src: url("./../../../public/fonts/RINGM___.TTF");
 }
-@import './base.module.css';
+@import "./base.module.css";
 
 .logo {
-  position: relative;
-  margin-left: -5rem;  
+    position: relative;
+    margin-left: -5rem;
 }
 .logo-text {
-  position: absolute;
-  top: 66%;
-  left: 73%;
-  transform: translate(-50%, -40%);
-  font-size: 4rem;
-  font-family: ringbearer;
-  color: var(--color-primary);
+    position: absolute;
+    top: 66%;
+    left: 73%;
+    transform: translate(-50%, -40%);
+    font-size: 4rem;
+    font-family: ringbearer;
+    color: var(--color-primary);
 }
 .logo-svg {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }

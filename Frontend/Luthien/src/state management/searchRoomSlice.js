@@ -4,7 +4,7 @@ const initialState = {
     city: "",
     startDate: null,
     endDate: null,
-    results: [],
+    results: null,
 };
 const searchRoomSlice = createSlice({
     name: "searchRoom",

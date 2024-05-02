@@ -18,6 +18,7 @@ import { FaWifi } from "react-icons/fa";
 import { FaParking } from "react-icons/fa";
 import { GrElevator } from "react-icons/gr";
 import { MdFreeBreakfast } from "react-icons/md";
+import { useState } from "react";
 
 export default function HotelCart({ res }) {
     const facilicitesSVG = {
@@ -34,19 +35,32 @@ export default function HotelCart({ res }) {
         elevator: <GrElevator />,
         breakfast: <MdFreeBreakfast />,
     };
+    const photoes = res.photos;
+    const [currentPhoto, setCurrentPhoto] = useState(0);
 
     return (
         <div className={styles.container}>
             <div className={styles["slideshow"]}>
                 <div>
-                    <button className={styles["prev"]}>
+                    <button
+                        onClick={() =>
+                            setCurrentPhoto(
+                                Math.abs((currentPhoto - 1) % photoes.length)
+                            )
+                        }
+                        className={styles["prev"]}
+                    >
                         <GrFormPrevious />
                     </button>
                 </div>
-
-                <img src={res.photos[0]} alt={res.name} />
+                <img src={photoes[currentPhoto]} alt={res.name} />
                 <div>
-                    <button className={styles["next"]}>
+                    <button
+                        onClick={() =>
+                            setCurrentPhoto((currentPhoto + 1) % photoes.length)
+                        }
+                        className={styles["next"]}
+                    >
                         <GrFormNext />
                     </button>
                 </div>
