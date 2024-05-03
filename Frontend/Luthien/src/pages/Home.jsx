@@ -6,25 +6,24 @@ import TrendingDestinations from "../components/TrendingDestinations";
 import FAQ from "./../components/FAQ";
 import SearchResults from "./../components/SearchResults";
 import { useSelector } from "react-redux";
-import { useEffect } from "react";
 
 export default function Home() {
-    const { results } = useSelector((state) => state.searchRoom);
-    console.log(results);
-
+    const { filteredResults, rawResults } = useSelector(
+        (state) => state.searchRoom
+    );
     return (
         <>
             <SearchBox />
-            {results !== null ? (
-                results.length === 0 ? (
+            {filteredResults ? (
+                filteredResults.length === 0 ? (
                     <NoResult />
                 ) : (
-                    <SearchResults results={results} />
+                    <SearchResults />
                 )
             ) : (
                 ""
             )}
-            {!results && (
+            {!filteredResults && (
                 <>
                     <Features />
                     <TrendingDestinations />

@@ -1,7 +1,30 @@
 import styles from "./../styles/sidebar-filter.module.css";
 import CheckBox from "./CheckBox";
 import { IoIosSearch } from "react-icons/io";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import {
+    setHotelName,
+    setThreeStar,
+    setFourStar,
+    setFiveStar,
+    setFirstPrice,
+    setSecondPrice,
+    setThirdPrice,
+    setFourthPrice,
+    setFifthPrice,
+    setSwimmingPool,
+    setTeaMaker,
+    setPrayerRoom,
+    setAskInsideRoom,
+    setFreeWifi,
+    setPet,
+    setGame,
+    setGym,
+    setShopping,
+    setElevator,
+    setParking,
+    setBreakfast,
+} from "./../state management/filterSlice";
 
 import { MdOutlineSportsGymnastics } from "react-icons/md";
 import { MdPets } from "react-icons/md";
@@ -17,6 +40,8 @@ import { GrElevator } from "react-icons/gr";
 import { MdFreeBreakfast } from "react-icons/md";
 
 export default function SideBarFilter() {
+    const dispatch = useDispatch();
+
     const facilicitesSVG = {
         "swimming pool": <FaSwimmingPool />,
         "tea maker": <GiCoffeeCup />,
@@ -32,7 +57,24 @@ export default function SideBarFilter() {
         breakfast: <MdFreeBreakfast />,
     };
 
-    const { results } = useSelector((state) => state.searchRoom);
+    const facilitiesSetter = {
+        "swimming pool": setSwimmingPool,
+        "tea maker": setTeaMaker,
+        "prayer room": setPrayerRoom,
+        "ask inside room": setAskInsideRoom,
+        "free wifi": setFreeWifi,
+        pet: setPet,
+        game: setGame,
+        gym: setGym,
+        shopping: setShopping,
+        elevator: setElevator,
+        parking: setParking,
+        breakfast: setBreakfast,
+    };
+
+    const { filteredResults: results } = useSelector(
+        (state) => state.searchRoom
+    );
 
     return (
         <div className={styles.container}>
@@ -44,9 +86,21 @@ export default function SideBarFilter() {
                         Hotel Stars
                     </label>
                     <div class={styles["tab__content"]}>
-                        <CheckBox label={"3 Star hotel or less"} />
-                        <CheckBox label={"4 Star hotel"} />
-                        <CheckBox label={"5 Star hotel"} />
+                        <CheckBox
+                            setValue={setThreeStar}
+                            key={1}
+                            label={"3 Star hotel or less"}
+                        />
+                        <CheckBox
+                            setValue={setFourStar}
+                            key={2}
+                            label={"4 Star hotel"}
+                        />
+                        <CheckBox
+                            setValue={setFiveStar}
+                            key={3}
+                            label={"5 Star hotel"}
+                        />
                     </div>
                 </div>
                 <div class={styles.tab}>
@@ -59,7 +113,13 @@ export default function SideBarFilter() {
                             <span>
                                 <IoIosSearch />
                             </span>
-                            <input type="text" placeholder="Hotel name" />
+                            <input
+                                onChange={(e) =>
+                                    dispatch(setHotelName(e.target.value))
+                                }
+                                type="text"
+                                placeholder="Hotel name"
+                            />
                         </div>
                     </div>
                 </div>
@@ -69,11 +129,31 @@ export default function SideBarFilter() {
                         Price range
                     </label>
                     <div class={styles["tab__content"]}>
-                        <CheckBox label={"0 to 50$"} />
-                        <CheckBox label={"50$ to 100$"} />
-                        <CheckBox label={"100$ to 200$"} />
-                        <CheckBox label={"200$ to 500$"} />
-                        <CheckBox label={"500$ above"} />
+                        <CheckBox
+                            setValue={setFirstPrice}
+                            key={1}
+                            label={"0 to 50$"}
+                        />
+                        <CheckBox
+                            setValue={setSecondPrice}
+                            key={2}
+                            label={"50$ to 100$"}
+                        />
+                        <CheckBox
+                            setValue={setThirdPrice}
+                            key={3}
+                            label={"100$ to 200$"}
+                        />
+                        <CheckBox
+                            setValue={setFourthPrice}
+                            key={4}
+                            label={"200$ to 500$"}
+                        />
+                        <CheckBox
+                            setValue={setFifthPrice}
+                            key={5}
+                            label={"500$ above"}
+                        />
                     </div>
                 </div>
                 <div class={styles.tab}>
@@ -82,8 +162,13 @@ export default function SideBarFilter() {
                         Hotel facilities
                     </label>
                     <div class={styles["tab__content"]}>
-                        {Object.keys(facilicitesSVG).map((key) => (
-                            <CheckBox label={key} svg={facilicitesSVG[key]} />
+                        {Object.keys(facilicitesSVG).map((key, i) => (
+                            <CheckBox
+                                setValue={facilitiesSetter[key]}
+                                key={i}
+                                label={key}
+                                svg={facilicitesSVG[key]}
+                            />
                         ))}
                     </div>
                 </div>

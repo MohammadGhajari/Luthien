@@ -4,7 +4,8 @@ const initialState = {
     city: "",
     startDate: null,
     endDate: null,
-    results: null,
+    filteredResults: null,
+    rawResults: null,
 };
 const searchRoomSlice = createSlice({
     name: "searchRoom",
@@ -22,12 +23,21 @@ const searchRoomSlice = createSlice({
         setEndDate(state, action) {
             state.endDate = action.payload;
         },
-        setResults(state, action) {
-            state.results = action.payload;
+        setRawResults(state, action) {
+            state.rawResults = action.payload;
+        },
+        setFilteredResults(state, action) {
+            state.filteredResults = action.payload;
         },
     },
 });
-export const { setRooms, setCity, setStartDate, setEndDate, setResults } =
-    searchRoomSlice.actions;
+export const {
+    setRooms,
+    setCity,
+    setStartDate,
+    setEndDate,
+    setRawResults,
+    setFilteredResults,
+} = searchRoomSlice.actions;
 
 export default searchRoomSlice.reducer;

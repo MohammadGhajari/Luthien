@@ -1,7 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./../styles/checkbox.module.css";
-export default function CheckBox({ label, svg = <></> }) {
+import { useDispatch, useSelector } from "react-redux";
+import { filter } from "./../helper/filter";
+import { setFilteredResults } from "./../state management/searchRoomSlice";
+
+export default function CheckBox({ label, svg = <></>, setValue }) {
     const [checked, setChecked] = useState(false);
+    const dispatch = useDispatch();
+    const { rawResults } = useSelector((state) => state.searchRoom);
+    const filterObj = useSelector((state) => state.filter);
+
+    function handleClick() {
+        dispatch(setValue(!checked));
+
+        setChecked((checked) => !checked);
+    }
+    useEffect(() => {
+        const res = filter(rawResults, filterObj);
+        dispatch(setFilteredResults(res));
+    }, [filterObj]);
 
     return (
         <label className={styles["container-label"]} htmlFor="check">
@@ -10,7 +27,7 @@ export default function CheckBox({ label, svg = <></> }) {
                 <span>{label}</span>
             </span>
             <div
-                onClick={() => setChecked((checked) => !checked)}
+                onClick={handleClick}
                 id="check"
                 className={
                     styles["check-box-container"] +

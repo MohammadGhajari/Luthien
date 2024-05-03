@@ -1,10 +1,13 @@
 import styles from "./../styles/hotel-carts-container.module.css";
 import HotelCart from "./HotelCart";
 import { BsExclamationCircle } from "react-icons/bs";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function HotelCartsContainer() {
-    const { results, rooms } = useSelector((state) => state.searchRoom);
+    const { filteredResults: results, rooms } = useSelector(
+        (state) => state.searchRoom
+    );
+
     let adultsCount = 0;
     rooms.map((room) => {
         adultsCount += room.adults;

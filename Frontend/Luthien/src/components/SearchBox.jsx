@@ -5,8 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import {
     setStartDate,
     setEndDate,
-    setResults,
+    setRawResults,
+    setFilteredResults,
 } from "./../state management/searchRoomSlice";
+import { setNoFilters } from "./../state management/filterSlice";
 import { getSearchQuery } from "./../services/handleReqs.js";
 import toast from "react-hot-toast";
 import closableToast from "../components/notifications";
@@ -41,7 +43,9 @@ export default function SearchBox() {
             startDate,
             endDate
         );
-        dispatch(setResults(hotels));
+        dispatch(setFilteredResults(hotels));
+        dispatch(setRawResults(hotels));
+        dispatch(setNoFilters());
     }
 
     return (
