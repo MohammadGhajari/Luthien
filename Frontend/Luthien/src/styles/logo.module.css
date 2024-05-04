@@ -6,19 +6,19 @@
 
 .logo {
     position: relative;
-    margin-left: -5rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 }
 .logo-text {
-    
     position: absolute;
-    top: 66%;
-    left: 73%;
+    top: 67%;
+    left: 40%;
     transform: translate(-50%, -40%);
     font-size: 4rem;
     font-family: ringbearer;
     color: var(--color-primary);
 }
 .logo-svg {
-    width: 100%;
     height: 100%;
 }

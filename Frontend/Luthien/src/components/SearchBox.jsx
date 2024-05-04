@@ -7,6 +7,7 @@ import {
     setEndDate,
     setRawResults,
     setFilteredResults,
+    setLoading,
 } from "./../state management/searchRoomSlice";
 import { setNoFilters } from "./../state management/filterSlice";
 import { getSearchQuery } from "./../services/handleReqs.js";
@@ -36,6 +37,10 @@ export default function SearchBox() {
         if (!city) {
             return closableToast("Fill out the city field.");
         }
+        dispatch(setLoading(true));
+        dispatch(setFilteredResults(null));
+        dispatch(setRawResults(null));
+        dispatch(setNoFilters());
 
         const hotels = await getSearchQuery(
             city.toLowerCase(),
@@ -43,6 +48,7 @@ export default function SearchBox() {
             startDate,
             endDate
         );
+        dispatch(setLoading(false));
         dispatch(setFilteredResults(hotels));
         dispatch(setRawResults(hotels));
         dispatch(setNoFilters());

@@ -13,7 +13,11 @@ export default function Header() {
     return (
         <div className={styles.container}>
             <div className={styles.left}>
-                <Logo size={80} color={"var(--color-grey-3)"} />
+                <Logo
+                    size={80}
+                    color={"var(--color-grey-3)"}
+                    marginLeft="3rem"
+                />
                 <button className={styles["darkmode-btn"]}>
                     <FaRegMoon />
                 </button>

@@ -6,6 +6,7 @@ const initialState = {
     endDate: null,
     filteredResults: null,
     rawResults: null,
+    isLoading: false,
 };
 const searchRoomSlice = createSlice({
     name: "searchRoom",
@@ -29,6 +30,9 @@ const searchRoomSlice = createSlice({
         setFilteredResults(state, action) {
             state.filteredResults = action.payload;
         },
+        setLoading(state, action) {
+            state.isLoading = action.payload;
+        },
     },
 });
 export const {
@@ -38,6 +42,7 @@ export const {
     setEndDate,
     setRawResults,
     setFilteredResults,
+    setLoading,
 } = searchRoomSlice.actions;
 
 export default searchRoomSlice.reducer;

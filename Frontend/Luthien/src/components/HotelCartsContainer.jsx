@@ -4,9 +4,11 @@ import { BsExclamationCircle } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
 
 export default function HotelCartsContainer() {
-    const { filteredResults: results, rooms } = useSelector(
-        (state) => state.searchRoom
-    );
+    const {
+        filteredResults: results,
+        rooms,
+        rawResults,
+    } = useSelector((state) => state.searchRoom);
 
     let adultsCount = 0;
     rooms.map((room) => {
@@ -17,8 +19,8 @@ export default function HotelCartsContainer() {
         <div className={styles.container}>
             <header className={styles["container-header"]}>
                 <h3>
-                    {results[0]?.city.charAt(0).toUpperCase() +
-                        results[0]?.city.slice(1)}{" "}
+                    {rawResults[0]?.city.charAt(0).toUpperCase() +
+                        rawResults[0]?.city.slice(1)}{" "}
                     Hotels
                 </h3>
                 <div className={styles["sort-based"]}>

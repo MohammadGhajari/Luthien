@@ -21,6 +21,15 @@ const initialState = {
     parking: false,
     elevator: false,
     breakfast: false,
+    restaurant: false,
+    allHoursServices: false,
+    fireExtinguishing: false,
+    wallCloset: false,
+    helpBox: false,
+    partyServices: false,
+    taxi: false,
+    ATM: false,
+    library: false,
 };
 const filterSlice = createSlice({
     name: "filter",
@@ -89,6 +98,34 @@ const filterSlice = createSlice({
         setBreakfast(state, action) {
             state.breakfast = action.payload;
         },
+        setRestaurant(state, action) {
+            state.restaurant = action.payload;
+        },
+        setAllHoursServices(state, action) {
+            state.allHoursServices = action.payload;
+        },
+        setFireExtinguishing(state, action) {
+            state.fireExtinguishing = action.payload;
+        },
+        setWallCloset(state, action) {
+            state.wallCloset = action.payload;
+        },
+        setHelpBox(state, action) {
+            state.helpBox = action.payload;
+        },
+        setPartyServices(state, action) {
+            state.partyServices = action.payload;
+        },
+        setTaxi(state, action) {
+            state.taxi = action.payload;
+        },
+        setATM(state, action) {
+            state.ATM = action.payload;
+        },
+        setLibrary(state, action) {
+            state.library = action.payload;
+        },
+
         setNoFilters(state) {
             state.hotelName = "";
             state.threeStar = false;
@@ -111,6 +148,15 @@ const filterSlice = createSlice({
             state.parking = false;
             state.elevator = false;
             state.breakfast = false;
+            state.restaurant = false;
+            state.allHoursServices = false;
+            state.fireExtinguishing = false;
+            state.wallCloset = false;
+            state.helpBox = false;
+            state.partyServices = false;
+            state.taxi = false;
+            state.ATM = false;
+            state.library = false;
         },
     },
 });
@@ -137,6 +183,15 @@ export const {
     setParking,
     setBreakfast,
     setNoFilters,
+    setRestaurant,
+    setAllHoursServices,
+    setFireExtinguishing,
+    setWallCloset,
+    setHelpBox,
+    setPartyServices,
+    setATM,
+    setLibrary,
+    setTaxi,
 } = filterSlice.actions;
 
 export default filterSlice.reducer;

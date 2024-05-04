@@ -18,6 +18,16 @@ import { FaWifi } from "react-icons/fa";
 import { FaParking } from "react-icons/fa";
 import { GrElevator } from "react-icons/gr";
 import { MdFreeBreakfast } from "react-icons/md";
+import { MdOutlineRestaurant } from "react-icons/md";
+import { Ri24HoursFill } from "react-icons/ri";
+import { FaFireExtinguisher } from "react-icons/fa6";
+import { BiCloset } from "react-icons/bi";
+import { FaBriefcaseMedical } from "react-icons/fa";
+import { LuPartyPopper } from "react-icons/lu";
+import { FaTaxi } from "react-icons/fa";
+import { GrAtm } from "react-icons/gr";
+import { ImLibrary } from "react-icons/im";
+
 import { useState } from "react";
 
 export default function HotelCart({ res }) {
@@ -34,6 +44,15 @@ export default function HotelCart({ res }) {
         parking: <FaParking />,
         elevator: <GrElevator />,
         breakfast: <MdFreeBreakfast />,
+        restaurant: <MdOutlineRestaurant />,
+        "24 hours services": <Ri24HoursFill />,
+        "fire extinguishing": <FaFireExtinguisher />,
+        "wall closet": <BiCloset />,
+        "help box": <FaBriefcaseMedical />,
+        "party services": <LuPartyPopper />,
+        taxi: <FaTaxi />,
+        ATM: <GrAtm />,
+        library: <ImLibrary />,
     };
     const photoes = res.photos;
     const [currentPhoto, setCurrentPhoto] = useState(0);
@@ -66,7 +85,14 @@ export default function HotelCart({ res }) {
                 </div>
             </div>
             <div className={styles["middle-cart"]}>
-                <h3>{res.name}</h3>
+                <div className={styles["title-container"]}>
+                    <NavLink
+                        className={styles["title"]}
+                        to={`/hotels/${res._id}`}
+                    >
+                        {res.name}
+                    </NavLink>
+                </div>
                 <div className={styles["stars-container"]}>
                     <p>
                         <span>
@@ -98,7 +124,10 @@ export default function HotelCart({ res }) {
                     <span>1500</span>
                 </p>
                 <p>2 night, 1 adults</p>
-                <NavLink to={res._id} className={styles["view-btn"]}>
+                <NavLink
+                    to={`/hotels/${res._id}`}
+                    className={styles["view-btn"]}
+                >
                     View the rooms
                 </NavLink>
             </div>

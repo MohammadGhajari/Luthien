@@ -54,9 +54,35 @@ export function filter(raw, filters) {
                 filtered.push(hotel);
             if (filters.breakfast && hotel.facilities.includes("breakfast"))
                 filtered.push(hotel);
+            if (filters.restaurant && hotel.facilities.includes("restaurant"))
+                filtered.push(hotel);
+            if (
+                filters.allHoursServices &&
+                hotel.facilities.includes("all hours services")
+            )
+                filtered.push(hotel);
+            if (
+                filters.fireExtinguishing &&
+                hotel.facilities.includes("fire extinguishing")
+            )
+                filtered.push(hotel);
+            if (filters.wallCloset && hotel.facilities.includes("wall closet"))
+                filtered.push(hotel);
+            if (filters.helpBox && hotel.facilities.includes("help box"))
+                filtered.push(hotel);
+            if (
+                filters.partyServices &&
+                hotel.facilities.includes("party services")
+            )
+                filtered.push(hotel);
+            if (filters.taxi && hotel.facilities.includes("taxi"))
+                filtered.push(hotel);
+            if (filters.ATM && hotel.facilities.includes("ATM"))
+                filtered.push(hotel);
+            if (filters.library && hotel.facilities.includes("library"))
+                filtered.push(hotel);
         });
     }
 
-    // console.log(filtered);
     return filtered;
 }

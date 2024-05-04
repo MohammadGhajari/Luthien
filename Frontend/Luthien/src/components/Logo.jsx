@@ -1,12 +1,20 @@
 import styles from "./../styles/logo.module.css";
 import { NavLink } from "react-router-dom";
 
-export default function Logo({ color = "black", size = 100 }) {
+export default function Logo({
+    color = "black",
+    size = 100,
+    marginLeft = "0",
+}) {
     return (
         <NavLink to="/">
             <div
                 className={styles.logo}
-                style={{ width: `${size + 150}px`, height: `${size}px` }}
+                style={{
+                    width: `${size + 150}px`,
+                    height: `${size}px`,
+                    marginLeft,
+                }}
             >
                 <h1
                     style={{ color: color, fontSize: `${0.4 * size}px` }}

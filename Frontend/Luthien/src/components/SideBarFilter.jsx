@@ -24,6 +24,15 @@ import {
     setElevator,
     setParking,
     setBreakfast,
+    setRestaurant,
+    setAllHoursServices,
+    setFireExtinguishing,
+    setWallCloset,
+    setHelpBox,
+    setPartyServices,
+    setTaxi,
+    setATM,
+    setLibrary,
 } from "./../state management/filterSlice";
 
 import { MdOutlineSportsGymnastics } from "react-icons/md";
@@ -38,6 +47,15 @@ import { FaWifi } from "react-icons/fa";
 import { FaParking } from "react-icons/fa";
 import { GrElevator } from "react-icons/gr";
 import { MdFreeBreakfast } from "react-icons/md";
+import { MdOutlineRestaurant } from "react-icons/md";
+import { Ri24HoursFill } from "react-icons/ri";
+import { FaFireExtinguisher } from "react-icons/fa6";
+import { BiCloset } from "react-icons/bi";
+import { FaBriefcaseMedical } from "react-icons/fa";
+import { LuPartyPopper } from "react-icons/lu";
+import { FaTaxi } from "react-icons/fa";
+import { GrAtm } from "react-icons/gr";
+import { ImLibrary } from "react-icons/im";
 
 export default function SideBarFilter() {
     const dispatch = useDispatch();
@@ -55,6 +73,15 @@ export default function SideBarFilter() {
         parking: <FaParking />,
         elevator: <GrElevator />,
         breakfast: <MdFreeBreakfast />,
+        restaurant: <MdOutlineRestaurant />,
+        "24 hours services": <Ri24HoursFill />,
+        "fire extinguishing": <FaFireExtinguisher />,
+        "wall closet": <BiCloset />,
+        "help box": <FaBriefcaseMedical />,
+        "party services": <LuPartyPopper />,
+        taxi: <FaTaxi />,
+        ATM: <GrAtm />,
+        library: <ImLibrary />,
     };
 
     const facilitiesSetter = {
@@ -70,6 +97,15 @@ export default function SideBarFilter() {
         elevator: setElevator,
         parking: setParking,
         breakfast: setBreakfast,
+        restaurant: setRestaurant,
+        "all hours services": setAllHoursServices,
+        "fire extinguishing": setFireExtinguishing,
+        "wall closet": setWallCloset,
+        "help box": setHelpBox,
+        "party services": setPartyServices,
+        taxi: setTaxi,
+        ATM: setATM,
+        library: setLibrary,
     };
 
     const { filteredResults: results } = useSelector(

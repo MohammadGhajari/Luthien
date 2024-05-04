@@ -1,36 +1,43 @@
-@import './base.module.css';
+@import "./base.module.css";
 
 .hotel-cart {
-  background-color: var(--color-white-1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.2rem 2.8rem;
-  border-radius: var(--border-radius-md);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--color-grey-6);
-  width: 30%!important;
-  cursor: pointer;
-  transition: all 0.4s;
-  &:hover {
-    box-shadow: var(--shadow-md);
-  }
-  & div {
+    background-color: var(--color-white-1);
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 2.6rem;
-  }
+    gap: 1rem;
+    padding: 1.2rem 2.8rem;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-grey-6);
+    width: 31% !important;
+    cursor: pointer;
+    transition: all 0.4s;
+    &:hover {
+        box-shadow: var(--shadow-md);
+    }
+
+    & div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2.6rem;
+    }
+    & div span {
+        height: 6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 .hotel-cart h3 {
-  font-weight: 600;
-  color: var(--color-grey-3);
+    font-weight: 600;
+    color: var(--color-grey-3);
 }
 .hotel-cart span:last-child {
-  justify-self: flex-end;
-  & svg {
-    font-size: 3.6rem;
-    color: var(--color-grey-3);
-  }
+    justify-self: flex-end;
+    & svg {
+        font-size: 3.6rem;
+        color: var(--color-grey-3);
+    }
 }
