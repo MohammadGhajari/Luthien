@@ -20,7 +20,7 @@ export default function Home() {
                 rawResults.length === 0 ? (
                     <NoResult />
                 ) : (
-                    <SearchResults />
+                    <SearchResults filteredResults={filteredResults} />
                 )
             ) : (
                 ""

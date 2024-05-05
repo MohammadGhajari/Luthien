@@ -106,13 +106,17 @@ export default function HotelCart({ res }) {
                         ))}
                     </div>
                 </div>
-                <div className={styles["facilities"]}>
-                    {res.facilities.map((f) => (
-                        <p>
-                            <span>{facilicitesSVG[f]}</span>
-                            <span>{f}</span>
-                        </p>
-                    ))}
+                <div className={styles["amenities"]}>
+                    {res.amenities.map((f, i) =>
+                        i < 4 ? (
+                            <p>
+                                <span>{facilicitesSVG[f]}</span>
+                                <span>{f}</span>
+                            </p>
+                        ) : i === 4 ? (
+                            <p>...</p>
+                        ) : null
+                    )}
                 </div>
             </div>
             <div className={styles["price"]}>

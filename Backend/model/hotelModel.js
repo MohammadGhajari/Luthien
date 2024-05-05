@@ -65,7 +65,7 @@ const hotelSchema = mongoose.Schema(
     citySVG: {
       type: String,
     },
-    facilities: [
+    amenities: [
       {
         type: String,
         enum: [

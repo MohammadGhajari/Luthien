@@ -30,7 +30,7 @@
     ],
     "country": "france",
     "citySVG": "_DOMAIN_city-icons/paris.svg",
-    "facilities": ["gym", "shopping", "tea maker", "game", "pet", "free wifi"]
+    "amenities": ["gym", "shopping", "tea maker", "game", "pet", "free wifi"]
   },
   {
     "_id": "6612f80f382fe032c40e193b",
@@ -63,7 +63,7 @@
     ],
     "country": "iran",
     "citySVG": "_DOMAIN_city-icons/kish.svg",
-    "facilities": [
+    "amenities": [
       "prayer room",
       "breakfast",
       "elevator",
@@ -103,7 +103,7 @@
     ],
     "country": "iran",
     "citySVG": "_DOMAIN_city-icons/mashhad.svg",
-    "facilities": [
+    "amenities": [
       "pet",
       "gym",
       "shopping",
@@ -143,7 +143,7 @@
     ],
     "country": "azerbaijan",
     "citySVG": "_DOMAIN_city-icons/baku.svg",
-    "facilities": [
+    "amenities": [
       "prayer room",
       "breakfast",
       "parking",
@@ -187,7 +187,7 @@
     ],
     "country": "italy",
     "citySVG": "_DOMAIN_city-icons/rome.svg",
-    "facilities": [
+    "amenities": [
       "shopping",
       "prayer room",
       "tea maker",
@@ -227,7 +227,7 @@
     ],
     "country": "turkey",
     "citySVG": "_DOMAIN_city-icons/van.svg",
-    "facilities": ["gym", "tea maker", "ask inside room", "pet", "parking"]
+    "amenities": ["gym", "tea maker", "ask inside room", "pet", "parking"]
   },
   {
     "_id": "6612f80f382fe032c40e194d",
@@ -260,7 +260,7 @@
     ],
     "country": "france",
     "citySVG": "_DOMAIN_city-icons/paris.svg",
-    "facilities": [
+    "amenities": [
       "ask inside room",
       "game",
       "elevator",
@@ -304,7 +304,7 @@
     ],
     "country": "germany",
     "citySVG": "_DOMAIN_city-icons/amsterdam.svg",
-    "facilities": [
+    "amenities": [
       "breakfast",
       "tea maker",
       "prayer room",

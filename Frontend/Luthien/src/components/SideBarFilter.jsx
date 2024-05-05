@@ -84,7 +84,7 @@ export default function SideBarFilter() {
         library: <ImLibrary />,
     };
 
-    const facilitiesSetter = {
+    const amenitiesSetter = {
         "swimming pool": setSwimmingPool,
         "tea maker": setTeaMaker,
         "prayer room": setPrayerRoom,
@@ -195,12 +195,12 @@ export default function SideBarFilter() {
                 <div class={styles.tab}>
                     <input type="checkbox" name="accordion-3" id="cb5" />
                     <label for="cb5" class={styles["tab__label"]}>
-                        Hotel facilities
+                        Hotel amenities
                     </label>
                     <div class={styles["tab__content"]}>
                         {Object.keys(facilicitesSVG).map((key, i) => (
                             <CheckBox
-                                setValue={facilitiesSetter[key]}
+                                setValue={amenitiesSetter[key]}
                                 key={i}
                                 label={key}
                                 svg={facilicitesSVG[key]}

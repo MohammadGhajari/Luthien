@@ -26,60 +26,60 @@ export function filter(raw, filters) {
             }
             if (
                 filters.swimmingPool &&
-                hotel.facilities.includes("swimming pool")
+                hotel.amenities.includes("swimming pool")
             )
                 filtered.push(hotel);
-            if (filters.teaMaker && hotel.facilities.includes("tea maker"))
+            if (filters.teaMaker && hotel.amenities.includes("tea maker"))
                 filtered.push(hotel);
-            if (filters.prayerRoom && hotel.facilities.includes("prayer room"))
+            if (filters.prayerRoom && hotel.amenities.includes("prayer room"))
                 filtered.push(hotel);
             if (
                 filters.askInsideRoom &&
-                hotel.facilities.includes("ask inside room")
+                hotel.amenities.includes("ask inside room")
             )
                 filtered.push(hotel);
-            if (filters.freeWifi && hotel.facilities.includes("free wifi"))
+            if (filters.freeWifi && hotel.amenities.includes("free wifi"))
                 filtered.push(hotel);
-            if (filters.gym && hotel.facilities.includes("gym"))
+            if (filters.gym && hotel.amenities.includes("gym"))
                 filtered.push(hotel);
-            if (filters.pet && hotel.facilities.includes("pet"))
+            if (filters.pet && hotel.amenities.includes("pet"))
                 filtered.push(hotel);
-            if (filters.game && hotel.facilities.includes("game"))
+            if (filters.game && hotel.amenities.includes("game"))
                 filtered.push(hotel);
-            if (filters.shopping && hotel.facilities.includes("shopping"))
+            if (filters.shopping && hotel.amenities.includes("shopping"))
                 filtered.push(hotel);
-            if (filters.parking && hotel.facilities.includes("parking"))
+            if (filters.parking && hotel.amenities.includes("parking"))
                 filtered.push(hotel);
-            if (filters.elevator && hotel.facilities.includes("elevator"))
+            if (filters.elevator && hotel.amenities.includes("elevator"))
                 filtered.push(hotel);
-            if (filters.breakfast && hotel.facilities.includes("breakfast"))
+            if (filters.breakfast && hotel.amenities.includes("breakfast"))
                 filtered.push(hotel);
-            if (filters.restaurant && hotel.facilities.includes("restaurant"))
+            if (filters.restaurant && hotel.amenities.includes("restaurant"))
                 filtered.push(hotel);
             if (
                 filters.allHoursServices &&
-                hotel.facilities.includes("all hours services")
+                hotel.amenities.includes("all hours services")
             )
                 filtered.push(hotel);
             if (
                 filters.fireExtinguishing &&
-                hotel.facilities.includes("fire extinguishing")
+                hotel.amenities.includes("fire extinguishing")
             )
                 filtered.push(hotel);
-            if (filters.wallCloset && hotel.facilities.includes("wall closet"))
+            if (filters.wallCloset && hotel.amenities.includes("wall closet"))
                 filtered.push(hotel);
-            if (filters.helpBox && hotel.facilities.includes("help box"))
+            if (filters.helpBox && hotel.amenities.includes("help box"))
                 filtered.push(hotel);
             if (
                 filters.partyServices &&
-                hotel.facilities.includes("party services")
+                hotel.amenities.includes("party services")
             )
                 filtered.push(hotel);
-            if (filters.taxi && hotel.facilities.includes("taxi"))
+            if (filters.taxi && hotel.amenities.includes("taxi"))
                 filtered.push(hotel);
-            if (filters.ATM && hotel.facilities.includes("ATM"))
+            if (filters.ATM && hotel.amenities.includes("ATM"))
                 filtered.push(hotel);
-            if (filters.library && hotel.facilities.includes("library"))
+            if (filters.library && hotel.amenities.includes("library"))
                 filtered.push(hotel);
         });
     }

@@ -5,11 +5,8 @@ import { IoMdLogIn } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 import { BsExclamationCircle } from "react-icons/bs";
 import { FaQuestion } from "react-icons/fa6";
-import { useSelector } from "react-redux";
 
 export default function Header() {
-    const { FAQElement } = useSelector((state) => state.scroll);
-
     return (
         <div className={styles.container}>
             <div className={styles.left}>
@@ -30,15 +27,13 @@ export default function Header() {
                         <BsExclamationCircle />
                     </NavLink>
                     <span className={styles.divider}></span>
-                    <NavLink
-                        onClick={() =>
-                            FAQElement.scrollIntoView({ behavior: "smooth" })
-                        }
+                    <a
+                        href="#faq"
                         className={`${styles["faq-btn"]} ${styles["nav-btn"]}`}
                     >
                         <span>FAQ</span>
                         <FaQuestion />
-                    </NavLink>
+                    </a>
                 </div>
             </div>
             <div className={styles.right}>

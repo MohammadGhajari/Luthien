@@ -1,21 +1,22 @@
-@import './base.module.css';
+@import "./base.module.css";
 
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.2rem;  
-  margin-top: 15rem;
-  color: var(--color-grey-4);
-  font-size: 3rem;
-  
-  & span {
     display: flex;
     justify-content: center;
-    align-items: center;
-    
-    & svg {
-      font-size: 4rem;
+    align-items: flex-start;
+    gap: 1.2rem;
+    margin-top: 15rem;
+    color: var(--color-grey-4);
+    font-size: 3rem;
+    width: 100%;
+
+    & span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & svg {
+            font-size: 4rem;
+        }
     }
-  }
 }
