@@ -31,7 +31,7 @@ import { ImLibrary } from "react-icons/im";
 import { useState } from "react";
 
 export default function HotelCart({ res }) {
-    const facilicitesSVG = {
+    const amenitiesSVG = {
         "swimming pool": <FaSwimmingPool />,
         "tea maker": <GiCoffeeCup />,
         "prayer room": <FaPersonPraying />,
@@ -110,7 +110,7 @@ export default function HotelCart({ res }) {
                     {res.amenities.map((f, i) =>
                         i < 4 ? (
                             <p>
-                                <span>{facilicitesSVG[f]}</span>
+                                <span>{amenitiesSVG[f]}</span>
                                 <span>{f}</span>
                             </p>
                         ) : i === 4 ? (

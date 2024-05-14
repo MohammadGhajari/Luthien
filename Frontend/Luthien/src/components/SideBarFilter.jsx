@@ -60,7 +60,7 @@ import { ImLibrary } from "react-icons/im";
 export default function SideBarFilter() {
     const dispatch = useDispatch();
 
-    const facilicitesSVG = {
+    const amenitiesSVG = {
         "swimming pool": <FaSwimmingPool />,
         "tea maker": <GiCoffeeCup />,
         "prayer room": <FaPersonPraying />,
@@ -198,12 +198,12 @@ export default function SideBarFilter() {
                         Hotel amenities
                     </label>
                     <div class={styles["tab__content"]}>
-                        {Object.keys(facilicitesSVG).map((key, i) => (
+                        {Object.keys(amenitiesSVG).map((key, i) => (
                             <CheckBox
                                 setValue={amenitiesSetter[key]}
                                 key={i}
                                 label={key}
-                                svg={facilicitesSVG[key]}
+                                svg={amenitiesSVG[key]}
                             />
                         ))}
                     </div>

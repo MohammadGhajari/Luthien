@@ -6,7 +6,7 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 export default function HotelOverview() {
     return (
-        <div className={styles["overview-container"]}>
+        <div id="hotel-overview" className={styles["overview-container"]}>
             <div className={styles["overview-header"]}>
                 <button>
                     <IoArrowBackOutline />
@@ -26,13 +26,13 @@ export default function HotelOverview() {
                 <img src="./../../public/sample data/1.jpeg" alt="photo" />
             </div>
             <div className={styles["navbar"]}>
-                <a href="#">Overview</a>
-                <a href="#">Amenities</a>
-                <a href="#">Location</a>
-                <a href="#">Rooms</a>
-                <a href="#">Accessibility</a>
-                <a href="#">Policies</a>
-                <a href="#">Reviews</a>
+                <a href="#hotel-overview">Overview</a>
+                <a href="#hotel-amenities">Amenities</a>
+                <a href="#hotel-location">Location</a>
+                <a href="#hotel-rooms">Rooms</a>
+                <a href="#hotel-accessibility">Accessibility</a>
+                <a href="#hotel-policy">Policies</a>
+                <a href="#hotel-reviews">Reviews</a>
             </div>
             <div className={styles["hotel-description"]}>
                 <h1>Hotel Name</h1>
@@ -50,7 +50,7 @@ export default function HotelOverview() {
                     <span>4.3</span>
                     {/*score > 4 color green, 3 < score < 4 color yellow score < 3 color red*/}
                     <label>Awsome</label>
-                    <a href="#">
+                    <a href="#hotel-reviews">
                         <span>See all 152 reviews</span>{" "}
                         <span>
                             <MdOutlineKeyboardArrowRight />
