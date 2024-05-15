@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.4rem;
+    width: 80%;
+}
+.reviews-container {
+    width: 100%;
+    background-color: red !important;
+    position: relative;
+    display: flex;
+    gap: 2.6rem;
+    height: 40rem;
+    overflow: hidden;
+
+    & > div:first-child {
+        left: 0;
+        background-color: aqua;
+    }
+    & > div:nth-child(2) {
+        transform: translate(100%, 0);
+    }
+    & > div:nth-child(3) {
+        transform: translate(200%, 0);
+    }
+    & > div:nth-child(4) {
+        transform: translate(300%, 0);
+    }
+}

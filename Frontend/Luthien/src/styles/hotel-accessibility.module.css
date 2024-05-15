@@ -1,0 +1,31 @@
+@import "./base.module.css";
+
+.container {
+    display: flex;
+    width: 80%;
+    gap: 10rem;
+    margin-top: 4.8rem;
+    color: var(--color-grey-2);
+    & > div {
+        display: flex;
+        flex-direction: column;
+        width: 25%;
+        gap: 1.2rem;
+        & p {
+            font-size: 1.4rem;
+            line-height: 2;
+        }
+    }
+    h1,
+    h2 {
+        color: var(--color-grey-2);
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        & span:first-child {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

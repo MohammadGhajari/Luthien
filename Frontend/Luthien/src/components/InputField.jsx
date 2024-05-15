@@ -11,6 +11,7 @@ export default function InputField({
     left,
     width = 20,
     height,
+    color = "white",
 }) {
     const { rooms } = useSelector((state) => state.searchRoom);
     const [inputValue, setInputValue] = useState(
@@ -54,7 +55,11 @@ export default function InputField({
                 className={`${styles["input-label"]} ${
                     inputValue ? styles["has-value"] : ""
                 }`}
-                style={{ top: `${top}%`, left: `${left}%` }}
+                style={{
+                    top: `${top}%`,
+                    left: `${left}%`,
+                    backgroundColor: color,
+                }}
                 htmlFor={randomID}
             >
                 {placeholder}
@@ -68,6 +73,7 @@ export default function InputField({
                 }
                 value={placeholder === "Passengers" ? inputValue : undefined}
                 id={randomID}
+                style={{ backgroundColor: color }}
             />
 
             {placeholder === "Passengers" && (
