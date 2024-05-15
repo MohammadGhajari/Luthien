@@ -2,7 +2,7 @@ import styles from "./../styles/hotel-rooms.module.css";
 import InputField from "./InputField";
 import RoomCart from "./RoomCart";
 
-export default function HotelRooms() {
+export default function HotelRooms({ rooms, amenities }) {
     return (
         <div id="hotel-rooms" className={styles["container"]}>
             <h1>Choose your room</h1>
@@ -29,12 +29,15 @@ export default function HotelRooms() {
                 />
             </div>
             <div className={styles["room-carts-container"]}>
-                <RoomCart />
-                <RoomCart />
-                <RoomCart />
-                <RoomCart />
-                <RoomCart />
-                <RoomCart />
+                {rooms.map((room) => (
+                    <RoomCart
+                        amenities={amenities}
+                        price={room.price}
+                        discount={room.priceDiscount}
+                        number={room.roomNumber}
+                        photos={room.photos}
+                    />
+                ))}
             </div>
         </div>
     );

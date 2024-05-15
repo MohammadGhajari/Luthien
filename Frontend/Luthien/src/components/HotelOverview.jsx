@@ -4,7 +4,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { IoStar } from "react-icons/io5";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
-export default function HotelOverview() {
+export default function HotelOverview({ name, stars, ratings, desc }) {
     return (
         <div id="hotel-overview" className={styles["overview-container"]}>
             <div className={styles["overview-header"]}>
@@ -35,21 +35,36 @@ export default function HotelOverview() {
                 <a href="#hotel-reviews">Reviews</a>
             </div>
             <div className={styles["hotel-description"]}>
-                <h1>Hotel Name</h1>
+                <h1>{name}</h1>
                 <div className={styles["hotel-stars"]}>
                     <IoStar />
                     <IoStar />
                     <IoStar />
                     <IoStar />
                 </div>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Nobis deserunt facilis perspiciatis
-                </p>
+                <p>{desc}</p>
                 <div className={styles["hotel-score-container"]}>
-                    <span>4.3</span>
-                    {/*score > 4 color green, 3 < score < 4 color yellow score < 3 color red*/}
-                    <label>Awsome</label>
+                    <span
+                        style={{
+                            backgroundColor: `${
+                                ratings >= 4
+                                    ? "#35c709c8"
+                                    : ratings >= 3 && ratings < 4
+                                    ? "#d7d70dcb"
+                                    : "#ec2c12ca"
+                            }`,
+                        }}
+                    >
+                        {ratings}
+                    </span>
+
+                    <label>
+                        {ratings >= 4
+                            ? "Awsom"
+                            : ratings >= 3 && ratings < 4
+                            ? "Good"
+                            : "Not bad"}
+                    </label>
                     <a href="#hotel-reviews">
                         <span>See all 152 reviews</span>{" "}
                         <span>

@@ -7,15 +7,18 @@ import { FaLocationDot } from "react-icons/fa6";
 
 export default function HotelLocation({
     position = { lat: 36.2972, lng: 59.6067 },
+    location,
+    impVicPlace,
 }) {
     const mapRef = useRef();
+
     return (
         <div id="hotel-location" className={styles.container}>
             <h1>Check out the area</h1>
             <div className={styles["map"]}>
                 <div className={styles["map-container"]}>
                     <MapContainer
-                        center={position}
+                        center={location}
                         zoom={16}
                         ref={mapRef}
                         style={{
@@ -28,7 +31,7 @@ export default function HotelLocation({
                             url={osm.maptiler.url}
                             attribution={osm.maptiler.attribution}
                         />
-                        <Marker position={position}>
+                        <Marker position={location}>
                             <Popup>
                                 <span style={{ fontSize: "1.4rem" }}>
                                     Hotel Name
@@ -38,24 +41,19 @@ export default function HotelLocation({
                     </MapContainer>
                 </div>
                 <ul className={styles["vicinity-container"]}>
-                    <li>
-                        <span className={styles["icon"]}>
-                            <span>
-                                <FaLocationDot />
+                    {impVicPlace.map((p) => (
+                        <li>
+                            <span className={styles["icon"]}>
+                                <span>
+                                    <FaLocationDot />
+                                </span>
+                                <span>{p.name}</span>
                             </span>
-                            <span>Broadway</span>
-                        </span>
-                        <span>2 min walk</span>
-                    </li>
-                    <li>
-                        <span className={styles["icon"]}>
                             <span>
-                                <FaLocationDot />
+                                {p.distance}km, {p.time} min walk
                             </span>
-                            <span>Broadway</span>
-                        </span>
-                        <span>2 min walk</span>
-                    </li>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </div>

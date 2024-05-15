@@ -8,6 +8,10 @@
     "city": "paris",
     "description": "Step back in time at our elegant historic manor.",
     "address": "789 Abbey Road",
+    "location": {
+      "lat": 48.85535,
+      "lng": 2.359611
+    },
     "phone": "+442071234567",
     "cover": "_DOMAIN_hotels/covers/historic-manor.jpg",
     "photos": [
@@ -41,6 +45,10 @@
     "city": "kish",
     "description": "Embark on an unforgettable safari adventure from our lodge.",
     "address": "123 Safari Road",
+    "location": {
+      "lat": 26.554003,
+      "lng": 54.021257
+    },
     "phone": "+254712345678",
     "cover": "_DOMAIN_hotels/covers/safari-ledge.jpg",
     "photos": [
@@ -81,6 +89,10 @@
     "city": "mashhad",
     "description": "Experience luxury in the heart of the Indian Ocean.",
     "address": "789 Paradise Island",
+    "location": {
+      "lat": 36.295041,
+      "lng": 59.608789
+    },
     "phone": "+960987654321",
     "cover": "_DOMAIN_hotels/covers/island-paradise-resort.jpg",
     "photos": [
@@ -121,6 +133,10 @@
     "city": "baku",
     "description": "Enjoy a cozy retreat in the Swiss Alps.",
     "address": "321 Mountain Road",
+    "location": {
+      "lat": 40.377132,
+      "lng": 49.868081
+    },
     "phone": "+41781234567",
     "cover": "_DOMAIN_hotels/covers/alpine-retreat.jpg",
     "photos": [
@@ -165,6 +181,10 @@
     "city": "rome",
     "description": "Relax and rejuvenate at our serene coastal retreat.",
     "address": "456 Coastal Drive",
+    "location": {
+      "lat": 41.90975,
+      "lng": 12.452829
+    },
     "phone": "+61234567890",
     "cover": "_DOMAIN_hotels/covers/coastal-retread.jpg",
     "photos": [
@@ -205,6 +225,10 @@
     "city": "van",
     "description": "Escape to nature at our charming rustic cabins.",
     "address": "123 Forest Lane",
+    "location": {
+      "lat": 38.522981,
+      "lng": 43.319079
+    },
     "phone": "+13031234567",
     "cover": "_DOMAIN_hotels/covers/rustic-cabin-retreat.jpg",
     "photos": [
@@ -238,6 +262,10 @@
     "city": "paris",
     "description": "Discover Parisian charm at our boutique hotel in the city center.",
     "address": "789 Rue de la Paix",
+    "location": {
+      "lat": 48.862186,
+      "lng": 2.305302
+    },
     "phone": "+33123456789",
     "cover": "_DOMAIN_hotels/covers/city-center-boutique-hotel.jpg",
     "photos": [
@@ -282,6 +310,10 @@
     "city": "amsterdam",
     "description": "Experience the ultimate luxury in a tropical paradise.",
     "address": "123 Palm Tree Lane",
+    "location": {
+      "lat": 52.383011,
+      "lng": 4.924365
+    },
     "phone": "+68912345678",
     "cover": "_DOMAIN_hotels/covers/tropical-paradise-resort.jpg",
     "photos": [

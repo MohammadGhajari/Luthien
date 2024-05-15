@@ -22,7 +22,7 @@ import { FaTaxi } from "react-icons/fa";
 import { GrAtm } from "react-icons/gr";
 import { ImLibrary } from "react-icons/im";
 
-export default function HotelAmenities() {
+export default function HotelAmenities({ amenities }) {
     const amenitiesSVG = {
         "swimming pool": <FaSwimmingPool />,
         "tea maker": <GiCoffeeCup />,
@@ -51,34 +51,12 @@ export default function HotelAmenities() {
         <div id="hotel-amenities" className={styles.container}>
             <h1>Popular amenities</h1>
             <div className={styles.content}>
-                <p>
-                    <span>{amenitiesSVG["swimming pool"]}</span>
-                    <span>{"swimming pool"}</span>
-                </p>
-                <p>
-                    <span>{amenitiesSVG["gym"]}</span>
-                    <span>{"gym"}</span>
-                </p>
-                <p>
-                    <span>{amenitiesSVG["game"]}</span>
-                    <span>{"game"}</span>
-                </p>
-                <p>
-                    <span>{amenitiesSVG["tea maker"]}</span>
-                    <span>{"fire extinguishing"}</span>
-                </p>
-                <p>
-                    <span>{amenitiesSVG["shopping"]}</span>
-                    <span>{"shopping"}</span>
-                </p>
-                <p>
-                    <span>{amenitiesSVG["library"]}</span>
-                    <span>{"library"}</span>
-                </p>
-                <p>
-                    <span>{amenitiesSVG["library"]}</span>
-                    <span>{"library"}</span>
-                </p>
+                {amenities?.map((amenity) => (
+                    <p>
+                        <span>{amenitiesSVG[amenity]}</span>
+                        <span>{amenity}</span>
+                    </p>
+                ))}
             </div>
         </div>
     );

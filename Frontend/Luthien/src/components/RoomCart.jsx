@@ -24,7 +24,13 @@ import { FaTaxi } from "react-icons/fa";
 import { GrAtm } from "react-icons/gr";
 import { ImLibrary } from "react-icons/im";
 
-export default function RoomCart() {
+export default function RoomCart({
+    price,
+    discount,
+    photos,
+    number,
+    amenities,
+}) {
     const amenitiesSVG = {
         "swimming pool": <FaSwimmingPool />,
         "tea maker": <GiCoffeeCup />,
@@ -80,25 +86,19 @@ export default function RoomCart() {
                 </div>
             </div>
             <div className={styles["amenities"]}>
-                <p>
-                    <span>{amenitiesSVG["swimming pool"]}</span>
-                    <span>{"swimming pool"}</span>
-                </p>
-                <p>
-                    <span>{amenitiesSVG["tea maker"]}</span>
-                    <span>{"tea maker"}</span>
-                </p>
-                <p>
-                    <span>{amenitiesSVG["game"]}</span>
-                    <span>{"game"}</span>
-                </p>
-                <p>
-                    <span>{amenitiesSVG["gym"]}</span>
-                    <span>{"gym"}</span>
-                </p>
+                {amenities.map((am, i) =>
+                    i <= 3 ? (
+                        <p>
+                            <span>{amenitiesSVG[am]}</span>
+                            <span>{am}</span>
+                        </p>
+                    ) : (
+                        i === 4 && "..."
+                    )
+                )}
             </div>
             <p>
-                <span>$ 235</span> <span>per night</span>
+                <span>$ {price}</span> <span>per night</span>
             </p>
             <button>Reserve</button>
         </div>

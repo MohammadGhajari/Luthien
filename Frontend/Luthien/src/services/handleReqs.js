@@ -61,6 +61,7 @@ export async function getSearchQuery(city, rooms, startDate, endDate) {
     const res = await axios.post(`${domain}/api/hotels/search-query`, data);
     return res.data.data;
 }
+
 export async function getDomesticHotels() {
     const res = await axios.get(`${domain}/api/hotels?country=iran`);
     return res.data.data;
@@ -68,5 +69,10 @@ export async function getDomesticHotels() {
 
 export async function getForeignHotels() {
     const res = await axios.get(`${domain}/api/hotels?country[ne]=iran`);
+    return res.data.data;
+}
+
+export async function getHotelById(id) {
+    const res = await axios.get(`${domain}/api/hotels?_id=${id}`);
     return res.data.data;
 }

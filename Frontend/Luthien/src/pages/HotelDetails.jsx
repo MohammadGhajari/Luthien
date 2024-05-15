@@ -7,20 +7,55 @@ import HotelRooms from "../components/HotelRooms";
 import HotelAccessibility from "../components/HotelAccessibility";
 import HotelPolicy from "../components/HotelPolicy";
 import HotelReveiews from "../components/HotelReviews";
+import { getHotelById } from "../services/handleReqs";
+import { useState, useEffect } from "react";
 
 export default function HotelDetails() {
     const { hotelID } = useParams();
     console.log(hotelID);
+    const [isLoading, setIsloading] = useState(true);
+
+    const [hotel, setHotel] = useState({});
+
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                setIsloading(true);
+                const res = await getHotelById(hotelID);
+                console.log(res[0]);
+                setHotel(res[0]);
+                setIsloading(false);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+        fetchData();
+    }, []);
 
     return (
         <div className={styles["container"]}>
-            <HotelOverview />
-            <HotelAmenities />
-            <HotelLocation />
-            <HotelRooms />
-            <HotelAccessibility />
-            <HotelPolicy />
-            <HotelReveiews />
+            {!isLoading && (
+                <>
+                    <HotelOverview
+                        name={hotel?.name}
+                        stars={hotel.stars}
+                        desc={hotel.description}
+                        ratings={hotel.ratingsAverage}
+                    />
+                    <HotelAmenities amenities={hotel.amenities} />
+                    <HotelLocation
+                        location={hotel.location}
+                        impVicPlace={hotel.importantVicinityPlaces}
+                    />
+                    <HotelRooms
+                        rooms={hotel.rooms}
+                        amenities={hotel.amenities}
+                    />
+                    <HotelAccessibility />
+                    <HotelPolicy />
+                    <HotelReveiews />
+                </>
+            )}
         </div>
     );
 }

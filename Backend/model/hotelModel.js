@@ -31,6 +31,10 @@ const hotelSchema = mongoose.Schema(
       type: String,
       required: [true, 'a hotel must have an address.'],
     },
+    location: {
+      lat: Number,
+      lng: Number,
+    },
     phone: {
       type: String,
     },
