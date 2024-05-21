@@ -8,14 +8,29 @@ import HotelAccessibility from "../components/HotelAccessibility";
 import HotelPolicy from "../components/HotelPolicy";
 import HotelReveiews from "../components/HotelReviews";
 import { getHotelById } from "../services/handleReqs";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function HotelDetails() {
     const { hotelID } = useParams();
-    console.log(hotelID);
     const [isLoading, setIsloading] = useState(true);
 
     const [hotel, setHotel] = useState({});
+
+    const [scrollPosition, setScrollPosition] = useState(0);
+
+    const handleScroll = () => {
+        const position = window.pageYOffset;
+        setScrollPosition(position);
+        console.log(position);
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll, { passive: true });
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
     useEffect(() => {
         async function fetchData() {
@@ -36,6 +51,77 @@ export default function HotelDetails() {
         <div className={styles["container"]}>
             {!isLoading && (
                 <>
+                    <div className={styles["navbar"]}>
+                        <div className={styles["content"]}>
+                            <a
+                                className={
+                                    scrollPosition < 832 && styles["selected"]
+                                }
+                                href="#hotel-overview"
+                            >
+                                Overview
+                            </a>
+                            <a
+                                className={
+                                    scrollPosition >= 832 &&
+                                    scrollPosition < 1010 &&
+                                    styles["selected"]
+                                }
+                                href="#hotel-amenities"
+                            >
+                                Amenities
+                            </a>
+                            <a
+                                className={
+                                    scrollPosition >= 1010 &&
+                                    scrollPosition < 1420 &&
+                                    styles["selected"]
+                                }
+                                href="#hotel-location"
+                            >
+                                Location
+                            </a>
+                            <a
+                                className={
+                                    scrollPosition >= 1420 &&
+                                    scrollPosition < 2255 &&
+                                    styles["selected"]
+                                }
+                                href="#hotel-rooms"
+                            >
+                                Rooms
+                            </a>
+                            <a
+                                className={
+                                    scrollPosition >= 2255 &&
+                                    scrollPosition < 2825 &&
+                                    styles["selected"]
+                                }
+                                href="#hotel-accessibility"
+                            >
+                                Accessibility
+                            </a>
+                            <a
+                                className={
+                                    scrollPosition >= 2825 &&
+                                    scrollPosition < 3575 &&
+                                    styles["selected"]
+                                }
+                                href="#hotel-policy"
+                            >
+                                Policies
+                            </a>
+                            <a
+                                className={
+                                    scrollPosition >= 3575 && styles["selected"]
+                                }
+                                href="#hotel-reviews"
+                            >
+                                Reviews
+                            </a>
+                        </div>
+                    </div>
+
                     <HotelOverview
                         name={hotel?.name}
                         stars={hotel.stars}

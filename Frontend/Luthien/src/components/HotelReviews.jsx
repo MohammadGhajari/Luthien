@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./../styles/hotel-reviews.module.css";
 import ReviewCart from "./ReviewCart";
+import { MdKeyboardArrowRight, MdKeyboardArrowLeft } from "react-icons/md";
 
 export default function HotelPolicy() {
     const [reviews, setReviews] = useState([
@@ -80,8 +81,12 @@ export default function HotelPolicy() {
                 ))}
             </div>
             <div className={styles["pagination"]}>
-                <button onClick={handlePrev}>-</button>
-                <button onClick={handleNext}>+</button>
+                <button onClick={handlePrev}>
+                    <MdKeyboardArrowLeft />
+                </button>
+                <button onClick={handleNext}>
+                    <MdKeyboardArrowRight />
+                </button>
             </div>
         </div>
     );

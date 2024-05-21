@@ -3,6 +3,7 @@
     flex-direction: column;
     gap: 1.8rem;
     width: 80%;
+    padding-top: 5rem;
 
     & h1 {
         font-size: 2.4rem;

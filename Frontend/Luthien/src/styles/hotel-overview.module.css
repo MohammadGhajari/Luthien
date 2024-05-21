@@ -6,7 +6,6 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    /* background-color: #d7d70dcb */
 }
 .overview-header {
     display: flex;
@@ -68,14 +67,6 @@
     }
 }
 
-.navbar {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    gap: 1.2rem;
-    padding: 1.4rem 0;
-    border-bottom: 1px solid var(--color-grey-5);
-}
 .hotel-description {
     width: 100%;
     padding: 1.2rem 0;

@@ -4,7 +4,7 @@ import { GrFormNext } from "react-icons/gr";
 
 import { MdOutlineSportsGymnastics } from "react-icons/md";
 import { MdPets } from "react-icons/md";
-import { IoGameController } from "react-icons/io5";
+import { IoDiscOutline, IoGameController } from "react-icons/io5";
 import { FaSwimmingPool } from "react-icons/fa";
 import { GiCoffeeCup } from "react-icons/gi";
 import { FaShoppingBag } from "react-icons/fa";
@@ -23,6 +23,7 @@ import { LuPartyPopper } from "react-icons/lu";
 import { FaTaxi } from "react-icons/fa";
 import { GrAtm } from "react-icons/gr";
 import { ImLibrary } from "react-icons/im";
+import { useState } from "react";
 
 export default function RoomCart({
     price,
@@ -55,30 +56,29 @@ export default function RoomCart({
         library: <ImLibrary />,
     };
 
+    const [currentPhoto, setCurrentPhoto] = useState(0);
+
     return (
         <div className={styles["container"]}>
             <div className={styles["slideshow"]}>
                 <div>
                     <button
-                        // onClick={() =>
-                        //     setCurrentPhoto(
-                        //         Math.abs((currentPhoto - 1) % photoes.length)
-                        //     )
-                        // }
+                        onClick={() =>
+                            setCurrentPhoto(
+                                Math.abs((currentPhoto - 1) % photos.length)
+                            )
+                        }
                         className={styles["prev"]}
                     >
                         <GrFormPrevious />
                     </button>
                 </div>
-                <img
-                    src={"./../../public/sample data/1.jpeg"}
-                    alt={"hskdfjl"}
-                />
+                <img src={photos[currentPhoto]} alt={`room ${number}`} />
                 <div>
                     <button
-                        // onClick={() =>
-                        //     setCurrentPhoto((currentPhoto + 1) % photoes.length)
-                        // }
+                        onClick={() =>
+                            setCurrentPhoto((currentPhoto + 1) % photos.length)
+                        }
                         className={styles["next"]}
                     >
                         <GrFormNext />
@@ -97,8 +97,36 @@ export default function RoomCart({
                     )
                 )}
             </div>
+            <p className={styles["room-number"]}>
+                Room number: <strong>{number}</strong>
+            </p>
             <p>
-                <span>$ {price}</span> <span>per night</span>
+                {discount ? (
+                    <>
+                        <span>
+                            ${price} ${price - discount}
+                        </span>{" "}
+                        <span>per night</span>
+                        <span
+                            className={
+                                styles["discount-line"] +
+                                " " +
+                                styles["discount-line-1"]
+                            }
+                        ></span>
+                        <span
+                            className={
+                                styles["discount-line"] +
+                                " " +
+                                styles["discount-line-2"]
+                            }
+                        ></span>
+                    </>
+                ) : (
+                    <>
+                        <span>$ {price}</span> <span>per night</span>
+                    </>
+                )}
             </p>
             <button>Reserve</button>
         </div>

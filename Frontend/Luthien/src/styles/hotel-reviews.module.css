@@ -1,9 +1,17 @@
 .container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     gap: 2.4rem;
     width: 80%;
+    padding-top: 5rem;
+
+    & h1 {
+        align-self: flex-start;
+        margin-left: 1.8rem;
+        color: var(--color-grey-3);
+    }
 }
 .reviews-container {
     width: 100%;
@@ -13,4 +21,23 @@
     height: 40rem;
     overflow: hidden;
     transition: all 0.3s;
+}
+
+.pagination {
+    display: flex;
+    gap: 1.8rem;
+
+    & button {
+        background-color: var(--color-white-2);
+        border: none;
+        outline: none;
+        font-size: 3.2rem;
+        border-radius: 100%;
+        color: var(--color-grey-4);
+        padding: 0.6rem;
+
+        &:hover {
+            background-color: var(--color-white-3);
+        }
+    }
 }

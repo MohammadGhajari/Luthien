@@ -25,15 +25,7 @@ export default function HotelOverview({ name, stars, ratings, desc }) {
                 <img src="./../../public/sample data/4.jpeg" alt="photo" />
                 <img src="./../../public/sample data/1.jpeg" alt="photo" />
             </div>
-            <div className={styles["navbar"]}>
-                <a href="#hotel-overview">Overview</a>
-                <a href="#hotel-amenities">Amenities</a>
-                <a href="#hotel-location">Location</a>
-                <a href="#hotel-rooms">Rooms</a>
-                <a href="#hotel-accessibility">Accessibility</a>
-                <a href="#hotel-policy">Policies</a>
-                <a href="#hotel-reviews">Reviews</a>
-            </div>
+
             <div className={styles["hotel-description"]}>
                 <h1>{name}</h1>
                 <div className={styles["hotel-stars"]}>

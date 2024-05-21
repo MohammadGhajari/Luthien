@@ -10,6 +10,9 @@
     width: 32%;
     background-color: var(--color-white-1);
     box-shadow: var(--shadow-sm);
+    & .room-number {
+        font-size: 1.8rem;
+    }
 }
 
 .slideshow {
@@ -18,7 +21,7 @@
     border-radius: var(--border-radius-md);
     & img {
         width: 100%;
-        height: 100%;
+        height: 25rem;
         border-top-left-radius: var(--border-radius-md);
         border-top-right-radius: var(--border-radius-md);
         filter: brightness(80%);
@@ -81,6 +84,7 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 0.6rem;
+    font-size: 1.4rem;
 
     & p {
         display: flex;
@@ -102,6 +106,22 @@
     justify-content: flex-start;
     align-items: center;
     gap: 0.8rem;
+    position: relative;
+
+    & .discount-line {
+        width: 3rem;
+        height: 2px;
+        left: 6%;
+        background-color: var(--color-danger);
+        position: absolute;
+    }
+    & .discount-line-1 {
+        rotate: 45deg;
+    }
+    & .discount-line-2 {
+        rotate: -45deg;
+    }
+
     & span:first-child {
         color: var(--color-grey-3);
         font-size: 1.8rem;

@@ -2,10 +2,10 @@
 
 .container {
     width: 80%;
-    /* background-color: red; */
     display: flex;
     flex-direction: column;
     gap: 1.8rem;
+    padding-top: 5rem;
     & h1 {
         font-size: 2.4rem;
         font-weight: 600;
