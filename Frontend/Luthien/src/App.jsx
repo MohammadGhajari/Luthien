@@ -1,14 +1,12 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
 import HotelDetails from "./pages/HotelDetails";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./components/AppLayout";
 import Home from "./pages/Home";
-// import { getTrendings } from "./services/handleReqs";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
     return (
@@ -27,27 +25,20 @@ function App() {
                     <Route path="*" element={<PageNotFound />} />
                 </Routes>
             </BrowserRouter>
-            <Toaster
-                position={"top-right"}
-                gutter={12}
-                containerStyle={{ margin: "8px" }}
-                toastOptions={{
-                    success: {
-                        duration: 2000,
-                    },
-                    error: {
-                        duration: 2000,
-                    },
-                    style: {
-                        fontSize: "16px",
-                        maxWidth: "500px",
-                        padding: "12px 24px",
-                        backgroundColor: "$--color-primary",
-                        color: "var(--color-grey-4)",
-                    },
-                }}
+            <ToastContainer
+                position="top-right"
+                autoClose={2000}
+                limit={10}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick={true}
+                rtl={false}
+                pauseOnFocusLoss={true}
+                draggable={true}
+                pauseOnHover={true}
+                theme={"light"}
+                transition:Slide
             />
-            {/* <Logo/> */}
         </>
     );
 }

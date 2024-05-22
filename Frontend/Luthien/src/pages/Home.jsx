@@ -12,6 +12,7 @@ export default function Home() {
     const { filteredResults, isLoading, rawResults } = useSelector(
         (state) => state.searchRoom
     );
+
     return (
         <>
             <SearchBox />

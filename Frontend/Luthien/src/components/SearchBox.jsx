@@ -11,8 +11,7 @@ import {
 } from "./../state management/searchRoomSlice";
 import { setNoFilters } from "./../state management/filterSlice";
 import { getSearchQuery } from "./../services/handleReqs.js";
-import toast from "react-hot-toast";
-import closableToast from "../components/notifications";
+import { toastError } from "./../services/notify.js";
 
 export default function SearchBox() {
     const dispatch = useDispatch();
@@ -35,7 +34,7 @@ export default function SearchBox() {
     async function handleSubmit(e) {
         e.preventDefault();
         if (!city) {
-            return closableToast("Fill out the city field.");
+            return toastError("Fill out the city field.");
         }
         dispatch(setLoading(true));
         dispatch(setFilteredResults(null));

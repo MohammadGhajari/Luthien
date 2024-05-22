@@ -1,6 +1,5 @@
 import axios from "axios";
-import toast from "react-hot-toast";
-import closableToast from "../components/notifications";
+import { toastError } from "./../services/notify";
 
 const domain = "http://127.0.0.10:8000";
 export function signup(data) {
@@ -11,7 +10,7 @@ export function signup(data) {
                 resolve("success");
             } else {
                 if (res.data.message.includes("duplicate key error")) {
-                    closableToast(
+                    toastError(
                         "User exists with this email. try another email address."
                     );
                 }
@@ -21,9 +20,9 @@ export function signup(data) {
         } catch (err) {
             // catch block executes, when there is an error in server side.
             if (err.message === "Network Error") {
-                closableToast("Too many requests.");
+                toastError("Too many requests.");
             } else {
-                closableToast(err.message);
+                toastError(err.message);
             }
         }
     });
@@ -37,15 +36,15 @@ export function login(data) {
             if (res.data.status === "success") {
                 resolve("success");
             } else {
-                closableToast("Incorrect email or password.");
+                toastError("Incorrect email or password.");
                 reject("failure");
             }
         } catch (err) {
             // catch block executes, when there is an error in server side.
             if (err.message === "Network Error") {
-                closableToast("Too many requests.");
+                toastError("Too many requests.");
             } else {
-                closableToast(err.message);
+                toastError(err.message);
             }
         }
     });
