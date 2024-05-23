@@ -12,6 +12,7 @@ import { useState, useEffect, useRef } from "react";
 
 export default function HotelDetails() {
     const { hotelID } = useParams();
+    console.log(hotelID);
     const [isLoading, setIsloading] = useState(true);
 
     const [hotel, setHotel] = useState({});
@@ -21,7 +22,6 @@ export default function HotelDetails() {
     const handleScroll = () => {
         const position = window.pageYOffset;
         setScrollPosition(position);
-        console.log(position);
     };
 
     useEffect(() => {

@@ -31,7 +31,7 @@ export default function TrendingDestinations() {
                 {!isLoading && (
                     <div className={styles["grid-layout"]}>
                         <NavLink
-                            to={`/hotels/${trends[0]?._id}`}
+                            to={`/hotels/city/${trends[0]?.city}`}
                             className={styles["trend"]}
                         >
                             <span>
@@ -42,7 +42,7 @@ export default function TrendingDestinations() {
                             <img src={trends[0]?.cover} alt="trending photo" />
                         </NavLink>
                         <NavLink
-                            to={`/hotels/${trends[1]?._id}`}
+                            to={`/hotels/city/${trends[1]?.city}`}
                             className={styles["trend"]}
                         >
                             <span>
@@ -53,7 +53,7 @@ export default function TrendingDestinations() {
                             <img src={trends[1]?.cover} alt="trending photo" />
                         </NavLink>
                         <NavLink
-                            to={`/hotels/${trends[2]?._id}`}
+                            to={`/hotels/city/${trends[2]?.city}`}
                             className={styles["trend"]}
                         >
                             <span>
@@ -64,7 +64,7 @@ export default function TrendingDestinations() {
                             <img src={trends[2]?.cover} alt="trending photo" />
                         </NavLink>
                         <NavLink
-                            to={`/hotels/${trends[3]?._id}`}
+                            to={`/hotels/ciyt/${trends[3]?.city}`}
                             className={styles["trend"]}
                         >
                             <span>
@@ -75,7 +75,7 @@ export default function TrendingDestinations() {
                             <img src={trends[3]?.cover} alt="trending photo" />
                         </NavLink>
                         <NavLink
-                            to={`/hotels/${trends[4]?._id}`}
+                            to={`/hotels/city/${trends[4]?.city}`}
                             className={styles["trend"]}
                         >
                             <span>

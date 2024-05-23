@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HotelDetails from "./pages/HotelDetails";
+import HotelCityDetails from "./pages/HotelCityDetails";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import PageNotFound from "./pages/PageNotFound";
@@ -18,6 +19,10 @@ function App() {
                         <Route
                             path={"/hotels/:hotelID"}
                             element={<HotelDetails />}
+                        />
+                        <Route
+                            path={"/hotels/city/:cityID"}
+                            element={<HotelCityDetails />}
                         />
                     </Route>
                     <Route path="login" element={<Login />} />
