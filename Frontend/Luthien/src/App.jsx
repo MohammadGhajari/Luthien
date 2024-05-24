@@ -8,6 +8,8 @@ import AppLayout from "./components/AppLayout";
 import Home from "./pages/Home";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "react-tippy/dist/tippy.css";
+// import "react-awesome-slider/dist/styles.css";
 
 function App() {
     return (

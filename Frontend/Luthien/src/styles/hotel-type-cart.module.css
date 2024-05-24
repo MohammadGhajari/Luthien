@@ -13,8 +13,12 @@
     width: 31% !important;
     cursor: pointer;
     transition: all 0.4s;
+
     &:hover {
         box-shadow: var(--shadow-md);
+        -webkit-box-shadow: 0px 0px 43px 0px rgba(41, 193, 41, 0.45);
+        -moz-box-shadow: 0px 0px 43px 0px rgba(41, 193, 41, 0.45);
+        box-shadow: 0px 0px 43px 0px rgba(41, 193, 41, 0.45);
     }
 
     & div {

@@ -27,114 +27,105 @@ import { LuPartyPopper } from "react-icons/lu";
 import { FaTaxi } from "react-icons/fa";
 import { GrAtm } from "react-icons/gr";
 import { ImLibrary } from "react-icons/im";
-
 import { useState } from "react";
 
-export default function HotelCart({ res }) {
-    const amenitiesSVG = {
-        "swimming pool": <FaSwimmingPool />,
-        "tea maker": <GiCoffeeCup />,
-        "prayer room": <FaPersonPraying />,
-        "ask inside room": <TbBellRinging2 />,
-        "free wifi": <FaWifi />,
-        gym: <MdOutlineSportsGymnastics />,
-        pet: <MdPets />,
-        game: <IoGameController />,
-        shopping: <FaShoppingBag />,
-        parking: <FaParking />,
-        elevator: <GrElevator />,
-        breakfast: <MdFreeBreakfast />,
-        restaurant: <MdOutlineRestaurant />,
-        "24 hours services": <Ri24HoursFill />,
-        "fire extinguishing": <FaFireExtinguisher />,
-        "wall closet": <BiCloset />,
-        "help box": <FaBriefcaseMedical />,
-        "party services": <LuPartyPopper />,
-        taxi: <FaTaxi />,
-        ATM: <GrAtm />,
-        library: <ImLibrary />,
-    };
-    const photoes = res.photos;
-    const [currentPhoto, setCurrentPhoto] = useState(0);
+import { Swiper, SwiperSlide } from "swiper/react";
 
-    return (
-        <div className={styles.container}>
-            <div className={styles["slideshow"]}>
-                <div>
-                    <button
-                        onClick={() =>
-                            setCurrentPhoto(
-                                Math.abs((currentPhoto - 1) % photoes.length)
-                            )
-                        }
-                        className={styles["prev"]}
-                    >
-                        <GrFormPrevious />
-                    </button>
-                </div>
-                <img src={photoes[currentPhoto]} alt={res.name} />
-                <div>
-                    <button
-                        onClick={() =>
-                            setCurrentPhoto((currentPhoto + 1) % photoes.length)
-                        }
-                        className={styles["next"]}
-                    >
-                        <GrFormNext />
-                    </button>
-                </div>
-            </div>
-            <div className={styles["middle-cart"]}>
-                <div className={styles["title-container"]}>
-                    <NavLink
-                        className={styles["title"]}
-                        to={`/hotels/${res._id}`}
-                    >
-                        {res.name}
-                    </NavLink>
-                </div>
-                <div className={styles["stars-container"]}>
-                    <p>
-                        <span>
-                            <MdOutlineStarPurple500 />
-                        </span>
-                        <span> {res.stars} Stars</span>
-                    </p>
-                    <div>
-                        {Array.from({ length: res.stars }, (x) => (
-                            <FaStar />
-                        ))}
-                    </div>
-                </div>
-                <div className={styles["amenities"]}>
-                    {res.amenities.map((f, i) =>
-                        i < 4 ? (
-                            <p>
-                                <span>{amenitiesSVG[f]}</span>
-                                <span>{f}</span>
-                            </p>
-                        ) : i === 4 ? (
-                            <p>...</p>
-                        ) : null
-                    )}
-                </div>
-            </div>
-            <div className={styles["price"]}>
-                {/* <div>Discount</div> */}
-                <p>
-                    <span>
-                        <FaDollarSign />
-                    </span>
-                    <span>1500</span>
-                </p>
-                <p>2 night, 1 adults</p>
-                <NavLink
-                    to={`/hotels/${res._id}`}
-                    className={styles["view-btn"]}
-                >
-                    View the rooms
-                </NavLink>
-            </div>
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
+
+export default function HotelCart({ res }) {
+  const amenitiesSVG = {
+    "swimming pool": <FaSwimmingPool />,
+    "tea maker": <GiCoffeeCup />,
+    "prayer room": <FaPersonPraying />,
+    "ask inside room": <TbBellRinging2 />,
+    "free wifi": <FaWifi />,
+    gym: <MdOutlineSportsGymnastics />,
+    pet: <MdPets />,
+    game: <IoGameController />,
+    shopping: <FaShoppingBag />,
+    parking: <FaParking />,
+    elevator: <GrElevator />,
+    breakfast: <MdFreeBreakfast />,
+    restaurant: <MdOutlineRestaurant />,
+    "24 hours services": <Ri24HoursFill />,
+    "fire extinguishing": <FaFireExtinguisher />,
+    "wall closet": <BiCloset />,
+    "help box": <FaBriefcaseMedical />,
+    "party services": <LuPartyPopper />,
+    taxi: <FaTaxi />,
+    ATM: <GrAtm />,
+    library: <ImLibrary />,
+  };
+  const photoes = res.photos;
+  const [currentPhoto, setCurrentPhoto] = useState(0);
+
+  return (
+    <div className={styles.container}>
+      <Swiper
+        pagination={{
+          type: "fraction",
+        }}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        className={styles["slideshow"]}
+      >
+        {photoes.map((p) => (
+          <SwiperSlide className={styles["myslide"]}>
+            <img src={p} alt={p} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      <div className={styles["middle-cart"]}>
+        <div className={styles["title-container"]}>
+          <NavLink className={styles["title"]} to={`/hotels/${res._id}`}>
+            {res.name}
+          </NavLink>
         </div>
-    );
+        <div className={styles["stars-container"]}>
+          <p>
+            <span>
+              <MdOutlineStarPurple500 />
+            </span>
+            <span> {res.stars} Stars</span>
+          </p>
+          <div>
+            {Array.from({ length: res.stars }, (x) => (
+              <FaStar />
+            ))}
+          </div>
+        </div>
+        <div className={styles["amenities"]}>
+          {res.amenities.map((f, i) =>
+            i < 4 ? (
+              <p>
+                <span>{amenitiesSVG[f]}</span>
+                <span>{f}</span>
+              </p>
+            ) : i === 4 ? (
+              <p>...</p>
+            ) : null
+          )}
+        </div>
+      </div>
+      <div className={styles["price"]}>
+        {/* <div>Discount</div> */}
+        <p>
+          <span>
+            <FaDollarSign />
+          </span>
+          <span>1500</span>
+        </p>
+        <p>2 night, 1 adults</p>
+        <NavLink to={`/hotels/${res._id}`} className={styles["view-btn"]}>
+          View the rooms
+        </NavLink>
+      </div>
+    </div>
+  );
 }

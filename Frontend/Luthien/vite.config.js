@@ -8,4 +8,7 @@ export default defineConfig({
         host: "127.0.0.10",
         port: 8000,
     },
+    optimizeDeps: {
+        exclude: ["js-big-decimal"],
+    },
 });

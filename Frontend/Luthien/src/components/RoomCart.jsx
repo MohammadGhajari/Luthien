@@ -24,111 +24,119 @@ import { FaTaxi } from "react-icons/fa";
 import { GrAtm } from "react-icons/gr";
 import { ImLibrary } from "react-icons/im";
 import { useState } from "react";
+import { Tooltip } from "react-tippy";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
 
 export default function RoomCart({
-    price,
-    discount,
-    photos,
-    number,
-    amenities,
+  price,
+  discount,
+  photos,
+  number,
+  amenities,
 }) {
-    const amenitiesSVG = {
-        "swimming pool": <FaSwimmingPool />,
-        "tea maker": <GiCoffeeCup />,
-        "prayer room": <FaPersonPraying />,
-        "ask inside room": <TbBellRinging2 />,
-        "free wifi": <FaWifi />,
-        gym: <MdOutlineSportsGymnastics />,
-        pet: <MdPets />,
-        game: <IoGameController />,
-        shopping: <FaShoppingBag />,
-        parking: <FaParking />,
-        elevator: <GrElevator />,
-        breakfast: <MdFreeBreakfast />,
-        restaurant: <MdOutlineRestaurant />,
-        "24 hours services": <Ri24HoursFill />,
-        "fire extinguishing": <FaFireExtinguisher />,
-        "wall closet": <BiCloset />,
-        "help box": <FaBriefcaseMedical />,
-        "party services": <LuPartyPopper />,
-        taxi: <FaTaxi />,
-        ATM: <GrAtm />,
-        library: <ImLibrary />,
-    };
+  const amenitiesSVG = {
+    "swimming pool": <FaSwimmingPool />,
+    "tea maker": <GiCoffeeCup />,
+    "prayer room": <FaPersonPraying />,
+    "ask inside room": <TbBellRinging2 />,
+    "free wifi": <FaWifi />,
+    gym: <MdOutlineSportsGymnastics />,
+    pet: <MdPets />,
+    game: <IoGameController />,
+    shopping: <FaShoppingBag />,
+    parking: <FaParking />,
+    elevator: <GrElevator />,
+    breakfast: <MdFreeBreakfast />,
+    restaurant: <MdOutlineRestaurant />,
+    "24 hours services": <Ri24HoursFill />,
+    "fire extinguishing": <FaFireExtinguisher />,
+    "wall closet": <BiCloset />,
+    "help box": <FaBriefcaseMedical />,
+    "party services": <LuPartyPopper />,
+    taxi: <FaTaxi />,
+    ATM: <GrAtm />,
+    library: <ImLibrary />,
+  };
 
-    const [currentPhoto, setCurrentPhoto] = useState(0);
+  const [currentPhoto, setCurrentPhoto] = useState(0);
 
-    return (
-        <div className={styles["container"]}>
-            <div className={styles["slideshow"]}>
-                <div>
-                    <button
-                        onClick={() =>
-                            setCurrentPhoto(
-                                Math.abs((currentPhoto - 1) % photos.length)
-                            )
-                        }
-                        className={styles["prev"]}
-                    >
-                        <GrFormPrevious />
-                    </button>
-                </div>
-                <img src={photos[currentPhoto]} alt={`room ${number}`} />
-                <div>
-                    <button
-                        onClick={() =>
-                            setCurrentPhoto((currentPhoto + 1) % photos.length)
-                        }
-                        className={styles["next"]}
-                    >
-                        <GrFormNext />
-                    </button>
-                </div>
-            </div>
-            <div className={styles["amenities"]}>
-                {amenities.map((am, i) =>
-                    i <= 3 ? (
-                        <p>
-                            <span>{amenitiesSVG[am]}</span>
-                            <span>{am}</span>
-                        </p>
-                    ) : (
-                        i === 4 && "..."
-                    )
-                )}
-            </div>
-            <p className={styles["room-number"]}>
-                Room number: <strong>{number}</strong>
-            </p>
+  return (
+    <div className={styles["container"]}>
+      <Swiper
+        pagination={{
+          type: "fraction",
+        }}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        className={styles["slideshow"]}
+      >
+        {photos.map((p) => (
+          <SwiperSlide className={styles["myslide"]}>
+            <img src={p} alt={p} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+      <div className={styles["amenities"]}>
+        {amenities.map((am, i) =>
+          i <= 3 ? (
             <p>
-                {discount ? (
-                    <>
-                        <span>
-                            ${price} ${price - discount}
-                        </span>{" "}
-                        <span>per night</span>
-                        <span
-                            className={
-                                styles["discount-line"] +
-                                " " +
-                                styles["discount-line-1"]
-                            }
-                        ></span>
-                        <span
-                            className={
-                                styles["discount-line"] +
-                                " " +
-                                styles["discount-line-2"]
-                            }
-                        ></span>
-                    </>
-                ) : (
-                    <>
-                        <span>$ {price}</span> <span>per night</span>
-                    </>
-                )}
+              <span>{amenitiesSVG[am]}</span>
+              <span>{am}</span>
             </p>
-            <button>Reserve</button>
-        </div>
-    );
+          ) : (
+            i === 4 && "..."
+          )
+        )}
+      </div>
+      <p className={styles["room-number"]}>
+        Room number: <strong>{number}</strong>
+      </p>
+      <p>
+        {discount ? (
+          <>
+            <span>
+              ${price} ${price - discount}
+            </span>{" "}
+            <span>per night</span>
+            <span
+              className={
+                styles["discount-line"] + " " + styles["discount-line-1"]
+              }
+            ></span>
+            <span
+              className={
+                styles["discount-line"] + " " + styles["discount-line-2"]
+              }
+            ></span>
+          </>
+        ) : (
+          <>
+            <span>$ {price}</span> <span>per night</span>
+          </>
+        )}
+      </p>
+      <Tooltip
+        className={styles["tippy"]}
+        title="Reserve room"
+        position="top"
+        trigger="mouseenter"
+        delay={500}
+        hideDelay={100}
+        animation={"shift"}
+        arrow={true}
+        arrowSize={"small"}
+        distance={5}
+        size="big"
+      >
+        <button className={styles["reserve-btn"]}>Reserve</button>
+      </Tooltip>
+    </div>
+  );
 }

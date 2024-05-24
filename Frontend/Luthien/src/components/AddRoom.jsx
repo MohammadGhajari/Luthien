@@ -3,6 +3,7 @@ import { MdOutlineDeleteForever } from "react-icons/md";
 import { FaPlus, FaMinus } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { setRooms } from "./../state management/searchRoomSlice";
+import { Tooltip } from "react-tippy";
 
 export default function AddRoom({ i }) {
     const { rooms } = useSelector((state) => state.searchRoom);
@@ -59,22 +60,63 @@ export default function AddRoom({ i }) {
         <div className={styles["room-sample"]}>
             <div className={styles["title-delete"]}>
                 <h3>Room {i + 1}</h3>
-                <button type="button" onClick={handleDeleteRoom}>
-                    <MdOutlineDeleteForever />
-                </button>
+                <Tooltip
+                    title="Delete room"
+                    position="top"
+                    trigger="mouseenter"
+                    delay={500}
+                    hideDelay={100}
+                    animation={"shift"}
+                    arrow={true}
+                    arrowSize={"small"}
+                    distance={5}
+                    size="regular"
+                >
+                    <button type="button" onClick={handleDeleteRoom}>
+                        <MdOutlineDeleteForever />
+                    </button>
+                </Tooltip>
             </div>
             <div className={styles["adult-container"]}>
                 <span>
                     Adults <span>(Ages 18 or above)</span>
                 </span>
                 <div className={styles["adult-btn-conatiner"]}>
-                    <button type="button" onClick={handleDelAdults}>
-                        <FaMinus />
-                    </button>
+                    <Tooltip
+                        title="Delete adult"
+                        position="top"
+                        trigger="mouseenter"
+                        delay={500}
+                        hideDelay={100}
+                        animation={"shift"}
+                        arrow={true}
+                        arrowSize={"small"}
+                        distance={5}
+                        size="regular"
+                    >
+                        <button type="button" onClick={handleDelAdults}>
+                            <FaMinus />
+                        </button>
+                    </Tooltip>
+
                     <span>{room.adults}</span>
-                    <button type="button" onClick={handleAddAdults}>
-                        <FaPlus />
-                    </button>
+
+                    <Tooltip
+                        title="Add adult"
+                        position="top"
+                        trigger="mouseenter"
+                        delay={500}
+                        hideDelay={100}
+                        animation={"shift"}
+                        arrow={true}
+                        arrowSize={"small"}
+                        distance={5}
+                        size="regular"
+                    >
+                        <button type="button" onClick={handleAddAdults}>
+                            <FaPlus />
+                        </button>
+                    </Tooltip>
                 </div>
             </div>
             <div className={styles["adult-container"]}>
@@ -82,13 +124,40 @@ export default function AddRoom({ i }) {
                     Children <span>(Ages 0-17)</span>
                 </span>
                 <div className={styles["adult-btn-conatiner"]}>
-                    <button type="button" onClick={handleDelChildren}>
-                        <FaMinus />
-                    </button>
+                    <Tooltip
+                        title="Delete child"
+                        position="top"
+                        trigger="mouseenter"
+                        delay={500}
+                        hideDelay={100}
+                        animation={"shift"}
+                        arrow={true}
+                        arrowSize={"small"}
+                        distance={5}
+                        size="regular"
+                    >
+                        <button type="button" onClick={handleDelChildren}>
+                            <FaMinus />
+                        </button>
+                    </Tooltip>
+
                     <span>{room.children}</span>
-                    <button type="button" onClick={handleAddChildren}>
-                        <FaPlus />
-                    </button>
+                    <Tooltip
+                        title="Add child"
+                        position="top"
+                        trigger="mouseenter"
+                        delay={500}
+                        hideDelay={100}
+                        animation={"shift"}
+                        arrow={true}
+                        arrowSize={"small"}
+                        distance={5}
+                        size="regular"
+                    >
+                        <button type="button" onClick={handleAddChildren}>
+                            <FaPlus />
+                        </button>
+                    </Tooltip>
                 </div>
             </div>
         </div>

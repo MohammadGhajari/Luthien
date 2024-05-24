@@ -1,10 +1,24 @@
 :root {
-    --color-primary: #fcc100;
+    /* --color-primary: #c75ffe;
+    --color-primary-tint-1: #cd81f6;
+    --color-primary-tint-2: #daa6f7;
+    --color-primary-shade-1: #b846f5;
+    --color-primary-shade-2: #b63af9;
+    --color-primary-shade-3: #ac24f5; */
+
+    --color-primary: #29c129;
+    --color-primary-tint-1: #47c447;
+    --color-primary-tint-2: #67c367;
+    --color-primary-shade-1: #19b319;
+    --color-primary-shade-2: #00ac00;
+    --color-primary-shade-3: #009a00;
+
+    /* --color-primary: #fcc100;
     --color-primary-tint-1: rgb(249, 210, 56);
     --color-primary-tint-2: rgb(251, 217, 96);
     --color-primary-shade-1: #fcac00;
     --color-primary-shade-2: rgb(253, 144, 19);
-    --color-primary-shade-3: rgb(245, 130, 0);
+    --color-primary-shade-3: rgb(245, 130, 0); */
 
     --color-grey-2: #222;
     --color-grey-3: #312f2f;

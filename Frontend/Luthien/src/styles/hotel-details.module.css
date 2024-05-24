@@ -34,12 +34,14 @@
             transition: 0.2s;
         }
         & a:hover {
-            color: rgb(67, 67, 251);
+            color: var(--color-primary-shade-2);
         }
     }
 }
 
 .selected {
-    color: rgb(67, 67, 251);
-    border-bottom: 3px rgb(67, 67, 251) solid !important;
+    /* color: rgb(67, 67, 251);
+    border-bottom: 3px rgb(67, 67, 251) solid !important; */
+    color: var(--color-primary-shade-2);
+    border-bottom: 3px var(--color-primary) solid !important;
 }
