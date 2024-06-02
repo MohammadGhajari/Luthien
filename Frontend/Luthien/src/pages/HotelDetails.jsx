@@ -11,137 +11,129 @@ import { getHotelById } from "../services/handleReqs";
 import { useState, useEffect, useRef } from "react";
 
 export default function HotelDetails() {
-    const { hotelID } = useParams();
-    console.log(hotelID);
-    const [isLoading, setIsloading] = useState(true);
+  const { hotelID } = useParams();
+  console.log(hotelID);
+  const [isLoading, setIsloading] = useState(true);
 
-    const [hotel, setHotel] = useState({});
+  const [hotel, setHotel] = useState({});
 
-    const [scrollPosition, setScrollPosition] = useState(0);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
-    const handleScroll = () => {
-        const position = window.pageYOffset;
-        setScrollPosition(position);
-    };
+  // const handleScroll = () => {
+  //   const position = window.pageYOffset;
+  //   setScrollPosition(position);
+  // };
 
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll, { passive: true });
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll, { passive: true });
 
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                setIsloading(true);
-                const res = await getHotelById(hotelID);
-                console.log(res[0]);
-                setHotel(res[0]);
-                setIsloading(false);
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        }
-        fetchData();
-    }, []);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        setIsloading(true);
+        const res = await getHotelById(hotelID);
+        setHotel(res[0]);
+        setIsloading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+    fetchData();
+  }, []);
 
-    return (
-        <div className={styles["container"]}>
-            {!isLoading && (
-                <>
-                    <div className={styles["navbar"]}>
-                        <div className={styles["content"]}>
-                            <a
-                                className={
-                                    scrollPosition < 832 && styles["selected"]
-                                }
-                                href="#hotel-overview"
-                            >
-                                Overview
-                            </a>
-                            <a
-                                className={
-                                    scrollPosition >= 832 &&
-                                    scrollPosition < 1010 &&
-                                    styles["selected"]
-                                }
-                                href="#hotel-amenities"
-                            >
-                                Amenities
-                            </a>
-                            <a
-                                className={
-                                    scrollPosition >= 1010 &&
-                                    scrollPosition < 1420 &&
-                                    styles["selected"]
-                                }
-                                href="#hotel-location"
-                            >
-                                Location
-                            </a>
-                            <a
-                                className={
-                                    scrollPosition >= 1420 &&
-                                    scrollPosition < 2255 &&
-                                    styles["selected"]
-                                }
-                                href="#hotel-rooms"
-                            >
-                                Rooms
-                            </a>
-                            <a
-                                className={
-                                    scrollPosition >= 2255 &&
-                                    scrollPosition < 2825 &&
-                                    styles["selected"]
-                                }
-                                href="#hotel-accessibility"
-                            >
-                                Accessibility
-                            </a>
-                            <a
-                                className={
-                                    scrollPosition >= 2825 &&
-                                    scrollPosition < 3575 &&
-                                    styles["selected"]
-                                }
-                                href="#hotel-policy"
-                            >
-                                Policies
-                            </a>
-                            <a
-                                className={
-                                    scrollPosition >= 3575 && styles["selected"]
-                                }
-                                href="#hotel-reviews"
-                            >
-                                Reviews
-                            </a>
-                        </div>
-                    </div>
+  return (
+    <div className={styles["container"]}>
+      {!isLoading && (
+        <>
+          <div className={styles["navbar"]}>
+            <div className={styles["content"]}>
+              <a
+                className={scrollPosition < 832 && styles["selected"]}
+                href="#hotel-overview"
+              >
+                Overview
+              </a>
+              <a
+                className={
+                  scrollPosition >= 832 &&
+                  scrollPosition < 1010 &&
+                  styles["selected"]
+                }
+                href="#hotel-amenities"
+              >
+                Amenities
+              </a>
+              <a
+                className={
+                  scrollPosition >= 1010 &&
+                  scrollPosition < 1420 &&
+                  styles["selected"]
+                }
+                href="#hotel-location"
+              >
+                Location
+              </a>
+              <a
+                className={
+                  scrollPosition >= 1420 &&
+                  scrollPosition < 2255 &&
+                  styles["selected"]
+                }
+                href="#hotel-rooms"
+              >
+                Rooms
+              </a>
+              <a
+                className={
+                  scrollPosition >= 2255 &&
+                  scrollPosition < 2825 &&
+                  styles["selected"]
+                }
+                href="#hotel-accessibility"
+              >
+                Accessibility
+              </a>
+              <a
+                className={
+                  scrollPosition >= 2825 &&
+                  scrollPosition < 3575 &&
+                  styles["selected"]
+                }
+                href="#hotel-policy"
+              >
+                Policies
+              </a>
+              <a
+                className={scrollPosition >= 3575 && styles["selected"]}
+                href="#hotel-reviews"
+              >
+                Reviews
+              </a>
+            </div>
+          </div>
 
-                    <HotelOverview
-                        name={hotel?.name}
-                        stars={hotel.stars}
-                        desc={hotel.description}
-                        ratings={hotel.ratingsAverage}
-                    />
-                    <HotelAmenities amenities={hotel.amenities} />
-                    <HotelLocation
-                        location={hotel.location}
-                        impVicPlace={hotel.importantVicinityPlaces}
-                    />
-                    <HotelRooms
-                        rooms={hotel.rooms}
-                        amenities={hotel.amenities}
-                    />
-                    <HotelAccessibility />
-                    <HotelPolicy />
-                    <HotelReveiews />
-                </>
-            )}
-        </div>
-    );
+          <HotelOverview
+            name={hotel?.name}
+            stars={hotel.stars}
+            desc={hotel.description}
+            ratings={hotel.ratingsAverage}
+          />
+          <HotelAmenities amenities={hotel.amenities} />
+          <HotelLocation
+            location={hotel.location}
+            impVicPlace={hotel.importantVicinityPlaces}
+          />
+          <HotelRooms rooms={hotel.rooms} amenities={hotel.amenities} />
+          <HotelAccessibility />
+          <HotelPolicy />
+          <HotelReveiews hotelName={hotel.name} />
+        </>
+      )}
+    </div>
+  );
 }

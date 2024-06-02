@@ -44,17 +44,6 @@ const reviewSchema = new mongoose.Schema(
   },
 );
 
-reviewSchema.pre(/^find/, function (next) {
-  this.populate({
-    path: 'hotel',
-    select: 'name ',
-  }).populate({
-    path: 'user',
-    select: 'name photo',
-  });
-  next();
-});
-
 reviewSchema.statics.calcAverageRatings = async function (hotelId) {
   const stats = await this.aggregate([
     {
@@ -86,8 +75,6 @@ reviewSchema.post('save', function () {
   this.constructor.calcAverageRatings(this.hotel);
 });
 
-// findByIdAndUpdate
-// findByIdAndDelete
 reviewSchema.pre(/^findOneAnd/, async function (next) {
   this.r = await this.findOne();
   next();
@@ -96,6 +83,27 @@ reviewSchema.pre(/^findOneAnd/, async function (next) {
 reviewSchema.post(/^findOneAnd/, async function () {
   await this.r.constructor.calcAverageRatings(this.r.hotel);
 });
+
+reviewSchema.pre(/^find/, function (next) {
+  this.populate({
+    path: 'hotel',
+    select: 'name _id',
+  }).populate({
+    path: 'user',
+    select: 'name photo',
+  });
+  next();
+});
+
+// reviewSchema.post(/^find/, function () {
+//   this.populate({
+//     path: 'hotel',
+//     select: 'name _id',
+//   }).populate({
+//     path: 'user',
+//     select: 'name photo',
+//   });
+// });
 
 const Review = mongoose.model('Review', reviewSchema);
 

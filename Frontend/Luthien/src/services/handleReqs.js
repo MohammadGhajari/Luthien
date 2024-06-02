@@ -110,3 +110,10 @@ export async function getCurrentUser() {
   });
   return res.data;
 }
+
+export async function getHotelReviews(hotelName) {
+  const res = await axios.get(
+    `${domain}/api/reviews/hotelReviews/${hotelName}`
+  );
+  return res.data.data;
+}

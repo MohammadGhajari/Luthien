@@ -112,7 +112,7 @@ hotelSchema.pre(/^find/, function (next) {
 });
 
 hotelSchema.virtual('countryFlag').get(function () {
-  return `http://127.0.0.10:8000/flags/${this.country.toLowerCase().replace(/ /g, '-')}.png`;
+  return `http://127.0.0.10:8000/flags/${this.country?.toLowerCase().replace(/ /g, '-')}.png`;
 });
 
 const Hotel = mongoose.model('Hotel', hotelSchema);
