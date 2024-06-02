@@ -25,9 +25,9 @@ export default function HotelReviews({ hotelName }) {
   }, []);
 
   return (
-    <div id="hotel-reviews" className={styles["container"]}>
-      {!isLoading && (
-        <>
+    <>
+      {!isLoading && reviews.length > 0 && (
+        <div id="hotel-reviews" className={styles["container"]}>
           <h1>Reviews</h1>
 
           <Swiper
@@ -58,8 +58,8 @@ export default function HotelReviews({ hotelName }) {
               </SwiperSlide>
             ))}
           </Swiper>
-        </>
+        </div>
       )}
-    </div>
+    </>
   );
 }
