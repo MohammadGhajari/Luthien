@@ -88,6 +88,10 @@ const hotelSchema = mongoose.Schema(
         ],
       },
     ],
+    reviews: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Review',
+    },
   },
   {
     toJSON: { virtuals: true },

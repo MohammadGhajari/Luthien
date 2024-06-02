@@ -23,7 +23,12 @@ const limiter = rateLimit({
   windowMs: 1000,
   message: 'too many requests. please try again in an hour.',
 });
-app.use(cors());
+app.use(
+  cors({
+    origin: 'http://127.0.0.10:8001', // Your frontend origin
+    credentials: true, // Allow credentials
+  }),
+);
 app.use(
   helmet({
     crossOriginResourcePolicy: false,

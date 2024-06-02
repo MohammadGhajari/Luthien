@@ -45,6 +45,7 @@ const userSchema = new mongoose.Schema(
       default: true,
       select: false,
     },
+    faveriteHotels: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Hotel' }],
   },
   { toJSON: { virtuals: true }, toObject: { virtuals: true } },
 );
@@ -58,4 +59,3 @@ userSchema.pre('save', async function (next) {
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
-

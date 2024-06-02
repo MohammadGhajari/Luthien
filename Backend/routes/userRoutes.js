@@ -5,6 +5,7 @@ const {
   getAllUsers,
   deleteUser,
   updateUser,
+  getMe,
 } = require('./../controller/userController');
 const {
   signUp,
@@ -21,6 +22,7 @@ router.get('/logout', logout);
 
 router.use(protect);
 
+router.get('/me', getMe, getUser);
 router.route('/:id').get(getUser).delete(deleteUser).patch(updateUser);
 router.route('/').post(createUser).get(getAllUsers);
 

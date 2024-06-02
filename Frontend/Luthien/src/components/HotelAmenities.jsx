@@ -23,41 +23,41 @@ import { GrAtm } from "react-icons/gr";
 import { ImLibrary } from "react-icons/im";
 
 export default function HotelAmenities({ amenities }) {
-    const amenitiesSVG = {
-        "swimming pool": <FaSwimmingPool />,
-        "tea maker": <GiCoffeeCup />,
-        "prayer room": <FaPersonPraying />,
-        "ask inside room": <TbBellRinging2 />,
-        "free wifi": <FaWifi />,
-        gym: <MdOutlineSportsGymnastics />,
-        pet: <MdPets />,
-        game: <IoGameController />,
-        shopping: <FaShoppingBag />,
-        parking: <FaParking />,
-        elevator: <GrElevator />,
-        breakfast: <MdFreeBreakfast />,
-        restaurant: <MdOutlineRestaurant />,
-        "24 hours services": <Ri24HoursFill />,
-        "fire extinguishing": <FaFireExtinguisher />,
-        "wall closet": <BiCloset />,
-        "help box": <FaBriefcaseMedical />,
-        "party services": <LuPartyPopper />,
-        taxi: <FaTaxi />,
-        ATM: <GrAtm />,
-        library: <ImLibrary />,
-    };
+  const amenitiesSVG = {
+    "swimming pool": <FaSwimmingPool />,
+    "tea maker": <GiCoffeeCup />,
+    "prayer room": <FaPersonPraying />,
+    "ask inside room": <TbBellRinging2 />,
+    "free wifi": <FaWifi />,
+    gym: <MdOutlineSportsGymnastics />,
+    pet: <MdPets />,
+    game: <IoGameController />,
+    shopping: <FaShoppingBag />,
+    parking: <FaParking />,
+    elevator: <GrElevator />,
+    breakfast: <MdFreeBreakfast />,
+    restaurant: <MdOutlineRestaurant />,
+    "24 hours services": <Ri24HoursFill />,
+    "fire extinguishing": <FaFireExtinguisher />,
+    "wall closet": <BiCloset />,
+    "help box": <FaBriefcaseMedical />,
+    "party services": <LuPartyPopper />,
+    taxi: <FaTaxi />,
+    ATM: <GrAtm />,
+    library: <ImLibrary />,
+  };
 
-    return (
-        <div id="hotel-amenities" className={styles.container}>
-            <h1>Popular amenities</h1>
-            <div className={styles.content}>
-                {amenities?.map((amenity) => (
-                    <p>
-                        <span>{amenitiesSVG[amenity]}</span>
-                        <span>{amenity}</span>
-                    </p>
-                ))}
-            </div>
-        </div>
-    );
+  return (
+    <div id="hotel-amenities" className={styles.container}>
+      <h1>Popular amenities</h1>
+      <div className={styles.content}>
+        {amenities?.map((amenity) => (
+          <p key={amenity}>
+            <span>{amenitiesSVG[amenity]}</span>
+            <span>{amenity}</span>
+          </p>
+        ))}
+      </div>
+    </div>
+  );
 }

@@ -49,10 +49,24 @@ exports.protect = catchAsync(async (req, res, next) => {
     token = req.cookies.jwt;
   }
 
+  console.log(token);
   if (!token)
     return next(new AppError('you are not logged in. please try again.', 401));
 
   const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
+  const currentUser = await User.findById(decoded.id);
+
+  req.user = currentUser;
+  res.locals.user = currentUser;
+
+  if (!currentUser) {
+    return next(
+      new AppError(
+        'The user belonging to this token does no longer exist.',
+        401,
+      ),
+    );
+  }
 
   next();
 });
@@ -64,8 +78,6 @@ exports.login = catchAsync(async (req, res, next) => {
     return next(new AppError('please provide email and password', 400));
 
   const user = await User.findOne({ email }).select('+password');
-  console.log('++++++++++++++++++');
-  console.log(user);
   if (!user) return next(new AppError('incurrect email or password', 401));
 
   if (!user || !(await bcrypt.compare(password, user.password))) {

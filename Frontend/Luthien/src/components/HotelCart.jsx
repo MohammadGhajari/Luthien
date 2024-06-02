@@ -75,7 +75,7 @@ export default function HotelCart({ res }) {
         className={styles["slideshow"]}
       >
         {photoes.map((p) => (
-          <SwiperSlide className={styles["myslide"]}>
+          <SwiperSlide key={p} className={styles["myslide"]}>
             <img src={p} alt={p} />
           </SwiperSlide>
         ))}

@@ -66,7 +66,7 @@ export default function HotelPolicy() {
         className={styles["reviews-container"] + " " + styles["swiper"]}
       >
         {reviews.map((review, i) => (
-          <SwiperSlide className={styles["swiper-slide"]}>
+          <SwiperSlide key={i} className={styles["swiper-slide"]}>
             <ReviewCart
               key={i}
               name={review.name}

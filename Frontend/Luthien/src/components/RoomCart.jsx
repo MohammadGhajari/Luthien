@@ -78,7 +78,7 @@ export default function RoomCart({
         className={styles["slideshow"]}
       >
         {photos.map((p) => (
-          <SwiperSlide className={styles["myslide"]}>
+          <SwiperSlide key={p} className={styles["myslide"]}>
             <img src={p} alt={p} />
           </SwiperSlide>
         ))}
@@ -86,7 +86,7 @@ export default function RoomCart({
       <div className={styles["amenities"]}>
         {amenities.map((am, i) =>
           i <= 3 ? (
-            <p>
+            <p key={i}>
               <span>{amenitiesSVG[am]}</span>
               <span>{am}</span>
             </p>
