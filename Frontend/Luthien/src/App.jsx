@@ -20,6 +20,7 @@ import {
   setPhoto,
   setRole,
 } from "./state management/userSlice";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   const dispatch = useDispatch();
@@ -50,6 +51,7 @@ function App() {
               path={"/hotels/city/:cityID"}
               element={<HotelCityDetails />}
             />
+            <Route path={"/dashboard"} element={<Dashboard />} />
           </Route>
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />

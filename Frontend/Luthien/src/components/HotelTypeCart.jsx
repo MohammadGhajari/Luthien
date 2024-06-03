@@ -1,9 +1,10 @@
 import styles from "./../styles/hotel-type-cart.module.css";
 import { IoMdArrowDropright } from "react-icons/io";
+import { NavLink } from "react-router-dom";
 
 export default function HotelTypeCart({ cityName, img }) {
   return (
-    <div className={styles["hotel-cart"]}>
+    <NavLink to={`/hotels/city/${cityName}`} className={styles["hotel-cart"]}>
       <div>
         <span>
           <img src={img} alt={cityName} />
@@ -13,6 +14,6 @@ export default function HotelTypeCart({ cityName, img }) {
       <span>
         <IoMdArrowDropright />
       </span>
-    </div>
+    </NavLink>
   );
 }

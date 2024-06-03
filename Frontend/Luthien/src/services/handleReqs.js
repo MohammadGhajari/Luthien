@@ -13,7 +13,6 @@ export function signup(data) {
         if (res.data.message.includes("duplicate key error")) {
           toastError("User exists with this email. try another email address.");
         }
-
         reject("failure");
       }
     } catch (err) {
@@ -33,6 +32,7 @@ export function login(data) {
       const res = await axios.post(`${domain}/api/users/login`, data);
       if (res.data.status === "success") {
         setCookie("jwt", res.data.token, 7);
+        console.log(res);
         resolve(res.data);
       } else {
         toastError("Incorrect email or password.");

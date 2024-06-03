@@ -24,7 +24,7 @@ export default function TrendingDestinations() {
   }, []);
 
   return (
-    <div className={styles["outer-container"]}>
+    <div id={"trending-dest"} className={styles["outer-container"]}>
       <div className={styles["trending-countainer"]}>
         <h2>Trending destinations</h2>
         <p>Most popular choices for travelers</p>

@@ -22,6 +22,7 @@ export default function HotelCityDetails() {
   const dispatch = useDispatch();
 
   const [isCLoading, setIsCLoading] = useState(true);
+  const [avgLocation, setAvgLocation] = useState({ lat: 0, lng: 0 });
 
   const { filteredResults, rawResults } = useSelector(
     (state) => state.searchRoom
@@ -40,6 +41,15 @@ export default function HotelCityDetails() {
 
         const res = await getHotelsInCity(cityID);
 
+        let lat = 0,
+          lng = 0;
+        res.forEach((hotel) => {
+          console.log(hotel.location);
+          lat += hotel.location.lat;
+          lng += hotel.location.lng;
+        });
+        setAvgLocation({ lat: lat / res.length, lng: lng / res.length });
+
         dispatch(setLoading(false));
         dispatch(setFilteredResults(res));
         dispatch(setRawResults(res));
@@ -54,34 +64,39 @@ export default function HotelCityDetails() {
   }, []);
 
   return (
-    <div className={styles["container"]}>
-      <SearchBox showCityField={false} cityName={cityID} />
-      <div className={styles["map-container"]}>
-        <MapContainer
-          center={{ lat: 10, lng: 5 }}
-          zoom={10}
-          // ref={mapRef}
-          style={{
-            height: "40vh",
-            borderRadius: "5px",
-            boxShadow: "0 0 5px 2px #ccc",
-          }}
-          className={styles["map-cont"]}
-        >
-          <TileLayer
-            url={osm.maptiler.url}
-            attribution={osm.maptiler.attribution}
-          />
-          <Marker position={{ lat: 10, lng: 5 }}>
-            <Popup>
-              <span style={{ fontSize: "1.4rem" }}>Hotel Name</span>
-            </Popup>
-          </Marker>
-        </MapContainer>
-      </div>
-      <div className={styles["container"]}>
-        {!isCLoading && <SearchResults filteredResults={filteredResults} />}
-      </div>
-    </div>
+    <>
+      {!isCLoading && (
+        <div className={styles["container"]}>
+          <SearchBox showCityField={false} cityName={cityID} />
+          <div className={styles["map-container"]}>
+            <MapContainer
+              center={avgLocation}
+              zoom={12}
+              scrollWheelZoom={false}
+              style={{
+                height: "80vh",
+                borderRadius: "5px",
+              }}
+              className={styles["map-cont"]}
+            >
+              <TileLayer
+                url={osm.maptiler.url}
+                attribution={osm.maptiler.attribution}
+              />
+              {filteredResults.map((hotel) => (
+                <Marker position={hotel.location}>
+                  <Popup>
+                    <span style={{ fontSize: "1.4rem" }}>{hotel.name}</span>
+                  </Popup>
+                </Marker>
+              ))}
+            </MapContainer>
+          </div>
+          <div className={styles["res-container"]}>
+            <SearchResults filteredResults={filteredResults} />
+          </div>
+        </div>
+      )}
+    </>
   );
 }

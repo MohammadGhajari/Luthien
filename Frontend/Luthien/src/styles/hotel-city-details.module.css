@@ -1,19 +1,32 @@
 .container {
   display: flex;
   flex-direction: column;
+  gap: 0;
 }
-.map {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  gap: 1.8rem;
-}
-
 .map-container {
-  margin-top: 10rem;
+  /* margin-top: 10rem; */
   justify-self: center;
   align-self: center;
   width: 100%;
-  height: 50rem!important;
+  height: 50vh !important;
   border-radius: var(--border-radius-sm);
+  position: relative;
+  z-index: 0;
+}
+.map {
+  /* width: 100%; */
+  width: 50%;
+  /* height: 100rem !important; */
+  display: flex;
+  gap: 0rem;
+}
+.leaflet-container {
+  height: 50vh !important;
+}
+.leaflet-container .leaflet-touch-drag .leaflet-touch-zoom {
+  height: 70vh !important;
+}
+
+.res-container {
+  margin-top: 10rem;
 }

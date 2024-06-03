@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import styles from "./../styles/search-box.module.css";
 import InputField from "./InputField";
 import { useDispatch, useSelector } from "react-redux";
