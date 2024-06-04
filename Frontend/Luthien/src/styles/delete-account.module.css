@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  p {
+    font-size: 1.4rem;
+  }
+}
+
+.delete-container {
+  display: flex;
+  gap: 1.4rem;
+
+  & button {
+    border: none;
+    border-radius: var(--border-radius-sm);
+    padding: 0.4rem 0.6rem;
+    background-color: var(--color-danger-shade);
+    color: var(--color-white-1);
+    transition: all 0.2s;
+    width: fit-content;
+    &:hover {
+      background-color: var(--color-danger);
+    }
+  }
+}
+
+.disable-btn {
+  background-color: var(--color-grey-6) !important;
+  color: var(--color-grey-4) !important;
+}

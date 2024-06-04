@@ -49,7 +49,6 @@ exports.protect = catchAsync(async (req, res, next) => {
     token = req.cookies.jwt;
   }
 
-  console.log(token);
   if (!token)
     return next(new AppError('you are not logged in. please try again.', 401));
 
@@ -97,3 +96,36 @@ exports.logout = (req, res, next) => {
     status: 'success',
   });
 };
+
+exports.resetPassword = catchAsync(async (req, res, next) => {
+  const { password, newPassword, passwordConfirm } = req.body;
+  const email = req.user.email;
+
+  const user = await User.findOne({ email }).select('+password');
+
+  if (newPassword !== passwordConfirm)
+    return next(
+      new AppError('new password and password confirm must be the same.', 401),
+    );
+  console.log('helllllllllo');
+
+  if (!(await bcrypt.compare(password, user.password))) {
+    return next(new AppError('current password is wrong.', 401));
+  }
+  const hashedPassword = await bcrypt.hash(newPassword, 12);
+  const updatedUser = await User.findByIdAndUpdate(
+    req.user.id,
+    { password: hashedPassword },
+    {
+      new: true,
+      runValidators: true,
+    },
+  );
+
+  res.status(200).json({
+    status: 'success',
+    data: {
+      updatedUser,
+    },
+  });
+});

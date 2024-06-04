@@ -9,8 +9,6 @@ import Home from "./pages/Home";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "react-tippy/dist/tippy.css";
-import axios from "axios";
-import { setCookie, getCookie } from "./helper/cookie";
 import { useEffect } from "react";
 import { getCurrentUser } from "./services/handleReqs";
 import { useDispatch } from "react-redux";
@@ -21,6 +19,9 @@ import {
   setRole,
 } from "./state management/userSlice";
 import Dashboard from "./pages/Dashboard";
+import PersonalInformation from "./pages/PersonalInformation";
+import Security from "./pages/Security";
+import Activity from "./pages/Activity";
 
 function App() {
   const dispatch = useDispatch();
@@ -51,7 +52,15 @@ function App() {
               path={"/hotels/city/:cityID"}
               element={<HotelCityDetails />}
             />
-            <Route path={"/dashboard"} element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />}>
+              <Route index element={<PersonalInformation />} />
+              <Route
+                path="personal-information"
+                element={<PersonalInformation />}
+              />
+              <Route path="security" element={<Security />} />
+              <Route path="activity" element={<Activity />} />
+            </Route>
           </Route>
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import styles from "./../styles/trending-destinations.module.css";
-import axios from "axios";
 import { NavLink } from "react-router-dom";
 import { getTrendings } from "./../services/handleReqs";
 

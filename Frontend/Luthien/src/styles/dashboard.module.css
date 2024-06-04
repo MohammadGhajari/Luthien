@@ -1,0 +1,14 @@
+.outer-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.8rem;
+}
+.container {
+  width: 80%;
+  display: flex;
+  gap: 2rem;
+}
+
+.content {
+  width: 70%;
+}

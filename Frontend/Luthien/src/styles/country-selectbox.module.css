@@ -1,0 +1,17 @@
+@import "./base.module.css";
+.select {
+  padding: 0.6rem;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--color-grey-6);
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  &:focus {
+    border: 1px solid var(--color-primary);
+  }
+  & > .option {
+    padding: 0.4rem 0;
+    color: var(--color-grey-4);
+  }
+}

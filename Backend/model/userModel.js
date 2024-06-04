@@ -15,6 +15,23 @@ const userSchema = new mongoose.Schema(
       lowercase: true,
       validate: [validator.isEmail, 'please provide a valid email'],
     },
+    dateOfBirth: {
+      type: Date,
+    },
+    phoneNumber: {
+      type: String,
+    },
+    nationality: {
+      type: String,
+    },
+    gender: {
+      type: String,
+      enum: ['male', 'female', 'not to say'],
+      default: 'not to say',
+    },
+    address: {
+      type: String,
+    },
     password: {
       type: String,
       required: [true, 'user should have a password'],
