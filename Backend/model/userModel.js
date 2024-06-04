@@ -16,7 +16,7 @@ const userSchema = new mongoose.Schema(
       validate: [validator.isEmail, 'please provide a valid email'],
     },
     dateOfBirth: {
-      type: Date,
+      type: String,
     },
     phoneNumber: {
       type: String,
@@ -63,7 +63,7 @@ const userSchema = new mongoose.Schema(
       default: true,
       select: false,
     },
-    faveriteHotels: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Hotel' }],
+    favoriteHotels: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Hotel' }],
   },
   { toJSON: { virtuals: true }, toObject: { virtuals: true } },
 );

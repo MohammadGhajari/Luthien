@@ -1,18 +1,19 @@
 import { useState } from "react";
 import styles from "./../styles/delete-account.module.css";
-export default function DeleteAccount() {
+export default function DeleteAccount({ toType, handleDeleteAccount }) {
   const [value, setvalue] = useState("");
 
   return (
     <div className={styles["container"]}>
-      <p>type "THIS IS USER NAME" in the following input</p>
+      <p>type "Luthien/{toType}"" in the following input</p>
       <div className={styles["delete-container"]}>
         <input onChange={(e) => setvalue(e.target.value)} type="text" />
         <button
+          onClick={handleDeleteAccount}
           className={`${
-            value !== "THIS IS USER NAME" && styles["disable-btn"]
+            value !== `Luthien/${toType}` && styles["disable-btn"]
           }`}
-          disabled={value !== "THIS IS USER NAME"}
+          disabled={value !== `Luthien/${toType}`}
         >
           Delete
         </button>

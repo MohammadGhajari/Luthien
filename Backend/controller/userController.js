@@ -7,6 +7,7 @@ const {
   updateOne,
 } = require('./handleFactory');
 const catchAsync = require('./../utils/catAsync');
+const catAsync = require('./../utils/catAsync');
 
 exports.getMe = (req, res, next) => {
   req.params.id = req.user.id;
@@ -37,7 +38,18 @@ exports.updateMe = catchAsync(async (req, res, next) => {
   }
 
   // 2) Filtered out unwanted fields names that are not allowed to be updated
-  const filteredBody = filterObj(req.body, 'name', 'email');
+  const filteredBody = filterObj(
+    req.body,
+    'name',
+    'email',
+    'dateOfBirth',
+    'phoneNumber',
+    'nationality',
+    'gender',
+    'address',
+    'photo',
+    'favoriteHotels',
+  );
   if (req.file) filteredBody.photo = req.file.filename;
 
   // 3) Update user document
@@ -53,3 +65,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     },
   });
 });
+exports.deleteMe = (req, res, next) => {
+  req.params.id = req.user.id;
+  next();
+};

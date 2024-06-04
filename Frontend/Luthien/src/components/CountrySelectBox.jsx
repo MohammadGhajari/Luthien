@@ -1,6 +1,6 @@
 import styles from "./../styles/country-selectbox.module.css";
 
-export default function CountrySelectBox({ defaultValue }) {
+export default function CountrySelectBox({ defaultValue, setValue }) {
   const country_list = [
     "Afghanistan",
     "Albania",
@@ -209,9 +209,15 @@ export default function CountrySelectBox({ defaultValue }) {
     "Zimbabwe",
   ];
   return (
-    <select defaultValue={defaultValue} className={styles["select"]}>
+    <select
+      onChange={(e) => setValue(e.target.value)}
+      defaultValue={defaultValue}
+      className={styles["select"]}
+    >
       {country_list.map((c) => (
-        <option className={styles["option"]}>{c}</option>
+        <option key={c} className={styles["option"]}>
+          {c}
+        </option>
       ))}
     </select>
   );

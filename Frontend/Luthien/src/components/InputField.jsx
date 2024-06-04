@@ -68,7 +68,6 @@ export default function InputField({
         onChange={handleChange}
         className={styles["input-field"]}
         type="text"
-        defaultValue={placeholder === "Passengers" ? "1 Adult, 1 Room" : ""}
         value={placeholder === "Passengers" ? inputValue : undefined}
         id={randomID}
         style={{ backgroundColor: color }}

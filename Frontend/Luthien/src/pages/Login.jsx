@@ -10,6 +10,12 @@ import {
   setName,
   setPhoto,
   setRole,
+  setAddress,
+  setDateOfBirth,
+  setGender,
+  setNationality,
+  setPhoneNumber,
+  setfavoriteHotels,
 } from "./../state management/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -37,6 +43,12 @@ export default function Login() {
       dispatch(setEmail(res.data.user.email));
       dispatch(setRole(res.data.user.role));
       dispatch(setPhoto(res.data.user.photo));
+      dispatch(setAddress(res.data.user.address));
+      dispatch(setDateOfBirth(res.data.user.dateOfBirth));
+      dispatch(setGender(res.data.user.gender));
+      dispatch(setNationality(res.data.user.nationality));
+      dispatch(setPhoneNumber(res.data.user.phoneNumber));
+      dispatch(setfavoriteHotels(res.data.user.favoriteHotels));
 
       navigate("/");
     }

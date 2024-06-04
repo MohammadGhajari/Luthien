@@ -17,6 +17,12 @@ import {
   setName,
   setPhoto,
   setRole,
+  setAddress,
+  setDateOfBirth,
+  setGender,
+  setNationality,
+  setPhoneNumber,
+  setfavoriteHotels,
 } from "./state management/userSlice";
 import Dashboard from "./pages/Dashboard";
 import PersonalInformation from "./pages/PersonalInformation";
@@ -35,6 +41,12 @@ function App() {
         dispatch(setEmail(res.data.data.email));
         dispatch(setRole(res.data.data.role));
         dispatch(setPhoto(res.data.data.photo));
+        dispatch(setAddress(res.data.data.address));
+        dispatch(setDateOfBirth(res.data.data.dateOfBirth));
+        dispatch(setGender(res.data.data.gender));
+        dispatch(setNationality(res.data.data.nationality));
+        dispatch(setPhoneNumber(res.data.data.phoneNumber));
+        dispatch(setfavoriteHotels(res.data.data.favoriteHotels));
       }
     }
 

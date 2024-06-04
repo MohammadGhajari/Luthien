@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./../styles/edit-option.module.css";
 import CountrySelectBox from "./CountrySelectBox";
 import GenderSelectBox from "./GenderSelectBox";
@@ -13,6 +13,13 @@ export default function EditOption({
   disableEdit,
   setDisableEdit,
   handleSave,
+  setValue,
+  setPassword,
+  setPasswordConfirm,
+  setCurrPassword,
+  hanldeLogout,
+  toType,
+  handleDeleteAccount,
 }) {
   const [onEdit, setOnEdit] = useState(false);
 
@@ -23,6 +30,20 @@ export default function EditOption({
   function handleCancel(e) {
     setOnEdit(false);
     setDisableEdit(false);
+  }
+  async function handleClickSave() {
+    let result;
+    if (hanldeLogout) {
+      result = await hanldeLogout();
+    }
+    if (handleSave) {
+      result = await handleSave();
+    }
+
+    if (result) {
+      setOnEdit(false);
+      setDisableEdit(false);
+    }
   }
 
   return (
@@ -56,17 +77,30 @@ export default function EditOption({
             )}
 
             {type === "nationality" ? (
-              <CountrySelectBox defaultValue={value} />
+              <CountrySelectBox setValue={setValue} defaultValue={value} />
             ) : type === "gender" ? (
-              <GenderSelectBox defaultValue={value} />
+              <GenderSelectBox setValue={setValue} defaultValue={value} />
             ) : type === "password" ? (
-              <PasswordReset />
+              <PasswordReset
+                setPassword={setPassword}
+                setPasswordConfirm={setPasswordConfirm}
+                setCurrPassword={setCurrPassword}
+              />
             ) : type === "logout" ? (
-              <button className={styles["logout-btn"]}>Logout</button>
+              <button
+                onClick={handleClickSave}
+                className={styles["logout-btn"]}
+              >
+                Logout
+              </button>
             ) : type === "delete" ? (
-              <DeleteAccount />
+              <DeleteAccount
+                toType={toType}
+                handleDeleteAccount={handleDeleteAccount}
+              />
             ) : (
               <input
+                onChange={(e) => setValue(e.target.value)}
                 placeholder={title}
                 type="text"
                 id="name-inp"
@@ -102,7 +136,10 @@ export default function EditOption({
             <button onClick={handleCancel} className={styles["btn"]}>
               Cancel
             </button>
-            <button className={`${styles["btn"]} ${styles["save-btn"]}`}>
+            <button
+              onClick={handleClickSave}
+              className={`${styles["btn"]} ${styles["save-btn"]}`}
+            >
               Save
             </button>
           </>

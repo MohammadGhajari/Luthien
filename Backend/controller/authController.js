@@ -48,6 +48,7 @@ exports.protect = catchAsync(async (req, res, next) => {
   } else if (req.cookies.jwt) {
     token = req.cookies.jwt;
   }
+  console.log(token);
 
   if (!token)
     return next(new AppError('you are not logged in. please try again.', 401));
@@ -107,7 +108,6 @@ exports.resetPassword = catchAsync(async (req, res, next) => {
     return next(
       new AppError('new password and password confirm must be the same.', 401),
     );
-  console.log('helllllllllo');
 
   if (!(await bcrypt.compare(password, user.password))) {
     return next(new AppError('current password is wrong.', 401));

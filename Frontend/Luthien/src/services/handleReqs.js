@@ -53,7 +53,6 @@ export function logout() {
   return new Promise(async function (resolve, reject) {
     try {
       const res = await axios.get(`${domain}/api/users/logout`);
-      console.log(res);
       if (res.data.status === "success") {
         toastSuccess("Logged out successfully.");
         setCookie("jwt", "", 7);
@@ -116,4 +115,73 @@ export async function getHotelReviews(hotelName) {
     `${domain}/api/reviews/hotelReviews/${hotelName}`
   );
   return res.data.data;
+}
+
+export async function updateUser(data) {
+  return new Promise(async function (resolve, reject) {
+    try {
+      const res = await axios.patch(`${domain}/api/users/updateMe`, data, {
+        withCredentials: true,
+      });
+      console.log(res);
+      if (res.data.status === "success") {
+        resolve(res.data);
+      } else {
+        toastError("This email address is used before.");
+        reject(res.data);
+      }
+    } catch (err) {
+      if (err.message === "Network Error") {
+        toastError("Too many requests.");
+      } else {
+        toastError(err.message);
+      }
+    }
+  });
+}
+
+export async function resetPassword(data) {
+  return new Promise(async function (resolve, reject) {
+    try {
+      const res = await axios.patch(`${domain}/api/users/resetPassword`, data, {
+        withCredentials: true,
+      });
+      console.log(res);
+      if (res.data.status === "success") {
+        resolve(res.data);
+      } else {
+        toastError("Current password is incorrect.");
+        reject(res.data);
+      }
+    } catch (err) {
+      if (err.message === "Network Error") {
+        toastError("Too many requests.");
+      } else {
+        toastError(err.message);
+      }
+    }
+  });
+}
+
+export async function deleteAccount() {
+  return new Promise(async function (resolve, reject) {
+    try {
+      const res = await axios.delete(`${domain}/api/users/deleteMe`, {
+        withCredentials: true,
+      });
+      console.log(res);
+      if (res.status === 204) {
+        resolve("success");
+      } else {
+        toastError("Error in delete account.");
+        reject("error");
+      }
+    } catch (err) {
+      if (err.message === "Network Error") {
+        toastError("Too many requests.");
+      } else {
+        toastError(err.message);
+      }
+    }
+  });
 }
