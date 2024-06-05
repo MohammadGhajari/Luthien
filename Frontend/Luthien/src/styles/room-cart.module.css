@@ -12,6 +12,7 @@
   box-shadow: var(--shadow-sm);
   & .room-number {
     font-size: 1.8rem;
+    animation: backwards;
   }
 
   transition: all 0.2s;

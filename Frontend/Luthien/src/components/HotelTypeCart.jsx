@@ -2,9 +2,13 @@ import styles from "./../styles/hotel-type-cart.module.css";
 import { IoMdArrowDropright } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 
-export default function HotelTypeCart({ cityName, img }) {
+export default function HotelTypeCart({ cityName, img, dataaos }) {
   return (
-    <NavLink to={`/hotels/city/${cityName}`} className={styles["hotel-cart"]}>
+    <NavLink
+      data-aos={dataaos}
+      to={`/hotels/city/${cityName}`}
+      className={styles["hotel-cart"]}
+    >
       <div>
         <span>
           <img src={img} alt={cityName} />

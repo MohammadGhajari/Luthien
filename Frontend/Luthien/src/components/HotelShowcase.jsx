@@ -3,6 +3,8 @@ import styles from "./../styles/hotel-showcase.module.css";
 import HotelTypeCart from "./HotelTypeCart";
 import axios from "axios";
 import { getForeignHotels, getDomesticHotels } from "./../services/handleReqs";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function HotelShowcase() {
   const [domestics, setDomestics] = useState([]);
@@ -28,20 +30,45 @@ export default function HotelShowcase() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    AOS.init({ duration: 500 });
+  }, []);
+  const aosData = [
+    "fade-right",
+    "fade-left",
+    "fade-up",
+    "fade-down",
+    "zoom-up",
+    "zoom-down",
+    "flip-up",
+    "flip-down",
+    "flip-right",
+  ];
   return (
     <div className={styles.container}>
       <div id={"foreign-hotels"} className={styles["foreign"]}>
         <h1>Foreign Hotels</h1>
-        <div className={styles["hotel-carts-container"]}>
+        <div
+          data-aos={"fade-right"}
+          className={styles["hotel-carts-container"]}
+        >
           {!isLoading &&
             foreigns?.map((f) => (
-              <HotelTypeCart key={f._id} cityName={f.city} img={f.citySVG} />
+              <HotelTypeCart
+                dataaos={aosData[Math.round(Math.random() * aosData.length)]}
+                key={f._id}
+                cityName={f.city}
+                img={f.citySVG}
+              />
             ))}
         </div>
       </div>
       <div id={"domestic-hotels"} className={styles["domestic"]}>
         <h1>Domestic Hotels</h1>
-        <div className={styles["hotel-carts-container"]}>
+        <div
+          data-aos={"fade-right"}
+          className={styles["hotel-carts-container"]}
+        >
           {!isLoading &&
             domestics?.map((d) => (
               <HotelTypeCart key={d._id} cityName={d.city} img={d.citySVG} />

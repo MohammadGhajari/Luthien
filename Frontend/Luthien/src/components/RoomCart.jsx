@@ -27,12 +27,13 @@ import { useState } from "react";
 import { Tooltip } from "react-tippy";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
+import { useEffect } from "react";
 
 export default function RoomCart({
   price,
@@ -65,10 +66,12 @@ export default function RoomCart({
     library: <ImLibrary />,
   };
 
-  const [currentPhoto, setCurrentPhoto] = useState(0);
+  useEffect(() => {
+    AOS.init({ duration: 700 });
+  }, []);
 
   return (
-    <div className={styles["container"]}>
+    <div data-aos={"zoom-in"} className={styles["container"]}>
       <Swiper
         pagination={{
           type: "fraction",

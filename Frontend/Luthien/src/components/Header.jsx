@@ -67,7 +67,7 @@ export default function Header() {
                   <MdOutlineDashboardCustomize />
                 </span>
               </NavLink>
-              <NavLink className={styles["nav-btn"]} to="/favorite">
+              <NavLink className={styles["nav-btn"]} to="/favorites">
                 <span>Favorite</span>
                 <span>
                   <MdFavoriteBorder />

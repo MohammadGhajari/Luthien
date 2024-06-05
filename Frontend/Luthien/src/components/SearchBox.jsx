@@ -12,7 +12,7 @@ import { setNoFilters } from "./../state management/filterSlice";
 import { getSearchQuery } from "./../services/handleReqs.js";
 import { toastError } from "./../services/notify.js";
 
-export default function SearchBox({ showCityField = true, cityName = "" }) {
+export default function SearchBox({ showCityField = true, title = "" }) {
   const dispatch = useDispatch();
   const { city, rooms, startDate, endDate } = useSelector(
     (state) => state.searchRoom
@@ -57,7 +57,7 @@ export default function SearchBox({ showCityField = true, cityName = "" }) {
       <img src="./../../public/hero-hotel-background.png" alt="hero" />
 
       <div className={styles["search-container"]}>
-        <h1>Hotel{cityName && `s in ${cityName}`}</h1>
+        <h1>{title}</h1>
         <form onSubmit={handleSubmit} className={styles["fields-container"]}>
           {showCityField && <InputField key={0} placeholder="City" left={20} />}
           <div className={styles["date-input-container"]}>

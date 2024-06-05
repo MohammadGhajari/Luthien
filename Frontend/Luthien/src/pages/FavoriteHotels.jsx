@@ -1,6 +1,4 @@
-import { getHotelsInCity } from "./../services/handleReqs";
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import HotelGroup from "../components/HotelGroup";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setRawResults,
@@ -8,41 +6,48 @@ import {
   setLoading,
   setRooms,
 } from "./../state management/searchRoomSlice";
+import { getFavoriteHotels } from "./../services/handleReqs";
+import { useParams } from "react-router-dom";
 import { setNoFilters } from "./../state management/filterSlice";
-import "leaflet/dist/leaflet.css";
-import HotelGroup from "../components/HotelGroup";
+import { useState, useEffect } from "react";
+import PageNotFound from "./PageNotFound";
 
-export default function HotelCityDetails() {
-  const { cityID } = useParams();
+export default function FavoriteHotels() {
   const dispatch = useDispatch();
 
   const [isCLoading, setIsCLoading] = useState(true);
-  const [avgLocation, setAvgLocation] = useState({ lat: 0, lng: 0 });
+  const [avgLocation, setAvgLocation] = useState({
+    lat: 41.42384633333333,
+    lng: 19.562056666666667,
+  });
 
   const { filteredResults, rawResults } = useSelector(
     (state) => state.searchRoom
   );
+  const { favoriteHotels, email } = useSelector((state) => state.user);
 
   useEffect(() => {
+    if (!favoriteHotels) return;
+
     async function fetchData() {
       try {
         setIsCLoading(true);
         dispatch(setLoading(true));
         dispatch(setFilteredResults(null));
         dispatch(setRawResults(null));
-        dispatch(setRawResults(null));
         dispatch(setNoFilters());
         dispatch(setRooms([{ adults: 1, children: 0 }]));
 
-        const res = await getHotelsInCity(cityID);
-
+        const res = await getFavoriteHotels(favoriteHotels);
         let lat = 0,
           lng = 0;
         res.forEach((hotel) => {
           lat += hotel.location.lat;
           lng += hotel.location.lng;
         });
-        setAvgLocation({ lat: lat / res.length, lng: lng / res.length });
+        if (res.length > 0) {
+          setAvgLocation({ lat: lat / res.length, lng: lng / res.length });
+        }
 
         dispatch(setLoading(false));
         dispatch(setFilteredResults(res));
@@ -54,17 +59,26 @@ export default function HotelCityDetails() {
         console.error("Error fetching data:", error);
       }
     }
+
     fetchData();
-  }, []);
+  }, [favoriteHotels, dispatch]);
+
+  // if (!favoriteHotels || favoriteHotels.length === 0) {
+  //   return <div>Loading favorite hotels...</div>;
+  // }
 
   return (
     <>
-      <HotelGroup
-        filteredResults={filteredResults}
-        title={`Hotels in ${cityID}`}
-        isCLoading={isCLoading}
-        avgLocation={avgLocation}
-      />
+      {email ? (
+        <HotelGroup
+          filteredResults={filteredResults}
+          title={"Favorite Hotels"}
+          isCLoading={isCLoading}
+          avgLocation={avgLocation}
+        />
+      ) : (
+        <PageNotFound />
+      )}
     </>
   );
 }

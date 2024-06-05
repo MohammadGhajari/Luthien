@@ -30,12 +30,13 @@ import { ImLibrary } from "react-icons/im";
 import { useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 export default function HotelCart({ res }) {
   const amenitiesSVG = {
@@ -64,8 +65,12 @@ export default function HotelCart({ res }) {
   const photoes = res.photos;
   const [currentPhoto, setCurrentPhoto] = useState(0);
 
+  useEffect(() => {
+    AOS.init({ duration: 500 });
+  }, []);
+
   return (
-    <div className={styles.container}>
+    <div data-aos={"fade-right"} className={styles.container}>
       <Swiper
         pagination={{
           type: "fraction",
@@ -95,20 +100,20 @@ export default function HotelCart({ res }) {
             <span> {res.stars} Stars</span>
           </p>
           <div>
-            {Array.from({ length: res.stars }, (x) => (
-              <FaStar />
+            {Array.from({ length: res.stars }, (x, i) => (
+              <FaStar key={i} />
             ))}
           </div>
         </div>
         <div className={styles["amenities"]}>
           {res.amenities.map((f, i) =>
             i < 4 ? (
-              <p>
+              <p key={i}>
                 <span>{amenitiesSVG[f]}</span>
                 <span>{f}</span>
               </p>
             ) : i === 4 ? (
-              <p>...</p>
+              <p key={i}>...</p>
             ) : null
           )}
         </div>

@@ -25,6 +25,7 @@ import {
   setfavoriteHotels,
 } from "./state management/userSlice";
 import Dashboard from "./pages/Dashboard";
+import FavoriteHotels from "./pages/FavoriteHotels";
 import PersonalInformation from "./pages/PersonalInformation";
 import Security from "./pages/Security";
 import Activity from "./pages/Activity";
@@ -65,6 +66,7 @@ function App() {
               path={"/hotels/city/:cityID"}
               element={<HotelCityDetails />}
             />
+            <Route path={"/favorites"} element={<FavoriteHotels />} />
             <Route
               path="/dashboard"
               element={email ? <Dashboard /> : <PageNotFound />}

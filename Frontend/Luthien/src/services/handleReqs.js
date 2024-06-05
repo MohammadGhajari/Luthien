@@ -189,3 +189,12 @@ export async function deleteAccount() {
     }
   });
 }
+
+export async function getFavoriteHotels(hotels) {
+  let data = [];
+  for (let i = 0; i < hotels.length; i++) {
+    const res = await axios.get(`${domain}/api/hotels/${hotels[i]}`);
+    data.push(res.data.data.data);
+  }
+  return data;
+}

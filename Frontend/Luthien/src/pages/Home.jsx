@@ -33,6 +33,7 @@ export default function Home() {
     }
     reset();
   }, []);
+
   return (
     <>
       <SearchBox />

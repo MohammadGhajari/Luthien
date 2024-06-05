@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import styles from "./../styles/trending-destinations.module.css";
 import { NavLink } from "react-router-dom";
 import { getTrendings } from "./../services/handleReqs";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function TrendingDestinations() {
   const [isLoading, setIsLoading] = useState(false);
@@ -22,6 +24,10 @@ export default function TrendingDestinations() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   return (
     <div id={"trending-dest"} className={styles["outer-container"]}>
       <div className={styles["trending-countainer"]}>
@@ -32,6 +38,7 @@ export default function TrendingDestinations() {
             <NavLink
               to={`/hotels/city/${trends[0]?.city}`}
               className={styles["trend"]}
+              data-aos={"zoom-in"}
             >
               <span>
                 {trends[0]?.city.charAt(0).toUpperCase() +
@@ -43,6 +50,7 @@ export default function TrendingDestinations() {
             <NavLink
               to={`/hotels/city/${trends[1]?.city}`}
               className={styles["trend"]}
+              data-aos={"zoom-in"}
             >
               <span>
                 {trends[1]?.city.charAt(0).toUpperCase() +
@@ -54,6 +62,7 @@ export default function TrendingDestinations() {
             <NavLink
               to={`/hotels/city/${trends[2]?.city}`}
               className={styles["trend"]}
+              data-aos={"zoom-in"}
             >
               <span>
                 {trends[2]?.city.charAt(0).toUpperCase() +
@@ -65,6 +74,7 @@ export default function TrendingDestinations() {
             <NavLink
               to={`/hotels/city/${trends[3]?.city}`}
               className={styles["trend"]}
+              data-aos={"zoom-in"}
             >
               <span>
                 {trends[3]?.city.charAt(0).toUpperCase() +
@@ -76,6 +86,7 @@ export default function TrendingDestinations() {
             <NavLink
               to={`/hotels/city/${trends[4]?.city}`}
               className={styles["trend"]}
+              data-aos={"zoom-in"}
             >
               <span>
                 {trends[4]?.city.charAt(0).toUpperCase() +
