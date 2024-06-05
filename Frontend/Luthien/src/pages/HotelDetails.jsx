@@ -12,7 +12,6 @@ import { useState, useEffect, useRef } from "react";
 
 export default function HotelDetails() {
   const { hotelID } = useParams();
-  console.log(hotelID);
   const [isLoading, setIsloading] = useState(true);
 
   const [hotel, setHotel] = useState({});
@@ -118,6 +117,7 @@ export default function HotelDetails() {
           </div>
 
           <HotelOverview
+            hotelID={hotelID}
             name={hotel?.name}
             stars={hotel.stars}
             desc={hotel.description}

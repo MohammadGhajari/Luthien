@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  gap: 3.2rem;
+  height: 90vh;
+  & h1 {
+    margin-top: 10rem;
+    font-size: 10rem;
+    color: var(--color-grey-4);
+  }
+  & p {
+    color: var(--color-grey-4);
+    font-size: 2rem;
+  }
+  .nav {
+    background-color: var(--color-primary);
+    padding: 0.8rem 8rem;
+    color: var(--color-white-1);
+    border-radius: var(--border-radius-sm);
+    transition: all 0.3s;
+    box-shadow: var(--shadow-me-sm);
+    &:hover {
+      background-color: var(--color-primary-shade-2);
+    }
+  }
+}

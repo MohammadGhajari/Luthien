@@ -52,6 +52,9 @@
   --shadow-me-md: 0 0 2.4rem rgba(0, 0, 0, 0.2);
   --shadow-me-lg: 0 0 1rem rgba(0, 0, 0, 0.3);
 
+  --border-shadow: 0 0 5px 1px #29c129;
+  --border-shadow-1: 0 0 8px 3px #67c367;
+
   --border-radius-tiny: 3px;
   --border-radius-sm: 5px;
   --border-radius-md: 7px;

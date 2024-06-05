@@ -14,13 +14,16 @@
   border-radius: var(--border-radius-md);
   background-color: var(--color-white-1);
   padding: 1.2rem;
-  /* filter: contrast(30%); */
 
-  & > img {
+  & > div:first-child {
     width: 120px;
     height: 120px;
     border-radius: 100%;
-    box-shadow: var(--shadow-me-md);
+    box-shadow: var(--border-shadow-1);
+    outline: none;
+    border-radius: 100%;
+    background-size: cover !important;
+    background-position: center !important;
   }
 
   & > p {

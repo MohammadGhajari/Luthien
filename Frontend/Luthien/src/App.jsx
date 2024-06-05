@@ -11,7 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "react-tippy/dist/tippy.css";
 import { useEffect } from "react";
 import { getCurrentUser } from "./services/handleReqs";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   setEmail,
   setName,
@@ -30,6 +30,7 @@ import Security from "./pages/Security";
 import Activity from "./pages/Activity";
 
 function App() {
+  const { email } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   useEffect(function () {
@@ -64,7 +65,10 @@ function App() {
               path={"/hotels/city/:cityID"}
               element={<HotelCityDetails />}
             />
-            <Route path="/dashboard" element={<Dashboard />}>
+            <Route
+              path="/dashboard"
+              element={email ? <Dashboard /> : <PageNotFound />}
+            >
               <Route index element={<PersonalInformation />} />
               <Route
                 path="personal-information"

@@ -1,12 +1,51 @@
 import styles from "./../styles/hotel-overview.module.css";
+import { toast } from "react-toastify";
+import { toastError, toastSuccess } from "./../services/notify";
 import { IoArrowBackOutline } from "react-icons/io5";
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { IoStar } from "react-icons/io5";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { updateUser } from "./../services/handleReqs.js";
+import { setfavoriteHotels } from "./../state management/userSlice.js";
+import { useDispatch, useSelector } from "react-redux";
 
-export default function HotelOverview({ name, stars, ratings, desc }) {
+export default function HotelOverview({ name, stars, ratings, desc, hotelID }) {
   const navigation = useNavigate();
+  const dispatch = useDispatch();
+  const { email, favoriteHotels } = useSelector((state) => state.user);
+
+  const isFav = favoriteHotels.includes(hotelID);
+
+  async function handleFavorite() {
+    if (!email) return toastError("Please Login");
+
+    if (!isFav) {
+      dispatch(setfavoriteHotels([...favoriteHotels, hotelID]));
+
+      const res = await toast.promise(
+        updateUser({ favoriteHotels: [...favoriteHotels, hotelID] }),
+        {
+          pending: "Adding...",
+          success: "This hotel added to your favorites!⚡",
+          error: "Try again.⚠️",
+        }
+      );
+    } else {
+      const filteredFav = favoriteHotels.filter((f) => f !== hotelID);
+
+      dispatch(setfavoriteHotels([...filteredFav]));
+
+      const res = await toast.promise(
+        updateUser({ favoriteHotels: [...filteredFav] }),
+        {
+          pending: "Removing...",
+          success: "This hotel removed from your favorites!⚡",
+          error: "Try again.⚠️",
+        }
+      );
+    }
+  }
 
   return (
     <div id="hotel-overview" className={styles["overview-container"]}>
@@ -14,11 +53,8 @@ export default function HotelOverview({ name, stars, ratings, desc }) {
         <button onClick={() => navigation(-1)}>
           <IoArrowBackOutline />
         </button>
-        <button>
-          <span>
-            <FaRegHeart />
-          </span>{" "}
-          <span>Save</span>
+        <button className={isFav && styles["is-fave"]} onClick={handleFavorite}>
+          <span>{isFav ? <FaHeart /> : <FaRegHeart />}</span> <span>Save</span>
         </button>
       </div>
       <div className={styles["gallery"]}>

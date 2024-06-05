@@ -120,8 +120,12 @@ export async function getHotelReviews(hotelName) {
 export async function updateUser(data) {
   return new Promise(async function (resolve, reject) {
     try {
+      console.log(data);
       const res = await axios.patch(`${domain}/api/users/updateMe`, data, {
         withCredentials: true,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       });
       console.log(res);
       if (res.data.status === "success") {

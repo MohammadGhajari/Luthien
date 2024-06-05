@@ -34,7 +34,6 @@ export default function PersonalInformation() {
     address,
   } = useSelector((state) => state.user);
 
-  console.log(address);
   const [nameState, setNameState] = useState("");
   const [emailState, setEmailState] = useState("");
   const [dateOfBirthState, setDateOfBirthState] = useState("");
@@ -42,7 +41,18 @@ export default function PersonalInformation() {
   const [nationalityState, setNationalityState] = useState("");
   const [genderState, setGenderState] = useState("");
   const [addressState, setAddressState] = useState("");
+  const [photoState, setPhotoState] = useState("");
 
+  async function handlePhotoChange(e) {
+    setPhotoState(e.target.files[0]);
+    const res = await toast.promise(updateUser({ photo: e.target.files[0] }), {
+      pending: "Updating...",
+      success: "Your profile updated successfully!⚡",
+      error: "Try again.⚠️",
+    });
+    dispatch(setPhoto(res.data.user.photo));
+    return true;
+  }
   async function handleSaveName() {
     if (nameState) {
       const res = await toast.promise(updateUser({ name: nameState }), {
@@ -176,8 +186,18 @@ export default function PersonalInformation() {
           <p>Update your info and find out how it's used.</p>
         </div>
         <div className={styles["right-side"]}>
-          <div className={styles["prof-container"]}>
-            <img src={photo} alt={name} />
+          <div
+            className={styles["prof-container"]}
+            style={{ background: `URL(${photo})` }}
+          >
+            <label htmlFor="photo-inp"></label>
+            <input
+              onChange={handlePhotoChange}
+              type="file"
+              id="photo-inp"
+              name="photo"
+              accept={"image/jpeg, image/png, image/jpg"}
+            />
           </div>
         </div>
       </div>
