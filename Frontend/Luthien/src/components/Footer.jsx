@@ -5,10 +5,16 @@ import { IoLogoLinkedin } from "react-icons/io5";
 import { FaTelegramPlane } from "react-icons/fa";
 import { FaSquareInstagram } from "react-icons/fa6";
 import Logo from "./Logo";
+import AOS from "aos";
+import { useEffect } from "react";
 
 export default function Footer() {
+  useEffect(() => {
+    AOS.init({ duration: 200 });
+  }, []);
+
   return (
-    <footer className={styles["footer"]}>
+    <footer data-aos={"fade-up"} className={styles["footer"]}>
       <svg
         className={styles["footer-wave-svg"]}
         xmlns="http://www.w3.org/2000/svg"

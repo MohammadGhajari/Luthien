@@ -7,12 +7,15 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
 import { getHotelReviews } from "./../services/handleReqs";
+import AOS from "aos";
 
 export default function HotelReviews({ hotelName }) {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  console.log(hotelName);
+  useEffect(() => {
+    AOS.init({ duration: 700 });
+  }, []);
 
   useEffect(function () {
     async function fetchData() {
@@ -28,7 +31,7 @@ export default function HotelReviews({ hotelName }) {
     <>
       {!isLoading && reviews.length > 0 && (
         <div id="hotel-reviews" className={styles["container"]}>
-          <h1>Reviews</h1>
+          <h1 data-aos={"fade-right"}>Reviews</h1>
 
           <Swiper
             effect={"coverflow"}

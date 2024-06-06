@@ -125,6 +125,7 @@ export default function HotelDetails() {
           />
           <HotelAmenities amenities={hotel.amenities} />
           <HotelLocation
+            name={hotel?.name}
             location={hotel.location}
             impVicPlace={hotel.importantVicinityPlaces}
           />

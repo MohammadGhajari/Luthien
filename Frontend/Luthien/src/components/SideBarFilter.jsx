@@ -56,6 +56,8 @@ import { LuPartyPopper } from "react-icons/lu";
 import { FaTaxi } from "react-icons/fa";
 import { GrAtm } from "react-icons/gr";
 import { ImLibrary } from "react-icons/im";
+import { useEffect } from "react";
+import AOS from "aos";
 
 export default function SideBarFilter() {
   const dispatch = useDispatch();
@@ -110,6 +112,9 @@ export default function SideBarFilter() {
 
   const { filteredResults: results } = useSelector((state) => state.searchRoom);
 
+  useEffect(() => {
+    AOS.init({ duration: 200 });
+  });
   return (
     <div className={styles.container}>
       <p>Results: {results.length}</p>

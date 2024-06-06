@@ -25,20 +25,24 @@ export default function TrendingDestinations() {
   }, []);
 
   useEffect(() => {
-    AOS.init({ duration: 1000 });
+    AOS.init({ duration: 500 });
   }, []);
 
   return (
     <div id={"trending-dest"} className={styles["outer-container"]}>
       <div className={styles["trending-countainer"]}>
-        <h2>Trending destinations</h2>
-        <p>Most popular choices for travelers</p>
+        <h2 data-aos={"fade-right"} data-aos-duration={"200"}>
+          Trending destinations
+        </h2>
+        <p data-aos={"fade-right"} data-aos-duration={"200"}>
+          Most popular choices for travelers
+        </p>
         {!isLoading && (
           <div className={styles["grid-layout"]}>
             <NavLink
               to={`/hotels/city/${trends[0]?.city}`}
               className={styles["trend"]}
-              data-aos={"zoom-in"}
+              data-aos={"fade-right"}
             >
               <span>
                 {trends[0]?.city.charAt(0).toUpperCase() +
@@ -50,7 +54,7 @@ export default function TrendingDestinations() {
             <NavLink
               to={`/hotels/city/${trends[1]?.city}`}
               className={styles["trend"]}
-              data-aos={"zoom-in"}
+              data-aos={"fade-down"}
             >
               <span>
                 {trends[1]?.city.charAt(0).toUpperCase() +
@@ -62,7 +66,7 @@ export default function TrendingDestinations() {
             <NavLink
               to={`/hotels/city/${trends[2]?.city}`}
               className={styles["trend"]}
-              data-aos={"zoom-in"}
+              data-aos={"fade-right"}
             >
               <span>
                 {trends[2]?.city.charAt(0).toUpperCase() +
@@ -74,7 +78,7 @@ export default function TrendingDestinations() {
             <NavLink
               to={`/hotels/city/${trends[3]?.city}`}
               className={styles["trend"]}
-              data-aos={"zoom-in"}
+              data-aos={"fade-up"}
             >
               <span>
                 {trends[3]?.city.charAt(0).toUpperCase() +
@@ -86,7 +90,7 @@ export default function TrendingDestinations() {
             <NavLink
               to={`/hotels/city/${trends[4]?.city}`}
               className={styles["trend"]}
-              data-aos={"zoom-in"}
+              data-aos={"fade-left"}
             >
               <span>
                 {trends[4]?.city.charAt(0).toUpperCase() +

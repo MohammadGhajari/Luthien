@@ -9,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 import { updateUser } from "./../services/handleReqs.js";
 import { setfavoriteHotels } from "./../state management/userSlice.js";
 import { useDispatch, useSelector } from "react-redux";
+import AOS from "aos";
+import { useEffect } from "react";
 
 export default function HotelOverview({ name, stars, ratings, desc, hotelID }) {
   const navigation = useNavigate();
@@ -47,6 +49,10 @@ export default function HotelOverview({ name, stars, ratings, desc, hotelID }) {
     }
   }
 
+  useEffect(() => {
+    AOS.init({ duration: 700 });
+  }, []);
+
   return (
     <div id="hotel-overview" className={styles["overview-container"]}>
       <div className={styles["overview-header"]}>
@@ -58,11 +64,31 @@ export default function HotelOverview({ name, stars, ratings, desc, hotelID }) {
         </button>
       </div>
       <div className={styles["gallery"]}>
-        <img src="./../../public/sample data/1.jpeg" alt="photo" />
-        <img src="./../../public/sample data/2.jpg" alt="photo" />
-        <img src="./../../public/sample data/3.jpg" alt="photo" />
-        <img src="./../../public/sample data/4.jpeg" alt="photo" />
-        <img src="./../../public/sample data/1.jpeg" alt="photo" />
+        <img
+          data-aos={"fade-right"}
+          src="./../../public/sample data/1.jpeg"
+          alt="photo"
+        />
+        <img
+          data-aos={"fade-down"}
+          src="./../../public/sample data/2.jpg"
+          alt="photo"
+        />
+        <img
+          data-aos={"fade-left"}
+          src="./../../public/sample data/3.jpg"
+          alt="photo"
+        />
+        <img
+          data-aos={"fade-up"}
+          src="./../../public/sample data/4.jpeg"
+          alt="photo"
+        />
+        <img
+          data-aos={"fade-left"}
+          src="./../../public/sample data/1.jpeg"
+          alt="photo"
+        />
       </div>
 
       <div className={styles["hotel-description"]}>

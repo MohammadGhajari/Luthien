@@ -12,7 +12,7 @@ import { setNoFilters } from "./../state management/filterSlice";
 import { getSearchQuery } from "./../services/handleReqs.js";
 import { toastError } from "./../services/notify.js";
 
-export default function SearchBox({ showCityField = true, title = "" }) {
+export default function SearchBox({ showCityField = true, title = "Hotels" }) {
   const dispatch = useDispatch();
   const { city, rooms, startDate, endDate } = useSelector(
     (state) => state.searchRoom

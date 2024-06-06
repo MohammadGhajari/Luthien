@@ -71,7 +71,7 @@ export default function RoomCart({
   }, []);
 
   return (
-    <div data-aos={"zoom-in"} className={styles["container"]}>
+    <div data-aos={"fade-left"} className={styles["container"]}>
       <Swiper
         pagination={{
           type: "fraction",

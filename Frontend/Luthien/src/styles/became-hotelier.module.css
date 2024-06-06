@@ -1,0 +1,107 @@
+.container {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  background: url("./../../public/hotelier-background.svg");
+  background-position: left;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: relative;
+  /* animation: show-cont 0.8s linear forwards; */
+}
+.form-container {
+  display: none;
+}
+.sent {
+  animation: show 0.4s linear 0.4s forwards;
+  backdrop-filter: blur(10px) brightness(80%) !important;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  z-index: 5;
+}
+.sent-container {
+  animation: show-cont 0.8s linear;
+}
+
+form {
+  margin-top: 5rem;
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  background-color: var(--color-white-1);
+  border-radius: var(--border-radius-sm);
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+
+  & label {
+    font-size: 1.2rem;
+    margin-left: 0.4rem;
+  }
+  & > h2 {
+    align-self: center;
+    color: var(--color-grey-4);
+  }
+  .hotel-name {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .stars-city {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.4rem;
+
+    & select {
+      border-radius: var(--border-radius-sm);
+      height: 4rem;
+      padding: 0 0.4rem;
+    }
+    & > div {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+  }
+  .description {
+    display: flex;
+    flex-direction: column;
+    & textarea {
+      padding: 0.6rem;
+      border-radius: var(--border-radius-sm);
+      border: 1px solid var(--color-grey-4);
+
+      &:focus {
+        border-color: var(--color-primary);
+      }
+    }
+  }
+}
+
+@keyframes show-cont {
+  0% {
+    filter: blur(0px) brightness(80%);
+  }
+  100% {
+    filter: blur(10px) brightness(80%);
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+    display: flex !important;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

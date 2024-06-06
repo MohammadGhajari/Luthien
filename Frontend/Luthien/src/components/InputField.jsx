@@ -4,12 +4,13 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 import AddRoom from "./AddRoom";
 import { useDispatch, useSelector } from "react-redux";
 import { setRooms, setCity } from "./../state management/searchRoomSlice";
+import AOS from "aos";
 
 export default function InputField({
   placeholder = "Name",
   top,
   left,
-  width = 20,
+  width = "20rem",
   height,
   color = "white",
 }) {
@@ -47,7 +48,7 @@ export default function InputField({
     <div
       className={styles.container}
       style={{
-        width: `${width}rem`,
+        width: `${width}`,
         height: `${height ? height + "rem" : ""}`,
       }}
     >

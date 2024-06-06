@@ -33,21 +33,13 @@ export default function HotelShowcase() {
   useEffect(() => {
     AOS.init({ duration: 500 });
   }, []);
-  const aosData = [
-    "fade-right",
-    "fade-left",
-    "fade-up",
-    "fade-down",
-    "zoom-up",
-    "zoom-down",
-    "flip-up",
-    "flip-down",
-    "flip-right",
-  ];
+
   return (
     <div className={styles.container}>
       <div id={"foreign-hotels"} className={styles["foreign"]}>
-        <h1>Foreign Hotels</h1>
+        <h1 data-aos={"fade-right"} data-aos-duration={"200"}>
+          Foreign Hotels
+        </h1>
         <div
           data-aos={"fade-right"}
           className={styles["hotel-carts-container"]}
@@ -55,7 +47,7 @@ export default function HotelShowcase() {
           {!isLoading &&
             foreigns?.map((f) => (
               <HotelTypeCart
-                dataaos={aosData[Math.round(Math.random() * aosData.length)]}
+                dataaos={"zoom-in"}
                 key={f._id}
                 cityName={f.city}
                 img={f.citySVG}
@@ -64,14 +56,21 @@ export default function HotelShowcase() {
         </div>
       </div>
       <div id={"domestic-hotels"} className={styles["domestic"]}>
-        <h1>Domestic Hotels</h1>
+        <h1 data-aos={"fade-right"} data-aos-duration={"200"}>
+          Domestic Hotels
+        </h1>
         <div
           data-aos={"fade-right"}
           className={styles["hotel-carts-container"]}
         >
           {!isLoading &&
             domestics?.map((d) => (
-              <HotelTypeCart key={d._id} cityName={d.city} img={d.citySVG} />
+              <HotelTypeCart
+                dataaos={"zoom-in"}
+                key={d._id}
+                cityName={d.city}
+                img={d.citySVG}
+              />
             ))}
         </div>
       </div>

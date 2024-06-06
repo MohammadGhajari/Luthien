@@ -21,12 +21,7 @@ export default function HotelRooms({ rooms, amenities }) {
             // defaultValue={getFormattedDate()}
           />
         </div>
-        <InputField
-          color={"#f6f6f6"}
-          key={1}
-          placeholder="Passengers"
-          left={25}
-        />
+        <InputField key={1} placeholder="Passengers" left={25} />
       </div>
       <div className={styles["room-carts-container"]}>
         {rooms.map((room) => (

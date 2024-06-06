@@ -29,6 +29,7 @@ import FavoriteHotels from "./pages/FavoriteHotels";
 import PersonalInformation from "./pages/PersonalInformation";
 import Security from "./pages/Security";
 import Activity from "./pages/Activity";
+import BecameHotelier from "./pages/BecameHotelier";
 
 function App() {
   const { email } = useSelector((state) => state.user);
@@ -82,6 +83,7 @@ function App() {
           </Route>
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<Signup />} />
+          <Route path="became-hotelier" element={<BecameHotelier />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>

@@ -1,12 +1,10 @@
 import styles from "./../styles/review-cart.module.css";
-
 import { IoMdStar, IoIosStarOutline } from "react-icons/io";
 
 export default function ReviewCart({ name, img, rating, review, isCurrent }) {
   return (
     <div className={`${styles.container}`}>
       <div style={{ background: `URL(${img})` }}></div>
-      {/* <img src={img} alt={name} /> */}
       <h2>{name}</h2>
       <div className={styles["ratings"]}>
         <span>{rating}/5</span>
