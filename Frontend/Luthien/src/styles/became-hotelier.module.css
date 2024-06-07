@@ -15,7 +15,7 @@
   animation: show 0.4s linear 0.4s forwards;
   backdrop-filter: blur(10px) brightness(80%) !important;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -29,13 +29,14 @@
 .hotelier-form {
   margin-top: 5rem;
   padding: 2rem;
+  margin-bottom: 10rem;
   box-shadow: var(--shadow-md);
   background-color: var(--color-white-1);
   border-radius: var(--border-radius-sm);
   width: 50%;
   display: flex;
   flex-direction: column;
-  gap: 0.6em;
+  gap: 1.8em;
 
   & > div {
     display: flex;
@@ -134,6 +135,140 @@
           align-items: center;
         }
       }
+    }
+  }
+  .viciniti-locations-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+    & > div {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .vicinity-location {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    h5 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding-right: 0.6rem;
+      & span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.2s;
+
+        &:hover {
+          color: var(--color-danger);
+        }
+      }
+    }
+
+    & button {
+      padding: 0.8rem;
+      border: none;
+      border-radius: var(--border-radius-sm);
+      outline: none;
+      background-color: var(--color-primary);
+      transition: all 0.2s;
+      color: var(--color-white-1);
+      align-self: flex-start;
+      font-size: 1.2rem;
+      & svg {
+        font-size: 2.4rem;
+      }
+      &:hover {
+        background-color: var(--color-primary-shade-2);
+      }
+    }
+  }
+  .photo-picker {
+    flex-direction: row;
+  }
+  .hotel-cover {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    &:first-child {
+      width: 40%;
+    }
+    &:last-child {
+      width: 60%;
+    }
+  }
+  .cover-picker {
+    display: flex;
+    gap: 3.2rem;
+    align-items: center;
+
+    & > label {
+      padding: 0.8rem 1.8rem;
+      font-size: 2.8rem;
+      cursor: pointer;
+      border-radius: var(--border-radius-sm);
+      border: 1px solid var(--color-grey-5);
+
+      &:hover {
+        color: var(--color-white-1);
+        background-color: var(--color-grey-5);
+      }
+    }
+    & .photos-container {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      gap: 0.2rem;
+      flex-direction: row !important;
+      flex-wrap: wrap;
+    }
+    & .cover-photo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4rem;
+      border-radius: var(--border-radius-sm);
+      border: 1px solid var(--color-grey-5);
+      box-shadow: var(--shadow-md);
+      height: fit-content;
+      padding: 0.4rem 0.4rem;
+      width: fit-content;
+      & span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--color-grey-3);
+      }
+
+      & span:last-child {
+        cursor: pointer;
+        transition: all 0.2s;
+        &:hover {
+          color: var(--color-danger);
+        }
+      }
+    }
+  }
+
+  & > button {
+    padding: 0.8rem;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    outline: none;
+    background-color: var(--color-primary);
+    transition: all 0.2s;
+    color: var(--color-white-1);
+    & svg {
+      font-size: 2.4rem;
+    }
+    &:hover {
+      background-color: var(--color-primary-shade-2);
     }
   }
 }

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styles from "./../styles/input-field.module.css";
 
 export default function HotelierInputFields({
@@ -9,10 +10,14 @@ export default function HotelierInputFields({
   color = "white",
   value,
   setValue,
+  type = "text",
+  required = true,
 }) {
   const randomID = Math.random();
+  const [inValue, setInValue] = useState("");
 
   function handleChange(e) {
+    setInValue(e.target.value);
     setValue(e.target.value);
   }
 
@@ -26,7 +31,7 @@ export default function HotelierInputFields({
     >
       <label
         className={`${styles["input-label"]} ${
-          value ? styles["has-value"] : ""
+          inValue || value ? styles["has-value"] : ""
         }`}
         style={{
           top: `${top}%`,
@@ -38,9 +43,10 @@ export default function HotelierInputFields({
         {placeholder}
       </label>
       <input
+        required={required}
         onChange={handleChange}
         className={styles["input-field"]}
-        type="text"
+        type={type}
         id={randomID}
         style={{ backgroundColor: color }}
         value={value}

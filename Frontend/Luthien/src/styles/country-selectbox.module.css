@@ -5,7 +5,9 @@
   border: 1px solid var(--color-grey-6);
   transition: all 0.2s;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* flex-direction: column; */
   gap: 0.2rem;
   &:focus {
     border: 1px solid var(--color-primary);

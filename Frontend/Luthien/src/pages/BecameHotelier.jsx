@@ -5,6 +5,9 @@ import HotelierPolicies from "../components/HotelierPolicies";
 import { FaLocationDot } from "react-icons/fa6";
 import SelectLocation from "./../components/SelectLocation";
 import HotelierInputFields from "./../components/HotelierInputFields";
+import { PiUploadSimpleLight } from "react-icons/pi";
+import { MdInsertPhoto } from "react-icons/md";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 import { MdOutlineSportsGymnastics } from "react-icons/md";
 import { MdPets } from "react-icons/md";
@@ -27,6 +30,9 @@ import { LuPartyPopper } from "react-icons/lu";
 import { FaTaxi } from "react-icons/fa";
 import { GrAtm } from "react-icons/gr";
 import { ImLibrary } from "react-icons/im";
+import { toastError, toastSuccess } from "./../services/notify";
+import CountrySelectBox from "./../components/CountrySelectBox";
+import VicinityLocation from "./../components/VicinityLocation";
 
 export default function BecameHotelier() {
   const amenitiesSVG = {
@@ -53,28 +59,107 @@ export default function BecameHotelier() {
     library: <ImLibrary />,
   };
 
-  useEffect(() => {
-    AOS.init({ duration: 1000 });
-  });
-
   const [sent, setSent] = useState(false);
   const [locModal, setLocModal] = useState(false);
   const [location, setLocation] = useState({
     lat: 52.505,
     lng: -0.09,
   });
+  const [name, setName] = useState("");
+  const [stars, setStars] = useState(1);
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+  const [phone, setphone] = useState("");
+  const [description, setDescription] = useState("");
+  const [address, setAddress] = useState("");
+  const [amenities, setAmenities] = useState([]);
+  const [vicinity, setVicinity] = useState([
+    { location: "", distance: 0, time: 0 },
+  ]);
+  const [cover, setCover] = useState({});
+  const [photos, setPhotos] = useState([]);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    console.log("name: " + name);
+    console.log("stars: " + stars);
+    console.log("city: " + city);
+    console.log("country: " + country);
+    console.log("description: " + description);
+    console.log("address: " + address);
+    console.log("phone: " + phone);
+    console.log("vicinities: " + vicinity);
+    console.log("amenities: " + amenities);
+    console.log("cover: " + cover);
+    console.log("photos: " + photos);
+  }
+
+  function handleChecked(e, amen) {
+    if (e.target.checked) {
+      setAmenities([...amenities, amen]);
+      console.log([...amenities, amen]);
+    } else {
+      let temp = [];
+      temp = amenities.filter((a) => a !== amen);
+      setAmenities(temp);
+      console.log(temp);
+    }
+  }
+  function handleCoverChange(e) {
+    setCover(e.target.files[0]);
+  }
+  function handlePhotosChange(e) {
+    if (e.target.files.length > 5) {
+      toastError("Choose a maximum of 5 photos");
+    } else {
+      if (e.target.files.length + photos.length > 5) {
+        toastError("Choose a maximum of 5 photos");
+      } else {
+        setPhotos([...photos, ...e.target.files]);
+      }
+    }
+  }
+  function handleDeletePhotos(e, p) {
+    let temp = photos.filter((photo) => photo.name !== p.name);
+    setPhotos([...temp]);
+  }
+  function handleAddLocation(e) {
+    let flag = true;
+    console.log(vicinity);
+    vicinity.forEach((v) => {
+      if (v.location.length === 0 || v.distance === 0 || v.time === 0) {
+        flag = false;
+      }
+    });
+
+    if (flag) {
+      setVicinity([...vicinity, { location: "", distance: 0, time: 0 }]);
+    } else {
+      toastError("Fill vicinity locations fields");
+    }
+  }
+  function handleDeleteLocation(i) {
+    if (vicinity.length === 1) {
+      return toastError("At least one location is required.");
+    }
+    console.log(vicinity);
+    const temp = vicinity.filter((v, index) => i !== index);
+    console.log(temp);
+    setVicinity([...temp]);
+  }
 
   return (
     <div
       className={`${styles["container"]} ${sent && styles["sent-container"]}`}
     >
-      <HotelierPolicies setSent={setSent} sent={sent} />
+      <HotelierPolicies setSent={setSent} sent={sent} />(
       <div
         className={`${!sent && styles["form-container"]} ${
           sent && styles["sent"]
         }`}
       >
-        <form className={styles["hotelier-form"]}>
+        <form className={styles["hotelier-form"]} onSubmit={handleSubmit}>
           <h2>Enter your hotel information</h2>
           <div className={styles["hotel-name"]}>
             <label>Hotel name</label>
@@ -84,11 +169,12 @@ export default function BecameHotelier() {
               left={4}
               width={"100%"}
               height={"4rem"}
+              setValue={setName}
             />
           </div>
           <div>
             <label>Hotel stars</label>
-            <select name="stars">
+            <select name="stars" onChange={(e) => setStars(e.target.value)}>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -104,21 +190,21 @@ export default function BecameHotelier() {
                 left={7}
                 width="100%"
                 height={"4rem"}
+                setValue={setCity}
               />
             </div>
             <div>
               <label>Country</label>
-              <HotelierInputFields
-                placeholder="Country"
-                left={10}
-                width="100%"
-                height={"4rem"}
-              />
+              <CountrySelectBox setValue={setCountry} />
             </div>
           </div>
           <div className={styles["description"]}>
             <label>Add a brief description about your hotel</label>
-            <textarea rows={5} name="describe"></textarea>
+            <textarea
+              rows={5}
+              name="describe"
+              onChange={(e) => setDescription(e.target.value)}
+            ></textarea>
           </div>
           <div className={styles["address"]}>
             <label>Address</label>
@@ -127,6 +213,7 @@ export default function BecameHotelier() {
               width="100%"
               left={5}
               height={"4rem"}
+              setValue={setAddress}
             />
           </div>
           <div className={styles["loc-phone"]}>
@@ -150,20 +237,25 @@ export default function BecameHotelier() {
             <div>
               <label>Phone</label>
               <HotelierInputFields
+                type={"phone"}
                 placeholder="Phone"
                 width="100%"
                 left={9}
                 height={"4rem"}
+                setValue={setphone}
               />
             </div>
           </div>
           <div className={styles["amenities"]}>
             <label>Amenities</label>
             <div className={styles["amenities-container"]}>
-              {Object.keys(amenitiesSVG).map((amen) => (
-                <p className="amen">
+              {Object.keys(amenitiesSVG).map((amen, i) => (
+                <p key={i} className="amen">
                   <span>
-                    <input type="checkbox" />
+                    <input
+                      type="checkbox"
+                      onChange={(e) => handleChecked(e, amen)}
+                    />
                   </span>
                   <span>
                     <span>{amenitiesSVG[amen]}</span>
@@ -173,8 +265,94 @@ export default function BecameHotelier() {
               ))}
             </div>
           </div>
+          <div className={styles["vicinity-locations"]}>
+            <label>Important vicinity locations</label>
+            <div className={styles["viciniti-locations-container"]}>
+              {vicinity.map((v, i) => (
+                <>
+                  <div key={i}>
+                    <h5>
+                      location {i + 1}{" "}
+                      <span onClick={() => handleDeleteLocation(i)}>
+                        <RiDeleteBin6Line />
+                      </span>
+                    </h5>
+                    <VicinityLocation
+                      vicinity={vicinity}
+                      setVicinity={setVicinity}
+                      i={i}
+                      v={v}
+                    />
+                  </div>
+                </>
+              ))}
+              <button onClick={handleAddLocation} type="button">
+                Add new location
+              </button>
+            </div>
+          </div>
+          <div className={styles["photo-picker"]}>
+            <div className={styles["hotel-cover"]}>
+              <label>Add a cover photo for your hotel</label>
+              <div className={styles["cover-picker"]}>
+                <label htmlFor="cover-picker">
+                  <PiUploadSimpleLight />
+                </label>
+                <input
+                  type="file"
+                  id="cover-picker"
+                  style={{ display: "none" }}
+                  name="cover"
+                  accept={"image/jpeg, image/png, image/jpg"}
+                  onChange={handleCoverChange}
+                />
+                {cover.name && (
+                  <div className={styles["cover-photo"]}>
+                    <span>
+                      <MdInsertPhoto />
+                    </span>
+                    <span onClick={() => setCover({})}>
+                      <RiDeleteBin6Line />
+                    </span>
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className={styles["hotel-cover"]}>
+              <label>Add some photos for your hotel</label>
+              <div className={styles["cover-picker"]}>
+                <label htmlFor="photos-picker">
+                  <PiUploadSimpleLight />
+                </label>
+                <input
+                  type="file"
+                  name="photos"
+                  accept={"image/jpeg, image/png, image/jpg"}
+                  id="photos-picker"
+                  multiple
+                  style={{ display: "none" }}
+                  onChange={handlePhotosChange}
+                />
+
+                <div className={styles["photos-container"]}>
+                  {photos.map((p, i) => (
+                    <div key={i} className={styles["cover-photo"]}>
+                      <span>
+                        <MdInsertPhoto />
+                      </span>
+                      <span onClick={(e) => handleDeletePhotos(e, p)}>
+                        <RiDeleteBin6Line />
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+          <button type="submit">Submit</button>
         </form>
       </div>
+      )
       {locModal && (
         <SelectLocation
           setLocation={setLocation}
