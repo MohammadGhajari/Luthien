@@ -1,14 +1,12 @@
 .container {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   background: url("./../../public/hotelier-background.svg");
   background-position: left;
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 100vh;
   position: relative;
-  /* animation: show-cont 0.8s linear forwards; */
 }
 .form-container {
   display: none;
@@ -28,7 +26,7 @@
   animation: show-cont 0.8s linear;
 }
 
-form {
+.hotelier-form {
   margin-top: 5rem;
   padding: 2rem;
   box-shadow: var(--shadow-md);
@@ -39,6 +37,11 @@ form {
   flex-direction: column;
   gap: 0.6em;
 
+  & > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
   & label {
     font-size: 1.2rem;
     margin-left: 0.4rem;
@@ -47,22 +50,17 @@ form {
     align-self: center;
     color: var(--color-grey-4);
   }
-  .hotel-name {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
+  & select {
+    border-radius: var(--border-radius-sm);
+    height: 4rem;
+    padding: 0 0.4rem;
+    border: 1px solid var(--color-grey-5);
   }
-  .stars-city {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+  .city-country {
+    flex-direction: row;
     gap: 1.4rem;
 
-    & select {
-      border-radius: var(--border-radius-sm);
-      height: 4rem;
-      padding: 0 0.4rem;
-    }
     & > div {
       width: 50%;
       display: flex;
@@ -76,10 +74,65 @@ form {
     & textarea {
       padding: 0.6rem;
       border-radius: var(--border-radius-sm);
-      border: 1px solid var(--color-grey-4);
+      border: 1px solid var(--color-grey-5);
 
       &:focus {
         border-color: var(--color-primary);
+      }
+    }
+  }
+  .loc-phone {
+    flex-direction: row;
+    & > div {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .loc-container {
+      display: flex;
+      gap: 1.2rem;
+
+      & button {
+        padding: 0.8rem;
+        border: none;
+        border-radius: var(--border-radius-sm);
+        outline: none;
+        background-color: var(--color-primary);
+        transition: all 0.2s;
+        color: var(--color-white-1);
+        & svg {
+          font-size: 2.4rem;
+        }
+        &:hover {
+          background-color: var(--color-primary-shade-2);
+        }
+      }
+    }
+  }
+  .amenities-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 1.8rem;
+
+    p {
+      color: var(--color-grey-4);
+      width: 31%;
+      display: flex;
+      /* justify-content: center; */
+      align-items: center;
+      gap: 1.2rem;
+
+      & > span:last-child {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.4rem;
+        & span:first-child {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
       }
     }
   }

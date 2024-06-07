@@ -1,0 +1,61 @@
+@import "./base.module.css";
+
+.container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 50%;
+  height: 86%;
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-grey-5);
+}
+
+.mymap-container {
+  height: 90%;
+  margin: 0.8rem;
+  border-radius: var(--border-radius-sm);
+}
+.btn-container {
+  height: 6%;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & button {
+    padding: 0.8rem;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    outline: none;
+    background-color: var(--color-primary);
+    transition: all 0.2s;
+    color: var(--color-white-2);
+    box-shadow: var(--shadow-sm);
+    & svg {
+      font-size: 2.4rem;
+    }
+    &:hover {
+      background-color: var(--color-primary-shade-2);
+    }
+
+    &:first-child {
+      background-color: var(--color-danger);
+
+      &:hover {
+        background-color: var(--color-danger-shade);
+      }
+    }
+  }
+}
+.map-container {
+  background-color: red;
+  height: 100vh !important;
+}
+.leaflet-container {
+  height: 50vh !important;
+}
+.leaflet-container .leaflet-touch-drag .leaflet-touch-zoom {
+  height: 70vh !important;
+}
