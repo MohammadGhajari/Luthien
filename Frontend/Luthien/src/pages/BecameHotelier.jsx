@@ -8,7 +8,7 @@ import HotelierInputFields from "./../components/HotelierInputFields";
 import { PiUploadSimpleLight } from "react-icons/pi";
 import { MdInsertPhoto } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
-
+import { useNavigate } from "react-router-dom";
 import { MdOutlineSportsGymnastics } from "react-icons/md";
 import { MdPets } from "react-icons/md";
 import { IoGameController } from "react-icons/io5";
@@ -16,7 +16,7 @@ import { FaSwimmingPool } from "react-icons/fa";
 import { GiCoffeeCup } from "react-icons/gi";
 import { FaShoppingBag } from "react-icons/fa";
 import { FaPersonPraying } from "react-icons/fa6";
-import { TbBellRinging2 } from "react-icons/tb";
+import { TbBellRinging2, TbItalic } from "react-icons/tb";
 import { FaWifi } from "react-icons/fa";
 import { FaParking } from "react-icons/fa";
 import { GrElevator } from "react-icons/gr";
@@ -31,8 +31,19 @@ import { FaTaxi } from "react-icons/fa";
 import { GrAtm } from "react-icons/gr";
 import { ImLibrary } from "react-icons/im";
 import { toastError, toastSuccess } from "./../services/notify";
+import { toast } from "react-toastify";
 import CountrySelectBox from "./../components/CountrySelectBox";
 import VicinityLocation from "./../components/VicinityLocation";
+import {
+  getHotelByName,
+  createHotel,
+  getCurrentUser,
+  updateHotel,
+  updateUser,
+} from "./../services/handleReqs.js";
+import validator from "validator";
+import { useDispatch } from "react-redux";
+import { setRole } from "./../state management/userSlice.js";
 
 export default function BecameHotelier() {
   const amenitiesSVG = {
@@ -59,6 +70,9 @@ export default function BecameHotelier() {
     library: <ImLibrary />,
   };
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [sent, setSent] = useState(false);
   const [locModal, setLocModal] = useState(false);
   const [location, setLocation] = useState({
@@ -68,7 +82,7 @@ export default function BecameHotelier() {
   const [name, setName] = useState("");
   const [stars, setStars] = useState(1);
   const [city, setCity] = useState("");
-  const [country, setCountry] = useState("");
+  const [country, setCountry] = useState("United Kingdom");
   const [phone, setphone] = useState("");
   const [description, setDescription] = useState("");
   const [address, setAddress] = useState("");
@@ -79,20 +93,66 @@ export default function BecameHotelier() {
   const [cover, setCover] = useState({});
   const [photos, setPhotos] = useState([]);
 
-  function handleSubmit(e) {
-    e.preventDefault();
+  function toTitleCase(str) {
+    return str
+      .split(" ")
+      .map(function (word) {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      })
+      .join(" ");
+  }
 
-    console.log("name: " + name);
-    console.log("stars: " + stars);
-    console.log("city: " + city);
-    console.log("country: " + country);
-    console.log("description: " + description);
-    console.log("address: " + address);
-    console.log("phone: " + phone);
-    console.log("vicinities: " + vicinity);
-    console.log("amenities: " + amenities);
-    console.log("cover: " + cover);
-    console.log("photos: " + photos);
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const data = await getHotelByName(toTitleCase(name));
+    if (data.length > 0) return toastError("This hoter is already exists.");
+    if (description.length < 10)
+      return toastError("Description must be at least 10 characters long.");
+    if (!validator.isMobilePhone(phone))
+      return toastError("Phone number is not valid.");
+    if (amenities.length === 0)
+      return toastError("Select at least one amenity.");
+    if (!cover.name) return toastError("Choose a cover for hotel.");
+    if (photos.length === 0)
+      return toastError("Please select at least one photo for hotel.");
+
+    const currUser = await getCurrentUser();
+
+    const newHotel = {
+      name: toTitleCase(name),
+      owner: currUser.data.data._id,
+      stars,
+      city,
+      description,
+      address,
+      location,
+      phone,
+      importantVicinityPlaces: vicinity,
+      country,
+      amenities,
+    };
+
+    const res = await createHotel(newHotel);
+    if (!res.id) {
+      return toastError("Something went wrong.");
+    }
+
+    const formData = new FormData();
+    formData.append("cover", cover);
+    for (let i = 0; i < photos.length; i++) {
+      formData.append("photos", photos[i]);
+    }
+
+    const updatedHotel = await toast.promise(updateHotel(res.id, formData), {
+      pending: "Creating hotel...",
+      success: "Your hotel created successfully!⚡",
+      error: "Try again.⚠️",
+    });
+
+    await updateUser({ role: "hotelier" });
+    dispatch(setRole("hotelier"));
+
+    navigate("/");
   }
 
   function handleChecked(e, amen) {
@@ -128,13 +188,13 @@ export default function BecameHotelier() {
     let flag = true;
     console.log(vicinity);
     vicinity.forEach((v) => {
-      if (v.location.length === 0 || v.distance === 0 || v.time === 0) {
+      if (v.name.length === 0 || v.distance === 0 || v.time === 0) {
         flag = false;
       }
     });
 
     if (flag) {
-      setVicinity([...vicinity, { location: "", distance: 0, time: 0 }]);
+      setVicinity([...vicinity, { name: "", distance: 0, time: 0 }]);
     } else {
       toastError("Fill vicinity locations fields");
     }
@@ -145,8 +205,15 @@ export default function BecameHotelier() {
     }
     console.log(vicinity);
     const temp = vicinity.filter((v, index) => i !== index);
-    console.log(temp);
+
     setVicinity([...temp]);
+  }
+
+  async function handleNameBlur(e) {
+    const data = await getHotelByName(toTitleCase(e.target.value));
+    if (data.length > 0) {
+      toastError("This hoter is already exists.");
+    }
   }
 
   return (
@@ -170,6 +237,7 @@ export default function BecameHotelier() {
               width={"100%"}
               height={"4rem"}
               setValue={setName}
+              onblur={handleNameBlur}
             />
           </div>
           <div>
@@ -269,22 +337,20 @@ export default function BecameHotelier() {
             <label>Important vicinity locations</label>
             <div className={styles["viciniti-locations-container"]}>
               {vicinity.map((v, i) => (
-                <>
-                  <div key={i}>
-                    <h5>
-                      location {i + 1}{" "}
-                      <span onClick={() => handleDeleteLocation(i)}>
-                        <RiDeleteBin6Line />
-                      </span>
-                    </h5>
-                    <VicinityLocation
-                      vicinity={vicinity}
-                      setVicinity={setVicinity}
-                      i={i}
-                      v={v}
-                    />
-                  </div>
-                </>
+                <div key={i}>
+                  <h5>
+                    location {i + 1}{" "}
+                    <span onClick={() => handleDeleteLocation(i)}>
+                      <RiDeleteBin6Line />
+                    </span>
+                  </h5>
+                  <VicinityLocation
+                    vicinity={vicinity}
+                    setVicinity={setVicinity}
+                    i={i}
+                    v={v}
+                  />
+                </div>
               ))}
               <button onClick={handleAddLocation} type="button">
                 Add new location
@@ -306,7 +372,7 @@ export default function BecameHotelier() {
                   accept={"image/jpeg, image/png, image/jpg"}
                   onChange={handleCoverChange}
                 />
-                {cover.name && (
+                {cover?.name && (
                   <div className={styles["cover-photo"]}>
                     <span>
                       <MdInsertPhoto />

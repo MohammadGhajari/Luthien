@@ -17,7 +17,7 @@ import { FiActivity } from "react-icons/fi";
 import { FaHotel } from "react-icons/fa6";
 
 export default function Header() {
-  const { email, photo } = useSelector((state) => state.user);
+  const { email, photo, role } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -59,12 +59,14 @@ export default function Header() {
       <div className={styles.right}>
         {validator.isEmail(email) ? (
           <>
-            <NavLink to={"/became-hotelier"} className={styles["nav-btn"]}>
-              <span>
-                <FaHotel />
-              </span>
-              <span>Became a Hotelier</span>
-            </NavLink>
+            {role === "user" && (
+              <NavLink to={"/became-hotelier"} className={styles["nav-btn"]}>
+                <span>
+                  <FaHotel />
+                </span>
+                <span>Became a Hotelier</span>
+              </NavLink>
+            )}
             <div className={styles["profile-container"]}>
               <button
                 className={styles["img-container"]}

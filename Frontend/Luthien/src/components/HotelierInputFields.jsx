@@ -12,6 +12,7 @@ export default function HotelierInputFields({
   setValue,
   type = "text",
   required = true,
+  onblur,
 }) {
   const randomID = Math.random();
   const [inValue, setInValue] = useState("");
@@ -50,6 +51,7 @@ export default function HotelierInputFields({
         id={randomID}
         style={{ backgroundColor: color }}
         value={value}
+        onBlur={onblur}
       />
     </div>
   );

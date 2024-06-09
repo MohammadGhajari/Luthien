@@ -3,18 +3,18 @@ import styles from "./../styles/vicinity-location.module.css";
 import HotelierInputFields from "./HotelierInputFields";
 
 export default function VicinityLocation({ vicinity, setVicinity, i, v }) {
-  const [location, setLocation] = useState("");
+  const [name, setName] = useState("");
   const [time, setTime] = useState(0);
   const [distance, setDistance] = useState(0);
 
   useEffect(() => {
     let temp = vicinity;
-    temp[i].location = location;
+    temp[i].name = name;
     temp[i].time = time;
     temp[i].distance = distance;
 
     setVicinity([...temp]);
-  }, [location, time, distance]);
+  }, [name, time, distance]);
   return (
     <div className={styles["vicinity-location"]}>
       <HotelierInputFields
@@ -22,8 +22,8 @@ export default function VicinityLocation({ vicinity, setVicinity, i, v }) {
         width="100%"
         left={15}
         height={"4rem"}
-        setValue={setLocation}
-        value={v.location}
+        setValue={setName}
+        value={v.name}
       />
       <HotelierInputFields
         placeholder="Distance(meter)"

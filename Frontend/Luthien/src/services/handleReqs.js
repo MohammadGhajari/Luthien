@@ -32,7 +32,6 @@ export function login(data) {
       const res = await axios.post(`${domain}/api/users/login`, data);
       if (res.data.status === "success") {
         setCookie("jwt", res.data.token, 7);
-        console.log(res);
         resolve(res.data);
       } else {
         toastError("Incorrect email or password.");
@@ -120,14 +119,12 @@ export async function getHotelReviews(hotelName) {
 export async function updateUser(data) {
   return new Promise(async function (resolve, reject) {
     try {
-      console.log(data);
       const res = await axios.patch(`${domain}/api/users/updateMe`, data, {
         withCredentials: true,
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
-      console.log(res);
       if (res.data.status === "success") {
         resolve(res.data);
       } else {
@@ -150,7 +147,6 @@ export async function resetPassword(data) {
       const res = await axios.patch(`${domain}/api/users/resetPassword`, data, {
         withCredentials: true,
       });
-      console.log(res);
       if (res.data.status === "success") {
         resolve(res.data);
       } else {
@@ -173,7 +169,6 @@ export async function deleteAccount() {
       const res = await axios.delete(`${domain}/api/users/deleteMe`, {
         withCredentials: true,
       });
-      console.log(res);
       if (res.status === 204) {
         resolve("success");
       } else {
@@ -197,4 +192,47 @@ export async function getFavoriteHotels(hotels) {
     data.push(res.data.data.data);
   }
   return data;
+}
+
+export async function getHotelByName(name) {
+  const res = await axios.get(`${domain}/api/hotels?name=${name}`);
+  return res.data.data;
+}
+
+export async function createHotel(data) {
+  try {
+    const res = await axios.post(`${domain}/api/hotels`, data);
+
+    return res.data.data;
+  } catch (err) {
+    if (err.message === "Network Error") {
+      toastError("Too many requests.");
+    } else {
+      toastError("Hotel name is already exists.");
+    }
+  }
+}
+
+export async function updateHotel(id, data) {
+  return new Promise(async function (resolve, reject) {
+    try {
+      const res = await axios.patch(`${domain}/api/hotels/${id}`, data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      if (res.data.status === "success") {
+        resolve(res.data);
+      } else {
+        toastError("Something went wrong.");
+        reject(res.data);
+      }
+    } catch (err) {
+      if (err.message === "Network Error") {
+        toastError("Too many requests.");
+      } else {
+        toastError(err.message);
+      }
+    }
+  });
 }
