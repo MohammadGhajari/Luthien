@@ -75,16 +75,19 @@ export default function Footer() {
           <div className={styles["contact-content"]}>
             <a href="gmail.google.com">info@gmail.com</a>
             <div>
-              <a href="#">
+              <a href="https://github.com/MohammadGhajari" target="_blank">
                 <IoLogoGithub />
               </a>
               <a href="#">
                 <IoLogoLinkedin />
               </a>
-              <a href="#">
+              <a href="https://t.me/m_ghajari" target="_blank">
                 <FaTelegramPlane />
               </a>
-              <a href="#">
+              <a
+                href="https://www.instagram.com/ghajari_mohammad29"
+                target="_blank"
+              >
                 <FaSquareInstagram />
               </a>
             </div>

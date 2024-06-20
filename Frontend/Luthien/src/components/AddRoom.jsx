@@ -4,6 +4,7 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { setRooms } from "./../state management/searchRoomSlice";
 import { Tooltip } from "react-tippy";
+import CustomTooltip from "./CustomTooltip";
 
 export default function AddRoom({ i }) {
   const { rooms } = useSelector((state) => state.searchRoom);
@@ -59,29 +60,23 @@ export default function AddRoom({ i }) {
     <div className={styles["room-sample"]}>
       <div className={styles["title-delete"]}>
         <h3>Room {i + 1}</h3>
-        <Tooltip
-          title="Delete room"
-          position="top"
-          trigger="mouseenter"
-          delay={500}
-          hideDelay={100}
-          animation={"shift"}
-          arrow={true}
-          arrowSize={"small"}
-          distance={5}
-          size="regular"
-        >
+        <CustomTooltip cTitle={"Delete room"}>
           <button type="button" onClick={handleDeleteRoom}>
             <MdOutlineDeleteForever />
           </button>
-        </Tooltip>
+        </CustomTooltip>
       </div>
       <div className={styles["adult-container"]}>
         <span>
           Adults <span>(Ages 18 or above)</span>
         </span>
         <div className={styles["adult-btn-conatiner"]}>
-          <Tooltip
+          <CustomTooltip cTitle={"Delete adult"}>
+            <button type="button" onClick={handleDelAdults}>
+              <FaMinus />
+            </button>
+          </CustomTooltip>
+          {/* <Tooltip
             title="Delete adult"
             position="top"
             trigger="mouseenter"
@@ -96,10 +91,16 @@ export default function AddRoom({ i }) {
             <button type="button" onClick={handleDelAdults}>
               <FaMinus />
             </button>
-          </Tooltip>
+          </Tooltip> */}
 
           <span>{room.adults}</span>
 
+          <CustomTooltip cTitle={"Add adult"}>
+            <button type="button" onClick={handleAddAdults}>
+              <FaPlus />
+            </button>
+          </CustomTooltip>
+          {/* 
           <Tooltip
             title="Add adult"
             position="top"
@@ -115,7 +116,7 @@ export default function AddRoom({ i }) {
             <button type="button" onClick={handleAddAdults}>
               <FaPlus />
             </button>
-          </Tooltip>
+          </Tooltip> */}
         </div>
       </div>
       <div className={styles["adult-container"]}>
@@ -123,40 +124,18 @@ export default function AddRoom({ i }) {
           Children <span>(Ages 0-17)</span>
         </span>
         <div className={styles["adult-btn-conatiner"]}>
-          <Tooltip
-            title="Delete child"
-            position="top"
-            trigger="mouseenter"
-            delay={500}
-            hideDelay={100}
-            animation={"shift"}
-            arrow={true}
-            arrowSize={"small"}
-            distance={5}
-            size="regular"
-          >
+          <CustomTooltip cTitle={"Delete child"}>
             <button type="button" onClick={handleDelChildren}>
               <FaMinus />
             </button>
-          </Tooltip>
+          </CustomTooltip>
 
           <span>{room.children}</span>
-          <Tooltip
-            title="Add child"
-            position="top"
-            trigger="mouseenter"
-            delay={500}
-            hideDelay={100}
-            animation={"shift"}
-            arrow={true}
-            arrowSize={"small"}
-            distance={5}
-            size="regular"
-          >
+          <CustomTooltip cTitle={"Add child"}>
             <button type="button" onClick={handleAddChildren}>
               <FaPlus />
             </button>
-          </Tooltip>
+          </CustomTooltip>
         </div>
       </div>
     </div>
