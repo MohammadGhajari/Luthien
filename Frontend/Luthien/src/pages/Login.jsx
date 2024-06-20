@@ -16,6 +16,7 @@ import {
   setNationality,
   setPhoneNumber,
   setfavoriteHotels,
+  setId,
 } from "./../state management/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -41,6 +42,7 @@ export default function Login() {
     if (res.status === "success") {
       dispatch(setName(res.data.user.name));
       dispatch(setEmail(res.data.user.email));
+      dispatch(setId(res.data.user.id));
       dispatch(setRole(res.data.user.role));
       dispatch(setPhoto(res.data.user.photo));
       dispatch(setAddress(res.data.user.address));

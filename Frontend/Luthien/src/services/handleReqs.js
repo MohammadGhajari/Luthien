@@ -236,3 +236,18 @@ export async function updateHotel(id, data) {
     }
   });
 }
+
+export async function createReview(data) {
+  try {
+    const res = await axios.post(`${domain}/api/reviews`, data);
+    if (res.data.status === "success") return res.data.data;
+
+    toastError("error in creating review");
+  } catch (err) {
+    if (err.message === "Network Error") {
+      toastError("Too many requests.");
+    } else {
+      toastError("error in creating review");
+    }
+  }
+}

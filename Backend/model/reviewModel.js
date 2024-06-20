@@ -16,7 +16,7 @@ const reviewSchema = new mongoose.Schema(
     status: {
       //for showing to admin
       type: String,
-      enum: ['pending', 'confirmed'],
+      enum: ['pending', 'confirmed', 'failed'],
       default: 'pending',
     },
     createdAt: {

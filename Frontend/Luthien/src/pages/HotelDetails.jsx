@@ -52,16 +52,16 @@ export default function HotelDetails() {
           <div className={styles["navbar"]}>
             <div className={styles["content"]}>
               <a
-                className={scrollPosition < 832 && styles["selected"]}
+                className={scrollPosition < 832 ? styles["selected"] : ""}
                 href="#hotel-overview"
               >
                 Overview
               </a>
               <a
                 className={
-                  scrollPosition >= 832 &&
-                  scrollPosition < 1010 &&
-                  styles["selected"]
+                  scrollPosition >= 832 && scrollPosition < 1010
+                    ? styles["selected"]
+                    : ""
                 }
                 href="#hotel-amenities"
               >
@@ -69,9 +69,9 @@ export default function HotelDetails() {
               </a>
               <a
                 className={
-                  scrollPosition >= 1010 &&
-                  scrollPosition < 1420 &&
-                  styles["selected"]
+                  scrollPosition >= 1010 && scrollPosition < 1420
+                    ? styles["selected"]
+                    : ""
                 }
                 href="#hotel-location"
               >
@@ -79,9 +79,9 @@ export default function HotelDetails() {
               </a>
               <a
                 className={
-                  scrollPosition >= 1420 &&
-                  scrollPosition < 2255 &&
-                  styles["selected"]
+                  scrollPosition >= 1420 && scrollPosition < 2255
+                    ? styles["selected"]
+                    : ""
                 }
                 href="#hotel-rooms"
               >
@@ -89,9 +89,9 @@ export default function HotelDetails() {
               </a>
               <a
                 className={
-                  scrollPosition >= 2255 &&
-                  scrollPosition < 2825 &&
-                  styles["selected"]
+                  scrollPosition >= 2255 && scrollPosition < 2825
+                    ? styles["selected"]
+                    : ""
                 }
                 href="#hotel-accessibility"
               >
@@ -99,9 +99,9 @@ export default function HotelDetails() {
               </a>
               <a
                 className={
-                  scrollPosition >= 2825 &&
-                  scrollPosition < 3575 &&
-                  styles["selected"]
+                  scrollPosition >= 2825 && scrollPosition < 3575
+                    ? styles["selected"]
+                    : ""
                 }
                 href="#hotel-policy"
               >
@@ -132,7 +132,7 @@ export default function HotelDetails() {
           <HotelRooms rooms={hotel.rooms} amenities={hotel.amenities} />
           <HotelAccessibility />
           <HotelPolicy />
-          <HotelReveiews hotelName={hotel.name} />
+          <HotelReveiews hotelName={hotel.name} hotelID={hotelID} />
         </>
       )}
     </div>

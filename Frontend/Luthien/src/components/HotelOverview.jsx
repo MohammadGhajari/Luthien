@@ -59,7 +59,10 @@ export default function HotelOverview({ name, stars, ratings, desc, hotelID }) {
         <button onClick={() => navigation(-1)}>
           <IoArrowBackOutline />
         </button>
-        <button className={isFav && styles["is-fave"]} onClick={handleFavorite}>
+        <button
+          className={isFav ? styles["is-fave"] : ""}
+          onClick={handleFavorite}
+        >
           <span>{isFav ? <FaHeart /> : <FaRegHeart />}</span> <span>Save</span>
         </button>
       </div>

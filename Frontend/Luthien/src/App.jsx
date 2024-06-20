@@ -23,6 +23,7 @@ import {
   setNationality,
   setPhoneNumber,
   setfavoriteHotels,
+  setId,
 } from "./state management/userSlice";
 import Dashboard from "./pages/Dashboard";
 import FavoriteHotels from "./pages/FavoriteHotels";
@@ -42,6 +43,7 @@ function App() {
       if (res.status === "success") {
         dispatch(setName(res.data.data.name));
         dispatch(setEmail(res.data.data.email));
+        dispatch(setId(res.data.data.id));
         dispatch(setRole(res.data.data.role));
         dispatch(setPhoto(res.data.data.photo));
         dispatch(setAddress(res.data.data.address));

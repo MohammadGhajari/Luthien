@@ -8,10 +8,39 @@ import "swiper/css/pagination";
 import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
 import { getHotelReviews } from "./../services/handleReqs";
 import AOS from "aos";
+import { useSelector } from "react-redux";
+import StarRating from "./../components/StarRating";
+import { toastError, toastSuccess } from "../services/notify";
+import { createReview } from "./../services/handleReqs";
 
-export default function HotelReviews({ hotelName }) {
+export default function HotelReviews({ hotelName, hotelID }) {
   const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { email, id } = useSelector((state) => state.user);
+  const [rating, setRating] = useState(0);
+  const [rev, setRev] = useState("");
+
+  async function handleSubmitRating(e) {
+    e.preventDefault();
+
+    console.log(id);
+
+    if (rating === 0) return toastError("At least one rating is required.");
+    if (rev.length === 0)
+      return toastError("Type your opinion about this hotel.");
+
+    const res = await createReview({
+      review: rev,
+      rating: rating,
+      user: id,
+      hotel: hotelID,
+    });
+
+    if (res) toastSuccess("Review created successfully.");
+
+    setRating(0);
+    setRev("");
+  }
 
   useEffect(() => {
     AOS.init({ duration: 700 });
@@ -22,6 +51,7 @@ export default function HotelReviews({ hotelName }) {
       setIsLoading(true);
       const res = await getHotelReviews(hotelName);
       setReviews(res);
+      console.log(res);
       setIsLoading(false);
     }
     fetchData();
@@ -49,18 +79,36 @@ export default function HotelReviews({ hotelName }) {
             modules={[EffectCoverflow, Pagination, Navigation]}
             className={styles["reviews-container"] + " " + styles["swiper"]}
           >
-            {reviews.map((review, i) => (
-              <SwiperSlide key={i} className={styles["swiper-slide"]}>
-                <ReviewCart
-                  key={i}
-                  name={review.user.name}
-                  img={review.user.photo}
-                  rating={review.rating}
-                  review={review.review}
-                />
-              </SwiperSlide>
-            ))}
+            {reviews.map((review, i) =>
+              review.status === "confirmed" ? (
+                <SwiperSlide key={i} className={styles["swiper-slide"]}>
+                  <ReviewCart
+                    key={i}
+                    name={review.user.name}
+                    img={review.user.photo}
+                    rating={review.rating}
+                    review={review.review}
+                  />
+                </SwiperSlide>
+              ) : null
+            )}
           </Swiper>
+          {email.length > 0 && (
+            <div className={styles["add-review-container"]}>
+              <form onSubmit={handleSubmitRating}>
+                <h3>Add comment</h3>
+                <label>{rating}/5</label>
+                <StarRating rating={rating} setRating={setRating} />
+                <p>Share your review:</p>
+                <textarea
+                  value={rev}
+                  onChange={(e) => setRev(e.target.value)}
+                  rows={4}
+                ></textarea>
+                <button>Submit</button>
+              </form>
+            </div>
+          )}
         </div>
       )}
     </>
