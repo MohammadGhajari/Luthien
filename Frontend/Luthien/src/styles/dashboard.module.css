@@ -11,4 +11,5 @@
 
 .content {
   width: 70%;
+  min-height: 70vh;
 }

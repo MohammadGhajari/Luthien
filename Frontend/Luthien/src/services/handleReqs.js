@@ -251,3 +251,32 @@ export async function createReview(data) {
     }
   }
 }
+
+export async function getHotels() {
+  const res = await axios.get(`${domain}/api/hotels`);
+  console.log(res);
+  return res.data.data;
+}
+
+export async function updateReveiw(id, data) {
+  return new Promise(async function (resolve, reject) {
+    try {
+      const res = await axios.patch(`${domain}/api/reviews/${id}`, data, {
+        withCredentials: true,
+      });
+
+      if (res.data.status === "success") {
+        resolve(res.data);
+      } else {
+        toastError("Something went wrong.");
+        reject(res.data);
+      }
+    } catch (err) {
+      if (err.message === "Network Error") {
+        toastError("Too many requests.");
+      } else {
+        toastError(err.message);
+      }
+    }
+  });
+}

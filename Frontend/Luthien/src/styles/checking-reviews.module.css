@@ -1,0 +1,55 @@
+.container {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+
+  h1 {
+    color: var(--color-grey-4);
+  }
+}
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  gap: 1.6;
+
+  & button {
+    padding: 1.2rem 3.2rem;
+    border: none;
+    background-color: transparent;
+    background-color: var(--color-primary-tint-1);
+    border-radius: var(--border-radius-sm);
+    color: var(--color-white-2);
+  }
+}
+
+.search-result-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  width: 80%;
+}
+.hotel-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1.6;
+  background: linear-gradient(
+    to right,
+    var(--color-primary-shade-2),
+    var(--color-primary-tint-2)
+  );
+  padding: 1.2rem;
+  border-radius: var(--border-radius-sm);
+  color: var(--color-white-1);
+  h2 {
+    color: var(--color-white-3);
+  }
+  svg {
+    color: gold;
+  }
+}

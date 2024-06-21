@@ -30,10 +30,12 @@ import FavoriteHotels from "./pages/FavoriteHotels";
 import PersonalInformation from "./pages/PersonalInformation";
 import Security from "./pages/Security";
 import Activity from "./pages/Activity";
+import CheckingReviews from "./pages/CheckingReviews";
 import BecameHotelier from "./pages/BecameHotelier";
+import HotelReviewCheck from "./pages/HotelReviewCheck";
 
 function App() {
-  const { email } = useSelector((state) => state.user);
+  const { email, role } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   useEffect(function () {
@@ -81,6 +83,18 @@ function App() {
               />
               <Route path="security" element={<Security />} />
               <Route path="activity" element={<Activity />} />
+              {role === "admin" && (
+                <>
+                  <Route
+                    path="checking-reviews"
+                    element={<CheckingReviews />}
+                  />
+                  <Route
+                    path="checking-reviews/:hotelName"
+                    element={<HotelReviewCheck />}
+                  />
+                </>
+              )}
             </Route>
           </Route>
           <Route path="login" element={<Login />} />

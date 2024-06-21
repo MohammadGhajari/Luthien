@@ -13,6 +13,7 @@ export default function InputField({
   width = "20rem",
   height,
   color = "white",
+  setValue,
 }) {
   const { rooms } = useSelector((state) => state.searchRoom);
   const [inputValue, setInputValue] = useState(
@@ -28,6 +29,7 @@ export default function InputField({
   function handleChange(e) {
     setInputValue(e.target.value);
     dispatch(setCity(e.target.value));
+    if (setValue) setValue(e.target.value);
   }
 
   useEffect(
