@@ -44,7 +44,6 @@ export default function HotelDetails() {
     }
     fetchData();
   }, []);
-
   return (
     <div className={styles["container"]}>
       {!isLoading && (
@@ -129,7 +128,11 @@ export default function HotelDetails() {
             location={hotel.location}
             impVicPlace={hotel.importantVicinityPlaces}
           />
-          <HotelRooms rooms={hotel.rooms} amenities={hotel.amenities} />
+          <HotelRooms
+            rooms={hotel.rooms}
+            amenities={hotel.amenities}
+            hotelID={hotelID}
+          />
           <HotelAccessibility />
           <HotelPolicy />
           <HotelReveiews hotelName={hotel.name} hotelID={hotelID} />

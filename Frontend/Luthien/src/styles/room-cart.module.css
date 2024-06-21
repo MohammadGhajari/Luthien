@@ -3,13 +3,14 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   gap: 2.6rem;
   border: 1px solid var(--color-grey-5);
   border-radius: var(--border-radius-md);
   width: 32%;
   background-color: var(--color-white-1);
   box-shadow: var(--shadow-sm);
+  transition: 0.2s all;
+
   & .room-number {
     font-size: 1.8rem;
     animation: backwards;
@@ -17,8 +18,9 @@
 
   transition: all 0.2s;
   &:hover {
-    -webkit-box-shadow: 0px 0px 43px 0px rgba(41, 193, 41, 0.45);
-    -moz-box-shadow: 0px 0px 43px 0px rgba(41, 193, 41, 0.45);
+    transition: all 0.2s;
+    /* -webkit-box-shadow: 0px 0px 43px 0px rgba(41, 193, 41, 0.45); */
+    /* -moz-box-shadow: 0px 0px 43px 0px rgba(41, 193, 41, 0.45); */
     box-shadow: 0px 0px 43px 0px rgba(41, 193, 41, 0.45);
   }
 }
@@ -105,4 +107,10 @@
   &:hover {
     background-color: var(--color-primary-shade-1);
   }
+}
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 1.2rem;
+  margin-bottom: 0.8rem;
 }

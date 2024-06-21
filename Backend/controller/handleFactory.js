@@ -59,7 +59,6 @@ exports.deleteOne = (Model) =>
 
 exports.updateOne = (Model) =>
   catchAsync(async (req, res, next) => {
-    console.log(req.body);
     const freshDoc = await Model.findByIdAndUpdate(req.params.id, req.body);
 
     res.status(200).json({

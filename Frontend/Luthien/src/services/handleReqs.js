@@ -38,7 +38,6 @@ export function login(data) {
         reject(res.data);
       }
     } catch (err) {
-      // catch block executes, when there is an error in server side.
       if (err.message === "Network Error") {
         toastError("Too many requests.");
       } else {
@@ -265,6 +264,31 @@ export async function updateReveiw(id, data) {
         withCredentials: true,
       });
 
+      if (res.data.status === "success") {
+        resolve(res.data);
+      } else {
+        toastError("Something went wrong.");
+        reject(res.data);
+      }
+    } catch (err) {
+      if (err.message === "Network Error") {
+        toastError("Too many requests.");
+      } else {
+        toastError(err.message);
+      }
+    }
+  });
+}
+
+export async function updateRoom(id, data) {
+  return new Promise(async function (resolve, reject) {
+    try {
+      const res = await axios.patch(`${domain}/api/rooms/${id}`, data, {
+        // headers: {
+        //   "Content-Type": "multipart/form-data",
+        // },
+        withCredentials: true,
+      });
       if (res.data.status === "success") {
         resolve(res.data);
       } else {

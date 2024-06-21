@@ -1,39 +1,27 @@
 import styles from "./../styles/hotel-rooms.module.css";
-import InputField from "./InputField";
 import RoomCart from "./RoomCart";
 
-export default function HotelRooms({ rooms, amenities }) {
+export default function HotelRooms({ rooms, amenities, hotelID }) {
   return (
     <div id="hotel-rooms" className={styles["container"]}>
       <h1>Choose your room</h1>
-      <div className={styles["fields-container"]}>
-        <div className={styles["date-input-container"]}>
-          <input
-            // onChange={(e) => dispatch(setStartDate(e.target.value))}
-            className={styles["start-date"]}
-            type="date"
-            // defaultValue={getFormattedDate()}
-          />
-          <input
-            // onChange={(e) => dispatch(setEndDate(e.target.value))}
-            className={styles["end-date"]}
-            type="date"
-            // defaultValue={getFormattedDate()}
-          />
-        </div>
-        <InputField key={1} placeholder="Passengers" left={25} />
-      </div>
       <div className={styles["room-carts-container"]}>
-        {rooms.map((room) => (
-          <RoomCart
-            key={room.roomNumber}
-            amenities={amenities}
-            price={room.price}
-            discount={room.priceDiscount}
-            number={room.roomNumber}
-            photos={room.photos}
-          />
-        ))}
+        {rooms.map((room) =>
+          room.isFull ? (
+            <></>
+          ) : (
+            <RoomCart
+              key={room.roomNumber}
+              hotelID={hotelID}
+              amenities={amenities}
+              price={room.price}
+              discount={room.priceDiscount}
+              number={room.roomNumber}
+              photos={room.photos}
+              roomId={room._id}
+            />
+          )
+        )}
       </div>
     </div>
   );

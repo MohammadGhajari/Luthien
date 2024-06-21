@@ -63,6 +63,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     );
   }
 
+  console.log(req.body);
   // 2) Filtered out unwanted fields names that are not allowed to be updated
   const filteredBody = filterObj(
     req.body,
@@ -76,6 +77,8 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     'address',
     'photo',
     'favoriteHotels',
+    'balance',
+    'reservedRooms',
   );
   if (req.file)
     filteredBody.photo = 'http://127.0.0.10:8000/users/' + req.file.filename;

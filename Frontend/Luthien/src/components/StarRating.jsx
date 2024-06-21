@@ -3,9 +3,10 @@ import React from "react";
 function StarRating({ rating, setRating }) {
   return (
     <div>
-      {[1, 2, 3, 4, 5].map((star) => {
+      {[1, 2, 3, 4, 5].map((star, i) => {
         return (
           <span
+            key={i}
             className="start"
             style={{
               cursor: "pointer",

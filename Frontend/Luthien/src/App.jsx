@@ -24,12 +24,14 @@ import {
   setPhoneNumber,
   setfavoriteHotels,
   setId,
+  setBalance,
 } from "./state management/userSlice";
 import Dashboard from "./pages/Dashboard";
 import FavoriteHotels from "./pages/FavoriteHotels";
 import PersonalInformation from "./pages/PersonalInformation";
 import Security from "./pages/Security";
 import Activity from "./pages/Activity";
+import Wallet from "./pages/Wallet";
 import CheckingReviews from "./pages/CheckingReviews";
 import BecameHotelier from "./pages/BecameHotelier";
 import HotelReviewCheck from "./pages/HotelReviewCheck";
@@ -45,6 +47,7 @@ function App() {
       if (res.status === "success") {
         dispatch(setName(res.data.data.name));
         dispatch(setEmail(res.data.data.email));
+        dispatch(setBalance(res.data.data.balance));
         dispatch(setId(res.data.data.id));
         dispatch(setRole(res.data.data.role));
         dispatch(setPhoto(res.data.data.photo));
@@ -82,6 +85,7 @@ function App() {
                 element={<PersonalInformation />}
               />
               <Route path="security" element={<Security />} />
+              <Route path="wallet" element={<Wallet />} />
               <Route path="activity" element={<Activity />} />
               {role === "admin" && (
                 <>

@@ -5,6 +5,8 @@ import { FiActivity } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import styles from "./../styles/dashboard-sidebar.module.css";
 import { GoCodeReview } from "react-icons/go";
+import { SlWallet } from "react-icons/sl";
+import { FaWallet } from "react-icons/fa";
 
 export default function DashboardSidebar() {
   const { role } = useSelector((state) => state.user);
@@ -37,6 +39,12 @@ export default function DashboardSidebar() {
           <span>Checking Reviews</span>
         </NavLink>
       )}
+      <NavLink className={styles["nav-links"]} to={"/dashboard/wallet"}>
+        <span>
+          <FaWallet />
+        </span>
+        <span>Wallet</span>
+      </NavLink>
       <NavLink className={styles["nav-links"]} to={"/dashboard/security"}>
         <span>
           <FaUserLock />

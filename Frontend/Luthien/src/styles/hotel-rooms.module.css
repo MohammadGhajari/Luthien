@@ -26,7 +26,6 @@
     height: 90%;
     border: none;
     padding: 0 0.6rem;
-    /* background-color: #f6f6f6; */
     background-color: var(--color-white-1);
   }
   & > input:first-child {

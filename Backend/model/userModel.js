@@ -64,6 +64,22 @@ const userSchema = new mongoose.Schema(
       select: false,
     },
     favoriteHotels: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Hotel' }],
+    balance: {
+      type: Number,
+      default: 0,
+    },
+    reservedRooms: [
+      {
+        hotel: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'Hotel',
+        },
+        room: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'Room',
+        },
+      },
+    ],
   },
   { toJSON: { virtuals: true }, toObject: { virtuals: true } },
 );

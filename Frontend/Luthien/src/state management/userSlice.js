@@ -12,6 +12,7 @@ const initialState = {
   gender: "",
   address: "",
   favoriteHotels: [],
+  balance: 0,
 };
 const userSlice = createSlice({
   name: "user",
@@ -51,6 +52,9 @@ const userSlice = createSlice({
     setfavoriteHotels(state, action) {
       state.favoriteHotels = action.payload;
     },
+    setBalance(state, action) {
+      state.balance = action.payload;
+    },
     resetUser(state, action) {
       state.name = "";
       state.email = "";
@@ -72,6 +76,7 @@ export const {
   setPhoneNumber,
   setfavoriteHotels,
   setId,
+  setBalance,
 } = userSlice.actions;
 
 export default userSlice.reducer;
