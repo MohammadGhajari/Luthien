@@ -9,6 +9,7 @@ import HotelPolicy from "../components/HotelPolicy";
 import HotelReveiews from "../components/HotelReviews";
 import { getHotelById } from "../services/handleReqs";
 import { useState, useEffect, useRef } from "react";
+import Loading from "../components/Loading";
 
 export default function HotelDetails() {
   const { hotelID } = useParams();
@@ -46,7 +47,9 @@ export default function HotelDetails() {
   }, []);
   return (
     <div className={styles["container"]}>
-      {!isLoading && (
+      {isLoading ? (
+        <Loading />
+      ) : (
         <>
           <div className={styles["navbar"]}>
             <div className={styles["content"]}>
@@ -132,6 +135,7 @@ export default function HotelDetails() {
             rooms={hotel.rooms}
             amenities={hotel.amenities}
             hotelID={hotelID}
+            hotelName={hotel.name}
           />
           <HotelAccessibility />
           <HotelPolicy />

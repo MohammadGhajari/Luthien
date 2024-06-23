@@ -2,10 +2,11 @@ import { useSelector } from "react-redux";
 import styles from "./../styles/wallet.module.css";
 import { useState } from "react";
 import { toastError } from "../services/notify";
-import { updateUser } from "../services/handleReqs";
+import { updateUser, getCurrentUser } from "../services/handleReqs";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { setBalance } from "../state management/userSlice";
+import { getTime } from "../helper/time";
 
 export default function Wallet() {
   const { balance } = useSelector((state) => state.user);
@@ -15,11 +16,29 @@ export default function Wallet() {
   async function handleDeposite() {
     if (value <= 0) return toastError("invalid balance");
 
-    const res = await toast.promise(updateUser({ balance: balance + +value }), {
-      pending: "Updating balance...",
-      success: "Your balance updated successfully!⚡",
-      error: "Try again.⚠️",
-    });
+    const currentUser = await getCurrentUser();
+
+    const res = await toast.promise(
+      updateUser({
+        balance: balance + +value,
+        activity: [
+          ...currentUser.data.data.activity,
+          {
+            type: "deposite",
+            data: {
+              lastBalance: balance,
+              addedBalance: +value,
+            },
+            date: getTime(),
+          },
+        ],
+      }),
+      {
+        pending: "Updating balance...",
+        success: "Your balance updated successfully!⚡",
+        error: "Try again.⚠️",
+      }
+    );
     console.log(res);
     dispatch(setBalance(balance + +value));
     setValue("");

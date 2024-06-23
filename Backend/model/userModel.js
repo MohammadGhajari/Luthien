@@ -2,6 +2,23 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const validator = require('validator');
 
+function getTime() {
+  const currentdate = new Date();
+  return (
+    currentdate.getDate() +
+    '/' +
+    (currentdate.getMonth() + 1) +
+    '/' +
+    currentdate.getFullYear() +
+    ' ' +
+    currentdate.getHours() +
+    ':' +
+    currentdate.getMinutes() +
+    ':' +
+    currentdate.getSeconds()
+  );
+}
+
 const userSchema = new mongoose.Schema(
   {
     name: {
@@ -77,6 +94,40 @@ const userSchema = new mongoose.Schema(
         room: {
           type: mongoose.Schema.Types.ObjectId,
           ref: 'Room',
+        },
+      },
+    ],
+    activity: [
+      {
+        type: {
+          type: String,
+          enum: [
+            'reserve', //data{hoteName, roomNumber, subBalance}
+            'cancel', //{hotelName, roomNumber, addedBalance}
+            'deposite', //{lastBalance, addedBalance}
+            'updateProfile', //{}
+            'updateName', //{lastName, newName}
+            'updateEmail', //{lastEmail, newEmail}
+            'updatePhoneNumber', //{lastPhone, newPhone}
+            'updateBirthday', //{lastBirth, newBirth}
+            'updateNationality', //{lastNationality, newNationality}
+            'updateGender', //{lastGender, newGender}
+            'updateAddress', //{lastAddress, newAddress}
+            'becameHotelier', //{hotelName}
+            'addFav', //{hotelName,}
+            'deleteFav', //{hotelName}
+            'addReview', //{hotelName, rating}
+            'changePass', //{}
+            'addHotelRoom', //for hotelier
+            'deleteHotelRoom', //
+          ],
+        },
+        date: {
+          type: String,
+          default: getTime(),
+        },
+        data: {
+          type: Object,
         },
       },
     ],

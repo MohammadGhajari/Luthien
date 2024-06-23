@@ -80,10 +80,12 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     'favoriteHotels',
     'balance',
     'reservedRooms',
+    'activity',
   );
   if (req.file)
     filteredBody.photo = 'http://127.0.0.10:8000/users/' + req.file.filename;
-  if (req.body.reservedRooms[0] === 'empty') filteredBody.reservedRooms = [];
+  if (req.body.reservedRooms && req.body.reservedRooms[0] === 'empty')
+    filteredBody.reservedRooms = [];
 
   // 3) Update user document
   const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {

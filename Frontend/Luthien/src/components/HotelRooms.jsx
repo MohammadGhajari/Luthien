@@ -1,7 +1,7 @@
 import styles from "./../styles/hotel-rooms.module.css";
 import RoomCart from "./RoomCart";
 
-export default function HotelRooms({ rooms, amenities, hotelID }) {
+export default function HotelRooms({ rooms, amenities, hotelID, hotelName }) {
   return (
     <div id="hotel-rooms" className={styles["container"]}>
       <h1>Choose your room</h1>
@@ -19,6 +19,7 @@ export default function HotelRooms({ rooms, amenities, hotelID }) {
               number={room.roomNumber}
               photos={room.photos}
               roomId={room._id}
+              hotelName={hotelName}
             />
           )
         )}

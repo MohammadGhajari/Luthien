@@ -7,6 +7,8 @@ import { toastError, toastSuccess } from "./../services/notify";
 import { useNavigate } from "react-router-dom";
 import { resetUser } from "./../state management/userSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { updateUser, getCurrentUser } from "./../services/handleReqs";
+import { getTime } from "../helper/time";
 
 export default function Security() {
   const navigate = useNavigate();
@@ -38,6 +40,17 @@ export default function Security() {
           error: "Try again.⚠️",
         }
       );
+      const currentUser = await getCurrentUser();
+      const updatedUser = toast.promise(
+        updateUser({
+          activity: [
+            ...currentUser.data.data.activity,
+            { type: "changePass", data: {}, date: getTime() },
+          ],
+        }),
+        {}
+      );
+
       return true;
     } else {
       toastError("New password and confirm password are not same.");

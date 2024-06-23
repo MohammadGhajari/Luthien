@@ -46,7 +46,7 @@ export default function Header() {
           </NavLink>
           <span className={styles.divider}></span>
           <a
-            href="#faq"
+            href="/#faq"
             className={`${styles["faq-btn"]} ${styles["nav-btn"]}`}
           >
             <span>

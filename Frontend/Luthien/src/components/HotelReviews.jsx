@@ -11,7 +11,13 @@ import AOS from "aos";
 import { useSelector } from "react-redux";
 import StarRating from "./../components/StarRating";
 import { toastError, toastSuccess } from "../services/notify";
-import { createReview } from "./../services/handleReqs";
+import {
+  createReview,
+  getCurrentUser,
+  updateUser,
+} from "./../services/handleReqs";
+import { toast } from "react-toastify";
+import { getTime } from "../helper/time";
 
 export default function HotelReviews({ hotelName, hotelID }) {
   const [reviews, setReviews] = useState([]);
@@ -22,8 +28,6 @@ export default function HotelReviews({ hotelName, hotelID }) {
 
   async function handleSubmitRating(e) {
     e.preventDefault();
-
-    console.log(id);
 
     if (rating === 0) return toastError("At least one rating is required.");
     if (rev.length === 0)
@@ -38,6 +42,17 @@ export default function HotelReviews({ hotelName, hotelID }) {
 
     if (res) toastSuccess("Review created successfully.");
 
+    const currentUser = await getCurrentUser();
+
+    const updatedUser = await toast.promise(
+      updateUser({
+        activity: [
+          ...currentUser.data.data.activity,
+          { type: "addReview", data: { hotelName, rating }, date: getTime() },
+        ],
+      }),
+      {}
+    );
     setRating(0);
     setRev("");
   }
@@ -51,7 +66,7 @@ export default function HotelReviews({ hotelName, hotelID }) {
       setIsLoading(true);
       const res = await getHotelReviews(hotelName);
       setReviews(res);
-      console.log(res);
+
       setIsLoading(false);
     }
     fetchData();

@@ -64,6 +64,8 @@ function App() {
     fetchData();
   }, []);
 
+  console.log(new Date().toISOString());
+
   return (
     <>
       <BrowserRouter>

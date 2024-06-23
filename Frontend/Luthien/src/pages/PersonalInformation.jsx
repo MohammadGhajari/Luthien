@@ -1,10 +1,10 @@
 import EditOption from "../components/EditOption";
 import styles from "./../styles/personal-information.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateUser } from "./../services/handleReqs";
+import { updateUser, getCurrentUser } from "./../services/handleReqs";
 import { toast } from "react-toastify";
-import { toastError, toastSuccess } from "./../services/notify";
+import { toastError } from "./../services/notify";
 import validator from "validator";
 import {
   setEmail,
@@ -18,6 +18,7 @@ import {
   setPhoneNumber,
   setfavoriteHotels,
 } from "./../state management/userSlice";
+import { getTime } from "../helper/time";
 
 export default function PersonalInformation() {
   const [disableEdit, setDisableEdit] = useState(false);
@@ -41,25 +42,56 @@ export default function PersonalInformation() {
   const [nationalityState, setNationalityState] = useState("");
   const [genderState, setGenderState] = useState("");
   const [addressState, setAddressState] = useState("");
-  const [photoState, setPhotoState] = useState("");
 
   async function handlePhotoChange(e) {
-    setPhotoState(e.target.files[0]);
-    const res = await toast.promise(updateUser({ photo: e.target.files[0] }), {
-      pending: "Updating...",
-      success: "Your profile updated successfully!⚡",
-      error: "Try again.⚠️",
-    });
+    const currentUser = await getCurrentUser();
+
+    const res = await toast.promise(
+      updateUser({
+        photo: e.target.files[0],
+        activity: [
+          ...currentUser.data.data.activity,
+          {
+            type: "updateProfile",
+            data: {},
+            date: getTime(),
+          },
+        ],
+      }),
+      {
+        pending: "Updating...",
+        success: "Your profile updated successfully!⚡",
+        error: "Try again.⚠️",
+      }
+    );
     dispatch(setPhoto(res.data.user.photo));
     return true;
   }
   async function handleSaveName() {
     if (nameState) {
-      const res = await toast.promise(updateUser({ name: nameState }), {
-        pending: "Updating...",
-        success: "Your name updated successfully!⚡",
-        error: "Try again.⚠️",
-      });
+      const currentUser = await getCurrentUser();
+
+      const res = await toast.promise(
+        updateUser({
+          name: nameState,
+          activity: [
+            ...currentUser.data.data.activity,
+            {
+              type: "updateName",
+              data: {
+                lastName: currentUser.data.data.name,
+                newName: nameState,
+              },
+              date: getTime(),
+            },
+          ],
+        }),
+        {
+          pending: "Updating...",
+          success: "Your name updated successfully!⚡",
+          error: "Try again.⚠️",
+        }
+      );
       dispatch(setName(nameState));
       return true;
     } else {
@@ -70,10 +102,28 @@ export default function PersonalInformation() {
   async function handleSaveEmail() {
     if (emailState) {
       if (validator.isEmail(emailState)) {
-        const res = await toast.promise(updateUser({ email: emailState }), {
-          pending: "Updating...",
-          success: "Your email updated successfully!⚡",
-        });
+        const currentUser = await getCurrentUser();
+
+        const res = await toast.promise(
+          updateUser({
+            email: emailState,
+            activity: [
+              ...currentUser.data.data.activity,
+              {
+                type: "updateEmail",
+                data: {
+                  lastEmail: currentUser.data.data.email,
+                  newName: emailState,
+                },
+                date: getTime(),
+              },
+            ],
+          }),
+          {
+            pending: "Updating...",
+            success: "Your email updated successfully!⚡",
+          }
+        );
         dispatch(setEmail(emailState));
         return true;
       } else {
@@ -89,8 +139,23 @@ export default function PersonalInformation() {
     console.log(phoneNumberState);
     if (phoneNumberState) {
       if (validator.isMobilePhone(phoneNumberState)) {
+        const currentUser = await getCurrentUser();
+
         const res = await toast.promise(
-          updateUser({ phoneNumber: phoneNumberState }),
+          updateUser({
+            phoneNumber: phoneNumberState,
+            activity: [
+              ...currentUser.data.data.activity,
+              {
+                type: "updatePhoneNumber",
+                data: {
+                  lastPhone: currentUser.data.data.phoneNumber,
+                  newPhone: phoneNumberState,
+                },
+                date: getTime(),
+              },
+            ],
+          }),
           {
             pending: "Updating...",
             success: "Your phone number updated successfully!⚡",
@@ -110,8 +175,23 @@ export default function PersonalInformation() {
   async function handleSaveBirthDate() {
     if (dateOfBirthState) {
       if (validator.isDate(dateOfBirthState.replaceAll("/", "-"))) {
+        const currentUser = await getCurrentUser();
+
         const res = await toast.promise(
-          updateUser({ dateOfBirth: dateOfBirthState }),
+          updateUser({
+            dateOfBirth: dateOfBirthState,
+            activity: [
+              ...currentUser.data.data.activity,
+              {
+                type: "updateBirthday",
+                data: {
+                  lastBirth: currentUser.data.data.dateOfBirth,
+                  newBirth: dateOfBirthState,
+                },
+                date: getTime(),
+              },
+            ],
+          }),
           {
             pending: "Updating...",
             success: "Your birth date updated successfully!⚡",
@@ -130,8 +210,23 @@ export default function PersonalInformation() {
   }
   async function handleSaveNationality() {
     if (nationalityState) {
+      const currentUser = await getCurrentUser();
+
       const res = await toast.promise(
-        updateUser({ nationality: nationalityState }),
+        updateUser({
+          nationality: nationalityState,
+          activity: [
+            ...currentUser.data.data.activity,
+            {
+              type: "updateNationality",
+              data: {
+                lastNationality: currentUser.data.data.nationality,
+                newNationality: nationalityState,
+              },
+              date: getTime(),
+            },
+          ],
+        }),
         {
           pending: "Updating...",
           success: "Your nationality updated successfully!⚡",
@@ -153,10 +248,27 @@ export default function PersonalInformation() {
           ? "female"
           : "not to say";
 
-      const res = await toast.promise(updateUser({ gender: gen }), {
-        pending: "Updating...",
-        success: "Your gender updated successfully!⚡",
-      });
+      const currentUser = await getCurrentUser();
+      const res = await toast.promise(
+        updateUser({
+          gender: gen,
+          activity: [
+            ...currentUser.data.data.activity,
+            {
+              type: "updateGender",
+              data: {
+                lastGender: currentUser.data.data.gender,
+                newGender: gen,
+              },
+              date: getTime(),
+            },
+          ],
+        }),
+        {
+          pending: "Updating...",
+          success: "Your gender updated successfully!⚡",
+        }
+      );
       dispatch(setGender(genderState));
       return true;
     } else {
@@ -166,10 +278,27 @@ export default function PersonalInformation() {
   }
   async function handleSaveAddress() {
     if (addressState) {
-      const res = await toast.promise(updateUser({ address: addressState }), {
-        pending: "Updating...",
-        success: "Your address updated successfully!⚡",
-      });
+      const currentUser = await getCurrentUser();
+      const res = await toast.promise(
+        updateUser({
+          address: addressState,
+          activity: [
+            ...currentUser.data.data.activity,
+            {
+              type: "updateAddress",
+              data: {
+                lastAddress: currentUser.data.data.address,
+                newAddress: addressState,
+              },
+              date: getTime(),
+            },
+          ],
+        }),
+        {
+          pending: "Updating...",
+          success: "Your address updated successfully!⚡",
+        }
+      );
       dispatch(setAddress(addressState));
       return true;
     } else {

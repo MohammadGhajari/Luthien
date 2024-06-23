@@ -29,9 +29,10 @@ import { FaTaxi } from "react-icons/fa";
 import { GrAtm } from "react-icons/gr";
 import { ImLibrary } from "react-icons/im";
 import { useDispatch, useSelector } from "react-redux";
-import { updateUser, updateRoom } from "../services/handleReqs";
+import { updateUser, updateRoom, getCurrentUser } from "../services/handleReqs";
 import { setBalance } from "./../state management/userSlice";
 import { toast } from "react-toastify";
+import { getTime } from "./../helper/time";
 
 export default function BookedRoomsCart({
   photos,
@@ -81,10 +82,25 @@ export default function BookedRoomsCart({
     ) {
       const filterdRooms = allRooms.filter((r) => r.room._id !== roomID);
 
+      const currentUser = await getCurrentUser();
+
+      console.log("canceled");
       const updatedUser = await toast.promise(
         updateUser({
           balance: balance + paid / 2,
           reservedRooms: filterdRooms.length === 0 ? ["empty"] : filterdRooms,
+          activity: [
+            ...currentUser.data.data.activity,
+            {
+              type: "cancel",
+              date: getTime(),
+              data: {
+                hotelName,
+                roomNumber,
+                addedBalance: paid / 2,
+              },
+            },
+          ],
         }),
         {
           pending: "Canceling room...",

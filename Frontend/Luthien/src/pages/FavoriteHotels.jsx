@@ -63,10 +63,6 @@ export default function FavoriteHotels() {
     fetchData();
   }, [favoriteHotels, dispatch]);
 
-  // if (!favoriteHotels || favoriteHotels.length === 0) {
-  //   return <div>Loading favorite hotels...</div>;
-  // }
-
   return (
     <>
       {email ? (

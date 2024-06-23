@@ -1,0 +1,26 @@
+.pie-chart-custome text {
+  background-origin: red !important;
+  color: transparent !important;
+  color: red !important;
+  fill: transparent !important;
+  font-size: 0.2rem;
+}
+.pie-chart-custome .recharts-legend-wrapper {
+  width: 500px !important;
+}
+.pie-chart-custome ul {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1.2rem;
+  gap: 0.6rem;
+}
+.pie-chart-custome ul li {
+  width: 15rem;
+  display: flex !important;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.bar-chart-custome .recharts-xAxis tspan {
+  fill: transparent !important;
+  color: transparent !important;
+}

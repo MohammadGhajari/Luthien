@@ -6,11 +6,12 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { IoStar } from "react-icons/io5";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
-import { updateUser } from "./../services/handleReqs.js";
+import { updateUser, getCurrentUser } from "./../services/handleReqs.js";
 import { setfavoriteHotels } from "./../state management/userSlice.js";
 import { useDispatch, useSelector } from "react-redux";
 import AOS from "aos";
 import { useEffect } from "react";
+import { getTime } from "../helper/time.js";
 
 export default function HotelOverview({ name, stars, ratings, desc, hotelID }) {
   const navigation = useNavigate();
@@ -22,11 +23,19 @@ export default function HotelOverview({ name, stars, ratings, desc, hotelID }) {
   async function handleFavorite() {
     if (!email) return toastError("Please Login");
 
+    const currentUser = await getCurrentUser();
+
     if (!isFav) {
       dispatch(setfavoriteHotels([...favoriteHotels, hotelID]));
 
       const res = await toast.promise(
-        updateUser({ favoriteHotels: [...favoriteHotels, hotelID] }),
+        updateUser({
+          favoriteHotels: [...favoriteHotels, hotelID],
+          activity: [
+            ...currentUser.data.data.activity,
+            { type: "addFav", data: { hotelName: name }, date: getTime() },
+          ],
+        }),
         {
           pending: "Adding...",
           success: "This hotel added to your favorites!⚡",
@@ -39,7 +48,13 @@ export default function HotelOverview({ name, stars, ratings, desc, hotelID }) {
       dispatch(setfavoriteHotels([...filteredFav]));
 
       const res = await toast.promise(
-        updateUser({ favoriteHotels: [...filteredFav] }),
+        updateUser({
+          favoriteHotels: [...filteredFav],
+          activity: [
+            ...currentUser.data.data.activity,
+            { type: "deleteFav", data: { hotelName: name }, date: getTime() },
+          ],
+        }),
         {
           pending: "Removing...",
           success: "This hotel removed from your favorites!⚡",

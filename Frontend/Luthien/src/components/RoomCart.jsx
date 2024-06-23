@@ -34,6 +34,7 @@ import { updateUser, updateRoom, getCurrentUser } from "../services/handleReqs";
 import { toastError } from "../services/notify";
 import { setBalance } from "../state management/userSlice";
 import { toast } from "react-toastify";
+import { getTime } from "../helper/time";
 
 export default function RoomCart({
   price,
@@ -43,6 +44,7 @@ export default function RoomCart({
   amenities,
   hotelID,
   roomId,
+  hotelName,
 }) {
   const amenitiesSVG = {
     "swimming pool": <FaSwimmingPool />,
@@ -91,6 +93,18 @@ export default function RoomCart({
           { hotel: hotelID, room: roomId },
         ],
         balance: balance - (+price - +discount),
+        activity: [
+          ...currentUser.data.data.activity,
+          {
+            type: "reserve",
+            data: {
+              hotelName,
+              roomNumber: number,
+              subBalance: -(+price - +discount),
+            },
+            date: getTime(),
+          },
+        ],
       }),
       {}
     );

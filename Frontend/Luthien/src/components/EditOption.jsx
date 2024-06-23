@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "./../styles/edit-option.module.css";
 import CountrySelectBox from "./CountrySelectBox";
 import GenderSelectBox from "./GenderSelectBox";

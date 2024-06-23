@@ -43,7 +43,6 @@ export default function HotelReviewCheck() {
       const res = await getHotelReviews(hotelName);
       if (res) {
         const tempPending = res.filter((r) => r.status === "pending");
-        console.log(tempPending);
         setPendingReviews(tempPending);
       }
     }
