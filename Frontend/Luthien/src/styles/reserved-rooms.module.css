@@ -1,0 +1,10 @@
+.outer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}

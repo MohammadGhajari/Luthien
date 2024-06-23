@@ -4,7 +4,6 @@ const APIFeatures = require('./../utils/apiFeatures');
 
 exports.getOne = (Model) =>
   catchAsync(async (req, res, next) => {
-    console.log('geeeeeeet onnnnnnnnne');
     let query = Model.findById(req.params.id);
     const doc = await query;
 

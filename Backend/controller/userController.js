@@ -63,6 +63,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     );
   }
 
+  console.log('-------------------------------------------req.body');
   console.log(req.body);
   // 2) Filtered out unwanted fields names that are not allowed to be updated
   const filteredBody = filterObj(
@@ -82,6 +83,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
   );
   if (req.file)
     filteredBody.photo = 'http://127.0.0.10:8000/users/' + req.file.filename;
+  if (req.body.reservedRooms[0] === 'empty') filteredBody.reservedRooms = [];
 
   // 3) Update user document
   const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {

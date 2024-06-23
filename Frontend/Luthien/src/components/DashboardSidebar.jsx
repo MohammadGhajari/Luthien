@@ -7,6 +7,7 @@ import styles from "./../styles/dashboard-sidebar.module.css";
 import { GoCodeReview } from "react-icons/go";
 import { SlWallet } from "react-icons/sl";
 import { FaWallet } from "react-icons/fa";
+import { FaKey } from "react-icons/fa6";
 
 export default function DashboardSidebar() {
   const { role } = useSelector((state) => state.user);
@@ -50,6 +51,12 @@ export default function DashboardSidebar() {
           <FaUserLock />
         </span>
         <span>Security</span>
+      </NavLink>
+      <NavLink className={styles["nav-links"]} to={"/dashboard/reserved-rooms"}>
+        <span>
+          <FaKey />
+        </span>
+        <span>Reserved rooms</span>
       </NavLink>
     </aside>
   );

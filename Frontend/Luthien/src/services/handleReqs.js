@@ -127,7 +127,7 @@ export async function updateUser(data) {
       if (res.data.status === "success") {
         resolve(res.data);
       } else {
-        toastError("This email address is used before.");
+        toastError("Error in update user info.");
         reject(res.data);
       }
     } catch (err) {

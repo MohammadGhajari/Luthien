@@ -32,6 +32,7 @@ import PersonalInformation from "./pages/PersonalInformation";
 import Security from "./pages/Security";
 import Activity from "./pages/Activity";
 import Wallet from "./pages/Wallet";
+import ReservedRooms from "./pages/ReservedRooms";
 import CheckingReviews from "./pages/CheckingReviews";
 import BecameHotelier from "./pages/BecameHotelier";
 import HotelReviewCheck from "./pages/HotelReviewCheck";
@@ -85,6 +86,7 @@ function App() {
                 element={<PersonalInformation />}
               />
               <Route path="security" element={<Security />} />
+              <Route path="reserved-rooms" element={<ReservedRooms />} />
               <Route path="wallet" element={<Wallet />} />
               <Route path="activity" element={<Activity />} />
               {role === "admin" && (
