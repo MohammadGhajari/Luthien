@@ -11,52 +11,6 @@ const Room = require('./../model/roomModel');
 const APIFeatures = require('./../utils/apiFeatures');
 const multer = require('multer');
 
-// const coverStorage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, 'public/hotels/covers');
-//   },
-//   filename: (req, file, cb) => {
-//     const ext = file.mimetype.split('/')[1];
-//     cb(null, `cover-${Date.now()}.${ext}`);
-//   },
-// });
-// const coverFilter = (req, file, cb) => {
-//   if (file.mimetype.startsWith('image')) {
-//     cb(null, true);
-//   } else {
-//     cb(new AppError('Not and image! Please upload only images', 400), false);
-//   }
-// };
-
-// const photosStorage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, 'public/hotels/photos');
-//   },
-//   filename: (req, file, cb) => {
-//     const ext = file.mimetype.split('/')[1];
-//     cb(null, `photos-${Date.now()}.${ext}`);
-//   },
-// });
-// const photosFilter = (req, file, cb) => {
-//   if (file.mimetype.startsWith('image')) {
-//     cb(null, true);
-//   } else {
-//     cb(new AppError('Not and image! Please upload only images', 400), false);
-//   }
-// };
-
-// const coverUpload = multer({
-//   storage: coverStorage,
-//   fileFilter: coverFilter,
-// });
-// const photosUpload = multer({
-//   storage: photosStorage,
-//   fileFilter: photosFilter,
-// });
-
-// exports.uploadCover = coverUpload.single('cover');
-// exports.uploadPhotos = photosUpload.single('photos');
-
 const upload = multer({
   storage: multer.diskStorage({
     destination: (req, file, cb) => {
@@ -99,6 +53,7 @@ const filterObj = (obj, ...allowedFields) => {
   return newObj;
 };
 exports.updateHotel = catchAsync(async (req, res, next) => {
+  console.log(req.body);
   const filteredBody = filterObj(
     req.body,
     'name',

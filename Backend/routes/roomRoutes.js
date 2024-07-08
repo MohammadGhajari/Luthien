@@ -5,11 +5,16 @@ const {
   deleteRoom,
   updateRoom,
   createRoom,
+  uploadFiles,
 } = require('./../controller/roomController');
 
 const router = express.Router();
 
-router.route('/:id').get(getRoom).delete(deleteRoom).patch(updateRoom);
+router
+  .route('/:id')
+  .get(getRoom)
+  .delete(deleteRoom)
+  .patch(uploadFiles, updateRoom);
 router.route('/').post(createRoom).get(getAllRooms);
 
 module.exports = router;

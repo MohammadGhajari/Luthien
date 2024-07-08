@@ -8,8 +8,6 @@ const {
   getAllRooms,
   getTrending,
   handleSearchQuery,
-  // uploadCover,
-  // uploadPhotos,
   uploadFiles,
 } = require('./../controller/hotelController');
 const { getAll } = require('../controller/handleFactory');

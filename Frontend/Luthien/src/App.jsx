@@ -30,12 +30,14 @@ import Dashboard from "./pages/Dashboard";
 import FavoriteHotels from "./pages/FavoriteHotels";
 import PersonalInformation from "./pages/PersonalInformation";
 import Security from "./pages/Security";
+import MyHotel from "./pages/MyHotel";
 import Activity from "./pages/Activity";
 import Wallet from "./pages/Wallet";
 import ReservedRooms from "./pages/ReservedRooms";
 import CheckingReviews from "./pages/CheckingReviews";
 import BecameHotelier from "./pages/BecameHotelier";
 import HotelReviewCheck from "./pages/HotelReviewCheck";
+import HotelAddRoom from "./pages/HotelAddRoom";
 
 function App() {
   const { email, role } = useSelector((state) => state.user);
@@ -63,8 +65,6 @@ function App() {
 
     fetchData();
   }, []);
-
-  console.log(new Date().toISOString());
 
   return (
     <>
@@ -101,6 +101,12 @@ function App() {
                     path="checking-reviews/:hotelName"
                     element={<HotelReviewCheck />}
                   />
+                </>
+              )}
+              {role === "hotelier" && (
+                <>
+                  <Route path="my-hotel" element={<MyHotel />} />
+                  <Route path="my-hotel/:hotelID" element={<HotelAddRoom />} />
                 </>
               )}
             </Route>

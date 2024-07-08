@@ -284,11 +284,12 @@ export async function updateRoom(id, data) {
   return new Promise(async function (resolve, reject) {
     try {
       const res = await axios.patch(`${domain}/api/rooms/${id}`, data, {
-        // headers: {
-        //   "Content-Type": "multipart/form-data",
-        // },
         withCredentials: true,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
       });
+
       if (res.data.status === "success") {
         resolve(res.data);
       } else {
@@ -303,4 +304,26 @@ export async function updateRoom(id, data) {
       }
     }
   });
+}
+
+export async function getMyHotel(id) {
+  const res = await axios.get(`${domain}/api/hotels?owner=${id}`);
+  return res.data.data[0];
+}
+
+export async function createRoom(data) {
+  try {
+    console.log("hell");
+    const res = await axios.post(`${domain}/api/rooms`, data);
+    console.log(res);
+    if (res.data.status === "success") return res.data.data;
+
+    toastError("error in creating room");
+  } catch (err) {
+    if (err.message === "Network Error") {
+      toastError("Too many requests.");
+    } else {
+      toastError("error in creating room");
+    }
+  }
 }

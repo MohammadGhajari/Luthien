@@ -19,6 +19,9 @@ const hotelSchema = mongoose.Schema(
       min: 1,
       max: 5,
     },
+    avgPrice: {
+      type: Number,
+    },
     city: {
       type: String,
       required: [true, 'a hotel belongs to a city.'],

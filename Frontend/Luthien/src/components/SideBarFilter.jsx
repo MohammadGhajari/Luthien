@@ -144,6 +144,7 @@ export default function SideBarFilter() {
               <span>
                 <IoIosSearch />
               </span>
+
               <input
                 onChange={(e) => dispatch(setHotelName(e.target.value))}
                 type="text"

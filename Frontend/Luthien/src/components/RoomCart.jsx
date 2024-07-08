@@ -37,6 +37,7 @@ import { toast } from "react-toastify";
 import { getTime } from "../helper/time";
 
 export default function RoomCart({
+  myOwn = false,
   price,
   discount,
   photos,
@@ -46,6 +47,9 @@ export default function RoomCart({
   roomId,
   hotelName,
 }) {
+  console.log("--------------");
+  console.log(amenities);
+
   const amenitiesSVG = {
     "swimming pool": <FaSwimmingPool />,
     "tea maker": <GiCoffeeCup />,
@@ -174,13 +178,18 @@ export default function RoomCart({
               </>
             )}
           </p>
-          <div className={styles["btn-container"]}>
-            <CustomTooltip cTitle={"Reserve room"}>
-              <button className={styles["reserve-btn"]} onClick={handleReserve}>
-                Reserve
-              </button>
-            </CustomTooltip>
-          </div>
+          {!myOwn && (
+            <div className={styles["btn-container"]}>
+              <CustomTooltip cTitle={"Reserve room"}>
+                <button
+                  className={styles["reserve-btn"]}
+                  onClick={handleReserve}
+                >
+                  Reserve
+                </button>
+              </CustomTooltip>
+            </div>
+          )}
         </div>
       )}
     </>

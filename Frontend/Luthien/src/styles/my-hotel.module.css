@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  & > p {
+    color: gold;
+  }
+
+  & > .nav-btn {
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--border-radius-sm);
+    background-color: var(--color-primary-tint-1);
+    color: var(--color-white-1);
+    outline: none;
+    border: none;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.room-carts-container {
+  display: flex;
+  gap: 4.8rem 1.2rem;
+  flex-wrap: wrap;
+}

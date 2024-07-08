@@ -8,6 +8,7 @@ import { GoCodeReview } from "react-icons/go";
 import { SlWallet } from "react-icons/sl";
 import { FaWallet } from "react-icons/fa";
 import { FaKey } from "react-icons/fa6";
+import { FaHotel } from "react-icons/fa6";
 
 export default function DashboardSidebar() {
   const { role } = useSelector((state) => state.user);
@@ -57,6 +58,12 @@ export default function DashboardSidebar() {
           <FaKey />
         </span>
         <span>Reserved rooms</span>
+      </NavLink>
+      <NavLink className={styles["nav-links"]} to={"/dashboard/my-hotel"}>
+        <span>
+          <FaHotel />
+        </span>
+        <span>My Hotel</span>
       </NavLink>
     </aside>
   );

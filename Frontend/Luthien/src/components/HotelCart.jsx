@@ -124,7 +124,7 @@ export default function HotelCart({ res }) {
           <span>
             <FaDollarSign />
           </span>
-          <span>1500</span>
+          <span>{res.avgPrice || 1500}</span>
         </p>
         <p>2 night, 1 adults</p>
         <NavLink to={`/hotels/${res._id}`} className={styles["view-btn"]}>

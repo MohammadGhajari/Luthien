@@ -74,40 +74,44 @@ export default function HotelReviews({ hotelName, hotelID }) {
 
   return (
     <>
-      {!isLoading && reviews.length > 0 && (
+      {!isLoading && (
         <div id="hotel-reviews" className={styles["container"]}>
-          <h1 data-aos={"fade-right"}>Reviews</h1>
+          {reviews.length > 0 && (
+            <>
+              <h1 data-aos={"fade-right"}>Reviews</h1>
 
-          <Swiper
-            effect={"coverflow"}
-            grabCursor={true}
-            centeredSlides={true}
-            slidesPerView={"auto"}
-            coverflowEffect={{
-              rotate: 50,
-              stretch: 0,
-              depth: 100,
-              modifier: 1,
-              slideShadows: true,
-            }}
-            pagination={true}
-            modules={[EffectCoverflow, Pagination, Navigation]}
-            className={styles["reviews-container"] + " " + styles["swiper"]}
-          >
-            {reviews.map((review, i) =>
-              review.status === "confirmed" ? (
-                <SwiperSlide key={i} className={styles["swiper-slide"]}>
-                  <ReviewCart
-                    key={i}
-                    name={review.user.name}
-                    img={review.user.photo}
-                    rating={review.rating}
-                    review={review.review}
-                  />
-                </SwiperSlide>
-              ) : null
-            )}
-          </Swiper>
+              <Swiper
+                effect={"coverflow"}
+                grabCursor={true}
+                centeredSlides={true}
+                slidesPerView={"auto"}
+                coverflowEffect={{
+                  rotate: 50,
+                  stretch: 0,
+                  depth: 100,
+                  modifier: 1,
+                  slideShadows: true,
+                }}
+                pagination={true}
+                modules={[EffectCoverflow, Pagination, Navigation]}
+                className={styles["reviews-container"] + " " + styles["swiper"]}
+              >
+                {reviews.map((review, i) =>
+                  review.status === "confirmed" ? (
+                    <SwiperSlide key={i} className={styles["swiper-slide"]}>
+                      <ReviewCart
+                        key={i}
+                        name={review.user.name}
+                        img={review.user.photo}
+                        rating={review.rating}
+                        review={review.review}
+                      />
+                    </SwiperSlide>
+                  ) : null
+                )}
+              </Swiper>
+            </>
+          )}
           {email.length > 0 && (
             <div className={styles["add-review-container"]}>
               <form onSubmit={handleSubmitRating}>

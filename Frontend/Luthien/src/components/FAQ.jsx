@@ -6,44 +6,64 @@ import AOS from "aos";
 export default function FAQ() {
   const Q = [
     {
-      q: " How do I create an account on this website?",
-      a: 'To create an account, click on the "Login / Register" button on the top right of the homepage. You\'ll be prompted to provide a username, email address, and password.',
+      q: "How do I create an account on Luthien?",
+      a: 'To create an account, click on the "Login / Register" button at the top right of the homepage. You\'ll be prompted to provide your username, email address, and password.',
     },
     {
       q: "How can I log in to my account?",
-      a: 'To log in, click on the "Login / Register" button on the homepage. And in the opened page, enter your username and password, then click "Log In." button',
+      a: 'To log in, click on the "Login / Register" button on the homepage. Enter your email and password, then click "Log In."',
     },
     {
-      q: "How can I search for books using the Google Book API?",
-      a: "Use the search bar on the website's homepage. Enter keywords, book titles, authors, or other relevant information, and then click \"Search.\" You'll receive a list of book results based on your query.",
+      q: "How do I search for hotels?",
+      a: "Use the search bar on the homepage. Enter the city name, and you'll see a list of hotels in that city. You can filter the results by hotel stars, name, price range, and amenities.",
     },
     {
-      q: "How can I add a book to my list?",
-      a: 'To add a book to your list, you can click on the "Add Book" button or you can click on the book\'s title in the search results. On the book\'s details page, you\'ll find an "Add to My List" button. Click it to add the book to your reading list. ',
+      q: "How can I reserve a room?",
+      a: 'To reserve a room, select a hotel and view its details. Choose a room from the list of available rooms, and click "Reserve."',
     },
     {
-      q: "How do I remove a book from my reading list?",
-      a: 'To remove a book from your list, you can immediately after add book to your list, remove it bu click on the "Remove Book" button. or go to your reading list, and next to each book, you\'ll find a "Remove Book" button. Click it to remove the book.',
+      q: "Can I add reviews for hotels?",
+      a: 'Yes, you can add reviews for hotels. Visit the hotel\'s page and scroll down to the reviews section. Click on "Add Review" to submit your feedback.',
     },
     {
-      q: "Where can I find account settings?",
-      a: 'Account settings can be accessed by clicking on your profile picture, located in the top right corner of the website. From there, select "Account Settings" to manage your account preferences. or in the header of the website, you can click on the settings button to go to account settings.',
+      q: "What is the 'Become a Hotelier' feature?",
+      a: 'If you want to list your own hotel on Luthien, you can become a hotelier. Click the "Become a Hotelier" button, fill out the form with your hotel\'s information, and submit it for approval.',
     },
     {
       q: "How can I update my personal information?",
-      a: 'In the account settings, you\'ll find an button "Personal Information." Click it to make changes to your profile details.',
+      a: 'Go to your dashboard and select "Personal Details." Here you can update your name, email, phone number, birthdate, nationality, gender, and address.',
     },
     {
-      q: "Can I change my profile picture?",
-      a: 'Yes, by clicking "Personal Information" button, you will find a button "Choose Image".by clicking on it, you can upload a picture for your profile.',
+      q: "How do I deposit money into my wallet?",
+      a: 'Go to your dashboard and select "Wallet." Click on "Deposit" and follow the instructions to add funds to your wallet.',
+    },
+    {
+      q: "How can I change my password?",
+      a: 'In your dashboard, select "Security." Here, you can change your password by entering your current password and the new one.',
     },
     {
       q: "How do I log out of my account?",
-      a: 'To log out, click on your profile picture and select "Log Out" from the dropdown menu. Or on the account settings you can find this button.',
+      a: 'To log out, go to your dashboard, select "Security," and click "Log Out."',
     },
     {
       q: "How can I delete my account?",
-      a: 'If you wish to delete your account, go to your account settings and find the "Delete Account" button. Follow the provided instructions to permanently delete your account.',
+      a: 'If you wish to delete your account, go to your dashboard, select "Security," and click "Delete Account." Follow the instructions to permanently delete your account.',
+    },
+    {
+      q: "How do I see my favorite hotels?",
+      a: 'Go to your "Favorite" page in the dashboard. Here you can view and manage the hotels you have added to your favorites.',
+    },
+    {
+      q: "How can I view my reservation history?",
+      a: 'In your dashboard, select "Reserved Rooms." Here you can see all the rooms you have reserved and have the option to cancel bookings if needed.',
+    },
+    {
+      q: "What should I do if I encounter a problem?",
+      a: 'If you encounter any issues, please contact our customer support through the "@m_ghajari" in telegram. We are here to help you with any problems you might face.',
+    },
+    {
+      q: "How can I add a hotel to my favorites?",
+      a: 'To add a hotel to your favorites, go to the hotel\'s page and click on the "Add to Favorites" button.',
     },
   ];
 
