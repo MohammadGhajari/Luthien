@@ -15,12 +15,17 @@ import { MdOutlineLogout } from "react-icons/md";
 import { logout } from "./../services/handleReqs";
 import { FiActivity } from "react-icons/fi";
 import { FaHotel } from "react-icons/fa6";
+import { setIsDarkMode } from "./../state management/darkModeSlice";
 
 export default function Header() {
   const { email, photo, role } = useSelector((state) => state.user);
+  const { isDarkMode } = useSelector((state) => state.darkmode);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  function handleDarkMode(e) {
+    dispatch(setIsDarkMode(!isDarkMode));
+  }
   async function handleLogout(e) {
     await logout();
     dispatch(resetUser());
@@ -31,7 +36,7 @@ export default function Header() {
     <div className={styles.container}>
       <div className={styles.left}>
         <Logo size={80} color={"var(--color-grey-3)"} marginLeft="3rem" />
-        <button className={styles["darkmode-btn"]}>
+        <button onClick={handleDarkMode} className={styles["darkmode-btn"]}>
           <FaRegMoon />
         </button>
         <div className={styles["nav-container"]}>

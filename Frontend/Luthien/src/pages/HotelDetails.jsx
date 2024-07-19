@@ -36,8 +36,36 @@ export default function HotelDetails() {
     async function fetchData() {
       try {
         setIsloading(true);
-        const res = await getHotelById(hotelID);
-        setHotel(res[0]);
+
+        //commnet out this section
+        // const res = await getHotelById(hotelID);
+        // setHotel(res[0]);
+
+        //********************************add a fake hotel for development//********************************
+        const fakeHotel = {};
+        fakeHotel.name = "Almase Shargh";
+        fakeHotel.description =
+          "Almase Shargh is a very good hotel for turists.";
+        fakeHotel.rooms = [];
+        fakeHotel.stars = 4;
+        fakeHotel.avgPrice = 120;
+        fakeHotel.city = "Tehran";
+        fakeHotel.address = "Tehran, janbaz";
+        fakeHotel.location = { lat: 12, lng: 12 };
+        fakeHotel.phone = "064654";
+        fakeHotel.cover = "";
+        fakeHotel.photos = [];
+        fakeHotel.ratingsAverage = 3;
+        fakeHotel.ratingsQuantity = 129;
+        fakeHotel.importantVicinityPlaces = [
+          { name: "haram", distance: 100, time: 10 },
+        ];
+        fakeHotel.country = "Iran";
+        fakeHotel.amenities = ["swimming pool", "tea maker", "gym", "pet"];
+
+        setHotel(fakeHotel);
+        //********************************add a fake hotel for development//********************************
+
         setIsloading(false);
       } catch (error) {
         console.error("Error fetching data:", error);

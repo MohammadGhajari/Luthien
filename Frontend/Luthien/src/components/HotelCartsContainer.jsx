@@ -23,7 +23,7 @@ export default function HotelCartsContainer() {
             rawResults[0]?.city.slice(1)}{" "}
           Hotels
         </h3>
-        {/* <div className={styles["sort-based"]}>
+        <div className={styles["sort-based"]}>
           <p>Sorting based on: </p>
           <div className={styles["btn-container"]}>
             <button>Default Price</button>
@@ -32,7 +32,7 @@ export default function HotelCartsContainer() {
             <span></span>
             <button>Highes Price</button>
           </div>
-        </div> */}
+        </div>
         <p>
           <span>
             <BsExclamationCircle />

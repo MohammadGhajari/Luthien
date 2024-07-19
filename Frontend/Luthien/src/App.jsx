@@ -42,29 +42,39 @@ import HotelAddRoom from "./pages/HotelAddRoom";
 function App() {
   const { email, role } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+  const { isDarkMode } = useSelector((state) => state.darkmode);
 
-  useEffect(function () {
-    async function fetchData() {
-      const res = await getCurrentUser();
+  useEffect(
+    function () {
+      async function fetchData() {
+        const res = await getCurrentUser();
 
-      if (res.status === "success") {
-        dispatch(setName(res.data.data.name));
-        dispatch(setEmail(res.data.data.email));
-        dispatch(setBalance(res.data.data.balance));
-        dispatch(setId(res.data.data.id));
-        dispatch(setRole(res.data.data.role));
-        dispatch(setPhoto(res.data.data.photo));
-        dispatch(setAddress(res.data.data.address));
-        dispatch(setDateOfBirth(res.data.data.dateOfBirth));
-        dispatch(setGender(res.data.data.gender));
-        dispatch(setNationality(res.data.data.nationality));
-        dispatch(setPhoneNumber(res.data.data.phoneNumber));
-        dispatch(setfavoriteHotels(res.data.data.favoriteHotels));
+        if (res.status === "success") {
+          dispatch(setName(res.data.data.name));
+          dispatch(setEmail(res.data.data.email));
+          dispatch(setBalance(res.data.data.balance));
+          dispatch(setId(res.data.data.id));
+          dispatch(setRole(res.data.data.role));
+          dispatch(setPhoto(res.data.data.photo));
+          dispatch(setAddress(res.data.data.address));
+          dispatch(setDateOfBirth(res.data.data.dateOfBirth));
+          dispatch(setGender(res.data.data.gender));
+          dispatch(setNationality(res.data.data.nationality));
+          dispatch(setPhoneNumber(res.data.data.phoneNumber));
+          dispatch(setfavoriteHotels(res.data.data.favoriteHotels));
+        }
       }
-    }
 
-    fetchData();
-  }, []);
+      fetchData();
+
+      // if (isDarkMode) {
+      //   document.documentElement.style.setProperty("--color-primary", "#fff");
+      // } else {
+      //   document.documentElement.style.setProperty("--color-primary", "#000");
+      // }
+    },
+    [isDarkMode]
+  );
 
   return (
     <>

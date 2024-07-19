@@ -93,7 +93,7 @@ exports.updateHotel = catchAsync(async (req, res, next) => {
       runValidators: true,
     },
   );
-  next();
+  // next();
   res.status(200).json({
     status: 'success',
     data: {

@@ -95,7 +95,7 @@ export default function Footer() {
         </div>
       </div>
       <div className={styles["copyright"]}>
-        Copyright Luthien © 2022. All rights reserved.
+        Copyright Luthien © {new Date().getFullYear()}. All rights reserved.
       </div>
     </footer>
   );

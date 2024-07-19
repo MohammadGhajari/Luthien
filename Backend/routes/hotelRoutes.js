@@ -10,7 +10,6 @@ const {
   handleSearchQuery,
   uploadFiles,
 } = require('./../controller/hotelController');
-const { getAll } = require('../controller/handleFactory');
 
 const router = express.Router();
 

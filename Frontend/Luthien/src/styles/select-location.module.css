@@ -3,15 +3,25 @@
 .container {
   position: absolute;
   left: 50%;
-  top: 30rem;
+  top: 35rem;
   transform: translate(-50%, -50%);
   z-index: 10;
   width: 50%;
   height: 35%;
   border-radius: var(--border-radius-sm);
   background-color: var(--color-grey-5);
+  min-height: 80vh;
+  animation: show 0.4s linear;
 }
-
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    display: flex !important;
+    opacity: 1;
+  }
+}
 .mymap-container {
   height: 90%;
   margin: 0.8rem;

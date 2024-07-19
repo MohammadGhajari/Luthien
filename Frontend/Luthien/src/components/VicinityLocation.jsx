@@ -20,7 +20,7 @@ export default function VicinityLocation({ vicinity, setVicinity, i, v }) {
       <HotelierInputFields
         placeholder="Location"
         width="100%"
-        left={15}
+        left={16}
         height={"4rem"}
         setValue={setName}
         value={v.name}

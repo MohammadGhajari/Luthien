@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import styles from "./../styles/became-hotelier.module.css";
-import AOS from "aos";
 import HotelierPolicies from "../components/HotelierPolicies";
 import { FaLocationDot } from "react-icons/fa6";
 import SelectLocation from "./../components/SelectLocation";
@@ -208,7 +207,6 @@ export default function BecameHotelier() {
 
     setVicinity([...temp]);
   }
-
   async function handleNameBlur(e) {
     const data = await getHotelByName(toTitleCase(e.target.value));
     if (data.length > 0) {
@@ -220,13 +218,18 @@ export default function BecameHotelier() {
     <div
       className={`${styles["container"]} ${sent && styles["sent-container"]}`}
     >
-      <HotelierPolicies setSent={setSent} sent={sent} />(
+      <HotelierPolicies setSent={setSent} sent={sent} />
       <div
         className={`${!sent && styles["form-container"]} ${
           sent && styles["sent"]
         }`}
       >
-        <form className={styles["hotelier-form"]} onSubmit={handleSubmit}>
+        <form
+          className={`${
+            locModal ? styles["hotelier-form-hide"] : styles["hotelier-form"]
+          } `}
+          onSubmit={handleSubmit}
+        >
           <h2>Enter your hotel information</h2>
           <div className={styles["hotel-name"]}>
             <label>Hotel name</label>
@@ -418,7 +421,6 @@ export default function BecameHotelier() {
           <button type="submit">Submit</button>
         </form>
       </div>
-      )
       {locModal && (
         <SelectLocation
           setLocation={setLocation}

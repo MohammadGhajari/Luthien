@@ -19,7 +19,7 @@
     padding: 0 1.2rem;
     cursor: text;
     transition: all 0.2s;
-    color: var(--color-grey-5);
+    color: var(--color-grey-5) !important;
   }
 
   & input {
@@ -37,7 +37,7 @@
   transform: translate(-50%, 0%) !important;
   z-index: 2;
   font-size: 1.2rem;
-  color: var(--color-grey-5);
+  color: var(--color-grey-3) !important;
 }
 .container:focus-within {
   border-color: var(--color-primary);
@@ -47,7 +47,7 @@
   transform: translate(-50%, 0%) !important;
   z-index: 1;
   font-size: 1.2rem;
-  color: var(--color-grey-5);
+  color: var(--color-grey-4) !important;
 }
 
 .container:focus-within .passenger-modal {
