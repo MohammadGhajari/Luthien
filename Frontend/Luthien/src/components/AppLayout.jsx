@@ -5,13 +5,13 @@ import Footer from "./../components/Footer";
 import MainContainer from "./../components/MainContainer";
 
 export default function AppLayout() {
-    return (
-        <div className={styles.container}>
-            <Header />
-            <MainContainer>
-                <Outlet />
-            </MainContainer>
-            <Footer />
-        </div>
-    );
+  return (
+    <div className={styles.container}>
+      <Header />
+      <MainContainer>
+        <Outlet />
+      </MainContainer>
+      <Footer />
+    </div>
+  );
 }

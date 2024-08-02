@@ -7,6 +7,7 @@ import osm from "./../helper/osm";
 import SearchResults from "../components/SearchResults";
 import styles from "./../styles/hotel-city-details.module.css";
 import L from "leaflet";
+import Loading from "./../components/Loading";
 
 function FitBounds({ markers }) {
   const map = useMap();
@@ -36,7 +37,7 @@ export default function HotelGroup({
   return (
     <>
       {isCLoading ? (
-        <div>Loading...</div>
+        <Loading />
       ) : (
         <div className={styles["container"]}>
           <button onClick={() => navigation("/")}>

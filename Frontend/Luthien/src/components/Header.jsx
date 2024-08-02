@@ -10,7 +10,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { resetUser } from "./../state management/userSlice";
 import { MdOutlineDashboardCustomize } from "react-icons/md";
 import { MdFavoriteBorder } from "react-icons/md";
-import { MdOutlineVpnKey } from "react-icons/md";
 import { MdOutlineLogout } from "react-icons/md";
 import { logout } from "./../services/handleReqs";
 import { FiActivity } from "react-icons/fi";
@@ -35,7 +34,7 @@ export default function Header() {
   return (
     <div className={styles.container}>
       <div className={styles.left}>
-        <Logo size={80} color={"var(--color-grey-3)"} marginLeft="3rem" />
+        <Logo size={80} color={"var(--color-grey-3)"} />
         <button onClick={handleDarkMode} className={styles["darkmode-btn"]}>
           <FaRegMoon />
         </button>
@@ -65,7 +64,10 @@ export default function Header() {
         {validator.isEmail(email) ? (
           <>
             {role === "user" && (
-              <NavLink to={"/became-hotelier"} className={styles["nav-btn"]}>
+              <NavLink
+                to={"/became-hotelier"}
+                className={`${styles["nav-btn"]} ${styles["become-hotelier-nav"]}`}
+              >
                 <span>
                   <FaHotel />
                 </span>
@@ -79,6 +81,23 @@ export default function Header() {
               ></button>
 
               <div className={styles["menu-container"]}>
+                <button onClick={handleDarkMode} className={styles["nav-btn"]}>
+                  <span>Dark mode</span>
+                  <span>
+                    <FaRegMoon />
+                  </span>
+                </button>
+                {role === "user" && (
+                  <NavLink
+                    to={"/became-hotelier"}
+                    className={`${styles["nav-btn"]} ${styles["profile-become-hotelier-nav"]}`}
+                  >
+                    <span>Became a Hotelier</span>
+                    <span>
+                      <FaHotel />
+                    </span>
+                  </NavLink>
+                )}
                 <NavLink className={styles["nav-btn"]} to="/dashboard">
                   <span>Dashboard</span>
                   <span>

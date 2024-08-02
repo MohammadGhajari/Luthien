@@ -45,3 +45,32 @@
     color: var(--color-grey-3);
   }
 }
+
+@media (max-width: 1100px) {
+  .hotel-cart {
+    padding: 1.2rem 1.2rem;
+
+    & div {
+      gap: 1.2rem;
+
+      & h3 {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .hotel-cart {
+    width: 48% !important;
+
+    & div h3 {
+      font-size: 1.6rem;
+    }
+  }
+}
+@media (max-width: 600px) {
+  .hotel-cart {
+    width: 100% !important;
+  }
+}

@@ -11,7 +11,13 @@
 .container > div {
   display: flex;
   align-items: center;
-  justify-content: center;
+  width: 50%;
+  &:first-child {
+    justify-content: flex-start;
+  }
+  &:last-child {
+    justify-content: flex-end;
+  }
 }
 .left {
   gap: 3.8rem;
@@ -28,7 +34,6 @@
   }
 }
 .darkmode-btn {
-  margin-left: 6.4rem;
   cursor: pointer;
   background-color: var(--color-hero);
   border: none;
@@ -94,7 +99,6 @@
   align-items: center;
   margin-right: 3.8rem;
   position: relative;
-
   & > .img-container {
     cursor: pointer;
     height: 100%;
@@ -157,5 +161,43 @@
         color: var(--color-grey-3);
       }
     }
+  }
+}
+.profile-become-hotelier-nav {
+  display: none !important;
+}
+
+@media (max-width: 1150px) {
+  .nav-container {
+    display: none;
+  }
+}
+@media (max-width: 960px) {
+  .become-hotelier-nav {
+    display: none !important;
+  }
+  .profile-become-hotelier-nav {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 670px) {
+  .left {
+    gap: 6rem;
+  }
+  .right {
+    width: fit-content !important;
+  }
+  .darkmode-btn {
+    display: none;
+  }
+}
+@media (max-width: 400px) {
+  .profile-container {
+    margin-right: 1rem;
+  }
+  .menu-container {
+    right: 0 !important;
+    top: 110% !important;
   }
 }

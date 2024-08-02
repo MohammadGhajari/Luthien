@@ -53,32 +53,39 @@ export default function SearchBox({ showCityField = true, title = "Hotels" }) {
   }
 
   return (
-    <div className={styles.conatainer}>
-      <img src="./../../public/hero-hotel-background.png" alt="hero" />
-
-      <div className={styles["search-container"]}>
-        <h1>{title}</h1>
-        <form onSubmit={handleSubmit} className={styles["fields-container"]}>
-          {showCityField && <InputField key={0} placeholder="City" left={20} />}
-          <div className={styles["date-input-container"]}>
-            <input
-              onChange={(e) => dispatch(setStartDate(e.target.value))}
-              className={styles["start-date"]}
-              type="date"
-              defaultValue={getFormattedDate()}
-            />
-            <input
-              onChange={(e) => dispatch(setEndDate(e.target.value))}
-              className={styles["end-date"]}
-              type="date"
-              defaultValue={getFormattedDate()}
-            />
-          </div>
-          <InputField key={1} placeholder="Passengers" left={25} />
-          <button type="submit" className={styles["submit-btn"]}>
-            Search
-          </button>
-        </form>
+    <div className={styles["container"]}>
+      <div className={styles["inner-container"]}>
+        <img src="./../../public/hero-hotel-background.png" alt="hero" />
+        <div className={styles["search-container"]}>
+          <h1 className={styles["title"]}>{title}</h1>
+          <form onSubmit={handleSubmit} className={styles["fields-container"]}>
+            <div className={styles["left"]}>
+              {showCityField && (
+                <InputField key={0} placeholder="City" left={15} />
+              )}
+              <InputField key={1} placeholder="Passengers" left={25} />
+            </div>
+            <div className={styles["right"]}>
+              <div className={styles["date-input-container"]}>
+                <input
+                  onChange={(e) => dispatch(setStartDate(e.target.value))}
+                  className={styles["start-date"]}
+                  type="date"
+                  defaultValue={getFormattedDate()}
+                />
+                <input
+                  onChange={(e) => dispatch(setEndDate(e.target.value))}
+                  className={styles["end-date"]}
+                  type="date"
+                  defaultValue={getFormattedDate()}
+                />
+              </div>
+              <button type="submit" className={styles["submit-btn"]}>
+                Search
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );

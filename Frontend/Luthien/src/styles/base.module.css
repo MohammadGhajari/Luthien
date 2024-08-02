@@ -1,10 +1,10 @@
 :root {
   /* --color-primary: #c75ffe;
-    --color-primary-tint-1: #cd81f6;
-    --color-primary-tint-2: #daa6f7;
-    --color-primary-shade-1: #b846f5;
-    --color-primary-shade-2: #b63af9;
-    --color-primary-shade-3: #ac24f5; */
+  --color-primary-tint-1: #cd81f6;
+  --color-primary-tint-2: #daa6f7;
+  --color-primary-shade-1: #b846f5;
+  --color-primary-shade-2: #b63af9;
+  --color-primary-shade-3: #ac24f5; */
 
   --color-primary: #29c129;
   --color-primary-tint-1: #47c447;
@@ -15,11 +15,11 @@
   --color-primary-hover: rgba(0, 154, 0, 0.264);
 
   /* --color-primary: #fcc100;
-    --color-primary-tint-1: rgb(249, 210, 56);
-    --color-primary-tint-2: rgb(251, 217, 96);
-    --color-primary-shade-1: #fcac00;
-    --color-primary-shade-2: rgb(253, 144, 19);
-    --color-primary-shade-3: rgb(245, 130, 0); */
+  --color-primary-tint-1: rgb(249, 210, 56);
+  --color-primary-tint-2: rgb(251, 217, 96);
+  --color-primary-shade-1: #fcac00;
+  --color-primary-shade-2: rgb(253, 144, 19);
+  --color-primary-shade-3: rgb(245, 130, 0); */
 
   /* --toastify-toast-width: 350px; */
   --toastify-toast-width: fit-content;
@@ -132,21 +132,13 @@ button {
   cursor: not-allowed;
 }
 
-select:disabled,
-input:disabled {
-  background-color: var(--color-grey-200);
-  color: var(--color-grey-500);
-}
-
 input:focus,
 button:focus,
 textarea:focus,
 select:focus {
-  outline: 2px solid var(--color-brand-600);
   outline-offset: -1px;
 }
 
-/* Parent selector, finally 😃 */
 button:has(svg) {
   line-height: 0;
 }
@@ -173,7 +165,4 @@ h6 {
 
 img {
   max-width: 100%;
-
-  /* For dark mode */
-  filter: grayscale(var(--image-grayscale)) opacity(var(--image-opacity));
 }

@@ -4,10 +4,11 @@
   position: relative;
   border-radius: var(--border-radius-md);
   border: 1px solid var(--color-grey-5);
-  padding: 0.8rem 1.2rem;
+  padding: 0.2rem 1.2rem !important;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 5rem;
 
   & label {
     position: absolute;
@@ -16,7 +17,7 @@
     top: 50%;
     left: 20%;
     transform: translate(-50%, -50%);
-    padding: 0 1.2rem;
+    padding: 0 0.6rem;
     cursor: text;
     transition: all 0.2s;
     color: var(--color-grey-5) !important;
@@ -187,5 +188,11 @@
 
   & button:hover {
     background-color: var(--color-primary-shade-1);
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    height: 4rem;
   }
 }

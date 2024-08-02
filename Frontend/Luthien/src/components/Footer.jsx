@@ -35,7 +35,7 @@ export default function Footer() {
           </div>
           <Logo size={80} />
           <p>
-            Lothian is a place where you can find your favorite hotel in the
+            Lothien is a place where you can find your favorite hotel in the
             desired city with specific prices.
           </p>
         </div>

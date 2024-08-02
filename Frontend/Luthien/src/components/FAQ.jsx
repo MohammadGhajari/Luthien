@@ -73,15 +73,13 @@ export default function FAQ() {
 
   return (
     <div className={styles["outer-container"]}>
-      <div id="faq" className={styles.FAQContainer}>
-        <h1 data-aos={"fade"} data-aos-duration={"200"}>
-          Frequently Asked Questions
-        </h1>
-        <div className={styles["list-container"]}>
-          {Q.map((item, i) => (
-            <Question key={i} item={item} />
-          ))}
-        </div>
+      <h1 data-aos={"fade"} data-aos-duration={"200"}>
+        Frequently Asked Questions
+      </h1>
+      <div className={styles["list-container"]}>
+        {Q.map((item, i) => (
+          <Question key={i} item={item} />
+        ))}
       </div>
     </div>
   );

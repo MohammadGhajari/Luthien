@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./../styles/input-field.module.css";
-import { FaPlus, FaMinus } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa";
 import AddRoom from "./AddRoom";
 import { useDispatch, useSelector } from "react-redux";
 import { setRooms, setCity } from "./../state management/searchRoomSlice";
@@ -10,7 +10,7 @@ export default function InputField({
   placeholder = "Name",
   top,
   left,
-  width = "20rem",
+  width = "50%",
   height,
   color = "white",
   setValue,

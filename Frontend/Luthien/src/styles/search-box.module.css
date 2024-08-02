@@ -1,40 +1,62 @@
 @import "./base.module.css";
 
-.conatainer {
+.container {
+  height: 65vh;
+}
+.inner-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
   z-index: 1;
+  position: relative;
+
+  & img {
+    height: 30rem;
+    width: 100%;
+  }
 }
 .search-container {
+  height: fit-content;
   display: flex;
   flex-direction: column;
+  gap: 6rem;
   justify-content: center;
   align-items: center;
-  gap: 4rem;
   padding: 2rem 4rem;
   border-radius: var(--border-radius-md);
   border: 1px solid var(--color-grey-5);
   background-color: var(--color-white-1);
   position: absolute;
+
   transform: translate(0, 50%);
   bottom: 0;
   box-shadow: var(--shadow-md);
+  width: 70%;
 }
+.title {
+  margin: 0;
+}
+
 .fields-container {
   display: flex;
   width: 100%;
-  gap: 2.8rem;
+  gap: 1.2rem;
+  & > div {
+    width: 50%;
+    display: flex;
+    gap: 1.2rem;
+  }
 }
 
 .date-input-container {
+  height: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   border: 1px solid var(--color-grey-5);
   border-radius: var(--border-radius-sm);
+  width: 75%;
   & > input {
     width: 50%;
     height: 90%;
@@ -52,7 +74,74 @@
   border: none;
   padding: 0 4rem;
   color: var(--color-white-1);
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .submit-btn:hover {
   background-color: var(--color-primary-shade-1);
+}
+
+@media (max-width: 1240px) {
+  .search-container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 900px) {
+  .inner-container {
+    position: relative;
+    & img {
+      height: 20rem;
+    }
+  }
+  .search-container {
+    width: 100%;
+    top: 5rem !important;
+    gap: 2rem;
+    border-radius: 0;
+  }
+  .fields-container {
+    flex-direction: column;
+    & > div {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .inner-container {
+    & img {
+      height: 15rem;
+    }
+  }
+  .search-container {
+    top: 2rem !important;
+    padding: 2rem 1rem;
+  }
+}
+@media (max-width: 400px) {
+  .inner-container {
+    & img {
+      height: 10rem;
+    }
+  }
+  .search-container {
+    top: -3rem !important;
+  }
+  .fields-container > div {
+    font-size: 80%;
+    gap: 0.6rem;
+  }
+
+  .date-input-container {
+    height: 4rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .search-container {
+    padding: 1rem 0.2rem;
+  }
 }

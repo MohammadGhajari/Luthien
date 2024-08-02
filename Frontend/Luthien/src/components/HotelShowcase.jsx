@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "./../styles/hotel-showcase.module.css";
 import HotelTypeCart from "./HotelTypeCart";
-import axios from "axios";
 import { getForeignHotels, getDomesticHotels } from "./../services/handleReqs";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -9,8 +8,6 @@ import "aos/dist/aos.css";
 export default function HotelShowcase() {
   const [domestics, setDomestics] = useState([]);
   const [foreigns, setForeigns] = useState([]);
-  const f2 = [foreigns[0], foreigns[1]];
-  const d2 = [...domestics, ...domestics];
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
