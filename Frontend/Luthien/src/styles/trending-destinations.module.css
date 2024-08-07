@@ -22,8 +22,8 @@
 }
 .grid-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: repeat(2, 30rem);
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 2fr);
   gap: 1.2rem;
   animation: linear 0.5s show;
 
@@ -142,10 +142,6 @@
   }
 }
 @media (max-width: 700px) {
-  .trending-countainer {
-    width: 98%;
-  }
-
   .trend {
     height: 20rem;
   }

@@ -93,11 +93,17 @@ export default function HotelCart({ res }) {
           </NavLink>
         </div>
         <div className={styles["stars-container"]}>
-          <p>
+          <p className={styles["stars-text"]}>
             <span>
               <MdOutlineStarPurple500 />
             </span>
             <span> {res.stars} Stars</span>
+          </p>
+          <p className={styles["stars-price"]}>
+            <span>
+              <FaDollarSign />
+            </span>
+            <span>{res.avgPrice || 1500}</span>
           </p>
           <div>
             {Array.from({ length: res.stars }, (x, i) => (

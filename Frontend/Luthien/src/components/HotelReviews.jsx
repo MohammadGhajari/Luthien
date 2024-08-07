@@ -19,12 +19,11 @@ import {
 import { toast } from "react-toastify";
 import { getTime } from "../helper/time";
 
-export default function HotelReviews({ hotelName, hotelID }) {
-  const [reviews, setReviews] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+export default function HotelReviews({ reviews }) {
   const { email, id } = useSelector((state) => state.user);
   const [rating, setRating] = useState(0);
   const [rev, setRev] = useState("");
+  console.log(reviews);
 
   async function handleSubmitRating(e) {
     e.preventDefault();
@@ -61,75 +60,77 @@ export default function HotelReviews({ hotelName, hotelID }) {
     AOS.init({ duration: 700 });
   }, []);
 
-  useEffect(function () {
-    async function fetchData() {
-      setIsLoading(true);
-      const res = await getHotelReviews(hotelName);
-      setReviews(res);
+  // useEffect(function () {
+  //   async function fetchData() {
+  //     setIsLoading(true);
+  //     const res = await getHotelReviews(hotelName);
+  //     setReviews(res);
 
-      setIsLoading(false);
-    }
-    fetchData();
-  }, []);
+  //     setIsLoading(false);
+  //   }
+  //   fetchData();
+  // }, []);
 
   return (
     <>
-      {!isLoading && (
-        <div id="hotel-reviews" className={styles["container"]}>
-          {reviews.length > 0 && (
-            <>
-              <h1 data-aos={"fade-right"}>Reviews</h1>
+      <div id="hotel-reviews" className={styles["container"]}>
+        {reviews.length > 0 && (
+          <>
+            <h1
+            //  data-aos={"fade-right"}
+            >
+              Reviews
+            </h1>
 
-              <Swiper
-                effect={"coverflow"}
-                grabCursor={true}
-                centeredSlides={true}
-                slidesPerView={"auto"}
-                coverflowEffect={{
-                  rotate: 50,
-                  stretch: 0,
-                  depth: 100,
-                  modifier: 1,
-                  slideShadows: true,
-                }}
-                pagination={true}
-                modules={[EffectCoverflow, Pagination, Navigation]}
-                className={styles["reviews-container"] + " " + styles["swiper"]}
-              >
-                {reviews.map((review, i) =>
-                  review.status === "confirmed" ? (
-                    <SwiperSlide key={i} className={styles["swiper-slide"]}>
-                      <ReviewCart
-                        key={i}
-                        name={review.user.name}
-                        img={review.user.photo}
-                        rating={review.rating}
-                        review={review.review}
-                      />
-                    </SwiperSlide>
-                  ) : null
-                )}
-              </Swiper>
-            </>
-          )}
-          {email.length > 0 && (
-            <div className={styles["add-review-container"]}>
-              <form onSubmit={handleSubmitRating}>
-                <h3>Add comment</h3>
-                <label>{rating}/5</label>
-                <StarRating rating={rating} setRating={setRating} />
-                <p>Share your review:</p>
-                <textarea
-                  value={rev}
-                  onChange={(e) => setRev(e.target.value)}
-                  rows={4}
-                ></textarea>
-                <button>Submit</button>
-              </form>
-            </div>
-          )}
-        </div>
-      )}
+            <Swiper
+              effect={"coverflow"}
+              grabCursor={true}
+              centeredSlides={true}
+              slidesPerView={"auto"}
+              coverflowEffect={{
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+              }}
+              pagination={true}
+              modules={[EffectCoverflow, Pagination, Navigation]}
+              className={styles["reviews-container"] + " " + styles["swiper"]}
+            >
+              {reviews.map((review, i) =>
+                review.status === "confirmed" ? (
+                  <SwiperSlide key={i} className={styles["swiper-slide"]}>
+                    <ReviewCart
+                      key={i}
+                      name={review.user.name}
+                      img={review.user.photo}
+                      rating={review.rating}
+                      review={review.review}
+                    />
+                  </SwiperSlide>
+                ) : null
+              )}
+            </Swiper>
+          </>
+        )}
+        {email.length > 0 && (
+          <div className={styles["add-review-container"]}>
+            <form onSubmit={handleSubmitRating}>
+              <h3>Add comment</h3>
+              <label>{rating}/5</label>
+              <StarRating rating={rating} setRating={setRating} />
+              <p>Share your review:</p>
+              <textarea
+                value={rev}
+                onChange={(e) => setRev(e.target.value)}
+                rows={4}
+              ></textarea>
+              <button>Submit</button>
+            </form>
+          </div>
+        )}
+      </div>
     </>
   );
 }

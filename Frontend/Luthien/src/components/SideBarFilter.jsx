@@ -59,7 +59,7 @@ import { ImLibrary } from "react-icons/im";
 import { useEffect } from "react";
 import AOS from "aos";
 
-export default function SideBarFilter() {
+export default function SideBarFilter({ border }) {
   const dispatch = useDispatch();
 
   const amenitiesSVG = {
@@ -100,7 +100,7 @@ export default function SideBarFilter() {
     parking: setParking,
     breakfast: setBreakfast,
     restaurant: setRestaurant,
-    "all hours services": setAllHoursServices,
+    "24 hours services": setAllHoursServices,
     "fire extinguishing": setFireExtinguishing,
     "wall closet": setWallCloset,
     "help box": setHelpBox,
@@ -109,14 +109,42 @@ export default function SideBarFilter() {
     ATM: setATM,
     library: setLibrary,
   };
+  const amenitiesValue = {
+    "swimming pool": "swimmingPool",
+    "tea maker": "teaMaker",
+    "prayer room": "prayerRoom",
+    "ask inside room": "askInsideRoom",
+    "free wifi": "freeWifi",
+    pet: "pet",
+    game: "game",
+    gym: "gym",
+    shopping: "shopping",
+    elevator: "elevator",
+    parking: "parking",
+    breakfast: "breakfast",
+    restaurant: "restaurant",
+    "all hours services": "allHoursServices",
+    "fire extinguishing": "fireExtinguishing",
+    "wall closet": "wallCloset",
+    "help box": "helpBox",
+    "party services": "partyServices",
+    taxi: "taxi",
+    ATM: "ATM",
+    library: "library",
+  };
 
+  console.log(amenitiesSetter);
   const { filteredResults: results } = useSelector((state) => state.searchRoom);
+  const filterStats = useSelector((state) => state.filter);
 
   useEffect(() => {
     AOS.init({ duration: 200 });
   });
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{ border: `${border ? border : ""}` }}
+    >
       <p>Results: {results.length}</p>
       <section className={styles.accordion}>
         <div className={styles.tab}>
@@ -129,9 +157,20 @@ export default function SideBarFilter() {
               setValue={setThreeStar}
               key={1}
               label={"3 Star hotel or less"}
+              defaultValue={filterStats.threeStar}
             />
-            <CheckBox setValue={setFourStar} key={2} label={"4 Star hotel"} />
-            <CheckBox setValue={setFiveStar} key={3} label={"5 Star hotel"} />
+            <CheckBox
+              setValue={setFourStar}
+              key={2}
+              label={"4 Star hotel"}
+              defaultValue={filterStats.fourStar}
+            />
+            <CheckBox
+              setValue={setFiveStar}
+              key={3}
+              label={"5 Star hotel"}
+              defaultValue={filterStats.fiveStar}
+            />
           </div>
         </div>
         <div className={styles.tab}>
@@ -159,15 +198,36 @@ export default function SideBarFilter() {
             Price range
           </label>
           <div className={styles["tab__content"]}>
-            <CheckBox setValue={setFirstPrice} key={1} label={"0 to 50$"} />
-            <CheckBox setValue={setSecondPrice} key={2} label={"50$ to 100$"} />
-            <CheckBox setValue={setThirdPrice} key={3} label={"100$ to 200$"} />
+            <CheckBox
+              setValue={setFirstPrice}
+              key={1}
+              label={"0 to 50$"}
+              defaultValue={filterStats.firstPrice}
+            />
+            <CheckBox
+              setValue={setSecondPrice}
+              key={2}
+              label={"50$ to 100$"}
+              defaultValue={filterStats.secondPrice}
+            />
+            <CheckBox
+              setValue={setThirdPrice}
+              key={3}
+              label={"100$ to 200$"}
+              defaultValue={filterStats.thirdPrice}
+            />
             <CheckBox
               setValue={setFourthPrice}
               key={4}
               label={"200$ to 500$"}
+              defaultValue={filterStats.fourthPrice}
             />
-            <CheckBox setValue={setFifthPrice} key={5} label={"500$ above"} />
+            <CheckBox
+              setValue={setFifthPrice}
+              key={5}
+              label={"500$ above"}
+              defaultValue={filterStats.fifthPrice}
+            />
           </div>
         </div>
         <div className={styles.tab}>
@@ -182,6 +242,7 @@ export default function SideBarFilter() {
                 key={i}
                 label={key}
                 svg={amenitiesSVG[key]}
+                defaultValue={filterStats[amenitiesValue[key]]}
               />
             ))}
           </div>

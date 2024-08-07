@@ -117,3 +117,14 @@
     color: red !important;
   }
 }
+
+@media (max-width: 800px) {
+  .hotel-description > h1 {
+    align-self: flex-start;
+    font-size: 4rem;
+    margin: 1.2rem 0;
+  }
+  .overview-header > button {
+    padding: 0.8rem;
+  }
+}

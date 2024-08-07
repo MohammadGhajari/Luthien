@@ -1,19 +1,24 @@
 import styles from "./../styles/logo.module.css";
 import { NavLink } from "react-router-dom";
 
-export default function Logo({ color = "black", size = 0, marginLeft = "0" }) {
+export default function Logo({ color = "black", size, marginLeft = "0" }) {
   return (
     <NavLink to="/">
       <div
         className={styles.logo}
         style={{
-          width: `${170}px`,
-          height: `${100}px`,
+          width: `${size ? size + "px" : ""}`,
+          height: `${size ? size + "px" : ""}`,
           marginLeft,
         }}
       >
         <h1
-          style={{ color: color, fontSize: `${0.4 * size}px` }}
+          style={{
+            color: color,
+            fontSize: `${size ? `${0.33 * size}` + "px" : ""}`,
+            left: `${size ? "104%" : ""}`,
+            top: `${size ? "20%" : ""}`,
+          }}
           className={styles["logo-text"]}
         >
           Luthien

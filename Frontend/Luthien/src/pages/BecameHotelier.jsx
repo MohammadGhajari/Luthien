@@ -185,7 +185,6 @@ export default function BecameHotelier() {
   }
   function handleAddLocation(e) {
     let flag = true;
-    console.log(vicinity);
     vicinity.forEach((v) => {
       if (v.name.length === 0 || v.distance === 0 || v.time === 0) {
         flag = false;

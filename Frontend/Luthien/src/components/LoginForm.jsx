@@ -87,8 +87,10 @@ export default function LoginForm({
         )}
 
         <button className={styles["submit-btn"]}>
-          <RiLoginCircleLine />{" "}
           <span>{type === "login" ? "Login" : "Sign up"}</span>
+          <span>
+            <RiLoginCircleLine />
+          </span>
         </button>
 
         {type === "login" ? (

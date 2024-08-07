@@ -1,4 +1,4 @@
-@import './base.module.css';
+@import "./base.module.css";
 
 .container {
   display: flex;
@@ -11,17 +11,20 @@
   flex-direction: column;
   gap: 1.6rem;
 }
-.container-header .sort-based {
+.container-header .classification-container {
+  display: flex;
+}
+.container-header .classification-container .sort-based {
+  width: 90%;
   display: flex;
   align-items: center;
   gap: 1.2rem;
-
 }
-.container-header .sort-based .btn-container {
-  display: flex ;
+.container-header .classification-container .sort-based .btn-container {
+  display: flex;
   justify-content: space-around;
   gap: 1.2rem;
-  width: 55%;
+
   height: 100%;
   background-color: var(--color-white-1);
   border: 1px solid var(--color-white-3);
@@ -35,13 +38,23 @@
     &:hover {
       background-color: var(--color-white-2);
       border-radius: 5px;
-      
-    } 
+    }
   }
   & span {
     height: 100%;
     width: 1px;
     background-color: var(--color-white-3);
+  }
+}
+.filter-btn {
+  display: none;
+  color: var(--color-grey-1);
+  padding: 0.6rem 4.4rem;
+  background-color: var(--color-white-1);
+  border: 1px solid var(--color-white-3);
+  border-radius: 100px;
+  &:hover {
+    background-color: var(--color-white-4);
   }
 }
 .container-header > p {
@@ -59,5 +72,127 @@
   display: flex;
   flex-direction: column;
   gap: 1.8rem;
-  
+}
+.overlay {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-white-1);
+  z-index: 2;
+}
+.filter-container {
+  background-color: var(--color-white-1);
+  width: 100%;
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  animation: show 0.2s forwards linear;
+  height: 100vh;
+  overflow: scroll;
+  overflow-x: hidden !important;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding-bottom: 5rem !important;
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 2px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-grey-5);
+    border-radius: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: var(--color-white-1);
+    border-radius: 50px;
+  }
+
+  & button {
+    font-size: 1.8rem;
+    padding: 0.8rem 1.6rem;
+    background-color: transparent;
+    border-radius: var(--border-radius-md);
+    border: none;
+    align-self: flex-end;
+    &:hover {
+      background-color: var(--color-white-3);
+    }
+  }
+}
+@keyframes show {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+@media (max-width: 1120px) {
+  .container-header .classification-container .sort-based .btn-container {
+    width: 70%;
+    gap: 0;
+    & button {
+      padding: 0 0.4rem;
+    }
+  }
+}
+@media (max-width: 960px) {
+  .container {
+    width: 100%;
+  }
+  .filter-btn {
+    display: block;
+  }
+}
+
+@media (max-width: 650px) {
+  .container-header {
+    gap: 0.6rem;
+  }
+  .container-header > p {
+    font-size: 90%;
+  }
+  .container-header .classification-container {
+    font-size: 90%;
+  }
+
+  .container-header .classification-container .filter-btn {
+    padding: 0.6rem 2rem;
+  }
+  .container-header .classification-container .sort-based .btn-container {
+    width: 90%;
+  }
+  .container-header .classification-container .sort-based p {
+    display: none;
+  }
+}
+@media (max-width: 450px) {
+  .content-container {
+    gap: 0.8rem;
+  }
+  .container-header .classification-container .sort-based .btn-container {
+    width: 95%;
+    padding: 0;
+  }
+  .container-header .classification-container .filter-btn {
+    padding: 0.2rem 1rem;
+  }
+  .container-header {
+    & p,
+    & span,
+    & h3,
+    & button {
+      font-size: 90%;
+    }
+  }
+}
+
+@media (max-width: 350px) {
+  .container-header .classification-container .sort-based .btn-container {
+    width: 100%;
+  }
 }

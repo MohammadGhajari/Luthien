@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 10rem;
+  margin-top: 15%;
 }
 .features-container {
   display: flex;
@@ -32,15 +32,21 @@
   .features-container {
     width: 100%;
   }
+  .outer-container {
+    margin-top: 25%;
+  }
 }
 @media (max-width: 600px) {
   .features-container {
     flex-direction: column;
   }
+  .outer-container {
+    margin-top: 45%;
+  }
 }
 
 @media (max-width: 400px) {
   .outer-container {
-    margin-top: 0rem;
+    margin-top: 50%;
   }
 }

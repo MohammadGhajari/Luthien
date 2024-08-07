@@ -35,6 +35,7 @@ export default function HotelLocation({ location, impVicPlace, name }) {
           </MapContainer>
         </div>
         <ul className={styles["vicinity-container"]}>
+          <li className={styles["list-title"]}>Important Vicinity places</li>
           {impVicPlace.map((p, i) => (
             <li key={i}>
               <span className={styles["icon"]}>

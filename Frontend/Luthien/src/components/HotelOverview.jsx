@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { updateUser, getCurrentUser } from "./../services/handleReqs.js";
 import { setfavoriteHotels } from "./../state management/userSlice.js";
 import { useDispatch, useSelector } from "react-redux";
-import AOS from "aos";
+// import AOS from "aos";
 import { useEffect } from "react";
 import { getTime } from "../helper/time.js";
 
@@ -64,9 +64,9 @@ export default function HotelOverview({ name, stars, ratings, desc, hotelID }) {
     }
   }
 
-  useEffect(() => {
-    AOS.init({ duration: 700 });
-  }, []);
+  // useEffect(() => {
+  //   AOS.init({ duration: 700 });
+  // }, []);
 
   return (
     <div id="hotel-overview" className={styles["overview-container"]}>
@@ -83,27 +83,27 @@ export default function HotelOverview({ name, stars, ratings, desc, hotelID }) {
       </div>
       <div className={styles["gallery"]}>
         <img
-          data-aos={"fade-right"}
+          // data-aos={"fade-right"}
           src="./../../public/sample data/1.jpeg"
           alt="photo"
         />
         <img
-          data-aos={"fade-down"}
+          // data-aos={"fade-down"}
           src="./../../public/sample data/2.jpg"
           alt="photo"
         />
         <img
-          data-aos={"fade-left"}
+          // data-aos={"fade-left"}
           src="./../../public/sample data/3.jpg"
           alt="photo"
         />
         <img
-          data-aos={"fade-up"}
+          // data-aos={"fade-up"}
           src="./../../public/sample data/4.jpeg"
           alt="photo"
         />
         <img
-          data-aos={"fade-left"}
+          // data-aos={"fade-left"}
           src="./../../public/sample data/1.jpeg"
           alt="photo"
         />

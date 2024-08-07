@@ -1,8 +1,5 @@
 @import "./base.module.css";
 
-.container {
-  height: 65vh;
-}
 .inner-container {
   display: flex;
   flex-direction: column;

@@ -14,6 +14,7 @@ import Loading from "../components/Loading";
 export default function HotelDetails() {
   const { hotelID } = useParams();
   const [isLoading, setIsloading] = useState(true);
+  const [reviews, setReviews] = useState([]);
 
   const [hotel, setHotel] = useState({});
 
@@ -41,6 +42,58 @@ export default function HotelDetails() {
         // const res = await getHotelById(hotelID);
         // setHotel(res[0]);
 
+        // const res1 = await getHotelReviews(res[0].name);
+        // setReviews(res1);
+
+        const fakeReviews = [
+          {
+            review: "hi this hotel is very nice.",
+            rating: 4,
+            status: "confirmed",
+            user: {
+              name: "ali",
+              photo: "./../../public/users/ayla-cornell.jpg",
+            },
+          },
+          {
+            review: "i don't like that hotel.",
+            rating: 2,
+            status: "confirmed",
+            user: {
+              name: "hasan",
+              photo: "./../../public/users/ben-hadley.jpg",
+            },
+          },
+          {
+            review: "i prefert Hlsdf from that.",
+            rating: 3,
+            status: "confirmed",
+            user: {
+              name: "gholi",
+              photo: "./../../public/users/cristian-vega.jpg",
+            },
+          },
+          {
+            review: "nice, just that",
+            rating: 5,
+            status: "confirmed",
+            user: {
+              name: "ali",
+              photo: "./../../public/users/default.png",
+            },
+          },
+          {
+            review: "hi this hotel is very nice.",
+            rating: 4,
+            status: "confirmed",
+            user: {
+              name: "ali",
+              photo: "./../../public/users/ayla-cornell.jpg",
+            },
+          },
+        ];
+        setReviews([...fakeReviews]);
+
         //********************************add a fake hotel for development//********************************
         const fakeHotel = {};
         fakeHotel.name = "Almase Shargh";
@@ -59,9 +112,42 @@ export default function HotelDetails() {
         fakeHotel.ratingsQuantity = 129;
         fakeHotel.importantVicinityPlaces = [
           { name: "haram", distance: 100, time: 10 },
+          { name: "haram imam reza gharib", distance: 100, time: 10 },
+          { name: "haram", distance: 100, time: 10 },
+          { name: "haram", distance: 100, time: 10 },
         ];
         fakeHotel.country = "Iran";
-        fakeHotel.amenities = ["swimming pool", "tea maker", "gym", "pet"];
+        fakeHotel.amenities = [
+          "swimming pool",
+          "tea maker",
+          "gym",
+          "pet",
+          "free wifi",
+          "taxi",
+        ];
+
+        fakeHotel.rooms = [
+          {
+            roomNumber: "127",
+            price: 250,
+            priceDiscount: 100,
+            photos: [
+              "./../../public/hotel cover/alpine-retreat-1.jpg",
+              "./../../public/hotel cover/alpine-retreat-2.jpg",
+            ],
+            _id: "1",
+          },
+          {
+            roomNumber: "346",
+            price: 350,
+            priceDiscount: 250,
+            photos: [
+              "./../../public/hotel cover/alpine-retreat-2.jpg",
+              "./../../public/hotel cover/city-center-boutique-hotel-1.jpg",
+            ],
+            _id: "2",
+          },
+        ];
 
         setHotel(fakeHotel);
         //********************************add a fake hotel for development//********************************
@@ -159,15 +245,18 @@ export default function HotelDetails() {
             location={hotel.location}
             impVicPlace={hotel.importantVicinityPlaces}
           />
-          <HotelRooms
-            rooms={hotel.rooms}
-            amenities={hotel.amenities}
-            hotelID={hotelID}
-            hotelName={hotel.name}
-          />
+
+          {hotel.rooms && hotel.rooms.length > 0 && (
+            <HotelRooms
+              rooms={hotel.rooms}
+              amenities={hotel.amenities}
+              hotelID={hotelID}
+              hotelName={hotel.name}
+            />
+          )}
           <HotelAccessibility />
           <HotelPolicy />
-          <HotelReveiews hotelName={hotel.name} hotelID={hotelID} />
+          <HotelReveiews reviews={reviews} />
         </>
       )}
     </div>

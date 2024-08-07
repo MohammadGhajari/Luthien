@@ -47,9 +47,6 @@ export default function RoomCart({
   roomId,
   hotelName,
 }) {
-  console.log("--------------");
-  console.log(amenities);
-
   const amenitiesSVG = {
     "swimming pool": <FaSwimmingPool />,
     "tea maker": <GiCoffeeCup />,
@@ -124,7 +121,10 @@ export default function RoomCart({
   return (
     <>
       {!reserved && (
-        <div data-aos={"fade-left"} className={styles["container"]}>
+        <div
+          // data-aos={"fade-left"}
+          className={styles["container"]}
+        >
           <Swiper
             pagination={{
               type: "fraction",
@@ -147,7 +147,7 @@ export default function RoomCart({
                   <span>{am}</span>
                 </p>
               ) : (
-                i === 4 && "..."
+                i === 4 && <p className={styles["etc-amen"]}>...</p>
               )
             )}
           </div>

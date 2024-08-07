@@ -54,7 +54,7 @@
   --shadow-me-lg: 0 0 1rem rgba(0, 0, 0, 0.3);
 
   --border-shadow: 0 0 5px 1px #29c129;
-  --border-shadow-1: 0 0 8px 3px #67c367;
+  --border-shadow-1: 0 0 8px 3px #3;
 
   --border-radius-tiny: 3px;
   --border-radius-sm: 5px;
@@ -62,6 +62,10 @@
   --border-radius-lg: 9px;
 }
 
+@font-face {
+  font-family: ringbearer;
+  src: url("./../../../public/fonts/RINGM___.TTF");
+}
 *,
 *::before,
 *::after {
@@ -78,6 +82,7 @@ html {
 
 body {
   font-family: "LG_GSM_V6.06", sans-serif;
+
   transition: color 0.3s, background-color 0.3s;
   line-height: 1.5;
   font-size: 1.6rem;

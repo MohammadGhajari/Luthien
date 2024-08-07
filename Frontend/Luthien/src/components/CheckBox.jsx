@@ -4,8 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { filter } from "./../helper/filter";
 import { setFilteredResults } from "./../state management/searchRoomSlice";
 
-export default function CheckBox({ label, svg = <></>, setValue }) {
-  const [checked, setChecked] = useState(false);
+export default function CheckBox({
+  label,
+  svg = <></>,
+  setValue,
+  defaultValue,
+}) {
+  const [checked, setChecked] = useState(defaultValue);
   const dispatch = useDispatch();
   const { rawResults } = useSelector((state) => state.searchRoom);
   const filterObj = useSelector((state) => state.filter);

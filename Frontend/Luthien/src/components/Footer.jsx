@@ -33,7 +33,9 @@ export default function Footer() {
             <span></span>
             <span></span>
           </div>
-          <Logo size={80} />
+          <div className={styles["logo-container"]}>
+            <Logo size={100} />
+          </div>
           <p>
             Lothien is a place where you can find your favorite hotel in the
             desired city with specific prices.

@@ -49,19 +49,31 @@ export default function TrendingDestinations() {
                   trends[0]?.city.slice(1)}
                 <img src={trends[0]?.countryFlag} alt="flag" />
               </span>
-              <img src={trends[0]?.cover} alt="trending photo" />
+              {/* <img src={trends[0]?.cover} alt="trending photo" /> */}
+              <img
+                src={
+                  "./../../public/hotel cover/city-center-boutique-hotel-1.jpg"
+                }
+                alt=""
+              />
             </NavLink>
             <NavLink
               to={`/hotels/city/${trends[1]?.city}`}
               className={styles["trend"]}
-              data-aos={"fade-down"}
+              data-aos={"fade-right"}
             >
               <span>
                 {trends[1]?.city.charAt(0).toUpperCase() +
                   trends[1]?.city.slice(1)}
                 <img src={trends[1]?.countryFlag} alt="flag" />
               </span>
-              <img src={trends[1]?.cover} alt="trending photo" />
+              {/* <img src={trends[1]?.cover} alt="trending photo" /> */}
+              <img
+                src={
+                  "./../../public/hotel cover/city-center-boutique-hotel-1.jpg"
+                }
+                alt=""
+              />
             </NavLink>
             <NavLink
               to={`/hotels/city/${trends[2]?.city}`}
@@ -73,31 +85,45 @@ export default function TrendingDestinations() {
                   trends[2]?.city.slice(1)}
                 <img src={trends[2]?.countryFlag} alt="flag" />
               </span>
-              <img src={trends[2]?.cover} alt="trending photo" />
+              {/* <img src={trends[2]?.cover} alt="trending photo" /> */}
+              <img
+                src={
+                  "./../../public/hotel cover/city-center-boutique-hotel-1.jpg"
+                }
+                alt=""
+              />
             </NavLink>
             <NavLink
               to={`/hotels/city/${trends[3]?.city}`}
               className={styles["trend"]}
-              data-aos={"fade-up"}
+              data-aos={"fade-right"}
             >
               <span>
                 {trends[3]?.city.charAt(0).toUpperCase() +
                   trends[3]?.city.slice(1)}
                 <img src={trends[3]?.countryFlag} alt="flag" />
               </span>
-              <img src={trends[3]?.cover} alt="trending photo" />
+              {/* <img src={trends[3]?.cover} alt="trending photo" /> */}
+              <img
+                src={"./../../public/hotel cover/alpine-retreat-1.jpg"}
+                alt="trending photo"
+              />
             </NavLink>
             <NavLink
               to={`/hotels/city/${trends[4]?.city}`}
               className={styles["trend"]}
-              data-aos={"fade-left"}
+              data-aos={"fade-right"}
             >
               <span>
                 {trends[4]?.city.charAt(0).toUpperCase() +
                   trends[4]?.city.slice(1)}
                 <img src={trends[4]?.countryFlag} alt="flag" />
               </span>
-              <img src={trends[4]?.cover} alt="trending photo" />
+              {/* <img src={trends[4]?.cover} alt="trending photo" /> */}
+              <img
+                src={"./../../public/hotel cover/alpine-retreat-2.jpg"}
+                alt="trending photo"
+              />
             </NavLink>
           </div>
         )}

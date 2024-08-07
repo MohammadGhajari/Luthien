@@ -43,7 +43,6 @@
 }
 .swiper {
   height: 55rem;
-  /* background-color: red; */
   width: 100%;
   display: flex;
   justify-content: center;
@@ -57,7 +56,6 @@
   width: 35%;
   height: 80%;
   align-self: center;
-  /* box-shadow: var(--shadow-me-md); */
 }
 
 .swiper-slide img {
@@ -68,7 +66,7 @@
   padding: 1.2rem;
   border-radius: var(--border-radius-sm);
   border: 1px solid var(--color-primary-tint-2);
-  width: 30%;
+  width: 30rem;
 
   & form {
     display: flex;
@@ -91,5 +89,29 @@
       width: 100%;
       padding: 0.6rem;
     }
+  }
+}
+
+@media (max-width: 1100px) {
+  .swiper-slide {
+    width: 40%;
+    margin: 1rem;
+  }
+}
+
+@media (max-width: 750px) {
+  .swiper-slide {
+    width: 50%;
+    margin: 0rem;
+  }
+}
+@media (max-width: 650px) {
+  .swiper-slide {
+    width: 75%;
+  }
+}
+@media (max-width: 400px) {
+  .swiper-slide {
+    width: 95%;
   }
 }

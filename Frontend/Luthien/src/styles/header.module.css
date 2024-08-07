@@ -48,6 +48,9 @@
     background-color: var(--color-white-2);
   }
 }
+.dark-btn {
+  display: none !important;
+}
 .container > button:hover {
   background-color: var(--color-white-2);
   transition: 0.2s;
@@ -191,11 +194,22 @@
   .darkmode-btn {
     display: none;
   }
-}
-@media (max-width: 400px) {
+  .dark-btn {
+    display: flex !important;
+  }
   .profile-container {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+@media (max-width: 450px) {
+  .profile-container {
+    width: 3.6rem;
+    height: 3.6rem;
     margin-right: 1rem;
   }
+}
+@media (max-width: 400px) {
   .menu-container {
     right: 0 !important;
     top: 110% !important;

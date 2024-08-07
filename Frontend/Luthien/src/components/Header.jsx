@@ -34,7 +34,7 @@ export default function Header() {
   return (
     <div className={styles.container}>
       <div className={styles.left}>
-        <Logo size={80} color={"var(--color-grey-3)"} />
+        <Logo color={"var(--color-grey-3)"} />
         <button onClick={handleDarkMode} className={styles["darkmode-btn"]}>
           <FaRegMoon />
         </button>
@@ -81,7 +81,10 @@ export default function Header() {
               ></button>
 
               <div className={styles["menu-container"]}>
-                <button onClick={handleDarkMode} className={styles["nav-btn"]}>
+                <button
+                  onClick={handleDarkMode}
+                  className={`${styles["nav-btn"]} ${styles["dark-btn"]}`}
+                >
                   <span>Dark mode</span>
                   <span>
                     <FaRegMoon />
