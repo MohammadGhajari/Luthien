@@ -36,7 +36,7 @@ export default function HotelierInputFields({
         }`}
         style={{
           top: `${top}%`,
-          left: `${left}%`,
+          // left: `${left}%`,
           backgroundColor: color,
         }}
         htmlFor={randomID}

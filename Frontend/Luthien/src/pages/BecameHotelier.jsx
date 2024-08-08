@@ -254,6 +254,10 @@ export default function BecameHotelier() {
           </div>
           <div className={styles["city-country"]}>
             <div>
+              <label>Country</label>
+              <CountrySelectBox setValue={setCountry} />
+            </div>
+            <div>
               <label>City</label>
               <HotelierInputFields
                 placeholder="City"
@@ -262,10 +266,6 @@ export default function BecameHotelier() {
                 height={"4rem"}
                 setValue={setCity}
               />
-            </div>
-            <div>
-              <label>Country</label>
-              <CountrySelectBox setValue={setCountry} />
             </div>
           </div>
           <div className={styles["description"]}>
@@ -320,7 +320,7 @@ export default function BecameHotelier() {
             <label>Amenities</label>
             <div className={styles["amenities-container"]}>
               {Object.keys(amenitiesSVG).map((amen, i) => (
-                <p key={i} className="amen">
+                <p key={i} className={styles["amen"]}>
                   <span>
                     <input
                       type="checkbox"
@@ -337,7 +337,7 @@ export default function BecameHotelier() {
           </div>
           <div className={styles["vicinity-locations"]}>
             <label>Important vicinity locations</label>
-            <div className={styles["viciniti-locations-container"]}>
+            <div className={styles["vicinity-locations-container"]}>
               {vicinity.map((v, i) => (
                 <div key={i}>
                   <h5>

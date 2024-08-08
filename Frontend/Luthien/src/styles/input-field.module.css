@@ -8,14 +8,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 5remj;
+  height: 5rem;
 
   & label {
+    width: 15rem;
     position: absolute;
     z-index: 20;
     background-color: white;
     top: 50%;
-    left: 20%;
+    left: 8rem;
+    align-self: flex-start !important;
     transform: translate(-50%, -50%);
     padding: 0 0.6rem;
     cursor: text;

@@ -10,17 +10,10 @@ export default function HotelPolicy() {
   return (
     <div id="hotel-policy" className={styles["container"]}>
       <div className={styles["left"]}>
-        <h1
-        // data-aos={"fade-right"}
-        >
-          Fees & policies
-        </h1>
+        <h1 data-aos={"fade-right"}>Fees & policies</h1>
       </div>
       <div className={styles["right"]}>
-        <div
-          // data-aos={"fade-up"}
-          className={styles["policy-items"]}
-        >
+        <div data-aos={"fade-up"} className={styles["policy-items"]}>
           <h1>Optional extras</h1>
           <ul>
             <li>
@@ -29,10 +22,7 @@ export default function HotelPolicy() {
             </li>
           </ul>
         </div>
-        <div
-          // data-aos={"fade-up"}
-          className={styles["policy-items"]}
-        >
+        <div data-aos={"fade-up"} className={styles["policy-items"]}>
           <h1>Pets</h1>
           <ul>
             <li>Service animals exempt from fee</li>
@@ -43,10 +33,7 @@ export default function HotelPolicy() {
             </li>
           </ul>
         </div>
-        <div
-          // data-aos={"fade-up"}
-          className={styles["policy-items"]}
-        >
+        <div data-aos={"fade-up"} className={styles["policy-items"]}>
           <h1>Parking</h1>
           <ul>
             <li>Self-parking costs USD 50 per day</li>
@@ -57,10 +44,7 @@ export default function HotelPolicy() {
             <li>Parking height restrictions apply</li>
           </ul>
         </div>
-        <div
-          //  data-aos={"fade-up"}
-          className={styles["policy-items"]}
-        >
+        <div data-aos={"fade-up"} className={styles["policy-items"]}>
           <h1>Policies</h1>
           <ul>
             <li>

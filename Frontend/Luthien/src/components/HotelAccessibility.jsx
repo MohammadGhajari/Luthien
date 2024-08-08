@@ -11,9 +11,7 @@ export default function HotelAccessibility() {
 
   return (
     <div id="hotel-accessibility" className={styles["container"]}>
-      <div
-      // data-aos={"fade-up"}
-      >
+      <div data-aos={"fade-up"}>
         <h2>Accessibility</h2>
         <p>
           If you have requests for specific accessibility needs, please contact
@@ -21,9 +19,7 @@ export default function HotelAccessibility() {
           received after booking.
         </p>
       </div>
-      <div
-      // data-aos={"fade-down"}
-      >
+      <div data-aos={"fade-down"}>
         <h2>
           <span>
             <MdApartment />
@@ -48,9 +44,7 @@ export default function HotelAccessibility() {
           <p>Wheelchair-accessible restaurant</p>
         </div>
       </div>
-      <div
-      // data-aos={"fade-up"}
-      >
+      <div data-aos={"fade-up"}>
         <h2>
           <span>
             <MdMeetingRoom />

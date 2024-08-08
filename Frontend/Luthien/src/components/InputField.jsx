@@ -48,7 +48,7 @@ export default function InputField({
 
   return (
     <div
-      className={styles.container}
+      className={styles["container"]}
       style={{
         width: `${width}`,
         height: `${height ? height + "rem" : ""}`,

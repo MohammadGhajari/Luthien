@@ -60,27 +60,12 @@ export default function HotelReviews({ reviews }) {
     AOS.init({ duration: 700 });
   }, []);
 
-  // useEffect(function () {
-  //   async function fetchData() {
-  //     setIsLoading(true);
-  //     const res = await getHotelReviews(hotelName);
-  //     setReviews(res);
-
-  //     setIsLoading(false);
-  //   }
-  //   fetchData();
-  // }, []);
-
   return (
     <>
       <div id="hotel-reviews" className={styles["container"]}>
         {reviews.length > 0 && (
           <>
-            <h1
-            //  data-aos={"fade-right"}
-            >
-              Reviews
-            </h1>
+            <h1 data-aos={"fade-right"}>Reviews</h1>
 
             <Swiper
               effect={"coverflow"}
@@ -115,7 +100,10 @@ export default function HotelReviews({ reviews }) {
           </>
         )}
         {email.length > 0 && (
-          <div className={styles["add-review-container"]}>
+          <div
+            className={styles["add-review-container"]}
+            data-aos={"fade-right"}
+          >
             <form onSubmit={handleSubmitRating}>
               <h3>Add comment</h3>
               <label>{rating}/5</label>

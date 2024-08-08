@@ -20,6 +20,8 @@ import { FaBriefcaseMedical } from "react-icons/fa";
 import { LuPartyPopper } from "react-icons/lu";
 import { FaTaxi } from "react-icons/fa";
 import { GrAtm } from "react-icons/gr";
+import AOS from "aos";
+import { useEffect } from "react";
 import { ImLibrary } from "react-icons/im";
 
 export default function HotelAmenities({ amenities }) {
@@ -47,10 +49,14 @@ export default function HotelAmenities({ amenities }) {
     library: <ImLibrary />,
   };
 
+  useEffect(() => {
+    AOS.init({ duration: 700 });
+  }, []);
+
   return (
     <div id="hotel-amenities" className={styles.container}>
-      <h1>Popular amenities</h1>
-      <div className={styles.content}>
+      <h1 data-aos={"fade-right"}>Popular amenities</h1>
+      <div className={styles.content} data-aos={"fade-right"}>
         {amenities?.map((amenity) => (
           <p key={amenity}>
             <span>{amenitiesSVG[amenity]}</span>

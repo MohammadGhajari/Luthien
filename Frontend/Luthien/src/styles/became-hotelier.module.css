@@ -95,6 +95,7 @@
     }
     .loc-container {
       display: flex;
+      justify-content: space-between;
       gap: 1.2rem;
 
       & button {
@@ -139,7 +140,7 @@
       }
     }
   }
-  .viciniti-locations-container {
+  .vicinity-locations-container {
     display: flex;
     flex-direction: column;
     gap: 1.4rem;
@@ -296,5 +297,65 @@
   100% {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@media (max-width: 1200px) {
+  .hotelier-form {
+    width: 70%;
+  }
+}
+
+@media (max-width: 950px) {
+  .hotelier-form {
+    width: 90%;
+  }
+}
+
+@media (max-width: 700px) {
+  .hotelier-form {
+    width: 100%;
+    margin: 0;
+  }
+}
+@media (max-width: 600px) {
+  .hotelier-form {
+    gap: 1.2rem;
+  }
+  .amenities-container .amen {
+    width: 48% !important;
+  }
+}
+@media (max-width: 500px) {
+  .amenities-container {
+    gap: 0.6rem !important;
+  }
+  .photo-picker {
+    flex-direction: column !important;
+    & > div {
+      width: 100% !important;
+    }
+  }
+  .loc-phone {
+    flex-direction: column !important;
+
+    & > div {
+      width: 100% !important;
+    }
+  }
+  .city-country {
+    flex-direction: column !important;
+    & > div {
+      width: 100% !important;
+    }
+  }
+  .hotelier-form h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .amenities-container .amen {
+    width: 100% !important;
   }
 }

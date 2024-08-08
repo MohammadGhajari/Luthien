@@ -6,7 +6,6 @@
   align-items: center;
   box-shadow: var(--shadow-md);
   position: relative;
-  z-index: 2;
 }
 .container > div {
   display: flex;
@@ -136,7 +135,7 @@
   box-shadow: var(--shadow-me-md);
   top: 100%;
   right: 50%;
-  z-index: 10001 !important;
+  z-index: 10000000 !important;
 
   & .nav-btn {
     display: flex;
