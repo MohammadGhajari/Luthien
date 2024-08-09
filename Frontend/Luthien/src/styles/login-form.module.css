@@ -12,7 +12,7 @@
 }
 
 .container {
-  background-color: var(--color-white-2);
+  background-color: var(--color-white-1);
   width: 40%;
   padding: 6rem 8rem;
   border-radius: var(--border-radius-lg);
@@ -28,6 +28,9 @@
     align-self: center;
     margin-bottom: 4rem;
     color: var(--color-grey-4);
+  }
+  & > p {
+    color: var(--color-grey-3);
   }
 }
 
@@ -75,6 +78,7 @@
   gap: 0.8rem;
   position: relative;
   font-size: 1.8rem;
+  color: #fff;
 
   & > span {
     display: flex;

@@ -119,10 +119,9 @@ export default function HotelOverview({
       <div className={styles["hotel-description"]} data-aos={"fade-right"}>
         <h1>{name}</h1>
         <div className={styles["hotel-stars"]}>
-          <IoStar />
-          <IoStar />
-          <IoStar />
-          <IoStar />
+          {Array.from({ length: stars }, (x, i) => (
+            <IoStar key={i} />
+          ))}
         </div>
         <p>{desc}</p>
         <div className={styles["hotel-score-container"]}>

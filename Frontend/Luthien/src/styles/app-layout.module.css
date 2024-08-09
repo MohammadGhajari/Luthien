@@ -1,5 +1,6 @@
+@import "./base.module.css";
 .container {
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: var(--color-hero) !important;
 }

@@ -14,13 +14,13 @@
     padding: 0.6rem 1.2rem;
     border-radius: var(--border-radius-sm);
     background-color: var(--color-primary-tint-1);
-    color: var(--color-white-1);
     outline: none;
     border: none;
     width: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #fff;
   }
 }
 

@@ -35,6 +35,7 @@
       background-color: var(--color-white-1);
       box-shadow: var(--shadow-me-sm);
       border-radius: var(--border-radius-sm);
+      color: var(--color-grey-3);
 
       &:hover {
         background-color: var(--color-white-3);

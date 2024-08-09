@@ -104,7 +104,7 @@
   gap: 1rem;
 
   & p:first-child {
-    color: blue;
+    color: var(--color-grey-3);
     font-size: 2rem;
     display: flex;
     justify-content: center;
@@ -128,7 +128,7 @@
     background-color: var(--color-primary);
     color: var(--color-grey-2);
     font-size: 1.4rem;
-    color: var(--color-white-1);
+    color: #fff;
   }
   & .view-btn:hover {
     background-color: var(--color-primary-shade-1);

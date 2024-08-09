@@ -37,8 +37,8 @@
 
   --color-bubble-1: rgba(0, 81, 255, 0.13);
   --color-bubble-2: rgba(0, 81, 255, 0.26);
-  /* --color-hero: #f6f6f6; */
-  --color-hero: white;
+  --color-hero: #f6f6f6;
+  /* --color-hero: white; */
   --color-dark: #2e475d;
 
   --backdrop-color: rgba(255, 255, 255, 0.1);
@@ -60,6 +60,9 @@
   --border-radius-sm: 5px;
   --border-radius-md: 7px;
   --border-radius-lg: 9px;
+
+  --gradient-horizontal-footer: linear-gradient(to right, #68c368, #b9e3b9);
+  --gradient-vertical-footer: linear-gradient(to bottom, #68c368, #b9e3b9);
 }
 
 @font-face {

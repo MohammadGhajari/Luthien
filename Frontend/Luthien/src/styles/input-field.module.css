@@ -9,19 +9,20 @@
   justify-content: center;
   align-items: center;
   height: 5rem;
+  background-color: var(--color-white-1) !important;
 
   & label {
     width: fit-content;
     position: absolute;
     z-index: 20;
-    background-color: white;
     top: 50%;
     left: 0.8rem;
     transform: translate(0, -50%);
     padding: 0 0.6rem;
     cursor: text;
     transition: all 0.2s;
-    color: var(--color-grey-5) !important;
+    color: var(--color-grey-3);
+    background-color: var(--color-white-1) !important;
   }
 
   & input {
@@ -31,6 +32,8 @@
     border-radius: var(--border-radius-md);
     width: 100%;
     border: none;
+    background-color: var(--color-white-1) !important;
+    color: var(--color-grey-3);
   }
 }
 

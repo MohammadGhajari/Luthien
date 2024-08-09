@@ -22,9 +22,13 @@
     height: 70%;
   }
 
+  & h4 {
+    color: var(--color-grey-3);
+  }
   & p {
     width: 70%;
     text-align: center;
+    color: var(--color-grey-3);
   }
 }
 

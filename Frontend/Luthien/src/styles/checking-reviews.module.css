@@ -22,7 +22,7 @@
     background-color: transparent;
     background-color: var(--color-primary-tint-1);
     border-radius: var(--border-radius-sm);
-    color: var(--color-white-2);
+    color: #fff;
   }
 }
 
@@ -47,10 +47,13 @@
   border-radius: var(--border-radius-sm);
   color: var(--color-white-1);
   h2 {
-    color: var(--color-white-3);
+    color: #fff;
   }
   svg {
     color: gold;
+  }
+  & span {
+    color: #fff;
   }
 }
 

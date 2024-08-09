@@ -4,6 +4,9 @@
   flex-direction: column;
   gap: 3.2rem;
 
+  & > p {
+    color: var(--color-grey-3);
+  }
   & form {
     display: flex;
     flex-direction: column;
@@ -16,6 +19,7 @@
   }
   & > form > div > label {
     font-size: 1.2rem;
+    color: var(--color-grey-3);
   }
   & > form > div > div > label {
     font-size: 1.4rem;
@@ -27,13 +31,14 @@
     border-radius: var(--border-radius-sm);
     background-color: var(--color-primary-tint-1);
     padding: 1.2rem;
-    color: var(--color-white-1);
+    color: #fff;
   }
 }
 .picker-container {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+  color: var(--color-grey-3);
 
   &:first-child {
     width: 40%;

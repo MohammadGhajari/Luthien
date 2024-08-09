@@ -14,7 +14,7 @@ export default function ReviewCart({ name, img, rating, review, isCurrent }) {
       <h2>{name}</h2>
       <div className={styles["ratings"]}>
         <span>{rating}/5</span>
-        <div className={styles["starts-conainer"]}>
+        <div className={styles["stars-conainer"]}>
           {Array.from({ length: 5 }, (x, i) =>
             i < Math.round(rating) ? (
               <IoMdStar key={i} />

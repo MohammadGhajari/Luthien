@@ -101,7 +101,7 @@ export default function HotelDetails() {
           "Almase Shargh is a very good hotel for turists.";
         fakeHotel.rooms = [];
         fakeHotel.stars = 4;
-        fakeHotel.avgPrice = 120;
+        fakeHotel.avgPrice = 1203;
         fakeHotel.city = "Tehran";
         fakeHotel.address = "Tehran, janbaz";
         fakeHotel.location = { lat: 12, lng: 12 };

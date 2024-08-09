@@ -4,6 +4,7 @@
   gap: 1.2rem;
   p {
     font-size: 1.4rem;
+    color: var(--color-grey-3);
   }
 }
 
@@ -19,6 +20,7 @@
     color: var(--color-white-1);
     transition: all 0.2s;
     width: fit-content;
+    color: #fff;
     &:hover {
       background-color: var(--color-danger);
     }

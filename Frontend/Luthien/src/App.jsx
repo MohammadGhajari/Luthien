@@ -67,11 +67,57 @@ function App() {
 
       fetchData();
 
-      // if (isDarkMode) {
-      //   document.documentElement.style.setProperty("--color-primary", "#fff");
-      // } else {
-      //   document.documentElement.style.setProperty("--color-primary", "#000");
-      // }
+      if (isDarkMode) {
+        document.documentElement.style.setProperty("--color-hero", "#3B3B3B"); //ok
+
+        document.documentElement.style.setProperty("--color-grey-2", "#fff");
+        document.documentElement.style.setProperty("--color-grey-3", "#eee");
+        document.documentElement.style.setProperty("--color-grey-4", "#ddd");
+        document.documentElement.style.setProperty("--color-grey-5", "#ccc");
+        document.documentElement.style.setProperty("--color-grey-6", "#bbb");
+
+        document.documentElement.style.setProperty(
+          "--color-white-1",
+          "#323232"
+        ); //ok
+        document.documentElement.style.setProperty(
+          "--color-white-2",
+          "#312f2f"
+        );
+        document.documentElement.style.setProperty("--color-white-3", "#444");
+        document.documentElement.style.setProperty("--color-white-4", "#aaa");
+
+        document.documentElement.style.setProperty(
+          "--gradient-horizontal-footer",
+          "linear-gradient(to right, #225722, #1a441a)"
+        );
+        document.documentElement.style.setProperty(
+          "--gradient-vertical-footer",
+          "linear-gradient(to bottom, #225722, #1a441a)"
+        );
+      } else {
+        document.documentElement.style.setProperty("--color-hero", "#fff");
+
+        document.documentElement.style.setProperty("--color-grey-2", "#222");
+        document.documentElement.style.setProperty("--color-grey-3", "#312f2f");
+        document.documentElement.style.setProperty("--color-grey-4", "#444");
+        document.documentElement.style.setProperty("--color-grey-5", "#aaa");
+        document.documentElement.style.setProperty("--color-grey-6", "#cfcdcd");
+
+        document.documentElement.style.setProperty("--color-white-1", "#fff");
+        document.documentElement.style.setProperty("--color-white-2", "#eee");
+        document.documentElement.style.setProperty("--color-white-3", "#ddd");
+        document.documentElement.style.setProperty("--color-white-4", "#ccc");
+
+        document.documentElement.style.setProperty(
+          "--gradient-horizontal-footer",
+          "linear-gradient(to right, #68c368, #b9e3b9)"
+        );
+        document.documentElement.style.setProperty(
+          "--gradient-vertical-footer",
+          "linear-gradient(to bottom, #68c368, #b9e3b9)"
+        );
+      }
     },
     [isDarkMode]
   );

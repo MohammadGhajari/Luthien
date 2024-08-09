@@ -34,6 +34,10 @@
     flex-direction: column;
     gap: 0.6rem;
     font-size: 1.2rem;
+
+    & span {
+      color: var(--color-grey-3);
+    }
   }
 
   .middle {
@@ -41,6 +45,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: var(--color-grey-3);
   }
 }
 @media (max-width: 800px) {

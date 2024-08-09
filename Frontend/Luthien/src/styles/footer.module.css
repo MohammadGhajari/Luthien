@@ -1,11 +1,7 @@
 @import "./base.module.css";
 
 .footer {
-  background: linear-gradient(
-    to right,
-    var(--color-primary-tint-2),
-    var(--color-primary-hover)
-  );
+  background: var(--gradient-horizontal-footer);
   margin-top: 10rem;
   display: flex;
   flex-direction: column;
@@ -20,7 +16,7 @@
   width: 100%;
 }
 .footer-wave-path {
-  fill: white;
+  fill: var(--color-hero);
 }
 
 .content {
@@ -85,7 +81,11 @@
   display: flex;
   flex-direction: column;
   gap: 1.8rem;
+  & > p {
+    color: var(--color-grey-3);
+  }
 }
+
 .content .get-started .get-started-container p {
   font-size: 1.4rem;
 }
@@ -98,7 +98,7 @@
   justify-content: center;
   transition: all 0.2s;
   width: 80%;
-  color: var(--color-white-1);
+  color: #fff;
 }
 .content .get-started .get-started-container .subscrib-nav:hover {
   background-color: var(--color-primary-shade-1);
@@ -124,6 +124,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--color-grey-2);
   }
   & a:hover {
     background-color: var(--color-white-3);
@@ -136,6 +137,7 @@
 .copyright {
   font-size: 1.2rem;
   padding: 1rem;
+  color: var(--color-grey-3);
 }
 
 @media (min-width: 760px) {
@@ -179,6 +181,9 @@
   }
 }
 @media (max-width: 450px) {
+  .footer {
+    background: var(--gradient-vertical-footer);
+  }
   .content {
     padding: 4rem 2rem;
     row-gap: 3rem;

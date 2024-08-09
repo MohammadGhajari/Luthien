@@ -75,18 +75,26 @@
     align-items: center;
     gap: 1.2rem;
 
+    & > h3,
+    & > label,
+    & > p,
+    & > textarea {
+      color: var(--color-grey-3);
+    }
+
     & button {
       padding: 0.8rem 1.6rem;
       border-radius: var(--border-radius-sm);
       border: none;
       background-color: var(--color-primary);
       outline: none;
-      color: var(--color-white-2);
+      color: #fff;
     }
     & textarea {
       border-radius: var(--border-radius-sm);
       height: 40%;
       width: 100%;
+      background-color: var(--color-white-2);
       padding: 0.6rem;
     }
   }

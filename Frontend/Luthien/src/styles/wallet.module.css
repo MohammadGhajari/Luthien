@@ -32,7 +32,7 @@
     background-color: var(--color-primary);
     outline: none;
     border-radius: var(--border-radius-sm);
-    color: var(--color-white-2);
+    color: #fff;
   }
 }
 .inp-container {

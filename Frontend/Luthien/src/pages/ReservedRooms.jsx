@@ -85,6 +85,7 @@ export default function ReservedRooms() {
         {reservedRooms.length === 0 && !isLoading && (
           <h1>You have no reserved Rooms</h1>
         )}
+
         {reservedRooms.map((room, i) => (
           <BookedRoomsCart
             key={i}

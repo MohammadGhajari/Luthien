@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: column;
   gap: 1.8rem;
+  & > p {
+    color: var(--color-grey-3);
+  }
 }
 .cart-container {
   display: flex;

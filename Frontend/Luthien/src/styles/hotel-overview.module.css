@@ -79,6 +79,10 @@
   }
   & > p {
     padding: 1rem 0;
+    color: var(--color-grey-3);
+  }
+  & .hotel-stars {
+    color: gold;
   }
 }
 .hotel-score-container {
@@ -95,6 +99,7 @@
   & label {
     font-size: 2rem;
     font-weight: 600;
+    color: var(--color-grey-3);
   }
 
   & a {

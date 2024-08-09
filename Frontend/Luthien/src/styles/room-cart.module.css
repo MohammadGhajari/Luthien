@@ -53,6 +53,7 @@
     justify-content: center;
     align-items: center;
     gap: 1.2rem;
+    color: var(--color-grey-3);
 
     & span:first-child {
       display: flex;
@@ -69,6 +70,7 @@
   align-items: center;
   gap: 0.8rem;
   position: relative;
+  color: var(--color-grey-3);
 
   & .discount-line {
     width: 3rem;
@@ -103,7 +105,7 @@
   background-color: var(--color-primary);
   border: none;
   box-shadow: var(--shadow-sm);
-  color: var(--color-white-1);
+  color: #fff;
 
   &:hover {
     background-color: var(--color-primary-shade-1);
