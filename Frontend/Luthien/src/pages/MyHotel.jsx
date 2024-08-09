@@ -16,8 +16,66 @@ export default function MyHote() {
   useEffect(() => {
     async function fetchData() {
       setIsLoading(true);
-      const res = await getMyHotel(userId);
-      setHotel(res);
+      // const res = await getMyHotel(userId);
+      // setHotel(res);
+
+      const fakeHotel = {
+        id: 1,
+        name: "Almas Shargh",
+        stars: 4,
+        amenities: ["game", "gym", "tea maker", "shopping"],
+        rooms: [
+          {
+            price: 120,
+            priceDiscount: 80,
+            photos: [
+              "./../../public/hotel cover/alpine-retreat-1.jpg",
+              "./../../public/hotel cover/alpine-retreat-2.jpg",
+            ],
+            number: 127,
+            hotelID: 1,
+            roomId: 1,
+            hotelName: "Almas Shargh",
+          },
+          {
+            price: 140,
+            priceDiscount: 50,
+            photos: [
+              "./../../public/hotel cover/alpine-retreat-2.jpg",
+              "./../../public/hotel cover/alpine-retreat-1.jpg",
+            ],
+            number: 130,
+            hotelID: 2,
+            roomId: 2,
+            hotelName: "Almas Shargh 2",
+          },
+          {
+            price: 140,
+            priceDiscount: 50,
+            photos: [
+              "./../../public/hotel cover/alpine-retreat-2.jpg",
+              "./../../public/hotel cover/alpine-retreat-1.jpg",
+            ],
+            number: 130,
+            hotelID: 2,
+            roomId: 2,
+            hotelName: "Almas Shargh 2",
+          },
+          {
+            price: 140,
+            priceDiscount: 50,
+            photos: [
+              "./../../public/hotel cover/alpine-retreat-2.jpg",
+              "./../../public/hotel cover/alpine-retreat-1.jpg",
+            ],
+            number: 130,
+            hotelID: 2,
+            roomId: 2,
+            hotelName: "Almas Shargh 2",
+          },
+        ],
+      };
+      setHotel(fakeHotel);
       setIsLoading(false);
     }
     fetchData();

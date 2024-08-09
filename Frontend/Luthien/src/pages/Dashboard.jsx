@@ -6,7 +6,13 @@ export default function Dashboard() {
   return (
     <div className={styles["outer-container"]}>
       <div className={styles["container"]}>
-        <DashboardSidebar />
+        {window.innerWidth > 850 && <DashboardSidebar />}
+        <div className={styles["menu-container"]}>
+          <button className={styles["menu-btn"]}>Menu</button>
+          <div className={styles["menu-content"]}>
+            <DashboardSidebar />
+          </div>
+        </div>
         <div className={styles["content"]}>
           <Outlet />
         </div>

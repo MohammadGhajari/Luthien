@@ -71,3 +71,19 @@
   font-size: 1.4rem !important;
   color: var(--color-grey-5) !important;
 }
+@media (max-width: 800px) {
+  .container h1 {
+    align-self: flex-start;
+    margin: 1rem 0;
+  }
+}
+
+@media (max-width: 450px) {
+  .deposite-container {
+    flex-direction: column;
+    gap: 1.4rem;
+    & .inp-container {
+      width: 100%;
+    }
+  }
+}

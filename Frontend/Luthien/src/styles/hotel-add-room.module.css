@@ -95,3 +95,8 @@
     }
   }
 }
+@media (max-width: 750px) {
+  .container form > div {
+    gap: 0.4rem;
+  }
+}

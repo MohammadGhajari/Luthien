@@ -44,7 +44,9 @@ export default function HotelGroup({
             <IoArrowBackOutline />
           </button>
 
-          <SearchBox showCityField={false} title={title} />
+          {title !== "Favorite Hotels" && (
+            <SearchBox showCityField={false} title={title} />
+          )}
           {isValidLocation && (
             <div className={styles["map-container"]}>
               <MapContainer

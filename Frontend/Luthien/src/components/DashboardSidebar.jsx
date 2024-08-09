@@ -59,12 +59,14 @@ export default function DashboardSidebar() {
         </span>
         <span>Reserved rooms</span>
       </NavLink>
-      <NavLink className={styles["nav-links"]} to={"/dashboard/my-hotel"}>
-        <span>
-          <FaHotel />
-        </span>
-        <span>My Hotel</span>
-      </NavLink>
+      {role === "hotelier" && (
+        <NavLink className={styles["nav-links"]} to={"/dashboard/my-hotel"}>
+          <span>
+            <FaHotel />
+          </span>
+          <span>My Hotel</span>
+        </NavLink>
+      )}
     </aside>
   );
 }

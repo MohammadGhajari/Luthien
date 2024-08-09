@@ -11,14 +11,13 @@
   height: 5rem;
 
   & label {
-    width: 15rem;
+    width: fit-content;
     position: absolute;
     z-index: 20;
     background-color: white;
     top: 50%;
-    left: 8rem;
-    align-self: flex-start !important;
-    transform: translate(-50%, -50%);
+    left: 0.8rem;
+    transform: translate(0, -50%);
     padding: 0 0.6rem;
     cursor: text;
     transition: all 0.2s;
@@ -37,7 +36,7 @@
 
 .container:focus-within label:first-child {
   top: -20% !important;
-  transform: translate(-50%, 0%) !important;
+  transform: translate(0, 0%) !important;
   z-index: 2;
   font-size: 1.2rem;
   color: var(--color-grey-3) !important;
@@ -47,10 +46,10 @@
 }
 .has-value {
   top: -20% !important;
-  transform: translate(-50%, 0%) !important;
-  z-index: 1;
+  transform: translate(0, 0%) !important;
+  z-index: 2;
   font-size: 1.2rem;
-  color: var(--color-grey-4) !important;
+  color: var(--color-grey-3) !important;
 }
 
 .container:focus-within .passenger-modal {

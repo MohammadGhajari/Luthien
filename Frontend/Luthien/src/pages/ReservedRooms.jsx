@@ -11,9 +11,67 @@ export default function ReservedRooms() {
   useEffect(() => {
     async function fetchData() {
       setIsLoading(true);
-      const res = await getCurrentUser();
-      console.log(res.data.data.reservedRooms);
-      setReservedRooms([...res.data.data.reservedRooms]);
+      // const res = await getCurrentUser();
+      // setReservedRooms([...res.data.data.reservedRooms]);
+      const fakeReservedRooms = [
+        {
+          room: {
+            photos: [
+              "./../../public/hotel cover/alpine-retreat-1.jpg",
+              "./../../public/hotel cover/alpine-retreat-2.jpg",
+            ],
+            roomNumber: 127,
+            price: 250,
+            priceDiscount: 100,
+            _id: 1,
+          },
+          hotel: {
+            name: "Almas Shargh",
+            amenities: ["game", "gym", "swwiming pool", "tea maker"],
+            id: 1,
+          },
+        },
+        {
+          room: {
+            photos: [
+              "./../../public/hotel cover/alpine-retreat-2.jpg",
+              "./../../public/hotel cover/city-center-boutique-hotel-1.jpg",
+            ],
+            roomNumber: 356,
+            price: 300,
+            priceDiscount: 250,
+            _id: 2,
+          },
+          hotel: {
+            name: "Kir gholam",
+            amenities: [
+              "shopping",
+              "24 hours services",
+              "fire extinguishing",
+              "help box",
+            ],
+            id: 2,
+          },
+        },
+        {
+          room: {
+            photos: [
+              "./../../public/hotel cover/city-center-boutique-hotel-1.jpg",
+              "./../../public/hotel cover/alpine-retreat-1.jpg",
+            ],
+            roomNumber: 568,
+            price: 250,
+            priceDiscount: 200,
+            _id: 3,
+          },
+          hotel: {
+            name: "Kir khar asb arab",
+            amenities: ["party services", "ask inside room", "pet", "parking"],
+            id: 3,
+          },
+        },
+      ];
+      setReservedRooms([...fakeReservedRooms]);
       setIsLoading(false);
     }
     fetchData();

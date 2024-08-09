@@ -20,17 +20,23 @@ export default function CheckingReviews() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(query);
     if (query.length === 0) return;
 
     setIsloading(true);
-    const res = await getHotelByName(toCamelCase(query));
-    if (res.length === 0) {
-      setIsloading(false);
-      return;
-    }
+    // const res = await getHotelByName(toCamelCase(query));
+    // if (res.length === 0) {
+    //   setIsloading(false);
+    //   return;
+    // }
 
-    setHotel(res[0]);
+    // setHotel(res[0]);
+    setHotel({
+      name: "Almas Shargh",
+      owner: {
+        name: "Hasan",
+      },
+      stars: 4,
+    });
     setIsloading(false);
   }
 
@@ -40,8 +46,7 @@ export default function CheckingReviews() {
       <form className={styles["search-container"]} onSubmit={handleSubmit}>
         <InputField
           placeholder={"Hotel name"}
-          left={"10"}
-          width="55rem"
+          width="100%"
           value={query}
           setValue={setQuery}
         />
@@ -57,7 +62,7 @@ export default function CheckingReviews() {
               className={styles["hotel-nav"]}
             >
               <h2>{hotel?.name}</h2>
-              <span>
+              <span className={styles["stars-container"]}>
                 {Array.from({ length: hotel?.stars }, (x, i) => (
                   <FaStar key={i} />
                 ))}

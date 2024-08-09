@@ -14,6 +14,7 @@
 
   h1 {
     color: var(--color-grey-3);
+    width: fit-content;
   }
   p {
     font-size: 1.4rem;
@@ -49,5 +50,21 @@
   }
   & input {
     display: none;
+  }
+}
+
+@media (max-width: 750px) {
+  .header {
+    flex-direction: column;
+  }
+  .right-side {
+    margin-top: 3rem;
+    /* background-color: aqua; */
+  }
+  .left-side {
+    /* background-color: red; */
+    & h1 {
+      margin: 1rem 0;
+    }
   }
 }

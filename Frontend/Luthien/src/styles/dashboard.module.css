@@ -13,3 +13,52 @@
   width: 70%;
   min-height: 70vh;
 }
+.menu-container {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    flex-direction: column;
+  }
+  .content {
+    width: 100%;
+  }
+}
+@media (max-width: 850px) {
+  .menu-container {
+    display: flex;
+    position: relative;
+    & > .menu-btn {
+      padding: 0.6rem 1.2rem;
+      border: 1px solid var(--color-grey-6);
+      background-color: var(--color-white-1);
+      box-shadow: var(--shadow-me-sm);
+      border-radius: var(--border-radius-sm);
+
+      &:hover {
+        background-color: var(--color-white-3);
+      }
+    }
+    & .menu-content {
+      display: none;
+      width: 30rem;
+      box-shadow: var(--shadow-me-sm);
+      background-color: var(--color-white-1);
+      position: absolute;
+      top: 5rem;
+      left: 4rem !important;
+      z-index: 100;
+    }
+  }
+  .menu-container:focus-within {
+    .menu-content {
+      display: flex;
+    }
+  }
+}
+@media (max-width: 650px) {
+  .container {
+    width: 90%;
+  }
+}

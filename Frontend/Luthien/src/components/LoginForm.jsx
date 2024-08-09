@@ -4,6 +4,7 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import { FaRegUser } from "react-icons/fa";
 import { RiLoginCircleLine } from "react-icons/ri";
 import styles from "./../styles/login-form.module.css";
+import HotelierInputFields from "./HotelierInputFields";
 
 export default function LoginForm({
   setName,

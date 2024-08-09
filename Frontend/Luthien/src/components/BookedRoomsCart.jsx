@@ -159,7 +159,9 @@ export default function BookedRoomsCart({
         <p className={styles["paid"]}>
           You paid <strong> ${paid}</strong> for this room
         </p>
-        <button onClick={handleCancel}>Cancel booking</button>
+        <button onClick={handleCancel}>
+          <span>Cancel</span> <span>booking</span>
+        </button>
       </div>
     </div>
   );

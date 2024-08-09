@@ -21,10 +21,11 @@
   height: 5rem;
 }
 .edit-btn-container {
-  height: 14rem;
+  height: 21rem;
+
+  /* background-color: red; */
   flex-direction: column;
   justify-content: space-between;
-  /* gap: 6.4rem; */
 }
 .btn {
   color: var(--color-primary-shade-2);
@@ -92,5 +93,39 @@
   width: fit-content;
   &:hover {
     background-color: var(--color-danger);
+  }
+}
+
+@media (max-width: 750px) {
+  .option-container {
+    padding: 1.8rem 0;
+  }
+  .title-container {
+    width: 30%;
+  }
+  .content {
+    width: 60%;
+    & > div > input {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .option-container {
+    padding: 0.8rem 0;
+  }
+  .title-container {
+    font-size: 1.3rem;
+    width: 25%;
+  }
+  .content {
+    width: 55%;
+    & p {
+      font-size: 1.2rem;
+    }
+  }
+  .btn-container {
+    width: 20%;
   }
 }

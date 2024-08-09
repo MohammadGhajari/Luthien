@@ -5,7 +5,7 @@ const initialState = {
   name: "mohammad",
   email: "mohammad@gmail.com",
   photo: "./../../public/sample data/1.jpeg",
-  role: "user",
+  role: "hotelier",
   dateOfBirth: "",
   phoneNumber: "",
   nationality: "",

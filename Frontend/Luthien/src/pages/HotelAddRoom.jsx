@@ -27,8 +27,6 @@ export default function HotelAddRoom() {
   async function haldleSubmit(e) {
     e.preventDefault();
 
-    console.log(price);
-    console.log(discount);
     console.log(discount > price);
 
     if (roomNumber <= 0)
@@ -36,7 +34,7 @@ export default function HotelAddRoom() {
     if (+roomCapacity <= 0 || +roomCapacity >= 5)
       return toastError("Room capacity must be between 1 and 5.");
     if (+price <= 0) return toastError("Room price must be greater than 0.");
-    if (+discount && +discount < 0)
+    if (+discount && +discount < -1)
       return toastError("Discount must be greater than 0.");
     if (+discount && +discount > +price)
       return toastError("Discount must be less that price.");
@@ -50,7 +48,7 @@ export default function HotelAddRoom() {
       capacity: roomCapacity,
       hotel: hotelID,
       price,
-      priceDiscount: discount,
+      priceDiscount: discount === -1 ? null : discount,
       maxGuest: maxGuests,
       isFull: false,
     };
@@ -118,9 +116,8 @@ export default function HotelAddRoom() {
             setValue={setRoomNumber}
             type="number"
             placeholder="Room number"
-            height={"4.5rem"}
-            width={"80rem"}
-            left={8}
+            height={"4rem"}
+            width={"100%"}
           />
         </div>
         <div>
@@ -129,9 +126,8 @@ export default function HotelAddRoom() {
             setValue={setRoomCapacity}
             type="number"
             placeholder="Room capacity"
-            height={"4.5rem"}
-            width={"80rem"}
-            left={8}
+            height={"4rem"}
+            width={"100%"}
           />
         </div>
         <div>
@@ -140,9 +136,8 @@ export default function HotelAddRoom() {
             setValue={setPrice}
             type="number"
             placeholder="Price"
-            height={"4.5rem"}
-            width={"80rem"}
-            left={4}
+            height={"4rem"}
+            width={"100%"}
           />
         </div>
         <div>
@@ -151,9 +146,9 @@ export default function HotelAddRoom() {
             setValue={setDiscount}
             type="number"
             placeholder="Discount (optional)"
-            height={"4.5rem"}
-            width={"80rem"}
-            left={9.5}
+            height={"4rem"}
+            width={"100%"}
+            required={false}
           />
         </div>
         <div>
@@ -162,9 +157,8 @@ export default function HotelAddRoom() {
             setValue={setMaxGuests}
             type="number"
             placeholder="Max guests"
-            height={"4.5rem"}
-            width={"80rem"}
-            left={7}
+            height={"4rem"}
+            width={"100%"}
           />
         </div>
 

@@ -238,6 +238,7 @@ export default function HotelDetails() {
             stars={hotel.stars}
             desc={hotel.description}
             ratings={hotel.ratingsAverage}
+            reveiwsCount={reviews.length}
           />
           <HotelAmenities amenities={hotel.amenities} />
           <HotelLocation

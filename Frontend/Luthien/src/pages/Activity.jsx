@@ -111,8 +111,81 @@ const Activity = React.memo(() => {
   useEffect(() => {
     async function fetchData() {
       setIsLoading(true);
-      const currentUser = await getCurrentUser();
-      const tempActivities = currentUser.data.data.activity;
+      // const currentUser = await getCurrentUser();
+      // const tempActivities = currentUser.data.data.activity;
+      // const tempBarData = [
+      //   { name: "Reserve room", count: 0 },
+      //   { name: "Cancel room", count: 0 },
+      //   { name: "Deposite", count: 0 },
+      //   { name: "Update profile", count: 0 },
+      //   { name: "Update name", count: 0 },
+      //   { name: "Update email", count: 0 },
+      //   { name: "Update phone", count: 0 },
+      //   { name: "Update birthday", count: 0 },
+      //   { name: "Update nationality", count: 0 },
+      //   { name: "Update gender", count: 0 },
+      //   { name: "Update address", count: 0 },
+      //   { name: "Add favorite", count: 0 },
+      //   { name: "Delete favorite", count: 0 },
+      //   { name: "Add review", count: 0 },
+      //   { name: "Change password", count: 0 },
+      // ];
+
+      // for (let i = 0; i < tempActivities.length; i++) {
+      //   if (tempActivities[i].type === "reserve") tempBarData[0].count++;
+      //   if (tempActivities[i].type === "cancel") tempBarData[1].count++;
+      //   if (tempActivities[i].type === "deposite") tempBarData[2].count++;
+      //   if (tempActivities[i].type === "updateProfile") tempBarData[3].count++;
+      //   if (tempActivities[i].type === "updateName") tempBarData[4].count++;
+      //   if (tempActivities[i].type === "updateEmail") tempBarData[5].count++;
+      //   if (tempActivities[i].type === "updatePhoneNumber")
+      //     tempBarData[6].count++;
+      //   if (tempActivities[i].type === "updateBirthday") tempBarData[7].count++;
+      //   if (tempActivities[i].type === "updateNationality")
+      //     tempBarData[8].count++;
+      //   if (tempActivities[i].type === "updateGender") tempBarData[9].count++;
+      //   if (tempActivities[i].type === "updateAddress") tempBarData[10].count++;
+      //   if (tempActivities[i].type === "addFav") tempBarData[11].count++;
+      //   if (tempActivities[i].type === "deleteFav") tempBarData[12].count++;
+      //   if (tempActivities[i].type === "addReview") tempBarData[13].count++;
+      //   if (tempActivities[i].type === "changePass") tempBarData[14].count++;
+      // }
+      // tempActivities.reverse();
+      // setActivities(tempActivities);
+      // setChartData([...tempBarData]);
+
+      const tempActivities = [
+        {
+          type: "reserve",
+          date: "3/12/2022",
+          data: { hotelName: "Almas", roomNumber: "124", subBalance: "50" },
+        },
+        {
+          type: "updateProfile",
+          date: "3/14/2021",
+          data: {},
+        },
+        {
+          type: "updatePhoneNumber",
+          date: "3/14/2021",
+          data: { lastPhone: "09907434529", newPhone: "09953564589" },
+        },
+        {
+          type: "addFav",
+          date: "3/14/2021",
+          data: { hotelName: "Almas Shargh" },
+        },
+        {
+          type: "addFav",
+          date: "3/14/2024",
+          data: { hotelName: "Almas Shargh 2" },
+        },
+        {
+          type: "deposite",
+          date: "3/14/2024",
+          data: { addedBalance: "50", lastBalance: "200" },
+        },
+      ];
       const tempBarData = [
         { name: "Reserve room", count: 0 },
         { name: "Cancel room", count: 0 },
@@ -153,6 +226,7 @@ const Activity = React.memo(() => {
       tempActivities.reverse();
       setActivities(tempActivities);
       setChartData([...tempBarData]);
+
       setIsLoading(false);
     }
     fetchData();

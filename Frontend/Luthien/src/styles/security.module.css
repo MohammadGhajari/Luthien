@@ -20,3 +20,9 @@
     letter-spacing: 1px;
   }
 }
+@media (max-width: 800px) {
+  .container .header h1 {
+    align-self: flex-start;
+    margin: 1rem 0;
+  }
+}

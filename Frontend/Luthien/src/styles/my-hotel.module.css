@@ -6,6 +6,9 @@
   & > p {
     color: gold;
   }
+  & > h1 {
+    margin: 0;
+  }
 
   & > .nav-btn {
     padding: 0.6rem 1.2rem;
@@ -14,7 +17,7 @@
     color: var(--color-white-1);
     outline: none;
     border: none;
-    width: 20%;
+    width: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,4 +28,12 @@
   display: flex;
   gap: 4.8rem 1.2rem;
   flex-wrap: wrap;
+}
+.container {
+  width: 100%;
+}
+@media (max-width: 580rem) {
+  .room-carts-container {
+    justify-content: center;
+  }
 }

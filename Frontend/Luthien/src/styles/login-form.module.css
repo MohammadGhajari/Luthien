@@ -13,7 +13,7 @@
 
 .container {
   background-color: var(--color-white-2);
-  width: 55%;
+  width: 40%;
   padding: 6rem 8rem;
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-lg);
@@ -35,7 +35,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* gap: 3rem; */
   label {
     display: flex;
     justify-content: flex-start;
@@ -94,6 +93,11 @@
 
   .link {
     color: blue;
+  }
+}
+@media (max-width: 1200px) {
+  .container {
+    width: 55%;
   }
 }
 @media (max-width: 1000px) {

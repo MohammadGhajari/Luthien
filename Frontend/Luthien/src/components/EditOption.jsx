@@ -60,8 +60,16 @@ export default function EditOption({
           <div
             style={{
               display: "flex",
-              alignItems: `${type === "logout" ? "center" : "none"}`,
-              flexDirection: `${type === "logout" ? "row" : "column"}`,
+              alignItems: `${
+                type !== "logout"
+                  ? "none"
+                  : window.innerWidth > 650
+                  ? "center"
+                  : "flex-start"
+              }`,
+              flexDirection: `${
+                type === "logout" && window.innerWidth > 650 ? "row" : "column"
+              }`,
               gap: `${type === "logout" ? "5rem" : "0.4rem"}`,
               width: "100%",
             }}

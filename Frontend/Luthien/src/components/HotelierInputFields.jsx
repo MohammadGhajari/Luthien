@@ -3,8 +3,6 @@ import styles from "./../styles/input-field.module.css";
 
 export default function HotelierInputFields({
   placeholder = "Name",
-  top,
-  left,
   width = "20rem",
   height,
   color = "white",
@@ -26,7 +24,7 @@ export default function HotelierInputFields({
     <div
       className={styles.container}
       style={{
-        width: `${width}`,
+        width: width,
         height: `${height}`,
       }}
     >
@@ -35,8 +33,6 @@ export default function HotelierInputFields({
           inValue || value ? styles["has-value"] : ""
         }`}
         style={{
-          top: `${top}%`,
-          // left: `${left}%`,
           backgroundColor: color,
         }}
         htmlFor={randomID}

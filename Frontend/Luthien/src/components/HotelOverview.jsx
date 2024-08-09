@@ -13,7 +13,14 @@ import AOS from "aos";
 import { useEffect } from "react";
 import { getTime } from "../helper/time.js";
 
-export default function HotelOverview({ name, stars, ratings, desc, hotelID }) {
+export default function HotelOverview({
+  name,
+  stars,
+  ratings,
+  desc,
+  hotelID,
+  reveiwsCount,
+}) {
   const navigation = useNavigate();
   const dispatch = useDispatch();
   const { email, favoriteHotels } = useSelector((state) => state.user);
@@ -140,12 +147,14 @@ export default function HotelOverview({ name, stars, ratings, desc, hotelID }) {
               ? "Good"
               : "Not bad"}
           </label>
-          <a href="#hotel-reviews">
-            <span>See all 152 reviews</span>{" "}
-            <span>
-              <MdOutlineKeyboardArrowRight />
-            </span>
-          </a>
+          {reveiwsCount > 0 && (
+            <a href="#hotel-reviews">
+              <span>See all {reveiwsCount} reviews</span>{" "}
+              <span>
+                <MdOutlineKeyboardArrowRight />
+              </span>
+            </a>
+          )}
         </div>
       </div>
     </div>

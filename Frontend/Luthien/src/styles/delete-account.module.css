@@ -29,3 +29,14 @@
   background-color: var(--color-grey-6) !important;
   color: var(--color-grey-4) !important;
 }
+@media (max-width: 650px) {
+  .delete-container {
+    flex-direction: column;
+    & input {
+      width: 100%;
+    }
+    & button {
+      align-self: flex-end;
+    }
+  }
+}

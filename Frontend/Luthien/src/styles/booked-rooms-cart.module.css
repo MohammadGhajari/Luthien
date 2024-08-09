@@ -110,6 +110,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 0.6rem;
     border: none;
     transition: all 0.2s;
     &:hover {
@@ -123,4 +124,52 @@
   font-size: 1.4rem;
   padding: 0 1.2rem;
   color: var(--color-grey-4);
+}
+
+@media (max-width: 850px) {
+  .middle-cart {
+    justify-content: flex-start !important;
+    width: 40% !important;
+  }
+  .price {
+    width: 30% !important;
+  }
+  .middle-cart .amenities {
+    display: none;
+  }
+}
+
+@media (max-width: 550px) {
+  .container {
+    height: 12rem;
+  }
+  .price button span:last-child {
+    display: none;
+  }
+}
+@media (max-width: 450px) {
+  .container {
+    height: 10rem;
+  }
+  .price {
+    justify-content: flex-end !important;
+    width: 20% !important;
+  }
+  .price p {
+    display: none;
+  }
+  .slideshow {
+    width: 40% !important;
+  }
+  .middle-cart .title-container .title,
+  .middle-cart .room-number h4 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .middle-cart .title-container .title,
+  .middle-cart .room-number h4 {
+    font-size: 1.2rem;
+  }
 }

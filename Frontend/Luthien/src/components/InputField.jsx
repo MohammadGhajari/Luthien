@@ -8,8 +8,6 @@ import AOS from "aos";
 
 export default function InputField({
   placeholder = "Name",
-  top,
-  left,
   width = "50%",
   height,
   color = "white",
@@ -59,8 +57,6 @@ export default function InputField({
           inputValue ? styles["has-value"] : ""
         }`}
         style={{
-          top: `${top}%`,
-          left: `${left}%`,
           backgroundColor: color,
         }}
         htmlFor={randomID}

@@ -33,9 +33,7 @@ export default function HotelCityDetails() {
         dispatch(setRawResults(null));
         dispatch(setNoFilters());
         dispatch(setRooms([{ adults: 1, children: 0 }]));
-
         const res = await getHotelsInCity(cityID);
-
         let lat = 0,
           lng = 0;
         res.forEach((hotel) => {
@@ -43,12 +41,10 @@ export default function HotelCityDetails() {
           lng += hotel.location.lng;
         });
         setAvgLocation({ lat: lat / res.length, lng: lng / res.length });
-
         dispatch(setLoading(false));
         dispatch(setFilteredResults(res));
         dispatch(setRawResults(res));
         dispatch(setNoFilters());
-
         setIsCLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
