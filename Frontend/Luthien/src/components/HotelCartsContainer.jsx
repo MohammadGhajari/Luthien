@@ -4,6 +4,7 @@ import HotelCart from "./HotelCart";
 import { BsExclamationCircle } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
 import SideBarFilter from "./SideBarFilter";
+import { setFilteredResults } from "./../state management/searchRoomSlice";
 
 export default function HotelCartsContainer() {
   const {
@@ -12,11 +13,33 @@ export default function HotelCartsContainer() {
     rawResults,
   } = useSelector((state) => state.searchRoom);
   const [showFilter, setShowFilter] = useState(false);
+  const dispatch = useDispatch();
 
   let adultsCount = 0;
   rooms.map((room) => {
     adultsCount += room.adults;
   });
+
+  function handleLowesSort() {
+    let temp = [...results];
+    temp.sort((a, b) => a.avgPrice - b.avgPrice);
+    dispatch(setFilteredResults([...temp]));
+  }
+  function handleHighestSort() {
+    let temp = [...results];
+    temp.sort((a, b) => b.avgPrice - a.avgPrice);
+    dispatch(setFilteredResults([...temp]));
+  }
+  function handlePopularitySort() {
+    let temp = [...results];
+    temp.sort(
+      (a, b) =>
+        b.ratingsAverage * b.ratingsQuantity -
+        a.ratingsAverage * a.ratingsQuantity
+    );
+
+    dispatch(setFilteredResults([...temp]));
+  }
 
   return (
     <div className={styles.container}>
@@ -42,11 +65,11 @@ export default function HotelCartsContainer() {
           <div className={styles["sort-based"]}>
             <p>Sorting based on: </p>
             <div className={styles["btn-container"]}>
-              <button>Default Price</button>
+              <button onClick={handlePopularitySort}>Popularity</button>
               <span></span>
-              <button>Lowest Price</button>
+              <button onClick={handleLowesSort}>Lowest Price</button>
               <span></span>
-              <button>Highes Price</button>
+              <button onClick={handleHighestSort}>Highes Price</button>
             </div>
           </div>
           <button

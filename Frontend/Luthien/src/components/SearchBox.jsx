@@ -49,33 +49,55 @@ export default function SearchBox({ showCityField = true, title = "Hotels" }) {
 
     //********************************add a fake hotel for development//********************************
 
-    const fakeHotel = {};
-    fakeHotel.name = "Almase Shargh";
-    fakeHotel.description = "Almase Shargh is a very good hotel for turists.";
-    fakeHotel.rooms = [];
-    fakeHotel.stars = 4;
-    fakeHotel.avgPrice = 120;
-    fakeHotel.city = "Tehran";
-    fakeHotel.address = "Tehran, janbaz";
-    fakeHotel.location = { lat: 12, lng: 12 };
-    fakeHotel.phone = "064654";
-    fakeHotel.cover = "";
-    fakeHotel.photos = [];
-    fakeHotel.ratingsAverage = 3;
-    fakeHotel.ratingsQuantity = 129;
-    fakeHotel.importantVicinityPlaces = [
-      { name: "haram", distance: 100, time: 10 },
-    ];
-    fakeHotel.country = "Iran";
-    fakeHotel.amenities = ["swimming pool", "tea maker", "gym", "taxi", "ATM"];
-    fakeHotel.photos = [
-      "./../../public/hotel cover/alpine-retreat-1.jpg",
-      "./../../public/hotel cover/alpine-retreat-2.jpg",
-      "./../../public/hotel cover/city-center-boutique-hotel-1.jpg",
+    const fakeHotels = [
+      {
+        name: "Almase Shargh",
+        description: "Almase Shargh is a very good hotel for turists.",
+        rooms: [],
+        stars: 4,
+        avgPrice: 120,
+        city: "Tehran",
+        address: "Tehran, janbaz",
+        location: { lat: 12, lng: 12 },
+        phone: "5434",
+        cover: "",
+        ratingsAverage: 3,
+        ratingsQuantity: 3,
+        importantVicinityPlaces: [{ name: "haram", distance: 100, time: 10 }],
+        country: "Iran",
+        amenities: ["swimming pool", "tea maker", "gym", "taxi", "ATM"],
+        photos: [
+          "./../../public/hotel cover/alpine-retreat-1.jpg",
+          "./../../public/hotel cover/alpine-retreat-2.jpg",
+          "./../../public/hotel cover/city-center-boutique-hotel-1.jpg",
+        ],
+      },
+      {
+        name: "Almase Shargh 2",
+        description: "Almase Shargh is a very good hotel for turists.",
+        rooms: [],
+        stars: 4,
+        avgPrice: 130,
+        city: "Tehran",
+        address: "Tehran, janbaz",
+        location: { lat: 12, lng: 12 },
+        phone: "5434",
+        cover: "",
+        ratingsAverage: 5,
+        ratingsQuantity: 10,
+        importantVicinityPlaces: [{ name: "haram", distance: 100, time: 10 }],
+        country: "Iran",
+        amenities: ["swimming pool", "tea maker", "gym", "taxi", "ATM"],
+        photos: [
+          "./../../public/hotel cover/alpine-retreat-2.jpg",
+          "./../../public/hotel cover/alpine-retreat-1.jpg",
+          "./../../public/hotel cover/city-center-boutique-hotel-1.jpg",
+        ],
+      },
     ];
 
-    dispatch(setFilteredResults([fakeHotel, fakeHotel]));
-    dispatch(setRawResults([fakeHotel, fakeHotel]));
+    dispatch(setFilteredResults([...fakeHotels]));
+    dispatch(setRawResults([...fakeHotels]));
     dispatch(setNoFilters());
     //********************************add a fake hotel for development//********************************
 

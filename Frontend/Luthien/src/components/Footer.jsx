@@ -48,8 +48,8 @@ export default function Footer() {
             <span></span>
           </div>
           <div className={styles["link-container"]}>
-            <NavLink>Get Started</NavLink>
-            <NavLink>About</NavLink>
+            <NavLink to={"/signup"}>Get Started</NavLink>
+            <NavLink to={"/about-us"}>About</NavLink>
             <a href="#domestic-hotels">Domestic Hotels</a>
             <a href="#foreign-hotels">Foreign Hotels</a>
             <a href="#trending-dest">Trending Destinations</a>

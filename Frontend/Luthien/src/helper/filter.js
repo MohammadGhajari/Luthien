@@ -10,6 +10,8 @@ function checkFilters(filters) {
 }
 
 export function filter(raw, filters) {
+  console.log(raw);
+
   let filtered = [];
   if (checkFilters(filters)) {
     filtered = raw;
@@ -79,5 +81,11 @@ export function filter(raw, filters) {
     });
   }
 
-  return filtered;
+  return filtered.filter(
+    (
+      (ids) =>
+      ({ name }) =>
+        !ids.has(name) && ids.add(name)
+    )(new Set())
+  );
 }
