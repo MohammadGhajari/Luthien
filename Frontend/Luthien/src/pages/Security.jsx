@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { resetUser } from "./../state management/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser, getCurrentUser } from "./../services/handleReqs";
-import { getTime } from "../helper/time";
+import { getTime } from "../util/time";
 
 export default function Security() {
   const navigate = useNavigate();

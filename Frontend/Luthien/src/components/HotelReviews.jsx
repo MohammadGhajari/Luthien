@@ -17,13 +17,12 @@ import {
   updateUser,
 } from "./../services/handleReqs";
 import { toast } from "react-toastify";
-import { getTime } from "../helper/time";
+import { getTime } from "../util/time";
 
-export default function HotelReviews({ reviews }) {
+export default function HotelReviews({ reviews, reviewsRef }) {
   const { email, id } = useSelector((state) => state.user);
   const [rating, setRating] = useState(0);
   const [rev, setRev] = useState("");
-  console.log(reviews);
 
   async function handleSubmitRating(e) {
     e.preventDefault();
@@ -62,7 +61,12 @@ export default function HotelReviews({ reviews }) {
 
   return (
     <>
-      <div id="hotel-reviews" className={styles["container"]}>
+      <div
+        id="hotel-reviews"
+        className={styles["container"]}
+        ref={reviewsRef}
+        data-elem={"reviews"}
+      >
         {reviews.length > 0 && (
           <>
             <h1 data-aos={"fade-right"}>Reviews</h1>

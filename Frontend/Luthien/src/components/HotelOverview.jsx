@@ -11,7 +11,7 @@ import { setfavoriteHotels } from "./../state management/userSlice.js";
 import { useDispatch, useSelector } from "react-redux";
 import AOS from "aos";
 import { useEffect } from "react";
-import { getTime } from "../helper/time.js";
+import { getTime } from "../util/time.js";
 
 export default function HotelOverview({
   name,
@@ -20,6 +20,7 @@ export default function HotelOverview({
   desc,
   hotelID,
   reveiwsCount,
+  overviewRef,
 }) {
   const navigation = useNavigate();
   const dispatch = useDispatch();
@@ -76,7 +77,12 @@ export default function HotelOverview({
   }, []);
 
   return (
-    <div id="hotel-overview" className={styles["overview-container"]}>
+    <div
+      id="hotel-overview"
+      className={styles["overview-container"]}
+      ref={overviewRef}
+      data-elem={"overview"}
+    >
       <div className={styles["overview-header"]}>
         <button onClick={() => navigation(-1)}>
           <IoArrowBackOutline />

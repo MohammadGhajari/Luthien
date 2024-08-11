@@ -1,6 +1,6 @@
 import styles from "./../styles/select-location.module.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import osm from "./../helper/osm";
+import osm from "../util/osm";
 import "leaflet/dist/leaflet.css";
 import { useState, useRef, useMemo, useCallback } from "react";
 

@@ -76,22 +76,6 @@ export default function AddRoom({ i }) {
               <FaMinus />
             </button>
           </CustomTooltip>
-          {/* <Tooltip
-            title="Delete adult"
-            position="top"
-            trigger="mouseenter"
-            delay={500}
-            hideDelay={100}
-            animation={"shift"}
-            arrow={true}
-            arrowSize={"small"}
-            distance={5}
-            size="regular"
-          >
-            <button type="button" onClick={handleDelAdults}>
-              <FaMinus />
-            </button>
-          </Tooltip> */}
 
           <span>{room.adults}</span>
 
@@ -100,23 +84,6 @@ export default function AddRoom({ i }) {
               <FaPlus />
             </button>
           </CustomTooltip>
-          {/* 
-          <Tooltip
-            title="Add adult"
-            position="top"
-            trigger="mouseenter"
-            delay={500}
-            hideDelay={100}
-            animation={"shift"}
-            arrow={true}
-            arrowSize={"small"}
-            distance={5}
-            size="regular"
-          >
-            <button type="button" onClick={handleAddAdults}>
-              <FaPlus />
-            </button>
-          </Tooltip> */}
         </div>
       </div>
       <div className={styles["adult-container"]}>

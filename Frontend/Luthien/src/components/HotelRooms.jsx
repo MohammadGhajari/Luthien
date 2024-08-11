@@ -3,12 +3,23 @@ import RoomCart from "./RoomCart";
 import AOS from "aos";
 import { useEffect } from "react";
 
-export default function HotelRooms({ rooms, amenities, hotelID, hotelName }) {
+export default function HotelRooms({
+  rooms,
+  amenities,
+  hotelID,
+  hotelName,
+  roomsRef,
+}) {
   useEffect(() => {
     AOS.init({ duration: 700 });
   }, []);
   return (
-    <div id="hotel-rooms" className={styles["container"]}>
+    <div
+      id="hotel-rooms"
+      className={styles["container"]}
+      ref={roomsRef}
+      data-elem={"rooms"}
+    >
       <h1 data-aos={"fade-right"}>Choose your room</h1>
       <div className={styles["room-carts-container"]}>
         {rooms.map((room) =>

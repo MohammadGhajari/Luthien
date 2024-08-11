@@ -7,7 +7,12 @@ export default function DeleteAccount({ toType, handleDeleteAccount }) {
     <div className={styles["container"]}>
       <p>type "Luthien/{toType}"" in the following input</p>
       <div className={styles["delete-container"]}>
-        <input onChange={(e) => setvalue(e.target.value)} type="text" />
+        <input
+          onChange={(e) => setvalue(e.target.value)}
+          type="text"
+          className={styles["password-input"]}
+          placeholder="type..."
+        />
         <button
           onClick={handleDeleteAccount}
           className={`${

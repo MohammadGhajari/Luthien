@@ -1,20 +1,30 @@
 import styles from "./../styles/hotel-location.module.css";
 import { useReducer, useRef, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import osm from "./../helper/osm";
+import osm from "../util/osm";
 import "leaflet/dist/leaflet.css";
 import AOS from "aos";
 import { useEffect } from "react";
 import { FaLocationDot } from "react-icons/fa6";
 
-export default function HotelLocation({ location, impVicPlace, name }) {
+export default function HotelLocation({
+  location,
+  impVicPlace,
+  name,
+  locationRef,
+}) {
   const mapRef = useRef();
   useEffect(() => {
     AOS.init({ duration: 700 });
   }, []);
 
   return (
-    <div id="hotel-location" className={styles.container}>
+    <div
+      id="hotel-location"
+      className={styles.container}
+      ref={locationRef}
+      data-elem={"location"}
+    >
       <h1 data-aos={"fade-right"}>Check out the area</h1>
       <div className={styles["map"]} data-aos={"fade-right"}>
         <div className={styles["map-container"]}>

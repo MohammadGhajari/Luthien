@@ -24,7 +24,7 @@ import AOS from "aos";
 import { useEffect } from "react";
 import { ImLibrary } from "react-icons/im";
 
-export default function HotelAmenities({ amenities }) {
+export default function HotelAmenities({ amenities, amenitiesRef }) {
   const amenitiesSVG = {
     "swimming pool": <FaSwimmingPool />,
     "tea maker": <GiCoffeeCup />,
@@ -54,7 +54,12 @@ export default function HotelAmenities({ amenities }) {
   }, []);
 
   return (
-    <div id="hotel-amenities" className={styles.container}>
+    <div
+      id="hotel-amenities"
+      className={styles.container}
+      ref={amenitiesRef}
+      data-elem={"amenities"}
+    >
       <h1 data-aos={"fade-right"}>Popular amenities</h1>
       <div className={styles.content} data-aos={"fade-right"}>
         {amenities?.map((amenity) => (

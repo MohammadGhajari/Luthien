@@ -32,7 +32,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateUser, updateRoom, getCurrentUser } from "../services/handleReqs";
 import { setBalance } from "./../state management/userSlice";
 import { toast } from "react-toastify";
-import { getTime } from "./../helper/time";
+import { getTime } from "../util/time";
 
 export default function BookedRoomsCart({
   photos,

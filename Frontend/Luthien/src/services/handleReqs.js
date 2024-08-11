@@ -1,6 +1,6 @@
 import axios from "axios";
 import { toastError, toastSuccess } from "./../services/notify";
-import { setCookie } from "../helper/cookie";
+import { setCookie } from "../util/cookie";
 
 const domain = "http://127.0.0.10:8000";
 export function signup(data) {

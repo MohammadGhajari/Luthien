@@ -3,7 +3,7 @@ import { IoArrowBackOutline } from "react-icons/io5";
 import SearchBox from "../components/SearchBox";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import { useEffect } from "react";
-import osm from "./../helper/osm";
+import osm from "../util/osm";
 import SearchResults from "../components/SearchResults";
 import styles from "./../styles/hotel-city-details.module.css";
 import L from "leaflet";

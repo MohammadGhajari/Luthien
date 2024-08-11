@@ -1,4 +1,5 @@
 import { Tooltip } from "react-tippy";
+import styles from "./../styles/custom-tooltip.module.css";
 
 export default function CustomTooltip({
   children,

@@ -6,7 +6,7 @@ import { updateUser, getCurrentUser } from "../services/handleReqs";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { setBalance } from "../state management/userSlice";
-import { getTime } from "../helper/time";
+import { getTime } from "../util/time";
 
 export default function Wallet() {
   const { balance } = useSelector((state) => state.user);

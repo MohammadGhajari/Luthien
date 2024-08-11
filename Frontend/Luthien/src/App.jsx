@@ -33,6 +33,7 @@ import Security from "./pages/Security";
 import MyHotel from "./pages/MyHotel";
 import Activity from "./pages/Activity";
 import Wallet from "./pages/Wallet";
+import AboutUs from "./pages/AboutUs";
 import ReservedRooms from "./pages/ReservedRooms";
 import CheckingReviews from "./pages/CheckingReviews";
 import BecameHotelier from "./pages/BecameHotelier";
@@ -128,6 +129,7 @@ function App() {
         <Routes>
           <Route element={<AppLayout />}>
             <Route index element={<Home />} />
+            <Route path="/about-us" element={<AboutUs />} />
             <Route path={"/hotels/:hotelID"} element={<HotelDetails />} />
             <Route
               path={"/hotels/city/:cityID"}

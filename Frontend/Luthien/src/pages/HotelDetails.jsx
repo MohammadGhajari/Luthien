@@ -18,20 +18,77 @@ export default function HotelDetails() {
 
   const [hotel, setHotel] = useState({});
 
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const overviewRef = useRef();
+  const amenitiesRef = useRef();
+  const locationRef = useRef();
+  const roomsRef = useRef();
+  const accessibilitiesRef = useRef();
+  const policiesRef = useRef();
+  const reviewsRef = useRef();
 
-  const handleScroll = () => {
-    const position = window.pageYOffset;
-    setScrollPosition(position);
-  };
+  const [overviewVisible, setOverviewVisible] = useState(false);
+  const [amenitiesVisible, setAmenitiesVisible] = useState(false);
+  const [locationVisible, setLocationVisible] = useState(false);
+  const [roomsVisible, setRoomsVisible] = useState(false);
+  const [accessibilitiesVisible, setAccessibilitiesVisible] = useState(false);
+  const [policiesVisible, setPoliciesVisible] = useState(false);
+  const [reviewsVisible, setReviewsVisible] = useState(false);
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
+  function clearAllStyles() {
+    setReviewsVisible(false);
+    setPoliciesVisible(false);
+    setAccessibilitiesVisible(false);
+    setRoomsVisible(false);
+    setLocationVisible(false);
+    setAmenitiesVisible(false);
+    setOverviewVisible(false);
+  }
 
+  function createObserver(model) {
+    const Observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        clearAllStyles();
+
+        if (entry.target.getAttribute("data-elem") === "reviews")
+          setReviewsVisible(true);
+        else if (entry.target.getAttribute("data-elem") === "policies")
+          setPoliciesVisible(true);
+        else if (entry.target.getAttribute("data-elem") === "accessibilities")
+          setAccessibilitiesVisible(true);
+        else if (entry.target.getAttribute("data-elem") === "rooms")
+          setRoomsVisible(true);
+        else if (entry.target.getAttribute("data-elem") === "location")
+          setLocationVisible(true);
+        else if (entry.target.getAttribute("data-elem") === "amenities")
+          setAmenitiesVisible(true);
+        else setOverviewVisible(true);
+      }
+    });
+
+    if (model.current) Observer.observe(model.current);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      if (model.current) Observer.unobserve(model.current);
     };
-  }, []);
+  }
+
+  //___________________________________________  observers
+  useEffect(() => {
+    createObserver(overviewRef);
+    createObserver(amenitiesRef);
+    createObserver(locationRef);
+    createObserver(roomsRef);
+    createObserver(accessibilitiesRef);
+    createObserver(policiesRef);
+    createObserver(reviewsRef);
+  }, [
+    overviewRef.current,
+    amenitiesRef.current,
+    locationRef.current,
+    roomsRef.current,
+    accessibilitiesRef.current,
+    policiesRef.current,
+    reviewsRef.current,
+  ]);
 
   useEffect(() => {
     async function fetchData() {
@@ -168,64 +225,44 @@ export default function HotelDetails() {
           <div className={styles["navbar"]}>
             <div className={styles["content"]}>
               <a
-                className={scrollPosition < 832 ? styles["selected"] : ""}
                 href="#hotel-overview"
+                className={overviewVisible ? styles["selected"] : ""}
               >
                 Overview
               </a>
               <a
-                className={
-                  scrollPosition >= 832 && scrollPosition < 1010
-                    ? styles["selected"]
-                    : ""
-                }
                 href="#hotel-amenities"
+                className={amenitiesVisible ? styles["selected"] : ""}
               >
                 Amenities
               </a>
               <a
-                className={
-                  scrollPosition >= 1010 && scrollPosition < 1420
-                    ? styles["selected"]
-                    : ""
-                }
                 href="#hotel-location"
+                className={locationVisible ? styles["selected"] : ""}
               >
                 Location
               </a>
               <a
-                className={
-                  scrollPosition >= 1420 && scrollPosition < 2255
-                    ? styles["selected"]
-                    : ""
-                }
                 href="#hotel-rooms"
+                className={roomsVisible ? styles["selected"] : ""}
               >
                 Rooms
               </a>
               <a
-                className={
-                  scrollPosition >= 2255 && scrollPosition < 2825
-                    ? styles["selected"]
-                    : ""
-                }
                 href="#hotel-accessibility"
+                className={accessibilitiesVisible ? styles["selected"] : ""}
               >
                 Accessibility
               </a>
               <a
-                className={
-                  scrollPosition >= 2825 && scrollPosition < 3575
-                    ? styles["selected"]
-                    : ""
-                }
                 href="#hotel-policy"
+                className={policiesVisible ? styles["selected"] : ""}
               >
                 Policies
               </a>
               <a
-                className={scrollPosition >= 3575 && styles["selected"]}
                 href="#hotel-reviews"
+                className={reviewsVisible ? styles["selected"] : ""}
               >
                 Reviews
               </a>
@@ -239,9 +276,14 @@ export default function HotelDetails() {
             desc={hotel.description}
             ratings={hotel.ratingsAverage}
             reveiwsCount={reviews.length}
+            overviewRef={overviewRef}
           />
-          <HotelAmenities amenities={hotel.amenities} />
+          <HotelAmenities
+            amenities={hotel.amenities}
+            amenitiesRef={amenitiesRef}
+          />
           <HotelLocation
+            locationRef={locationRef}
             name={hotel?.name}
             location={hotel.location}
             impVicPlace={hotel.importantVicinityPlaces}
@@ -249,15 +291,16 @@ export default function HotelDetails() {
 
           {hotel.rooms && hotel.rooms.length > 0 && (
             <HotelRooms
+              roomsRef={roomsRef}
               rooms={hotel.rooms}
               amenities={hotel.amenities}
               hotelID={hotelID}
               hotelName={hotel.name}
             />
           )}
-          <HotelAccessibility />
-          <HotelPolicy />
-          <HotelReveiews reviews={reviews} />
+          <HotelAccessibility accessibilitiesRef={accessibilitiesRef} />
+          <HotelPolicy policiesRef={policiesRef} />
+          <HotelReveiews reviews={reviews} reviewsRef={reviewsRef} />
         </>
       )}
     </div>

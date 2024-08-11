@@ -11,6 +11,7 @@ import {
 import { setNoFilters } from "./../state management/filterSlice";
 import { getSearchQuery } from "./../services/handleReqs.js";
 import { toastError } from "./../services/notify.js";
+import CustomTooltip from "./CustomTooltip.jsx";
 
 export default function SearchBox({ showCityField = true, title = "Hotels" }) {
   const dispatch = useDispatch();

@@ -4,13 +4,18 @@ import { MdApartment, MdMeetingRoom } from "react-icons/md";
 import AOS from "aos";
 import { useEffect } from "react";
 
-export default function HotelAccessibility() {
+export default function HotelAccessibility({ accessibilitiesRef }) {
   useEffect(() => {
     AOS.init({ duration: 700 });
   }, []);
 
   return (
-    <div id="hotel-accessibility" className={styles["container"]}>
+    <div
+      id="hotel-accessibility"
+      className={styles["container"]}
+      ref={accessibilitiesRef}
+      data-elem={"accessibilities"}
+    >
       <div data-aos={"fade-up"}>
         <h2>Accessibility</h2>
         <p>

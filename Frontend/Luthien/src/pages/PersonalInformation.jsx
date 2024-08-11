@@ -18,7 +18,7 @@ import {
   setPhoneNumber,
   setfavoriteHotels,
 } from "./../state management/userSlice";
-import { getTime } from "../helper/time";
+import { getTime } from "../util/time";
 
 export default function PersonalInformation() {
   const [disableEdit, setDisableEdit] = useState(false);

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./../styles/checkbox.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { filter } from "./../helper/filter";
+import { filter } from "../util/filter";
 import { setFilteredResults } from "./../state management/searchRoomSlice";
 
 export default function CheckBox({

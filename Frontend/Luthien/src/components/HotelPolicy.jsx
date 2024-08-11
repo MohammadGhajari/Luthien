@@ -2,13 +2,18 @@ import styles from "./../styles/hotel-policy.module.css";
 import AOS from "aos";
 import { useEffect } from "react";
 
-export default function HotelPolicy() {
+export default function HotelPolicy({ policiesRef }) {
   useEffect(() => {
     AOS.init({ duration: 700 });
   }, []);
 
   return (
-    <div id="hotel-policy" className={styles["container"]}>
+    <div
+      id="hotel-policy"
+      className={styles["container"]}
+      ref={policiesRef}
+      data-elem={"policies"}
+    >
       <div className={styles["left"]}>
         <h1 data-aos={"fade-right"}>Fees & policies</h1>
       </div>

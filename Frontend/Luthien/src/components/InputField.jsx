@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./../styles/input-field.module.css";
 import { FaPlus } from "react-icons/fa";
 import AddRoom from "./AddRoom";
@@ -85,7 +85,7 @@ export default function InputField({
           </div>
 
           <div className={styles["confirm-btn-container"]}>
-            <button type="button">Confirm</button>
+            <div type="button">Confirm</div>
           </div>
         </div>
       )}

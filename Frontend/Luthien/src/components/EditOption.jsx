@@ -4,6 +4,7 @@ import CountrySelectBox from "./CountrySelectBox";
 import GenderSelectBox from "./GenderSelectBox";
 import PasswordReset from "./PasswordReset";
 import DeleteAccount from "./DeleteAccount";
+import HotelierInputFields from "./HotelierInputFields";
 
 export default function EditOption({
   title,
@@ -107,12 +108,20 @@ export default function EditOption({
                 handleDeleteAccount={handleDeleteAccount}
               />
             ) : (
-              <input
-                onChange={(e) => setValue(e.target.value)}
+              // <input
+              //   onChange={(e) => setValue(e.target.value)}
+              //   placeholder={title}
+              //   type="text"
+              //   id="name-inp"
+              //   defaultValue={value}
+              // />
+
+              <HotelierInputFields
+                setValue={setValue}
                 placeholder={title}
-                type="text"
-                id="name-inp"
                 defaultValue={value}
+                width="100%"
+                height="3.5rem"
               />
             )}
           </div>

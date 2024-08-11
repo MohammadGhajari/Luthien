@@ -34,7 +34,7 @@ import { updateUser, updateRoom, getCurrentUser } from "../services/handleReqs";
 import { toastError } from "../services/notify";
 import { setBalance } from "../state management/userSlice";
 import { toast } from "react-toastify";
-import { getTime } from "../helper/time";
+import { getTime } from "../util/time";
 
 export default function RoomCart({
   myOwn = false,
@@ -144,7 +144,11 @@ export default function RoomCart({
                   <span>{am}</span>
                 </p>
               ) : (
-                i === 4 && <p className={styles["etc-amen"]}>...</p>
+                i === 4 && (
+                  <p key={i} className={styles["etc-amen"]}>
+                    ...
+                  </p>
+                )
               )
             )}
           </div>

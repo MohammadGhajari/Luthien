@@ -21,6 +21,7 @@ export default function PasswordReset({
             type={`${showCurr ? "text" : "password"}`}
             id="curr-pass"
             placeholder="Current password"
+            className={styles["password-input"]}
           />
           <button onClick={() => setshowCurr(!showCurr)}>
             {showCurr ? <FiEye /> : <FiEyeOff />}
@@ -34,6 +35,7 @@ export default function PasswordReset({
             onChange={(e) => setPassword(e.target.value)}
             type={`${showNew ? "text" : "password"}`}
             id="new-pass"
+            className={styles["password-input"]}
             placeholder="New password"
           />
           <button onClick={() => setShowNew(!showNew)}>
@@ -48,6 +50,7 @@ export default function PasswordReset({
             onChange={(e) => setPasswordConfirm(e.target.value)}
             type={`${showCon ? "text" : "password"}`}
             id="con-pass"
+            className={styles["password-input"]}
             placeholder="Confirm password"
           />
           <button onClick={() => setShowCon(!showCon)}>

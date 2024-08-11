@@ -1,7 +1,11 @@
 import styles from "./../styles/logo.module.css";
 import { NavLink } from "react-router-dom";
 
-export default function Logo({ color = "black", size, marginLeft = "0" }) {
+export default function Logo({
+  color = "var(--color-grey-3)",
+  size,
+  marginLeft = "0",
+}) {
   return (
     <NavLink to="/">
       <div
