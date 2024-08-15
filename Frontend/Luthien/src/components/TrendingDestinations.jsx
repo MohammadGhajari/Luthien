@@ -13,8 +13,12 @@ export default function TrendingDestinations() {
     async function fetchData() {
       try {
         setIsLoading(true);
+        console.log("kos");
         const res = await getTrendings();
         setTrends(res);
+        console.log("kos2");
+
+        console.log(res);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -37,7 +41,7 @@ export default function TrendingDestinations() {
         <p data-aos={"fade-right"} data-aos-duration={"200"}>
           Most popular choices for travelers
         </p>
-        {isLoading && (
+        {!isLoading && (
           <div className={styles["grid-layout"]}>
             <NavLink
               to={`/hotels/city/${trends[0]?.city}`}
