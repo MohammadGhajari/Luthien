@@ -82,6 +82,7 @@ export default function BookedRoomsCart({
     ) {
       const filterdRooms = allRooms.filter((r) => r.room._id !== roomID);
 
+      console.log("canceled");
       const currentUser = await getCurrentUser();
 
       console.log("canceled");
@@ -108,9 +109,8 @@ export default function BookedRoomsCart({
           error: "Try again.⚠️",
         }
       );
-
       const updatedRoom = await toast.promise(
-        updateRoom(roomID, { isFull: false }),
+        updateRoom(roomID, { isFull: false, startDate: 0, endDate: 0 }),
         {
           error: "Try again.⚠️",
         }

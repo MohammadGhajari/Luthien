@@ -67,7 +67,7 @@
 
 @font-face {
   font-family: ringbearer;
-  src: url("./../../../public/fonts/RINGM___.TTF");
+  src: url("./fonts/RINGM___.TTF");
 }
 *,
 *::before,

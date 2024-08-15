@@ -13,6 +13,7 @@ export default function HotelRooms({
   useEffect(() => {
     AOS.init({ duration: 700 });
   }, []);
+
   return (
     <div
       id="hotel-rooms"
@@ -22,22 +23,21 @@ export default function HotelRooms({
     >
       <h1 data-aos={"fade-right"}>Choose your room</h1>
       <div className={styles["room-carts-container"]}>
-        {rooms.map((room) =>
-          room.isFull ? (
-            <></>
-          ) : (
-            <RoomCart
-              key={room.roomNumber}
-              hotelID={hotelID}
-              amenities={amenities}
-              price={room.price}
-              discount={room.priceDiscount}
-              number={room.roomNumber}
-              photos={room.photos}
-              roomId={room._id}
-              hotelName={hotelName}
-            />
-          )
+        {rooms.map(
+          (room) =>
+            !room.isFull && (
+              <RoomCart
+                key={room.roomNumber}
+                hotelID={hotelID}
+                amenities={amenities}
+                price={room.price}
+                discount={room.priceDiscount}
+                number={room.roomNumber}
+                photos={room.photos}
+                roomId={room._id}
+                hotelName={hotelName}
+              />
+            )
         )}
       </div>
     </div>

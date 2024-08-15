@@ -102,8 +102,8 @@
     "price": 130,
     "priceDiscount": 110,
     "photos": [
-      "_DOMAIN_rooms/alpine-retreat-room-2-1",
-      "_DOMAIN_rooms/alpine-retreat-room-2-2"
+      "_DOMAIN_rooms/alpine-retreat-room-2-1.jpg",
+      "_DOMAIN_rooms/alpine-retreat-room-2-2.jpg"
     ],
     "maxGuest": 1,
     "isFull": false

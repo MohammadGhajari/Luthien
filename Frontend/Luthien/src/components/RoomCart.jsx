@@ -79,11 +79,18 @@ export default function RoomCart({
     if (price - discount > balance)
       return toastError("You have not enough money to reserve this room.");
 
-    const roomRes = await toast.promise(updateRoom(roomId, { isFull: true }), {
-      pending: "Reserving room...",
-      success: "Room reserved successfully!⚡",
-      error: "Try again",
-    });
+    const roomRes = await toast.promise(
+      updateRoom(roomId, {
+        isFull: true,
+        startDate: new Date().getTime(), //today
+        endDate: new Date().getTime() + 24 * 60 * 60 * 1000, //one day layer
+      }),
+      {
+        pending: "Reserving room...",
+        success: "Room reserved successfully!⚡",
+        error: "Try again",
+      }
+    );
 
     const currentUser = await getCurrentUser();
 

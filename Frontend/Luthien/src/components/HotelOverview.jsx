@@ -21,6 +21,7 @@ export default function HotelOverview({
   hotelID,
   reveiwsCount,
   overviewRef,
+  photos,
 }) {
   const navigation = useNavigate();
   const dispatch = useDispatch();
@@ -95,31 +96,12 @@ export default function HotelOverview({
         </button>
       </div>
       <div className={styles["gallery"]}>
-        <img
-          data-aos={"fade-right"}
-          src="./../../public/sample data/1.jpeg"
-          alt="photo"
-        />
-        <img
-          data-aos={"fade-down"}
-          src="./../../public/sample data/2.jpg"
-          alt="photo"
-        />
-        <img
-          data-aos={"fade-left"}
-          src="./../../public/sample data/3.jpg"
-          alt="photo"
-        />
-        <img
-          data-aos={"fade-up"}
-          src="./../../public/sample data/4.jpeg"
-          alt="photo"
-        />
-        <img
-          data-aos={"fade-left"}
-          src="./../../public/sample data/1.jpeg"
-          alt="photo"
-        />
+        {photos.map(
+          (photo, i) =>
+            i < 5 && (
+              <img key={i} data-aos={"fade-right"} src={photo} alt="photo" />
+            )
+        )}
       </div>
 
       <div className={styles["hotel-description"]} data-aos={"fade-right"}>

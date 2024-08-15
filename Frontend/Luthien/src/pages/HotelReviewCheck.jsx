@@ -40,61 +40,62 @@ export default function HotelReviewCheck() {
 
   useEffect(() => {
     async function fetchData() {
-      // const res = await getHotelReviews(hotelName);
-      // if (res) {
-      //   const tempPending = res.filter((r) => r.status === "pending");
-      //   setPendingReviews(tempPending);
-      // }
-      const fakeReviews = [
-        {
-          review: "hi this hotel is very nice.",
-          rating: 4,
-          status: "pending",
-          user: {
-            name: "ali",
-            photo: "./../../public/users/ayla-cornell.jpg",
-          },
-        },
-        {
-          review: "i don't like that hotel.",
-          rating: 2,
-          status: "pending",
-          user: {
-            name: "hasan",
-            photo: "./../../public/users/ben-hadley.jpg",
-          },
-        },
-        {
-          review: "i prefert Hlsdf from that.",
-          rating: 3,
-          status: "pending",
-          user: {
-            name: "gholi",
-            photo: "./../../public/users/cristian-vega.jpg",
-          },
-        },
-        {
-          review: "nice, just that",
-          rating: 5,
-          status: "confirmed",
-          user: {
-            name: "ali",
-            photo: "./../../public/users/default.png",
-          },
-        },
-        {
-          review: "hi this hotel is very nice.",
-          rating: 4,
-          status: "confirmed",
-          user: {
-            name: "ali",
-            photo: "./../../public/users/ayla-cornell.jpg",
-          },
-        },
-      ];
+      const res = await getHotelReviews(hotelName);
+      if (res) {
+        const tempPending = res.filter((r) => r.status === "pending");
+        setPendingReviews(tempPending);
+      }
+      // const fakeReviews = [
+      //   {
+      //     review: "hi this hotel is very nice.",
+      //     rating: 4,
+      //     status: "pending",
+      //     user: {
+      //       name: "ali",
+      //       photo: "./../../public/users/ayla-cornell.jpg",
+      //     },
+      //   },
+      //   {
+      //     review: "i don't like that hotel.",
+      //     rating: 2,
+      //     status: "pending",
+      //     user: {
+      //       name: "hasan",
+      //       photo: "./../../public/users/ben-hadley.jpg",
+      //     },
+      //   },
+      //   {
+      //     review: "i prefert Hlsdf from that.",
+      //     rating: 3,
+      //     status: "pending",
+      //     user: {
+      //       name: "gholi",
+      //       photo: "./../../public/users/cristian-vega.jpg",
+      //     },
+      //   },
+      //   {
+      //     review: "nice, just that",
+      //     rating: 5,
+      //     status: "confirmed",
+      //     user: {
+      //       name: "ali",
+      //       photo: "./../../public/users/default.png",
+      //     },
+      //   },
+      //   {
+      //     review: "hi this hotel is very nice.",
+      //     rating: 4,
+      //     status: "confirmed",
+      //     user: {
+      //       name: "ali",
+      //       photo: "./../../public/users/ayla-cornell.jpg",
+      //     },
+      //   },
+      // ];
 
-      setPendingReviews([...fakeReviews]);
+      // setPendingReviews([...fakeReviews]);
     }
+
     fetchData();
   }, [hotelName]);
 

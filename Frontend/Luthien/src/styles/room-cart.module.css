@@ -30,12 +30,11 @@
   border-top-left-radius: var(--border-radius-md);
   border-top-right-radius: var(--border-radius-md);
   color: transparent;
-
+  height: 25rem;
   & .myslide {
-    height: 100%;
+    height: 25rem;
     & img {
       width: 100%;
-      /* height: 25rem; */
       height: 100%;
     }
   }

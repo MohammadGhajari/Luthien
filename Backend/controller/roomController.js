@@ -46,7 +46,8 @@ const filterObj = (obj, ...allowedFields) => {
   return newObj;
 };
 exports.updateRoom = catchAsync(async (req, res, next) => {
-  console.log(req.body); //empty
+  console.log(req.body);
+
   const filteredBody = filterObj(
     req.body,
     'roomNumber',
@@ -57,7 +58,10 @@ exports.updateRoom = catchAsync(async (req, res, next) => {
     'maxGuest',
     'isFull',
     'photos',
+    'endDate',
+    'startDate',
   );
+  console.log(req.body);
 
   if (req.files) {
     if (req.files.photos) {

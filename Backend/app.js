@@ -26,6 +26,7 @@ const limiter = rateLimit({
 app.use(
   cors({
     origin: 'http://127.0.0.10:8001', // Your frontend origin
+    // origin: '*', // Your frontend origin
     credentials: true, // Allow credentials
   }),
 );

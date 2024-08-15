@@ -10,8 +10,6 @@ function checkFilters(filters) {
 }
 
 export function filter(raw, filters) {
-  console.log(raw);
-
   let filtered = [];
   if (checkFilters(filters)) {
     filtered = raw;

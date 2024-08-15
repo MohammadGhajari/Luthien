@@ -76,7 +76,12 @@ export async function getTrendings() {
 }
 
 export async function getSearchQuery(city, rooms, startDate, endDate) {
-  const data = { city, rooms, startDate, endDate };
+  const data = {
+    city,
+    rooms,
+    startDate: new Date(startDate).getTime(),
+    endDate: new Date(endDate).getTime(),
+  };
   const res = await axios.post(`${domain}/api/hotels/search-query`, data);
   return res.data.data;
 }

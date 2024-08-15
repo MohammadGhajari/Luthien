@@ -39,6 +39,14 @@ const roomSchema = mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  startDate: {
+    type: Number,
+    default: 0,
+  },
+  endDate: {
+    type: String,
+    default: 0,
+  },
 });
 
 roomSchema.pre(/^find/, function (next) {

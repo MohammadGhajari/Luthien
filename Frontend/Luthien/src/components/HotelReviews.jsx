@@ -19,7 +19,12 @@ import {
 import { toast } from "react-toastify";
 import { getTime } from "../util/time";
 
-export default function HotelReviews({ reviews, reviewsRef }) {
+export default function HotelReviews({
+  reviews,
+  reviewsRef,
+  hotelID,
+  hotelName,
+}) {
   const { email, id } = useSelector((state) => state.user);
   const [rating, setRating] = useState(0);
   const [rev, setRev] = useState("");

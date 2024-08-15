@@ -37,7 +37,7 @@ export default function TrendingDestinations() {
         <p data-aos={"fade-right"} data-aos-duration={"200"}>
           Most popular choices for travelers
         </p>
-        {!isLoading && (
+        {isLoading && (
           <div className={styles["grid-layout"]}>
             <NavLink
               to={`/hotels/city/${trends[0]?.city}`}
@@ -49,13 +49,13 @@ export default function TrendingDestinations() {
                   trends[0]?.city.slice(1)}
                 <img src={trends[0]?.countryFlag} alt="flag" />
               </span>
-              {/* <img src={trends[0]?.cover} alt="trending photo" /> */}
-              <img
+              <img src={trends[0]?.cover} alt="trending photo" />
+              {/* <img
                 src={
                   "./../../public/hotel cover/city-center-boutique-hotel-1.jpg"
                 }
                 alt=""
-              />
+              /> */}
             </NavLink>
             <NavLink
               to={`/hotels/city/${trends[1]?.city}`}
@@ -67,13 +67,13 @@ export default function TrendingDestinations() {
                   trends[1]?.city.slice(1)}
                 <img src={trends[1]?.countryFlag} alt="flag" />
               </span>
-              {/* <img src={trends[1]?.cover} alt="trending photo" /> */}
-              <img
+              <img src={trends[1]?.cover} alt="trending photo" />
+              {/* <img
                 src={
                   "./../../public/hotel cover/city-center-boutique-hotel-1.jpg"
                 }
                 alt=""
-              />
+              /> */}
             </NavLink>
             <NavLink
               to={`/hotels/city/${trends[2]?.city}`}
@@ -85,13 +85,13 @@ export default function TrendingDestinations() {
                   trends[2]?.city.slice(1)}
                 <img src={trends[2]?.countryFlag} alt="flag" />
               </span>
-              {/* <img src={trends[2]?.cover} alt="trending photo" /> */}
-              <img
+              <img src={trends[2]?.cover} alt="trending photo" />
+              {/* <img
                 src={
                   "./../../public/hotel cover/city-center-boutique-hotel-1.jpg"
                 }
                 alt=""
-              />
+              /> */}
             </NavLink>
             <NavLink
               to={`/hotels/city/${trends[3]?.city}`}
@@ -103,11 +103,11 @@ export default function TrendingDestinations() {
                   trends[3]?.city.slice(1)}
                 <img src={trends[3]?.countryFlag} alt="flag" />
               </span>
-              {/* <img src={trends[3]?.cover} alt="trending photo" /> */}
-              <img
+              <img src={trends[3]?.cover} alt="trending photo" />
+              {/* <img
                 src={"./../../public/hotel cover/alpine-retreat-1.jpg"}
                 alt="trending photo"
-              />
+              /> */}
             </NavLink>
             <NavLink
               to={`/hotels/city/${trends[4]?.city}`}
@@ -119,11 +119,11 @@ export default function TrendingDestinations() {
                   trends[4]?.city.slice(1)}
                 <img src={trends[4]?.countryFlag} alt="flag" />
               </span>
-              {/* <img src={trends[4]?.cover} alt="trending photo" /> */}
-              <img
+              <img src={trends[4]?.cover} alt="trending photo" />
+              {/* <img
                 src={"./../../public/hotel cover/alpine-retreat-2.jpg"}
                 alt="trending photo"
-              />
+              /> */}
             </NavLink>
           </div>
         )}

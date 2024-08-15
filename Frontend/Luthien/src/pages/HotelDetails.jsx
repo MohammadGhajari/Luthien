@@ -7,7 +7,7 @@ import HotelRooms from "../components/HotelRooms";
 import HotelAccessibility from "../components/HotelAccessibility";
 import HotelPolicy from "../components/HotelPolicy";
 import HotelReveiews from "../components/HotelReviews";
-import { getHotelById } from "../services/handleReqs";
+import { getHotelById, getHotelReviews } from "../services/handleReqs";
 import { useState, useEffect, useRef } from "react";
 import Loading from "../components/Loading";
 
@@ -96,118 +96,11 @@ export default function HotelDetails() {
         setIsloading(true);
 
         //commnet out this section
-        // const res = await getHotelById(hotelID);
-        // setHotel(res[0]);
+        const res = await getHotelById(hotelID);
+        setHotel(res[0]);
 
-        // const res1 = await getHotelReviews(res[0].name);
-        // setReviews(res1);
-
-        const fakeReviews = [
-          {
-            review: "hi this hotel is very nice.",
-            rating: 4,
-            status: "confirmed",
-            user: {
-              name: "ali",
-              photo: "./../../public/users/ayla-cornell.jpg",
-            },
-          },
-          {
-            review: "i don't like that hotel.",
-            rating: 2,
-            status: "confirmed",
-            user: {
-              name: "hasan",
-              photo: "./../../public/users/ben-hadley.jpg",
-            },
-          },
-          {
-            review: "i prefert Hlsdf from that.",
-            rating: 3,
-            status: "confirmed",
-            user: {
-              name: "gholi",
-              photo: "./../../public/users/cristian-vega.jpg",
-            },
-          },
-          {
-            review: "nice, just that",
-            rating: 5,
-            status: "confirmed",
-            user: {
-              name: "ali",
-              photo: "./../../public/users/default.png",
-            },
-          },
-          {
-            review: "hi this hotel is very nice.",
-            rating: 4,
-            status: "confirmed",
-            user: {
-              name: "ali",
-              photo: "./../../public/users/ayla-cornell.jpg",
-            },
-          },
-        ];
-        setReviews([...fakeReviews]);
-
-        //********************************add a fake hotel for development//********************************
-        const fakeHotel = {};
-        fakeHotel.name = "Almase Shargh";
-        fakeHotel.description =
-          "Almase Shargh is a very good hotel for turists.";
-        fakeHotel.rooms = [];
-        fakeHotel.stars = 4;
-        fakeHotel.avgPrice = 1203;
-        fakeHotel.city = "Tehran";
-        fakeHotel.address = "Tehran, janbaz";
-        fakeHotel.location = { lat: 12, lng: 12 };
-        fakeHotel.phone = "064654";
-        fakeHotel.cover = "";
-        fakeHotel.photos = [];
-        fakeHotel.ratingsAverage = 3;
-        fakeHotel.ratingsQuantity = 129;
-        fakeHotel.importantVicinityPlaces = [
-          { name: "haram", distance: 100, time: 10 },
-          { name: "haram imam reza gharib", distance: 100, time: 10 },
-          { name: "haram", distance: 100, time: 10 },
-          { name: "haram", distance: 100, time: 10 },
-        ];
-        fakeHotel.country = "Iran";
-        fakeHotel.amenities = [
-          "swimming pool",
-          "tea maker",
-          "gym",
-          "pet",
-          "free wifi",
-          "taxi",
-        ];
-
-        fakeHotel.rooms = [
-          {
-            roomNumber: "127",
-            price: 250,
-            priceDiscount: 100,
-            photos: [
-              "./../../public/hotel cover/alpine-retreat-1.jpg",
-              "./../../public/hotel cover/alpine-retreat-2.jpg",
-            ],
-            _id: "1",
-          },
-          {
-            roomNumber: "346",
-            price: 350,
-            priceDiscount: 250,
-            photos: [
-              "./../../public/hotel cover/alpine-retreat-2.jpg",
-              "./../../public/hotel cover/city-center-boutique-hotel-1.jpg",
-            ],
-            _id: "2",
-          },
-        ];
-
-        setHotel(fakeHotel);
-        //********************************add a fake hotel for development//********************************
+        const res1 = await getHotelReviews(res[0].name);
+        setReviews(res1);
 
         setIsloading(false);
       } catch (error) {
@@ -275,6 +168,7 @@ export default function HotelDetails() {
             stars={hotel.stars}
             desc={hotel.description}
             ratings={hotel.ratingsAverage}
+            photos={hotel.photos}
             reveiwsCount={reviews.length}
             overviewRef={overviewRef}
           />
@@ -300,7 +194,12 @@ export default function HotelDetails() {
           )}
           <HotelAccessibility accessibilitiesRef={accessibilitiesRef} />
           <HotelPolicy policiesRef={policiesRef} />
-          <HotelReveiews reviews={reviews} reviewsRef={reviewsRef} />
+          <HotelReveiews
+            reviews={reviews}
+            reviewsRef={reviewsRef}
+            hotelID={hotelID}
+            hotelName={hotel.name}
+          />
         </>
       )}
     </div>

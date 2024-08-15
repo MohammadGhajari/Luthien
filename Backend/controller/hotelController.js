@@ -10,6 +10,8 @@ const catchAsync = require('./../utils/catAsync');
 const Room = require('./../model/roomModel');
 const APIFeatures = require('./../utils/apiFeatures');
 const multer = require('multer');
+const { restart } = require('nodemon');
+const { ResumeToken } = require('mongodb');
 
 const upload = multer({
   storage: multer.diskStorage({
@@ -141,6 +143,7 @@ function checkCapacity(capacity, req) {
 
 exports.handleSearchQuery = catchAsync(async (req, res, next) => {
   const data = await Hotel.find({ city: req.body.city });
+  console.log(new Date(req.body.startDate));
 
   const reqCapacity = req.body.rooms.map((item) => item.adults);
   const result = [];
@@ -153,7 +156,21 @@ exports.handleSearchQuery = catchAsync(async (req, res, next) => {
     }
   }
 
-  const hotels = result;
+  const result2 = [];
+  for (let i = 0; i < result.length; i++) {
+    for (let j = 0; j < result[i].rooms.length; j++) {
+      if (
+        !result[i].rooms[j].isFull &&
+        (result[i].rooms[j].startDate > req.body.endDate ||
+          result[i].rooms[j].endDate < req.body.startDate)
+      ) {
+        result2.push(result[i]);
+        break;
+      }
+    }
+  }
+
+  const hotels = result2;
 
   res.status(200).json({
     status: 'success',

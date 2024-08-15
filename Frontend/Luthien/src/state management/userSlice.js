@@ -2,10 +2,10 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   id: "",
-  name: "mohammad",
-  email: "mohammad@gmail.com",
-  photo: "./../../public/sample data/1.jpeg",
-  role: "hotelier",
+  name: "",
+  email: "",
+  photo: "",
+  role: "user",
   dateOfBirth: "",
   phoneNumber: "",
   nationality: "",

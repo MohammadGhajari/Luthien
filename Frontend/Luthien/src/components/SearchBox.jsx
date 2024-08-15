@@ -7,11 +7,11 @@ import {
   setRawResults,
   setFilteredResults,
   setLoading,
+  setCity,
 } from "./../state management/searchRoomSlice";
 import { setNoFilters } from "./../state management/filterSlice";
 import { getSearchQuery } from "./../services/handleReqs.js";
 import { toastError } from "./../services/notify.js";
-import CustomTooltip from "./CustomTooltip.jsx";
 
 export default function SearchBox({ showCityField = true, title = "Hotels" }) {
   const dispatch = useDispatch();
@@ -41,77 +41,28 @@ export default function SearchBox({ showCityField = true, title = "Hotels" }) {
     dispatch(setRawResults(null));
     dispatch(setNoFilters());
 
-    // const hotels = await getSearchQuery(
-    //   city.toLowerCase(),
-    //   rooms,
-    //   startDate,
-    //   endDate
-    // );
+    console.log("start date ____________________________________________-");
+    console.log(new Date(startDate).getTime());
 
-    //********************************add a fake hotel for development//********************************
+    console.log();
+    const hotels = await getSearchQuery(
+      city.toLowerCase(),
+      rooms,
+      startDate,
+      endDate
+    );
 
-    const fakeHotels = [
-      {
-        name: "Almase Shargh",
-        description: "Almase Shargh is a very good hotel for turists.",
-        rooms: [],
-        stars: 4,
-        avgPrice: 120,
-        city: "Tehran",
-        address: "Tehran, janbaz",
-        location: { lat: 12, lng: 12 },
-        phone: "5434",
-        cover: "",
-        ratingsAverage: 3,
-        ratingsQuantity: 3,
-        importantVicinityPlaces: [{ name: "haram", distance: 100, time: 10 }],
-        country: "Iran",
-        amenities: ["swimming pool", "tea maker", "gym", "taxi", "ATM"],
-        photos: [
-          "./../../public/hotel cover/alpine-retreat-1.jpg",
-          "./../../public/hotel cover/alpine-retreat-2.jpg",
-          "./../../public/hotel cover/city-center-boutique-hotel-1.jpg",
-        ],
-      },
-      {
-        name: "Almase Shargh 2",
-        description: "Almase Shargh is a very good hotel for turists.",
-        rooms: [],
-        stars: 4,
-        avgPrice: 130,
-        city: "Tehran",
-        address: "Tehran, janbaz",
-        location: { lat: 12, lng: 12 },
-        phone: "5434",
-        cover: "",
-        ratingsAverage: 5,
-        ratingsQuantity: 10,
-        importantVicinityPlaces: [{ name: "haram", distance: 100, time: 10 }],
-        country: "Iran",
-        amenities: ["swimming pool", "tea maker", "gym", "taxi", "ATM"],
-        photos: [
-          "./../../public/hotel cover/alpine-retreat-2.jpg",
-          "./../../public/hotel cover/alpine-retreat-1.jpg",
-          "./../../public/hotel cover/city-center-boutique-hotel-1.jpg",
-        ],
-      },
-    ];
-
-    dispatch(setFilteredResults([...fakeHotels]));
-    dispatch(setRawResults([...fakeHotels]));
+    dispatch(setFilteredResults(hotels));
+    dispatch(setRawResults(hotels));
     dispatch(setNoFilters());
-    //********************************add a fake hotel for development//********************************
 
     dispatch(setLoading(false));
-    // dispatch(setFilteredResults(hotels));
-    // dispatch(setRawResults(hotels));
-    // dispatch(setNoFilters());
   }
 
   return (
     <div className={styles["container"]}>
       <div className={styles["inner-container"]}>
-        <img src="./../../public/hero-hotel-background.png" alt="hero" />
+        <img src="./hero-hotel-background.png" alt="hero" />
         <div className={styles["search-container"]}>
           <h1 className={styles["title"]}>{title}</h1>
           <form onSubmit={handleSubmit} className={styles["fields-container"]}>
