@@ -5,6 +5,9 @@ import { BsExclamationCircle } from "react-icons/bs";
 import { useSelector, useDispatch } from "react-redux";
 import SideBarFilter from "./SideBarFilter";
 import { setFilteredResults } from "./../state management/searchRoomSlice";
+import { FaFilter } from "react-icons/fa";
+import { FaRegWindowClose } from "react-icons/fa";
+import { IoMdClose } from "react-icons/io";
 
 export default function HotelCartsContainer() {
   const {
@@ -45,7 +48,9 @@ export default function HotelCartsContainer() {
     <div className={styles.container}>
       {showFilter && (
         <div className={styles["filter-container"]}>
-          <button onClick={() => setShowFilter(false)}>X</button>
+          <button onClick={() => setShowFilter(false)}>
+            <IoMdClose />
+          </button>
           <SideBarFilter key={1} border={"none"} />
         </div>
       )}
@@ -76,7 +81,9 @@ export default function HotelCartsContainer() {
             className={styles["filter-btn"]}
             onClick={() => setShowFilter(true)}
           >
-            Filter
+            <span>
+              <FaFilter />
+            </span>
           </button>
         </div>
 

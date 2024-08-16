@@ -242,7 +242,7 @@ export default function BecameHotelier() {
               onblur={handleNameBlur}
             />
           </div>
-          <div>
+          <div className={styles["hotel-stars"]}>
             <label>Hotel stars</label>
             <select name="stars" onChange={(e) => setStars(e.target.value)}>
               <option value="1">1</option>

@@ -13,12 +13,9 @@ export default function TrendingDestinations() {
     async function fetchData() {
       try {
         setIsLoading(true);
-        console.log("kos");
         const res = await getTrendings();
         setTrends(res);
-        console.log("kos2");
 
-        console.log(res);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -54,12 +51,6 @@ export default function TrendingDestinations() {
                 <img src={trends[0]?.countryFlag} alt="flag" />
               </span>
               <img src={trends[0]?.cover} alt="trending photo" />
-              {/* <img
-                src={
-                  "./../../public/hotel cover/city-center-boutique-hotel-1.jpg"
-                }
-                alt=""
-              /> */}
             </NavLink>
             <NavLink
               to={`/hotels/city/${trends[1]?.city}`}
