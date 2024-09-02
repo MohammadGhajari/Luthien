@@ -95,7 +95,23 @@ export default function HotelDetails() {
       try {
         setIsloading(true);
 
-        //commnet out this section
+        // const fakeHotel = {
+        //   name: "Almas",
+        //   amenities: [],
+        //   importantVicinityPlaces: [],
+        //   stars: 3,
+        //   description:
+        //     "Almas shargh is a greate and nice hotels near the Imam Reza shrine.",
+        //   ratingsAverage: 3,
+        //   photos: [
+        //     // "./../../public/sample data/1.jpeg",
+        //     // "./../../public/sample data/2.jpg",
+        //     // "./../../public/sample data/3.jpg",
+        //     // "./../../public/sample data/4.jpeg",
+        //     "./../../public/sample data/5.jpg",
+        //   ],
+        // };
+        // setHotel(fakeHotel);
         const res = await getHotelById(hotelID);
         setHotel(res[0]);
 

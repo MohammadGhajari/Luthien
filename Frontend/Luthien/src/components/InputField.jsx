@@ -5,6 +5,7 @@ import AddRoom from "./AddRoom";
 import { useDispatch, useSelector } from "react-redux";
 import { setRooms, setCity } from "./../state management/searchRoomSlice";
 import AOS from "aos";
+import { TfiControlShuffle } from "react-icons/tfi";
 
 export default function InputField({
   placeholder = "Name",
@@ -12,6 +13,7 @@ export default function InputField({
   height,
   color = "white",
   setValue,
+  type,
 }) {
   const { rooms } = useSelector((state) => state.searchRoom);
   const [inputValue, setInputValue] = useState(
@@ -73,7 +75,22 @@ export default function InputField({
       />
 
       {placeholder === "Passengers" && (
-        <div className={styles["passenger-modal"]}>
+        <div
+          className={styles["passenger-modal"]}
+          style={
+            type === "group"
+              ? {
+                  left: `${
+                    window.innerWidth > 500
+                      ? "-30rem"
+                      : window.innerWidth <= 500 && window.innerWidth > 300
+                      ? "3rem"
+                      : "-3rem"
+                  }`,
+                }
+              : null
+          }
+        >
           <div className={styles["inner-container"]}>
             {rooms.map((room, i) => (
               <AddRoom key={i} i={i} room={room} />

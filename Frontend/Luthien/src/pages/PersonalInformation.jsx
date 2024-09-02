@@ -136,7 +136,6 @@ export default function PersonalInformation() {
     }
   }
   async function handleSavePhone() {
-    console.log(phoneNumberState);
     if (phoneNumberState) {
       if (validator.isMobilePhone(phoneNumberState)) {
         const currentUser = await getCurrentUser();

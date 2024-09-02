@@ -29,11 +29,15 @@ export function signup(data) {
 export function login(data) {
   return new Promise(async function (resolve, reject) {
     try {
-      const res = await axios.post(`${domain}/api/users/login`, data);
+      const res = await axios.post(`${domain}/api/users/login`, data, {
+        withCredentials: true,
+      });
       if (res.data.status === "success") {
         setCookie("jwt", res.data.token, 7);
         resolve(res.data);
       } else {
+        console.log(res.data);
+
         toastError("Incorrect email or password.");
         reject(res.data);
       }
@@ -258,7 +262,6 @@ export async function createReview(data) {
 
 export async function getHotels() {
   const res = await axios.get(`${domain}/api/hotels`);
-  console.log(res);
   return res.data.data;
 }
 
@@ -318,9 +321,7 @@ export async function getMyHotel(id) {
 
 export async function createRoom(data) {
   try {
-    console.log("hell");
     const res = await axios.post(`${domain}/api/rooms`, data);
-    console.log(res);
     if (res.data.status === "success") return res.data.data;
 
     toastError("error in creating room");

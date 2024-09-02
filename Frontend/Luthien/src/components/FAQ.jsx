@@ -72,7 +72,7 @@ export default function FAQ() {
   }, []);
 
   return (
-    <div className={styles["outer-container"]}>
+    <div className={styles["outer-container"]} id="faq">
       <h1 data-aos={"fade"} data-aos-duration={"200"}>
         Frequently Asked Questions
       </h1>

@@ -157,12 +157,10 @@ export default function BecameHotelier() {
   function handleChecked(e, amen) {
     if (e.target.checked) {
       setAmenities([...amenities, amen]);
-      console.log([...amenities, amen]);
     } else {
       let temp = [];
       temp = amenities.filter((a) => a !== amen);
       setAmenities(temp);
-      console.log(temp);
     }
   }
   function handleCoverChange(e) {
@@ -201,7 +199,6 @@ export default function BecameHotelier() {
     if (vicinity.length === 1) {
       return toastError("At least one location is required.");
     }
-    console.log(vicinity);
     const temp = vicinity.filter((v, index) => i !== index);
 
     setVicinity([...temp]);

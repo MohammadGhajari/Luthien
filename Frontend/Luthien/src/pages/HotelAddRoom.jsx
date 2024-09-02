@@ -27,8 +27,6 @@ export default function HotelAddRoom() {
   async function haldleSubmit(e) {
     e.preventDefault();
 
-    console.log(discount > price);
-
     if (roomNumber <= 0)
       return toastError("Room number must be greater than 0.");
     if (+roomCapacity <= 0 || +roomCapacity >= 5)
@@ -66,7 +64,6 @@ export default function HotelAddRoom() {
     });
 
     const hotel = await getHotelById(hotelID);
-    console.log(hotel[0]);
 
     const formData1 = new FormData();
 

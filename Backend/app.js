@@ -25,8 +25,14 @@ const limiter = rateLimit({
 });
 app.use(
   cors({
-    origin: 'http://127.0.0.10:8001', // Your frontend origin
-    // origin: '*', // Your frontend origin
+    origin: [
+      'https://luthien-frontend.onrender.com',
+      'http://127.0.0.10:8001',
+      'https://luthien-tinuviel.netlify.app',
+    ],
+    // origin: 'http://127.0.0.10:8001', // Your frontend origin
+    // origin: 'https://luthien-tinuviel.netlify.app', // Your frontend origin
+    // origin: 'https://luthien-frontend.onrender.com', // Your frontend origin
     credentials: true, // Allow credentials
   }),
 );

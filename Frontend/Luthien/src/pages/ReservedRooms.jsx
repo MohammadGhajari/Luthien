@@ -12,7 +12,6 @@ export default function ReservedRooms() {
     async function fetchData() {
       setIsLoading(true);
       const res = await getCurrentUser();
-      console.log(res);
       setReservedRooms([...res.data.data.reservedRooms]);
 
       setIsLoading(false);

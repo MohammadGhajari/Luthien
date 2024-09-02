@@ -133,7 +133,6 @@ export default function SideBarFilter({ border }) {
     library: "library",
   };
 
-  console.log(amenitiesSetter);
   const { filteredResults: results } = useSelector((state) => state.searchRoom);
   const filterStats = useSelector((state) => state.filter);
 

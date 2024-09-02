@@ -4,7 +4,6 @@ import HotelCartsContainer from "./HotelCartsContainer";
 import NoResult from "./NoResult";
 
 export default function SearchResults({ filteredResults }) {
-  console.log();
   return (
     <div className={styles["outer-container"]}>
       <div className={styles.container}>

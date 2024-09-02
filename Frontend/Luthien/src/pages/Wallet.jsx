@@ -39,7 +39,6 @@ export default function Wallet() {
         error: "Try again.⚠️",
       }
     );
-    console.log(res);
     dispatch(setBalance(balance + +value));
     setValue("");
   }

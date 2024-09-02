@@ -46,7 +46,6 @@ const userSlice = createSlice({
       state.gender = action.payload;
     },
     setAddress(state, action) {
-      console.log(action.payload);
       state.address = action.payload;
     },
     setfavoriteHotels(state, action) {

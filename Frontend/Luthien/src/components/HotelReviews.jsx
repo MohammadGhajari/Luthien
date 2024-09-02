@@ -43,7 +43,7 @@ export default function HotelReviews({
       hotel: hotelID,
     });
 
-    if (res) toastSuccess("Review created successfully.");
+    if (res) toastSuccess("Your comment will be checked.");
 
     const currentUser = await getCurrentUser();
 

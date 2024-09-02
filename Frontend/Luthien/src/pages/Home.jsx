@@ -15,12 +15,25 @@ import {
   setLoading,
   setRooms,
 } from "./../state management/searchRoomSlice.js";
+import { useLocation } from "react-router-dom";
 
 export default function Home() {
   const { filteredResults, isLoading, rawResults } = useSelector(
     (state) => state.searchRoom
   );
   const dispatch = useDispatch();
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash === "#faq") {
+      const faqSection = document.getElementById("faq");
+
+      if (faqSection) {
+        faqSection.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
 
   useEffect(function () {
     function reset() {

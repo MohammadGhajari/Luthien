@@ -39,6 +39,7 @@ exports.signUp = catchAsync(async (req, res, next) => {
 });
 
 exports.protect = catchAsync(async (req, res, next) => {
+  console.log(req.body);
   let token;
   if (
     req.headers.authorization &&
@@ -71,6 +72,10 @@ exports.protect = catchAsync(async (req, res, next) => {
 });
 
 exports.login = catchAsync(async (req, res, next) => {
+  console.log('bodyyyyyyyyyyyyyyyyy');
+  console.log(req.body);
+  console.log('bodyyyyyyyyyyyyyyyyy');
+
   const { email, password } = req.body;
 
   if (!email || !password)

@@ -26,7 +26,7 @@ export default function HotelOverview({
   const navigation = useNavigate();
   const dispatch = useDispatch();
   const { email, favoriteHotels } = useSelector((state) => state.user);
-
+  const classNames = ["", "two-photos", "three-photos", "four-photos", ""];
   const isFav = favoriteHotels.includes(hotelID);
 
   async function handleFavorite() {
@@ -95,7 +95,11 @@ export default function HotelOverview({
           <span>{isFav ? <FaHeart /> : <FaRegHeart />}</span> <span>Save</span>
         </button>
       </div>
-      <div className={styles["gallery"]}>
+      <div
+        className={`${styles["gallery"]} ${
+          styles[classNames[photos.length - 1]]
+        }`}
+      >
         {photos.map(
           (photo, i) =>
             i < 5 && (

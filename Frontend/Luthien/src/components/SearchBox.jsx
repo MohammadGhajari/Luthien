@@ -41,10 +41,6 @@ export default function SearchBox({ showCityField = true, title = "Hotels" }) {
     dispatch(setRawResults(null));
     dispatch(setNoFilters());
 
-    console.log("start date ____________________________________________-");
-    console.log(new Date(startDate).getTime());
-
-    console.log();
     const hotels = await getSearchQuery(
       city.toLowerCase(),
       rooms,
@@ -70,7 +66,13 @@ export default function SearchBox({ showCityField = true, title = "Hotels" }) {
               {showCityField && (
                 <InputField key={0} placeholder="City" left={15} />
               )}
-              <InputField key={1} placeholder="Passengers" left={25} />
+              <InputField
+                key={1}
+                placeholder="Passengers"
+                left={25}
+                width={showCityField ? "50%" : "100%"}
+                type={!showCityField ? "group" : "default"}
+              />
             </div>
             <div className={styles["right"]}>
               <div className={styles["date-input-container"]}>

@@ -15,6 +15,8 @@ import { logout } from "./../services/handleReqs";
 import { FiActivity } from "react-icons/fi";
 import { FaHotel } from "react-icons/fa6";
 import { setIsDarkMode } from "./../state management/darkModeSlice";
+import { IoSunnyOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const { email, photo, role } = useSelector((state) => state.user);
@@ -36,7 +38,7 @@ export default function Header() {
       <div className={styles.left}>
         <Logo color={"var(--color-grey-3)"} />
         <button onClick={handleDarkMode} className={styles["darkmode-btn"]}>
-          <FaRegMoon />
+          {isDarkMode ? <IoSunnyOutline /> : <FaRegMoon />}
         </button>
         <div className={styles["nav-container"]}>
           <NavLink
@@ -49,15 +51,15 @@ export default function Header() {
             <span>About Us</span>
           </NavLink>
           <span className={styles.divider}></span>
-          <a
-            href="/#faq"
+          <Link
+            to="/#faq"
             className={`${styles["faq-btn"]} ${styles["nav-btn"]}`}
           >
             <span>
               <FaQuestion />
             </span>
             <span>FAQ</span>
-          </a>
+          </Link>
         </div>
       </div>
       <div className={styles.right}>

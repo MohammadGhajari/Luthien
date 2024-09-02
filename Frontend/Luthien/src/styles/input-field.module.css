@@ -1,7 +1,6 @@
 @import "./base.module.css";
 
 .container {
-  position: relative;
   border-radius: var(--border-radius-md);
   border: 1px solid var(--color-grey-5);
   padding: 0.2rem 1.2rem !important;
@@ -10,7 +9,7 @@
   align-items: center;
   height: 5rem;
   background-color: var(--color-white-1) !important;
-
+  position: relative;
   & label {
     width: fit-content;
     position: absolute;
@@ -74,7 +73,7 @@
   gap: 3.6rem;
   width: 30rem;
   top: 120%;
-  left: 0%;
+  left: -3rem;
 }
 .inner-container {
   width: 100%;
@@ -202,27 +201,26 @@
   }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 550px) {
   .passenger-modal {
-    left: -20%;
+    left: -5rem;
   }
 }
 @media (max-width: 550px) {
   .passenger-modal {
-    left: -50%;
+    left: -7rem;
   }
 }
 @media (max-width: 450px) {
   .passenger-modal {
-    left: -60%;
+    left: -10rem;
   }
 }
-
 @media (max-width: 400px) {
   .container {
     height: 4rem;
   }
   .passenger-modal {
-    left: -80%;
+    left: -15rem;
   }
 }

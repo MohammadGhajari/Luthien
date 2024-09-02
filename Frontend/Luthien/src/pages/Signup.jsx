@@ -12,12 +12,11 @@ export default function Signup() {
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(email);
     if (!validator.isEmail(email)) {
-      console.log("hellllllllllllllllllo");
       return toastError("Please provide a valid email.");
     }
     if (password !== passwordConfirm)
@@ -25,24 +24,34 @@ export default function Signup() {
     if (password.length < 8)
       return toastError("Password length must be greater than 8.");
 
-    const res = await toast.promise(
-      signup({ name, email, password, passwordConfirm }),
-      {
-        pending: "Signning up...",
-        success: "Welcome to our community!👋",
-        error: "Try again.⚠️",
-      }
-    );
-    if (res === "success") navigate("/login");
+    setIsLoading(true);
+    try {
+      const res = await toast.promise(
+        signup({ name, email, password, passwordConfirm }),
+        {
+          pending: "Signning up...",
+          success: "Welcome to our community!👋",
+          error: "Try again.⚠️",
+        }
+      );
+      if (res === "success") navigate("/login");
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setIsLoading(false);
+    }
   }
 
+  function emptyFunc(e) {
+    e.preventDefault();
+  }
   return (
     <LoginForm
       setName={setName}
       setEmailInp={setEmail}
       setPassword={setPassword}
       setPasswordConfirm={setPasswordConfirm}
-      handleSubmit={handleSubmit}
+      handleSubmit={!isLoading ? handleSubmit : emptyFunc}
       type={"signup"}
     />
   );
