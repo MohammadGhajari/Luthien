@@ -33,6 +33,7 @@ export default function HotelDetails() {
   const [accessibilitiesVisible, setAccessibilitiesVisible] = useState(false);
   const [policiesVisible, setPoliciesVisible] = useState(false);
   const [reviewsVisible, setReviewsVisible] = useState(false);
+  const [reveiwsCount, setReveiwsCount] = useState(0);
 
   function clearAllStyles() {
     setReviewsVisible(false);
@@ -118,6 +119,13 @@ export default function HotelDetails() {
         const res1 = await getHotelReviews(res[0].name);
         setReviews(res1);
 
+        let tempCount = 0;
+        for (let i = 0; i < res1.length; i++) {
+          if (res1[i].status === "confirmed") tempCount++;
+        }
+
+        setReveiwsCount(tempCount);
+
         setIsloading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -185,7 +193,7 @@ export default function HotelDetails() {
             desc={hotel.description}
             ratings={hotel.ratingsAverage}
             photos={hotel.photos}
-            reveiwsCount={reviews.length}
+            reveiwsCount={reveiwsCount}
             overviewRef={overviewRef}
           />
           <HotelAmenities
