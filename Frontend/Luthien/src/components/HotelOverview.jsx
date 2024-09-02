@@ -109,7 +109,7 @@ export default function HotelOverview({
       </div>
 
       <div className={styles["hotel-description"]} data-aos={"fade-right"}>
-        <h1>{name}</h1>
+        <h1>{name.replace(/\d+$/, "")}</h1>
         <div className={styles["hotel-stars"]}>
           {Array.from({ length: stars }, (x, i) => (
             <IoStar key={i} />

@@ -60,7 +60,7 @@ export default function HotelLocation({
                 <span>{p.name}</span>
               </span>
               <span>
-                {p.distance}km, {p.time} min walk
+                {p.distance}m, {p.time} min walk
               </span>
             </li>
           ))}

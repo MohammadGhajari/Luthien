@@ -15,6 +15,7 @@ export default function TrendingDestinations() {
         setIsLoading(true);
         const res = await getTrendings();
         setTrends(res);
+        console.log(res);
 
         setIsLoading(false);
       } catch (error) {

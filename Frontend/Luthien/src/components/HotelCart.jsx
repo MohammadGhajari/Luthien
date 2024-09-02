@@ -89,7 +89,7 @@ export default function HotelCart({ res }) {
       <div className={styles["middle-cart"]}>
         <div className={styles["title-container"]}>
           <NavLink className={styles["title"]} to={`/hotels/${res._id}`}>
-            {res.name}
+            {res.name.replace(/\d+$/, "")}
           </NavLink>
         </div>
         <div className={styles["stars-container"]}>

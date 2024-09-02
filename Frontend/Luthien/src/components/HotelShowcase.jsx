@@ -47,7 +47,6 @@ export default function HotelShowcase() {
                 dataaos={"zoom-in"}
                 key={f._id}
                 cityName={f.city}
-                img={f.citySVG}
               />
             ))}
         </div>
@@ -66,7 +65,6 @@ export default function HotelShowcase() {
                 dataaos={"zoom-in"}
                 key={d._id}
                 cityName={d.city}
-                img={d.citySVG}
               />
             ))}
         </div>

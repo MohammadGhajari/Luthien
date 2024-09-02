@@ -68,10 +68,11 @@
 // } else if (process.argv[2] === '--delete') {
 //   deleteData();
 // }
+const bcrypt = require('bcryptjs');
 const dotenv = require('dotenv');
 const fs = require('fs');
 dotenv.config({ path: './config.env' });
-333333333;
+
 const mongoose = require('mongoose');
 const Hotel = require('./../model/hotelModel');
 const User = require('./../model/userModel');
@@ -112,7 +113,7 @@ let reviews = JSON.parse(fs.readFileSync(`${__dirname}/reviews.json`, 'utf8'));
 const BATCH_SIZE = 1000;
 
 // Helper function to batch insert data and show progress
-const batchInsert = async (Model, data) => {
+const batchInsert = async (Model, data, hashPassword = false) => {
   const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
   const totalBatches = Math.ceil(data.length / BATCH_SIZE);
 
@@ -125,8 +126,17 @@ const batchInsert = async (Model, data) => {
   for (let i = 0; i < totalBatches; i++) {
     const start = i * BATCH_SIZE;
     const end = Math.min(start + BATCH_SIZE, data.length);
+    const batch = data.slice(start, end);
+    if (hashPassword && Model.modelName === 'User') {
+      for (let j = 0; j < batch.length; j++) {
+        console.log(j);
+        const hashed = await bcrypt.hash(batch[j].password, 12);
+        batch[j].password = hashed;
+        batch[j].passwordConfirm = hashed;
+      }
+    }
 
-    await Model.insertMany(data.slice(start, end));
+    await Model.insertMany(batch);
     bar.update(i + 1);
   }
 
@@ -140,7 +150,7 @@ const importData = async () => {
     console.log(hotels.length);
     console.log(reviews.length);
     console.log(rooms.length);
-    await batchInsert(User, users);
+    await batchInsert(User, users, true);
     await batchInsert(Hotel, hotels);
     await batchInsert(Room, rooms);
     await batchInsert(Review, reviews);

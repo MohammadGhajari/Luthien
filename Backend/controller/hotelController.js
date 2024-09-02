@@ -141,10 +141,16 @@ function checkCapacity(capacity, req) {
   return j === req.length;
 }
 
+function toCamelCase(str) {
+  return str
+    .split(' ')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
 exports.handleSearchQuery = catchAsync(async (req, res, next) => {
-  const data = await Hotel.find({ city: req.body.city });
-  console.log(new Date(req.body.startDate));
+  const data = await Hotel.find({ city: toCamelCase(req.body.city) });
 
+  console.log(data);
   const reqCapacity = req.body.rooms.map((item) => item.adults);
   const result = [];
   for (let i = 0; i < data.length; i++) {

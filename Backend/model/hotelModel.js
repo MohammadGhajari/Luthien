@@ -69,9 +69,7 @@ const hotelSchema = mongoose.Schema(
       type: String,
       required: [true, 'a hotel must belong to a country.'],
     },
-    citySVG: {
-      type: String,
-    },
+
     amenities: [
       {
         type: String,

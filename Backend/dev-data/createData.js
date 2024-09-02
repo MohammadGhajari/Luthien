@@ -1,9 +1,9 @@
 const { faker } = require('@faker-js/faker');
 const fs = require('fs');
 
-const numberOfHotels = 1000,
-  numberOfUsers = 10000,
-  numberOfHoteliers = 1000,
+const numberOfHotels = 500,
+  numberOfUsers = 5000,
+  numberOfHoteliers = 500,
   numberOfAdmins = 10;
 
 let hotels = [],
@@ -605,7 +605,7 @@ function generateRandomIds(count) {
 
 function generateRandomRooms(hotelId) {
   const roomsId = [];
-  const randomNumber = Math.floor(Math.random() * 10) + 3;
+  const randomNumber = Math.floor(Math.random() * 5) + 3;
   for (let i = 0; i < randomNumber; i++) {
     const roomId = generateRandomIds(1)[0];
     roomsId.push(roomId);
@@ -631,13 +631,11 @@ function generateRandomRooms(hotelId) {
   return roomsId;
 }
 
-function generateHotelData(hotelOwner) {
+function generateHotelData(hotelOwner, index) {
   const hotelId = generateRandomIds(1)[0];
   const roomIds = generateRandomRooms(hotelId);
-  const country =
-    cityWithCordinates[numberOfHotels % cityWithCordinates.length].country;
-  const city =
-    cityWithCordinates[numberOfHotels % cityWithCordinates.length].city;
+  const country = cityWithCordinates[index % cityWithCordinates.length].country;
+  const city = cityWithCordinates[index % cityWithCordinates.length].city;
   const hotelName =
     toCamelCase(`${faker.word.adjective()} ${faker.word.noun()}`) +
     new Date().getTime();
@@ -653,8 +651,8 @@ function generateHotelData(hotelOwner) {
     description: faker.lorem.paragraph(),
     address: `${country}, ${faker.location.state()} state, ${city}, ${faker.location.street()} street, building number ${faker.location.buildingNumber()}`,
     location: {
-      lat: cityWithCordinates[numberOfHotels % cityWithCordinates.length].lat,
-      lng: cityWithCordinates[numberOfHotels % cityWithCordinates.length].lng,
+      lat: cityWithCordinates[index % cityWithCordinates.length].lat,
+      lng: cityWithCordinates[index % cityWithCordinates.length].lng,
     },
     phone: faker.phone.number(
       `+${Math.floor(Math.random() * 100)}-###-###-####`,
@@ -692,11 +690,11 @@ function generateHotelData(hotelOwner) {
       { min: 3, max: 10 },
     ),
     country: hotelCountry,
-    citySVG: `_DOMAIN_city-icons/${city}.svg`,
     amenities: faker.helpers.arrayElements(
       amenities,
       faker.number.int({ min: 3, max: 7 }),
     ),
+    avgPrice: faker.number.int({ min: 100, max: 450 }),
   };
 
   hotels.push(hotel);
@@ -747,7 +745,7 @@ function generateUserData(num) {
 users = generateUserData(numberOfUsers); //generating users
 for (let i = 0; i < hoteliers.length; i++) {
   //generating hotels
-  generateHotelData(hoteliers[i]);
+  generateHotelData(hoteliers[i], i);
 }
 
 for (let i = 0; i < hotels.length; i++) {
@@ -793,13 +791,3 @@ fs.writeFile('reviews.json', JSON.stringify(reviews, null, 2), (err) => {
     console.log('JSON file has been saved.');
   }
 });
-
-// for (let i = 0; i < 10; i++) {
-//   console.log(
-//     faker.image.urlLoremFlickr({
-//       category: 'rooms',
-//       width: 480,
-//       height: 360,
-//     }),
-//   );
-// }

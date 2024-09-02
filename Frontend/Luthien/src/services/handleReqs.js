@@ -87,16 +87,18 @@ export async function getSearchQuery(city, rooms, startDate, endDate) {
     endDate: new Date(endDate).getTime(),
   };
   const res = await axios.post(`${domain}/api/hotels/search-query`, data);
+  console.log(res);
   return res.data.data;
 }
 
 export async function getDomesticHotels() {
-  const res = await axios.get(`${domain}/api/hotels?country=iran`);
+  const res = await axios.get(`${domain}/api/hotels?country=iran&limit=10`);
+
   return res.data.data;
 }
 
 export async function getForeignHotels() {
-  const res = await axios.get(`${domain}/api/hotels?country[ne]=iran`);
+  const res = await axios.get(`${domain}/api/hotels?country[ne]=iran&limit=10`);
   return res.data.data;
 }
 
