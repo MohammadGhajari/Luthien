@@ -16,10 +16,8 @@ Luthien is a comprehensive hotel reservation platform that allows users to explo
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-  - [Running the Application](#running-the-application)
 - [API Documentation](#api-documentation)
 - [Folder Structure](#folder-structure)
-- [License](#license)
 
 ---
 
@@ -130,7 +128,7 @@ Ensure you have the following installed:
   npm run start:dev
   ```
 
-1. **Frontend setup**:
+3. **Frontend setup**:
 
 - Navigate to the frontend folder:
 
@@ -190,3 +188,14 @@ luthien-hotel-reservation/
 
 - backend/: Contains all the server-side code, including the configuration, routes, controllers, and models.
 - frontend/: Contains the React code for the client-side, with organized folders for components, pages, Redux-related files, and styles.
+
+## Contributing
+
+We welcome contributions to enhance the functionality and performance of Luthien. If you want to contribute, please follow these steps:
+
+1. **Fork the project.**:
+2. **Create a new branch for your feature or bugfix.**:
+3. **Commit your changes and push the branch.**:
+4. **Create a Pull Request and explain your changes.**:
+
+Enjoy using Luthien! Feel free to reach out if you encounter any issues or have suggestions for improvement.😉
