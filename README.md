@@ -149,7 +149,7 @@ Ensure you have the following installed:
 
 ## API Documentation
 
-The API is documented using Postman. You can find the detailed documentation [here](https://luthien-tinuviel.netlify.app).
+The API is documented using Postman. You can find the detailed documentation [here](https://documenter.getpostman.com/view/33310678/2sA35D4NGc).
 
 ---
 
