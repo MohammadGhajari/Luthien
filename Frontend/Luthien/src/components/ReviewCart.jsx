@@ -11,7 +11,7 @@ export default function ReviewCart({ name, img, rating, review, isCurrent }) {
   return (
     <div className={`${styles.container}`} data-aos={"fade-up"}>
       <div style={{ background: `URL(${img})` }}></div>
-      <h2>{name}</h2>
+      <h2>{name.replace(/^\d+/, "")}</h2>
       <div className={styles["ratings"]}>
         <span>{rating}/5</span>
         <div className={styles["stars-conainer"]}>

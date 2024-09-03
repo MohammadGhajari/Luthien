@@ -40,6 +40,8 @@ exports.signUp = catchAsync(async (req, res, next) => {
 
 exports.protect = catchAsync(async (req, res, next) => {
   console.log(req.body);
+  console.log(req.cookies);
+
   let token;
   if (
     req.headers.authorization &&
@@ -85,10 +87,6 @@ exports.login = catchAsync(async (req, res, next) => {
   if (!user || !(await bcrypt.compare(password, user.password))) {
     return next(new AppError('incorrect email or password', 401));
   }
-
-  console.log('bodyyyyyyyyyyyyyyyyy');
-  console.log(user);
-  console.log('bodyyyyyyyyyyyyyyyyy');
 
   createSendToken(user, 200, res);
 });
