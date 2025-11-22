@@ -2,7 +2,6 @@
 
 Luthien is a comprehensive hotel reservation platform that allows users to explore, filter, and book hotel rooms. The website supports three roles: **Admin**, **User**, and **Hotelier**. Each role has specific functionalities tailored to meet the needs of the individual, whether it's booking rooms, managing a hotel listing, or overseeing the entire system.
 
-[Live Website](https://luthien-tinuviel.netlify.app)
 
 ## Table of Contents
 
