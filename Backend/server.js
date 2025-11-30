@@ -1,5 +1,9 @@
 const dotenv = require('dotenv');
-dotenv.config({ path: './config.env' });
+// Load config.env only in development (Railway uses environment variables)
+// In production, Railway will provide environment variables directly
+if (!process.env.NODE_ENV || process.env.NODE_ENV !== 'production') {
+  dotenv.config({ path: './config.env' });
+}
 const app = require('./app');
 const mongoose = require('mongoose');
 
@@ -19,8 +23,8 @@ mongoose
   });
 
 const port = process.env.PORT || 8002;
-const server = app.listen(port, '127.0.0.10', () => {
-  console.log('app running on port: ' + port);
+const server = app.listen(port, '0.0.0.0', () => {
+  console.log(`app running on port: ${port}`);
 });
 
 process.on('unhandledRejection', (err) => {

@@ -65,8 +65,9 @@ exports.updateRoom = catchAsync(async (req, res, next) => {
 
   if (req.files) {
     if (req.files.photos) {
+      const baseUrl = process.env.BACKEND_DOMAIN || `http://127.0.0.10:${process.env.PORT || 8000}`;
       const photosArray = req.files.photos.map(
-        (photo) => 'http://127.0.0.10:8000/rooms/' + photo.filename,
+        (photo) => `${baseUrl}/rooms/${photo.filename}`,
       );
       filteredBody.photos = photosArray;
     }

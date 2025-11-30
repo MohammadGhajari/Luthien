@@ -80,8 +80,10 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     'reservedRooms',
     'activity',
   );
-  if (req.file)
-    filteredBody.photo = 'http://127.0.0.10:8000/users/' + req.file.filename;
+  if (req.file) {
+    const baseUrl = process.env.BACKEND_DOMAIN || `http://127.0.0.10:${process.env.PORT || 8000}`;
+    filteredBody.photo = `${baseUrl}/users/${req.file.filename}`;
+  }
   if (req.body.reservedRooms && req.body.reservedRooms[0] === 'empty')
     filteredBody.reservedRooms = [];
 

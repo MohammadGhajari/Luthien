@@ -68,7 +68,10 @@ const userSchema = new mongoose.Schema(
     },
     photo: {
       type: String,
-      default: 'http://127.0.0.10:8000/users/default.png',
+      default: function() {
+        const baseUrl = process.env.BACKEND_DOMAIN || `http://127.0.0.10:${process.env.PORT || 8000}`;
+        return `${baseUrl}/users/default.png`;
+      },
     },
     role: {
       type: String,

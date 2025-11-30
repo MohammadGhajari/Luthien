@@ -75,13 +75,13 @@ exports.updateHotel = catchAsync(async (req, res, next) => {
   );
 
   if (req.files) {
+    const baseUrl = process.env.BACKEND_DOMAIN || `http://127.0.0.10:${process.env.PORT || 8000}`;
     if (req.files.cover) {
-      filteredBody.cover =
-        'http://127.0.0.10:8000/hotels/covers/' + req.files.cover[0].filename;
+      filteredBody.cover = `${baseUrl}/hotels/covers/${req.files.cover[0].filename}`;
     }
     if (req.files.photos) {
       const photosArray = req.files.photos.map(
-        (photo) => 'http://127.0.0.10:8000/hotels/photos/' + photo.filename,
+        (photo) => `${baseUrl}/hotels/photos/${photo.filename}`,
       );
       filteredBody.photos = photosArray;
     }
@@ -147,21 +147,104 @@ function toCamelCase(str) {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
 }
-exports.handleSearchQuery = catchAsync(async (req, res, next) => {
-  const data = await Hotel.find({ city: toCamelCase(req.body.city) });
 
-  console.log(data);
-  const reqCapacity = req.body.rooms.map((item) => item.adults);
-  const result = [];
-  for (let i = 0; i < data.length; i++) {
-    const roomCapacity = [];
-    data[i].rooms.map((item) => roomCapacity.push(item.capacity));
+/**
+ * Normalize string by removing spaces and converting to lowercase
+ */
+function normalizeString(str) {
+  if (!str) return '';
+  return str
+    .toLowerCase()
+    .replace(/\s+/g, '')
+    .trim();
+}
 
-    if (checkCapacity(roomCapacity, reqCapacity)) {
-      result.push(data[i]);
+/**
+ * Calculate similarity percentage between two strings using Levenshtein distance
+ * Returns a percentage (0-100) where 100 means exact match
+ */
+function calculateSimilarity(str1, str2) {
+  const s1 = normalizeString(str1);
+  const s2 = normalizeString(str2);
+
+  if (s1 === s2) return 100;
+  if (s1.length === 0 || s2.length === 0) return 0;
+
+  // Check if one string contains the other (partial match)
+  if (s1.includes(s2) || s2.includes(s1)) {
+    const longer = Math.max(s1.length, s2.length);
+    const shorter = Math.min(s1.length, s2.length);
+    return (shorter / longer) * 100;
+  }
+
+  // Calculate Levenshtein distance
+  const matrix = [];
+  const len1 = s1.length;
+  const len2 = s2.length;
+
+  // Initialize matrix
+  for (let i = 0; i <= len1; i++) {
+    matrix[i] = [i];
+  }
+  for (let j = 0; j <= len2; j++) {
+    matrix[0][j] = j;
+  }
+
+  // Fill matrix
+  for (let i = 1; i <= len1; i++) {
+    for (let j = 1; j <= len2; j++) {
+      if (s1[i - 1] === s2[j - 1]) {
+        matrix[i][j] = matrix[i - 1][j - 1];
+      } else {
+        matrix[i][j] = Math.min(
+          matrix[i - 1][j - 1] + 1, // substitution
+          matrix[i][j - 1] + 1, // insertion
+          matrix[i - 1][j] + 1, // deletion
+        );
+      }
     }
   }
 
+  const distance = matrix[len1][len2];
+  const maxLen = Math.max(len1, len2);
+  const similarity = ((maxLen - distance) / maxLen) * 100;
+
+  return Math.round(similarity * 100) / 100; // Round to 2 decimal places
+}
+
+exports.handleSearchQuery = catchAsync(async (req, res, next) => {
+  const searchCity = req.body.city;
+  if (!searchCity) {
+    return res.status(400).json({
+      status: 'error',
+      message: 'City parameter is required',
+    });
+  }
+
+  // Fetch all hotels (we'll filter by similarity)
+  const allHotels = await Hotel.find({});
+
+  // Filter hotels by city similarity (> 90%)
+  const matchedHotels = allHotels.filter((hotel) => {
+    const similarity = calculateSimilarity(searchCity, hotel.city);
+    return similarity > 90;
+  });
+
+  console.log(`Found ${matchedHotels.length} hotels matching "${searchCity}"`);
+
+  // Filter by capacity
+  const reqCapacity = req.body.rooms.map((item) => item.adults);
+  const result = [];
+  for (let i = 0; i < matchedHotels.length; i++) {
+    const roomCapacity = [];
+    matchedHotels[i].rooms.map((item) => roomCapacity.push(item.capacity));
+
+    if (checkCapacity(roomCapacity, reqCapacity)) {
+      result.push(matchedHotels[i]);
+    }
+  }
+
+  // Filter by availability (date and isFull)
   const result2 = [];
   for (let i = 0; i < result.length; i++) {
     for (let j = 0; j < result[i].rooms.length; j++) {

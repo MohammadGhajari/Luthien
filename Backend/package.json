@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "description": "backend of Luthien website",
   "main": "app.js",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
   "scripts": {
     "start": "node server.js",
-    "start:prod": "NODE_ENV=production nodemon server.js",
-    "start:dev": "NODE_ENV=development nodemon server.js",
+    "start:prod": "cross-env NODE_ENV=production nodemon server.js",
+    "start:dev": "cross-env NODE_ENV=development nodemon server.js",
     "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
     "build:js": "parcel build ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
     "data:import": "node ./dev-data/importData.js --import",
@@ -47,6 +51,7 @@
     "xss-clean": "^0.1.4"
   },
   "devDependencies": {
+    "cross-env": "^10.1.0",
     "prettier": "^3.2.5"
   }
 }
